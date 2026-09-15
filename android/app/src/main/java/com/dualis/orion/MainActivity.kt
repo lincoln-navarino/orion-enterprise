@@ -5,14 +5,17 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.webkit.*
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -25,10 +28,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var progressBar: ProgressBar
     private lateinit var errorLayout: LinearLayout
     private lateinit var btnRetry: Button
+    private lateinit var btnConfigure: Button
+    private lateinit var btnSettings: ImageButton
 
     private var filePathCallback: ValueCallback<Array<Uri>>? = null
 
-    // Lançador do seletor de arquivos para uploads do Streamlit (Excel, CSV, Imagens)
     private val filePickerLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
@@ -56,10 +60,18 @@ class MainActivity : AppCompatActivity() {
         progressBar = findViewById(R.id.progressBar)
         errorLayout = findViewById(R.id.errorLayout)
         btnRetry = findViewById(R.id.btnRetry)
+        btnConfigure = findViewById(R.id.btnConfigure)
+        btnSettings = findViewById(R.id.btnSettings)
 
         setupWebView()
         setupListeners()
-        loadAppUrl()
+
+        val savedUrl = getServerUrl()
+        if (savedUrl.contains("10.0.2.2") || savedUrl.isBlank()) {
+            showChangeUrlDialog(isFirstRun = true)
+        } else {
+            loadAppUrl()
+        }
     }
 
     private fun getServerUrl(): String {
@@ -69,13 +81,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setServerUrl(newUrl: String) {
+        var formatted = newUrl.trim()
+        if (!formatted.startsWith("http://") && !formatted.startsWith("https://")) {
+            formatted = "https://$formatted"
+        }
         val prefs = getSharedPreferences("orion_config", Context.MODE_PRIVATE)
-        prefs.edit().putString("server_url", newUrl.trim()).apply()
+        prefs.edit().putString("server_url", formatted).apply()
+        Toast.makeText(this, "Servidor salvo: $formatted", Toast.LENGTH_SHORT).show()
         loadAppUrl()
     }
 
     private fun loadAppUrl() {
         val url = getServerUrl()
+        if (url.contains("10.0.2.2") || url.isBlank()) {
+            errorLayout.visibility = View.VISIBLE
+            webView.visibility = View.GONE
+            return
+        }
         errorLayout.visibility = View.GONE
         webView.visibility = View.VISIBLE
         webView.loadUrl(url)
@@ -83,6 +105,8 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("SetJavaScriptEnabled")
     private fun setupWebView() {
+        webView.setBackgroundColor(Color.parseColor("#080B11"))
+
         val settings = webView.settings
         settings.javaScriptEnabled = true
         settings.domStorageEnabled = true
@@ -98,6 +122,7 @@ class MainActivity : AppCompatActivity() {
                 super.onPageStarted(view, url, favicon)
                 progressBar.visibility = View.VISIBLE
                 errorLayout.visibility = View.GONE
+                webView.visibility = View.VISIBLE
             }
 
             override fun onPageFinished(view: WebView?, url: String?) {
@@ -129,7 +154,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            // Suporte completo a seleção e upload de arquivos
             override fun onShowFileChooser(
                 webView: WebView?,
                 filePathCallback: ValueCallback<Array<Uri>>?,
@@ -162,13 +186,14 @@ class MainActivity : AppCompatActivity() {
             loadAppUrl()
         }
 
-        // Permite alterar o endereço do servidor segurando o botão de tentar novamente ou via menu
-        btnRetry.setOnLongClickListener {
-            showChangeUrlDialog()
-            true
+        btnConfigure.setOnClickListener {
+            showChangeUrlDialog(isFirstRun = false)
         }
 
-        // Tratamento do botão voltar do Android
+        btnSettings.setOnClickListener {
+            showChangeUrlDialog(isFirstRun = false)
+        }
+
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 if (webView.canGoBack()) {
@@ -180,20 +205,33 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun showChangeUrlDialog() {
-        val input = EditText(this)
-        input.setText(getServerUrl())
-        AlertDialog.Builder(this)
-            .setTitle("Endereço do Servidor")
-            .setMessage("Informe o link da nuvem ou o IP do servidor:")
+    private fun showChangeUrlDialog(isFirstRun: Boolean = false) {
+        val current = getServerUrl().replace("http://10.0.2.2:8501", "")
+        val input = EditText(this).apply {
+            hint = "ex: orion-dualis.streamlit.app"
+            setText(current)
+            setSelection(text.length)
+        }
+
+        val dialog = AlertDialog.Builder(this)
+            .setTitle("Link do Sistema ORION")
+            .setMessage("Cole o link da nuvem gerado no Streamlit Cloud ou o IP do computador:")
             .setView(input)
-            .setPositiveButton("Salvar") { _, _ ->
-                val newUrl = input.text.toString()
+            .setPositiveButton("Salvar e Conectar") { _, _ ->
+                val newUrl = input.text.toString().trim()
                 if (newUrl.isNotBlank()) {
                     setServerUrl(newUrl)
+                } else {
+                    loadAppUrl()
                 }
             }
-            .setNegativeButton("Cancelar", null)
-            .show()
+
+        if (!isFirstRun) {
+            dialog.setNegativeButton("Cancelar", null)
+        } else {
+            dialog.setCancelable(false)
+        }
+
+        dialog.show()
     }
 }

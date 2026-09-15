@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+venv/
+env/
+ENV/
+
+# Backups locais
+app_backup_*.py
+app_mvp_backup.py
+arquivos_backup_*/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Android / Gradle builds se gerados localmente
+.gradle/
+build/
+*.apk
+*.aab

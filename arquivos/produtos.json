@@ -1,0 +1,116 @@
+[
+    {
+        "id": 1,
+        "nome": "Calcinha Gestante",
+        "sku": "CG",
+        "categoria": "Lingerie Gestante",
+        "custo_unitario": 3.65,
+        "custo_embalagem": 0.3,
+        "fornecedor": "Confecção Própria",
+        "peso_g": 80,
+        "observacoes": "Algodão antialérgico com cós elástico anatômico",
+        "precos_praticados": {
+            "Shopee": {
+                "preco_cheio": 49.9,
+                "preco_oferta": 39.9,
+                "preco_relampago": 34.9,
+                "usar_roas": true,
+                "roas_esperado": 10.0
+            },
+            "TikTok Shop": {
+                "preco_cheio": 49.9,
+                "preco_oferta": 39.9,
+                "preco_relampago": 34.9,
+                "usar_roas": true,
+                "roas_esperado": 10.0
+            },
+            "Shein": {
+                "preco_cheio": 49.9,
+                "preco_oferta": 39.9,
+                "preco_relampago": 34.9,
+                "usar_roas": true,
+                "roas_esperado": 10.0
+            },
+            "Mercado Livre (Classic)": {
+                "preco_cheio": 49.9,
+                "preco_oferta": 39.9,
+                "preco_relampago": 34.9,
+                "usar_roas": true,
+                "roas_esperado": 10.0
+            },
+            "Mercado Livre (Premium)": {
+                "preco_cheio": 49.9,
+                "preco_oferta": 39.9,
+                "preco_relampago": 34.9,
+                "usar_roas": true,
+                "roas_esperado": 10.0
+            }
+        }
+    },
+    {
+        "id": 2,
+        "nome": "Calcinha Pala Dupla",
+        "sku": "CPD",
+        "categoria": "Lingerie / Underwear",
+        "custo_unitario": 3.9,
+        "custo_embalagem": 0.3,
+        "fornecedor": "Confecção Própria",
+        "peso_g": 75,
+        "observacoes": "Pala dupla de alta sustentação"
+    },
+    {
+        "id": 3,
+        "nome": "Cinta Cos Baixo",
+        "sku": "CMB",
+        "categoria": "Cintas & Modeladores",
+        "custo_unitario": 5.5,
+        "custo_embalagem": 0.3,
+        "fornecedor": "Confecção Própria",
+        "peso_g": 120,
+        "observacoes": "Cós baixo com compressão média"
+    },
+    {
+        "id": 4,
+        "nome": "Cinta Cos Alto",
+        "sku": "CMA",
+        "categoria": "Cintas & Modeladores",
+        "custo_unitario": 7.8,
+        "custo_embalagem": 0.3,
+        "fornecedor": "Confecção Própria",
+        "peso_g": 150,
+        "observacoes": "Cós alto compressão forte com barbatanas"
+    },
+    {
+        "id": 5,
+        "nome": "Galena",
+        "sku": "GALENA",
+        "categoria": "Lingerie / Underwear",
+        "custo_unitario": 6.0,
+        "custo_embalagem": 0.3,
+        "fornecedor": "Confecção Própria",
+        "peso_g": 90,
+        "observacoes": "Renda Galena de alta durabilidade"
+    },
+    {
+        "id": 6,
+        "nome": "Fio dental",
+        "sku": "FIO",
+        "categoria": "Fio Dental",
+        "custo_unitario": 1.0,
+        "custo_embalagem": 0.3,
+        "fornecedor": "Confecção Própria",
+        "peso_g": 40,
+        "observacoes": "Microfibra leve sem costura"
+    },
+    {
+        "id": 7,
+        "nome": "Regulagem",
+        "sku": "REG",
+        "categoria": "Lingerie / Underwear",
+        "custo_unitario": 2.1,
+        "custo_embalagem": 0.3,
+        "fornecedor": "Confecção Própria",
+        "peso_g": 65,
+        "observacoes": "Alça com regulagem reforçada"
+    }
+]

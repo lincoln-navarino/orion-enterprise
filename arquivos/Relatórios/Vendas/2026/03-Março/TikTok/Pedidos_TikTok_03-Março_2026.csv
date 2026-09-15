@@ -1,0 +1,595 @@
+﻿Order ID,Package ID,Order Status,Order Substatus,Cancelation/Return Type,Normal or Pre-order,SKU ID,Seller SKU,Product Name,Variation,Product Category,Quantity,Sku Quantity of return,SKU Unit Original Price,SKU Subtotal Before Discount,SKU Platform Discount,SKU Seller Discount,SKU Subtotal After Discount,Shipping Fee After Discount,Original Shipping Fee,Shipping Fee Seller Discount,Shipping Fee Platform Discount,Payment platform discount,Order Amount,Payment Method,Order Refund Amount,Cancel By,Cancel Reason,Created Time,Paid Time,RTS Time,Shipped Time,Delivered Time,Cancelled Time,Fulfillment Type,Warehouse Name,Tracking ID,Delivery Option Type,Delivery Option,Weight(kg),Shipping Provider Name,Buyer Username,CPF Number,CPF Name,Recipient,Phone #,Street Name,Street Number,Neighborhood,House Name or Number,City,State,Country,Zipcode,Shipping Information,Invoice Status,Buyer Message,Seller Note,Order Channel,Creator Handle
+583326691936470636	,1191376345111234156	,Concluído,Concluído,,Normal,1733894232182130534	,CG-K5-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, XG",Calcinhas,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 15,09","BRL 34,90","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 34,90",Pix,,,,03/31/2026 2:54:57 PM	,03/31/2026 2:56:02 PM	,03/31/2026 3:07:17 PM	,04/01/2026 11:41:32 AM	,04/03/2026 1:04:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999880677966859,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,fabianaaparecida053,00507834674	,FABIANA APARECIDA VIEIRA NOVAIS CANDEIA,F****** A******** V***** N*****,(+55)319******39,*****************,***,**************,****,Belo Horizonte,MG,Brasil,********	,"F****** A******** V***** N*****
+(+55)319******39
+***************** *** ************** ****
+Belo Horizonte, MG
+********
+Brasil",NF-e valid,,,Product cards,
+583325405207693193	,1191369692319614857	,Concluído,Concluído,,Normal,1733894178353088358	,GALENA-Kit 2 peças Preto / Chocolate-M,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, M",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 35,00","BRL 24,90","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 24,90",Pix,,,,03/31/2026 12:40:25 PM	,03/31/2026 12:41:49 PM	,03/31/2026 12:47:17 PM	,04/01/2026 11:41:32 AM	,04/08/2026 12:20:05 PM	,	,Fulfillment by seller,Depósito - Dualis,999880676066574,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,fabiolasouza143,06537362660	,FABIOLA APARECIDA DE FATIMA RIBEIRO,F****** S****,(+55)319******93,*************,**,***********,******************,Belo Horizonte,MG,Brasil,********	,"F****** S****
+(+55)319******93
+************* ** *********** ******************
+Belo Horizonte, MG
+********
+Brasil",NF-e valid,,,Videos,
+583324988935734730	,1191368060451521994	,Concluído,Concluído,,Normal,1733894178352629606	,GALENA-1 unidade - Preto-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Preto, GG",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 0,00","BRL 14,00","BRL 15,90","BRL 0,00","BRL 7,10","BRL 0,00","BRL 7,10",,"BRL 15,90",Parcelamento de cartão de crédito,,,,03/31/2026 12:08:31 PM	,03/31/2026 12:08:35 PM	,03/31/2026 12:17:17 PM	,04/01/2026 11:41:32 AM	,04/03/2026 10:22:05 AM	,	,Fulfillment by seller,Depósito - Dualis,999880664615762,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,deboraribeiro155,28921858822	,DEBORA RIBEIRO GONCALVES,D***** R******,(+55)119******55,********************,***,***********,****,Guarulhos,SP,Brasil,********	,"D***** R******
+(+55)119******55
+******************** *** *********** ****
+Guarulhos, SP
+********
+Brasil",NF-e valid,,,Videos,mamae_creator
+583323369326282078	,1191370942316840286	,Concluído,Concluído,,Normal,1733894178353219430	,GALENA-Kit 2 peças Preto / Chocolate-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, GG",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 5,00","BRL 35,00","BRL 19,90","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 19,90",Pix,,,,03/31/2026 10:27:03 AM	,03/31/2026 12:59:08 PM	,03/31/2026 1:07:17 PM	,04/01/2026 11:41:32 AM	,04/02/2026 9:38:03 AM	,	,Fulfillment by seller,Depósito - Dualis,999880660969376,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,elpatroa1,11062200136	,LUIZ FELIPE BARROS DA SILVA,L*** F*****,(+55)219******10,********************,**,**********,****,Rio de Janeiro,RJ,Brasil,********	,"L*** F*****
+(+55)219******10
+******************** ** ********** ****
+Rio de Janeiro, RJ
+********
+Brasil",NF-e valid,,,Videos,mamae_creator
+583313781701969543	,1191281197574817415	,Concluído,Concluído,,Normal,1733894178353219430	,GALENA-Kit 2 peças Preto / Chocolate-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, GG",Calcinhas,2,0,"BRL 59,90","BRL 119,80","BRL 5,00","BRL 70,00","BRL 44,80","BRL 2,00","BRL 12,00","BRL 0,00","BRL 10,00",,"BRL 46,80",Pix,,,,03/30/2026 10:27:41 PM	,03/30/2026 10:28:57 PM	,03/30/2026 10:37:17 PM	,04/01/2026 11:42:34 AM	,04/04/2026 12:23:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999880673847302,Shipped via platform,Entrega padrão,0.6,J&T Express Brazil,renatasanches543,50139350837	,ROBERTA SANCHES FAGUNDES,r***************,(+55)189******09,**************,***,******,********,Valparaíso,SP,Brasil,********	,"r***************
+(+55)189******09
+************** *** ****** ********
+Valparaíso, SP
+********
+Brasil",NF-e valid,,,Videos,mamae_creator
+583313109566784718	,1191273129870853326	,Concluído,Concluído,,Normal,1733894178353219430	,GALENA-Kit 2 peças Preto / Chocolate-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, GG",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 35,00","BRL 24,90","BRL 12,00","BRL 12,00","BRL 0,00","BRL 0,00",,"BRL 36,90",Pix,,,,03/30/2026 9:25:54 PM	,03/30/2026 9:26:55 PM	,03/30/2026 9:32:17 PM	,04/01/2026 11:40:42 AM	,04/07/2026 5:11:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999880673782785,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,graciellealves777,07090122921	,GRACIELLI ALVES,G******** A****,(+55)489******12,*******************,***,*****,****,Pescaria Brava,SC,Brasil,********	,"G******** A****
+(+55)489******12
+******************* *** ***** ****
+Pescaria Brava, SC
+********
+Brasil",NF-e valid,,,Product cards,
+583312181447001603	,1191265673756116483	,Concluído,Concluído,,Normal,1733894232181737318	,CG-K3-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, G",Calcinhas,1,0,"BRL 39,99","BRL 39,99","BRL 0,25","BRL 16,00","BRL 23,74","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 24,54",Pix,,,,03/30/2026 7:06:37 PM	,03/30/2026 7:07:07 PM	,03/30/2026 7:12:57 PM	,03/31/2026 12:44:04 PM	,04/01/2026 12:17:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999880674670273,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,gbzinhaa09,12765336326	,GABRIIELLY DOS SANTOS GOMES,G******** d** s*****,(+55)229******92,********************,**,*****,***********,Saquarema,RJ,Brasil,********	,"G******** d** s*****
+(+55)229******92
+******************** ** ***** ***********
+Saquarema, RJ
+********
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+583311790617887949	,1191263037122905293	,Concluído,Concluído,,Normal,1733894178352695142	,GALENA-1 unidade - Chocolate-M,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Chocolate, M",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 0,00","BRL 15,91","BRL 13,99","BRL 0,00","BRL 12,00","BRL 0,00","BRL 12,00",,"BRL 13,99",Pix,,,,03/30/2026 4:54:37 PM	,03/30/2026 4:57:34 PM	,03/30/2026 5:07:17 PM	,03/31/2026 12:44:03 PM	,04/01/2026 2:13:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999880670483372,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,selmasouzarodrigu,00737188740	,SELMA DE SOUZA RODRIGUES PEREIRA,S**** S**** R******* P******,(+55)249******12,**********************,***,****************,****,Porto Real,RJ,Brasil,********	,"S**** S**** R******* P******
+(+55)249******12
+********************** *** **************** ****
+Porto Real, RJ
+********
+Brasil",NF-e valid,,,Videos,mamae_creator
+583306356717749581	,1191234199176447309	,Concluído,Concluído,Return/Refund,Normal,1733894178352629606	,GALENA-1 unidade - Preto-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Preto, GG",Calcinhas,1,1,"BRL 29,90","BRL 29,90","BRL 0,00","BRL 15,91","BRL 13,99","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 14,79",Pix,"BRL 13,99",,,03/30/2026 8:42:37 AM	,03/30/2026 8:44:14 AM	,03/30/2026 9:07:17 AM	,03/31/2026 12:44:04 PM	,04/04/2026 6:29:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999880669767943,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,francieli.fernand700,40007881835	,FRANCIELI FERNANDA DOS SANTOS AUGUSTO,V****** a******** d** s***** a******,(+55)189******14,**************************************,***,******,**************************************,Assis,SP,Brasil,********	,"V****** a******** d** s***** a******
+(+55)189******14
+************************************** *** ****** **************************************
+Assis, SP
+********
+Brasil",NF-e valid,,,Videos,mamae_creator
+583295932294268689	,1191135193284314897	,Concluído,Concluído,,Normal,1733894232181737318	,CG-K3-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, G",Calcinhas,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 16,00","BRL 23,99","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 25,10",Parcelamento de cartão de crédito,,,,03/29/2026 3:08:18 PM	,03/29/2026 3:08:27 PM	,03/29/2026 3:17:17 PM	,03/31/2026 12:44:03 PM	,04/01/2026 3:21:24 PM	,	,Fulfillment by seller,Depósito - Dualis,999880664045758,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,ivye_mend,18764384799	,IVYE DA COSTA MENDONCA,I********,(+55)219******06,*****************************,***,*******,***************,Niterói,RJ,Brasil,********	,"I********
+(+55)219******06
+***************************** *** ******* ***************
+Niterói, RJ
+********
+Brasil",NF-e valid,,,Product cards,
+583295271709017350	,1191131989729903878	,Concluído,Concluído,,Normal,1733894178352564070	,GALENA-1 unidade - Preto-G,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Preto, G",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 0,00","BRL 15,91","BRL 13,99","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 13,99",Pix,,,,03/29/2026 1:40:14 PM	,03/29/2026 1:41:32 PM	,03/29/2026 1:52:17 PM	,03/30/2026 12:05:03 PM	,04/01/2026 7:54:01 PM	,	,Fulfillment by seller,Depósito - Dualis,999880658206152,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,regianedeoliveira587,28402931880	,REGIANE DE OLIVEIRA LEONCIO,R****** d* O******* L******,(+55)119******63,************************,**,******************,************************,São Paulo,SP,Brasil,********	,"R****** d* O******* L******
+(+55)119******63
+************************ ** ****************** ************************
+São Paulo, SP
+********
+Brasil",NF-e valid,,,Videos,mamae_creator
+583294721583187526	,1191129575304562246	,Concluído,Concluído,,Normal,1733894178353153894	,GALENA-Kit 2 peças Preto / Chocolate-G,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, G",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 35,00","BRL 24,90","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 24,90",Pix,,,,03/29/2026 12:50:25 PM	,03/29/2026 12:51:22 PM	,03/29/2026 1:07:17 PM	,03/30/2026 12:05:03 PM	,04/01/2026 5:55:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999880663796612,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,celiafreitas359,27950189851	,CELIA REGINA FREITAS SILVA,C**** R*****,(+55)119******84,**************,***,*************,**********************,Santana de Parnaíba,SP,Brasil,********	,"C**** R*****
+(+55)119******84
+************** *** ************* **********************
+Santana de Parnaíba, SP
+********
+Brasil",NF-e valid,,,Videos,mamae_creator
+583268286123444146	,1190959427547203506	,Concluído,Concluído,,Normal,1733956187395229542	,FIO-REG-KIT5,"Kit 3 ou 5 | Calcinha Fio Dental Microfibra com Regulagem – Confortável, Não Marca, Tamanho Único","Kit 5 Peças - TAMANHO ÚNICO, Sortidas",Calcinhas,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 20,09","BRL 19,90","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 19,90",Pix,,,,03/27/2026 11:29:06 PM	,03/27/2026 11:29:46 PM	,03/28/2026 11:43:01 AM	,03/30/2026 12:04:32 PM	,04/01/2026 1:13:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999880661394154,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,dud4cj,16776955603	,MARIA EDUARDA ESPINOLA DE JESUS GOMES,M**** E****** E*******,(+55)319******20,****************,***,******,****************,Vespasiano,MG,Brasil,********	,"M**** E****** E*******
+(+55)319******20
+**************** *** ****** ****************
+Vespasiano, MG
+********
+Brasil",NF-e valid,,,Product cards,
+583267787233330818	,1191023891787318914	,Concluído,Concluído,,Normal,1733894178353153894	,GALENA-Kit 2 peças Preto / Chocolate-G,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, G",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 35,00","BRL 24,90","BRL 1,20","BRL 11,20","BRL 0,00","BRL 10,00",,"BRL 26,10",Pix,,,,03/27/2026 10:47:02 PM	,03/28/2026 9:41:07 AM	,03/28/2026 11:43:01 AM	,03/30/2026 12:05:03 PM	,04/01/2026 3:05:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999880661837134,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,silvania.fernande22,08027060613	,SILVANIA FERNANDES PEREIRA,S******* F********,(+55)319******00,*****************,***,********************,*****************,Abre Campo,MG,Brasil,********	,"S******* F********
+(+55)319******00
+***************** *** ******************** *****************
+Abre Campo, MG
+********
+Brasil",NF-e valid,,,Videos,mamae_creator
+583266776474289453	,1190943119248426285	,Concluído,Concluído,,Normal,1733894178353022822	,GALENA-Kit 2 unidades - Preto-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 unidades - Preto, GG",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 1,22","BRL 35,00","BRL 23,68","BRL 0,00","BRL 11,20","BRL 0,00","BRL 11,20",,"BRL 47,35",Pix,,,,03/27/2026 9:02:58 PM	,03/27/2026 9:03:50 PM	,03/28/2026 11:43:01 AM	,03/30/2026 12:05:03 PM	,04/02/2026 7:38:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999880663618460,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,anarios9045,02587514100	,ANA PAULA DA SILVA RIOS,A** R***,(+55)619******41,***************,**,*******************,*******,Brasília,DF,Brasil,********	,"A** R***
+(+55)619******41
+*************** ** ******************* *******
+Brasília, DF
+********
+Brasil",NF-e valid,,,Product cards,
+583266776474289453	,1190943119248426285	,Concluído,Concluído,,Normal,1733894178353416038	,GALENA-Kit 2 peças Chocolate-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Chocolate, GG",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 1,23","BRL 35,00","BRL 23,67","BRL 0,00","BRL 11,20","BRL 0,00","BRL 11,20",,"BRL 47,35",Pix,,,,03/27/2026 9:02:58 PM	,03/27/2026 9:03:50 PM	,03/28/2026 11:43:01 AM	,03/30/2026 12:05:03 PM	,04/02/2026 7:38:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999880663618460,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,anarios9045,02587514100	,ANA PAULA DA SILVA RIOS,A** R***,(+55)619******41,***************,**,*******************,*******,Brasília,DF,Brasil,********	,"A** R***
+(+55)619******41
+*************** ** ******************* *******
+Brasília, DF
+********
+Brasil",NF-e valid,,,Product cards,
+583265767916471912	,1190936153253185128	,Concluído,Concluído,,Normal,1733894178353219430	,GALENA-Kit 2 peças Preto / Chocolate-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, GG",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 35,00","BRL 24,90","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 24,90",Cartão de crédito/débito,,,,03/27/2026 5:22:13 PM	,03/27/2026 5:22:19 PM	,03/28/2026 11:43:01 AM	,03/30/2026 12:05:03 PM	,04/01/2026 3:54:04 PM	,	,Fulfillment by seller,Depósito - Dualis,999880661987935,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,lar_doce_lar22,01281403644	,ELISANGELA DE OLIVEIRA SOARES,E********* O*******,(+55)319******05,***************,***,*********,*********************,Sabará,MG,Brasil,********	,"E********* O*******
+(+55)319******05
+*************** *** ********* *********************
+Sabará, MG
+********
+Brasil",NF-e valid,,,Product cards,
+583265697443514212	,1190935712294209380	,Concluído,Concluído,,Normal,1733894178352695142	,GALENA-1 unidade - Chocolate-M,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Chocolate, M",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 0,00","BRL 15,91","BRL 13,99","BRL 0,00","BRL 13,20","BRL 0,00","BRL 13,20",,"BRL 13,99",Pix,,,,03/27/2026 4:56:13 PM	,03/27/2026 4:58:54 PM	,03/28/2026 11:43:01 AM	,03/30/2026 12:05:03 PM	,04/02/2026 11:23:01 PM	,	,Fulfillment by seller,Depósito - Dualis,999880663691692,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,anapaularodriguesof,07863745608	,ANA PAULA RODRIGUES,A** P**** R********,(+55)359******02,*****************************,***,*********,******,Ouro Fino,MG,Brasil,********	,"A** P**** R********
+(+55)359******02
+***************************** *** ********* ******
+Ouro Fino, MG
+********
+Brasil",NF-e valid,,,Videos,mamae_creator
+583265004113658997	,1190931695337636981	,Concluído,Concluído,,Normal,1733894178352629606	,GALENA-1 unidade - Preto-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Preto, GG",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 0,00","BRL 15,91","BRL 13,99","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 13,99",Parcelamento de cartão de crédito,,,,03/27/2026 2:28:17 PM	,03/27/2026 2:28:21 PM	,03/28/2026 11:43:01 AM	,03/30/2026 12:05:03 PM	,04/01/2026 8:34:01 AM	,	,Fulfillment by seller,Depósito - Dualis,999880663738515,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,sonia.fruteiro,16367762809	,SONIA REGINA FRUTTERO,S**** F*******,(+55)119******31,****************************,**,**************,****,Osasco,SP,Brasil,********	,"S**** F*******
+(+55)119******31
+**************************** ** ************** ****
+Osasco, SP
+********
+Brasil",NF-e valid,,,Videos,mamae_creator
+583262239404951527	,1190919655762986983	,Concluído,Concluído,,Normal,1733894232182064998	,CG-K5-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, GG",Calcinhas,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 15,09","BRL 34,90","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 34,90",Pix,,,,03/27/2026 10:47:34 AM	,03/27/2026 10:48:09 AM	,03/28/2026 11:43:01 AM	,03/30/2026 12:05:03 PM	,03/31/2026 11:22:02 AM	,	,Fulfillment by seller,Depósito - Dualis,999880660125261,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,tacianamorais89,16020786706	,TACIANA DA SILVA MORAIS,t**************,(+55)219******56,****************,**,******************,****,Rio de Janeiro,RJ,Brasil,********	,"t**************
+(+55)219******56
+**************** ** ****************** ****
+Rio de Janeiro, RJ
+********
+Brasil",NF-e valid,,,Product cards,
+583252792112219772	,1190844397480871548	,Concluído,Concluído,,Normal,1733894178352629606	,GALENA-1 unidade - Preto-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Preto, GG",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 0,00","BRL 15,91","BRL 13,99","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 15,48",Parcelamento de cartão de crédito,,,,03/26/2026 11:04:12 PM	,03/26/2026 11:04:18 PM	,03/28/2026 11:43:01 AM	,03/30/2026 12:05:03 PM	,04/03/2026 1:39:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999880662810148,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,gabrielacristina44,34071255854	,GABRIELA CRISTINA BALADI,G******* C******* b*****,(+55)169******56,**********************,****,***********,*************************,Araraquara,SP,Brasil,********	,"G******* C******* b*****
+(+55)169******56
+********************** **** *********** *************************
+Araraquara, SP
+********
+Brasil",NF-e valid,,,Videos,mamae_creator
+583252070623249450	,1190836145113433130	,Concluído,Concluído,,Normal,1733956031291033446	,FIO-KIT5,"Kit 3 ou 5 Peças | Calcinha Tanga Fio Dental | Conforto, Leveza e sexy Discreta","Kit 5 Peças - TAMANHO ÚNICO, sortidas",Calcinhas,1,0,"BRL 29,99","BRL 29,99","BRL 0,00","BRL 14,00","BRL 15,99","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 15,99",Pix,,,,03/26/2026 9:57:56 PM	,03/26/2026 9:58:47 PM	,03/28/2026 11:43:01 AM	,03/30/2026 12:04:32 PM	,04/01/2026 4:36:05 PM	,	,Fulfillment by seller,Depósito - Dualis,999880663672239,Shipped via platform,Entrega padrão,0.2,J&T Express Brazil,naa.teix,33641154863	,MIRIELE ALVES TEIXEIRA ALMEIDA,n**,(+55)159******99,**************************,**,*************************,**************************,Itapeva,SP,Brasil,********	,"n**
+(+55)159******99
+************************** ** ************************* **************************
+Itapeva, SP
+********
+Brasil",NF-e valid,,,Product cards,
+583249801107506737	,1190820394787309105	,Concluído,Concluído,,Normal,1733894178352564070	,GALENA-1 unidade - Preto-G,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Preto, G",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 0,00","BRL 15,91","BRL 13,99","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 14,79",Pix,,,,03/26/2026 2:33:44 PM	,03/26/2026 2:39:20 PM	,03/26/2026 7:28:05 PM	,03/27/2026 12:22:31 PM	,03/31/2026 7:51:01 PM	,	,Fulfillment by seller,Depósito - Dualis,999880655306586,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,roseli_marlow,46643891833	,ROSELI DA SILVA MARLOW,R***** d* S**** M*****,(+55)189******86,**********************,**,*********,*******************,Rosana,SP,Brasil,********	,"R***** d* S**** M*****
+(+55)189******86
+********************** ** ********* *******************
+Rosana, SP
+********
+Brasil",NF-e valid,,,Videos,mamae_creator
+583243999978030677	,1190788881368450645	,Concluído,Concluído,,Normal,1733894232181737318	,CG-K3-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, G",Calcinhas,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 16,00","BRL 23,99","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 23,99",Parcelamento de cartão de crédito,,,,03/26/2026 7:14:48 AM	,03/26/2026 7:15:16 AM	,03/26/2026 7:28:05 PM	,03/27/2026 12:22:31 PM	,03/29/2026 10:20:01 AM	,	,Fulfillment by seller,Depósito - Dualis,999880654362036,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,ana.f.dias1,43815862809	,ANA ALINE DE FREITAS,A** f D***,(+55)319******75,**************,***,*************,****,Betim,MG,Brasil,********	,"A** f D***
+(+55)319******75
+************** *** ************* ****
+Betim, MG
+********
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+583243827485967584	,1190788249273992416	,Concluído,Concluído,,Normal,1733894178352564070	,GALENA-1 unidade - Preto-G,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Preto, G",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 0,00","BRL 15,91","BRL 13,99","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 14,79",Pix,,,,03/26/2026 7:01:24 AM	,03/26/2026 7:02:46 AM	,03/26/2026 7:28:05 PM	,03/27/2026 12:22:31 PM	,03/30/2026 11:08:17 PM	,	,Fulfillment by seller,Depósito - Dualis,999880652103149,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,laisasantosae,36078582844	,LAISA DOS SANTOS FRANCO,L**********,(+55)179******39,*********,***,***********************,*********,Urânia,SP,Brasil,********	,"L**********
+(+55)179******39
+********* *** *********************** *********
+Urânia, SP
+********
+Brasil",NF-e valid,,,Product cards,
+583234031518647453	,1190704881886659741	,Concluído,Concluído,,Normal,1733894232182130534	,CG-K5-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, XG",Calcinhas,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 15,09","BRL 34,90","BRL 2,00","BRL 12,00","BRL 0,00","BRL 10,00",,"BRL 36,90",Parcelamento de cartão de crédito,,,,03/25/2026 1:31:49 PM	,03/25/2026 1:31:54 PM	,03/25/2026 6:46:23 PM	,03/26/2026 10:39:32 AM	,03/29/2026 8:19:00 AM	,	,Fulfillment by seller,Depósito - Dualis,999880651125070,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,patrcia3452,07721041660	,PATRICIA DA SILVA CANDIDO,P*******,(+55)349******99,***********,**,***********,**************,Uberlândia,MG,Brasil,********	,"P*******
+(+55)349******99
+*********** ** *********** **************
+Uberlândia, MG
+********
+Brasil",NF-e valid,,,Product cards,
+583232345143018694	,1190697185439220934	,Concluído,Concluído,,Normal,1733894232181999462	,CG-K5-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, G",Calcinhas,1,0,"BRL 49,99","BRL 49,99","BRL 1,96","BRL 15,09","BRL 32,94","BRL 0,00","BRL 7,20","BRL 0,00","BRL 7,20",,"BRL 35,02",Parcelamento de cartão de crédito,,,,03/25/2026 11:26:06 AM	,03/25/2026 11:26:11 AM	,03/25/2026 6:46:23 PM	,03/26/2026 10:39:32 AM	,03/28/2026 9:46:03 AM	,	,Fulfillment by seller,Depósito - Dualis,999880652249915,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,michelle.nascimen845,33898915875	,MICHELLE NASCIMENTO PEDREIRO,M******* N********* P*******,(+55)119******87,*****************,***,********************,*****************,São Paulo,SP,Brasil,********	,"M******* N********* P*******
+(+55)119******87
+***************** *** ******************** *****************
+São Paulo, SP
+********
+Brasil",NF-e valid,,,Product cards,
+583232183862003545	,1190696878012139353	,Concluído,Concluído,,Normal,1733894232181737318	,CG-K3-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, G",Calcinhas,1,0,"BRL 39,99","BRL 39,99","BRL 0,15","BRL 16,00","BRL 23,84","BRL 9,20","BRL 9,20","BRL 0,00","BRL 0,00",,"BRL 33,04",Pix,,,,03/25/2026 11:17:05 AM	,03/25/2026 11:18:11 AM	,03/25/2026 6:46:23 PM	,03/26/2026 10:39:32 AM	,03/31/2026 2:26:04 PM	,	,Fulfillment by seller,Depósito - Dualis,999880648383798,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,tieli.aguiar,03070881033	,DAIANE MACIEL CIOTTI,D***** M***** C*****,(+55)559******81,*************,***,**********,****,Três de Maio,RS,Brasil,********	,"D***** M***** C*****
+(+55)559******81
+************* *** ********** ****
+Três de Maio, RS
+********
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+583229178743129581	,1190679902144857581	,Concluído,Concluído,,Normal,1733894178352760678	,GALENA-1 unidade - Chocolate-G,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Chocolate, G",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 0,00","BRL 15,91","BRL 13,99","BRL 6,30","BRL 26,30","BRL 0,00","BRL 20,00",,"BRL 20,29",Pix,,,,03/25/2026 7:53:36 AM	,03/25/2026 7:55:23 AM	,03/25/2026 6:46:23 PM	,03/26/2026 10:39:32 AM	,03/31/2026 7:10:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999880649952498,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,gildasilva01,93035810320	,GILDELANDIA SOBREIRA DA SILVA,G**** S****,(+55)889******99,*************************,***,*************,*************,Acopiara,CE,Brasil,********	,"G**** S****
+(+55)889******99
+************************* *** ************* *************
+Acopiara, CE
+********
+Brasil",NF-e valid,,,Product cards,
+583225029627184259	,1190643412774847619	,Concluído,Concluído,,Normal,1733894178353350502	,GALENA-Kit 2 peças Chocolate-G,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Chocolate, G",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 5,00","BRL 35,00","BRL 19,90","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 20,70",Pix,,,,03/25/2026 2:26:03 AM	,03/25/2026 2:26:33 AM	,03/25/2026 6:46:23 PM	,03/26/2026 10:39:32 AM	,03/28/2026 4:01:05 PM	,	,Fulfillment by seller,Depósito - Dualis,999880652600655,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,rafaelapias5h,52296639879	,RAFAELA JOANA DA SILVA PIAS,R*******,(+55)199******75,************************,***,********************,**************,Louveira,SP,Brasil,********	,"R*******
+(+55)199******75
+************************ *** ******************** **************
+Louveira, SP
+********
+Brasil",NF-e valid,,,Product cards,
+583222974126786106	,1190625493999388218	,Concluído,Concluído,,Normal,1733894178353284966	,GALENA-Kit 2 peças Chocolate-M,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Chocolate, M",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 35,00","BRL 24,90","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 25,70",Pix,,,,03/24/2026 11:49:53 PM	,03/24/2026 11:50:26 PM	,03/25/2026 6:46:23 PM	,03/26/2026 10:39:33 AM	,03/28/2026 10:34:01 PM	,	,Fulfillment by seller,Depósito - Dualis,999880652819458,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,eeduardab_,46158085855	,MARIA EDUARDA OLIVEIRA DOS SANTOS,m**** e****** o******* d** s*****,(+55)119******88,************************,**,*********************************************,****,Guarujá,SP,Brasil,********	,"m**** e****** o******* d** s*****
+(+55)119******88
+************************ ** ********************************************* ****
+Guarujá, SP
+********
+Brasil",NF-e valid,,,Product cards,
+583222042736559317	,1190616745339159765	,Concluído,Concluído,,Normal,1733894232181671782	,CG-K3-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, M",Calcinhas,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 16,00","BRL 23,99","BRL 0,00","BRL 7,20","BRL 0,00","BRL 7,20",,"BRL 23,99",Pix,,,,03/24/2026 10:30:49 PM	,03/24/2026 10:37:39 PM	,03/25/2026 6:46:23 PM	,03/26/2026 10:39:32 AM	,03/28/2026 1:58:05 PM	,	,Fulfillment by seller,Depósito - Dualis,999880649581115,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,clecianymenezesme,09056832506	,CLECIANE SOUSA DE MENEZES,C******* M******,(+55)119******18,***********************,**,*************,*****************,Taboão da Serra,SP,Brasil,********	,"C******* M******
+(+55)119******18
+*********************** ** ************* *****************
+Taboão da Serra, SP
+********
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+583221625616434576	,1190608781764691344	,Concluído,Concluído,,Normal,1733894178352629606	,GALENA-1 unidade - Preto-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Preto, GG",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 0,63","BRL 15,91","BRL 13,36","BRL 2,33","BRL 12,33","BRL 0,00","BRL 10,00",,"BRL 52,93",Pix,,,,03/24/2026 9:47:30 PM	,03/24/2026 9:48:00 PM	,03/25/2026 6:46:23 PM	,03/26/2026 10:39:32 AM	,03/30/2026 9:16:02 AM	,	,Fulfillment by seller,Depósito - Dualis,999880646383388,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,fernandafaneli,14971206752	,FERNANDA FANELI NUNES,F******* F*****,(+55)229******46,***************************,***,**************,***************************,Macaé,RJ,Brasil,********	,"F******* F*****
+(+55)229******46
+*************************** *** ************** ***************************
+Macaé, RJ
+********
+Brasil",NF-e valid,,,Product cards,
+583221625616434576	,1190608781764691344	,Concluído,Concluído,,Normal,1733894232181802854	,CG-K3-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, GG",Calcinhas,1,0,"BRL 39,99","BRL 39,99","BRL 1,08","BRL 16,00","BRL 22,91","BRL 2,33","BRL 12,33","BRL 0,00","BRL 10,00",,"BRL 52,93",Pix,,,,03/24/2026 9:47:30 PM	,03/24/2026 9:48:00 PM	,03/25/2026 6:46:23 PM	,03/26/2026 10:39:32 AM	,03/30/2026 9:16:02 AM	,	,Fulfillment by seller,Depósito - Dualis,999880646383388,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,fernandafaneli,14971206752	,FERNANDA FANELI NUNES,F******* F*****,(+55)229******46,***************************,***,**************,***************************,Macaé,RJ,Brasil,********	,"F******* F*****
+(+55)229******46
+*************************** *** ************** ***************************
+Macaé, RJ
+********
+Brasil",NF-e valid,,,Product cards,
+583221625616434576	,1190608781764691344	,Concluído,Concluído,,Normal,1733956017331865446	,CMB-1UN-G-Preto,Calcinha Cinta Tanga Modeladora Cós Alto | Dualis,"G, Preto",Calcinhas,1,0,"BRL 24,97","BRL 24,97","BRL 0,67","BRL 9,97","BRL 14,33","BRL 2,33","BRL 12,33","BRL 0,00","BRL 10,00",,"BRL 52,93",Pix,,,,03/24/2026 9:47:30 PM	,03/24/2026 9:48:00 PM	,03/25/2026 6:46:23 PM	,03/26/2026 10:39:32 AM	,03/30/2026 9:16:02 AM	,	,Fulfillment by seller,Depósito - Dualis,999880646383388,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,fernandafaneli,14971206752	,FERNANDA FANELI NUNES,F******* F*****,(+55)229******46,***************************,***,**************,***************************,Macaé,RJ,Brasil,********	,"F******* F*****
+(+55)229******46
+*************************** *** ************** ***************************
+Macaé, RJ
+********
+Brasil",NF-e valid,,,Product cards,
+583221105420895823	,1190604274169841231	,Concluído,Concluído,,Normal,1733894178353153894	,GALENA-Kit 2 peças Preto / Chocolate-G,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, G",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 35,00","BRL 24,90","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 24,90",Pix,,,,03/24/2026 8:53:22 PM	,03/24/2026 8:54:27 PM	,03/25/2026 6:46:23 PM	,03/26/2026 10:39:32 AM	,03/28/2026 9:04:01 PM	,	,Fulfillment by seller,Depósito - Dualis,999880652838423,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,shirleyaquino7385,08172814607	,SHIRLEY AQUINO DA SILVA,s****************,(+55)319******26,*************,***,**************************,****,Ribeirão das Neves,MG,Brasil,********	,"s****************
+(+55)319******26
+************* *** ************************** ****
+Ribeirão das Neves, MG
+********
+Brasil",NF-e valid,,,Product cards,
+583220841651406793	,1190602271067441097	,Concluído,Concluído,,Normal,1733894178352629606	,GALENA-1 unidade - Preto-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Preto, GG",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 0,00","BRL 15,91","BRL 13,99","BRL 0,00","BRL 8,20","BRL 0,00","BRL 8,20",,"BRL 13,99",Pix,,,,03/24/2026 8:15:36 PM	,03/24/2026 8:16:47 PM	,03/25/2026 6:46:23 PM	,03/26/2026 10:39:33 AM	,03/30/2026 11:24:05 AM	,	,Fulfillment by seller,Depósito - Dualis,999880651846818,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,cristianesantos2234,02303924740	,CRISTIANE SANTOS DA SILVA,C******** S*****,(+55)219******21,***********,**,*******,***************,Nova Iguaçu,RJ,Brasil,********	,"C******** S*****
+(+55)219******21
+*********** ** ******* ***************
+Nova Iguaçu, RJ
+********
+Brasil",NF-e valid,,,Product cards,
+583218796519851481	,1190589946953434585	,Concluído,Concluído,,Normal,1733894178352629606	,GALENA-1 unidade - Preto-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Preto, GG",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 0,00","BRL 15,91","BRL 13,99","BRL 0,00","BRL 7,10","BRL 0,00","BRL 7,10",,"BRL 13,99",Pix,,,,03/24/2026 1:15:14 PM	,03/24/2026 1:16:39 PM	,03/24/2026 6:18:52 PM	,03/25/2026 12:09:32 PM	,03/27/2026 4:16:05 PM	,	,Fulfillment by seller,Depósito - Dualis,999880647892502,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,meirecristina092,12696260869	,MEIRE CRISTINA DE SOUZA,m***************,(+55)119******33,******************,***,***********************************,****,São Paulo,SP,Brasil,********	,"m***************
+(+55)119******33
+****************** *** *********************************** ****
+São Paulo, SP
+********
+Brasil",NF-e valid,,,Product cards,
+583218505991685169	,1190588482275148849	,Concluído,Concluído,Return/Refund,Normal,1733956187395229542	,FIO-REG-KIT5,"Kit 3 ou 5 | Calcinha Fio Dental Microfibra com Regulagem – Confortável, Não Marca, Tamanho Único","Kit 5 Peças - TAMANHO ÚNICO, Sortidas",Calcinhas,1,0,"BRL 39,99","BRL 39,99","BRL 0,15","BRL 20,09","BRL 19,75","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 19,75",Pix,,,,03/24/2026 12:50:09 PM	,03/24/2026 12:50:47 PM	,03/24/2026 6:18:52 PM	,03/25/2026 12:09:32 PM	,03/26/2026 6:21:41 PM	,	,Fulfillment by seller,Depósito - Dualis,999880647228774,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,1yaass,16022796750	,WEVELYN YASMIN ARAUJO RIBEIRO,W****** Y*****,(+55)219******69,******************,***,************,**********,Nova Iguaçu,RJ,Brasil,********	,"W****** Y*****
+(+55)219******69
+****************** *** ************ **********
+Nova Iguaçu, RJ
+********
+Brasil",NF-e valid,,,Product cards,
+583215619671164846	,1190574415462696878	,Concluído,Concluído,,Normal,1733894232182130534	,CG-K5-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, XG",Calcinhas,1,0,"BRL 49,99","BRL 49,99","BRL 1,05","BRL 15,09","BRL 33,85","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 33,85",Parcelamento de cartão de crédito,,,,03/24/2026 9:30:31 AM	,03/24/2026 9:30:36 AM	,03/24/2026 6:18:52 PM	,03/25/2026 12:09:32 PM	,03/26/2026 8:58:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999880646925190,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,carolineeloh,15928451776	,LORRAYNE CAROLINE GONCALVES DOS SANTOS,C***********,(+55)219******75,***************************,***,************,******************,Rio de Janeiro,RJ,Brasil,********	,"C***********
+(+55)219******75
+*************************** *** ************ ******************
+Rio de Janeiro, RJ
+********
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+583214731746641139	,1190569194074965235	,Concluído,Concluído,,Normal,1733894178352826214	,GALENA-1 unidade - Chocolate-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Chocolate, GG",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 0,00","BRL 15,91","BRL 13,99","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 13,99",Pix,,,,03/24/2026 8:22:33 AM	,03/24/2026 8:23:08 AM	,03/24/2026 6:18:52 PM	,03/25/2026 12:09:32 PM	,03/26/2026 6:07:04 PM	,	,Fulfillment by seller,Depósito - Dualis,999880633467271,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,lau.betty5,02568688750	,LAURA MARIA DE JESUS NETA,l** b****,(+55)219******69,************************,****,**********,***********,Rio de Janeiro,RJ,Brasil,********	,"l** b****
+(+55)219******69
+************************ **** ********** ***********
+Rio de Janeiro, RJ
+********
+Brasil",NF-e valid,,,Videos,mamae_creator
+583206345535751200	,1190492813762855968	,Concluído,Concluído,,Normal,1733894178353088358	,GALENA-Kit 2 peças Preto / Chocolate-M,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, M",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 35,00","BRL 24,90","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 24,90",Pix,,,,03/23/2026 8:18:01 PM	,03/23/2026 8:18:42 PM	,03/23/2026 8:23:50 PM	,03/24/2026 12:22:33 PM	,03/25/2026 12:54:04 PM	,	,Fulfillment by seller,Depósito - Dualis,999880632065124,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,biabarbosa327,20502880775	,BEATRIZ CHAGAS DA SILVA BARBOSA,B****** S****,(+55)219******50,***************,**,****,****************************,Niterói,RJ,Brasil,********	,"B****** S****
+(+55)219******50
+*************** ** **** ****************************
+Niterói, RJ
+********
+Brasil",NF-e valid,,,Product cards,
+583200115531023916	,1190458223129953836	,Concluído,Concluído,,Normal,1733956031290967910	,FIO-KIT3,"Kit 3 ou 5 Peças | Calcinha Tanga Fio Dental | Conforto, Leveza e sexy Discreta","Kit 3 Peças - TAMANHO ÚNICO, sortidas",Calcinhas,1,0,"BRL 19,99","BRL 19,99","BRL 0,00","BRL 7,00","BRL 12,99","BRL 0,00","BRL 6,12","BRL 0,00","BRL 6,12",,"BRL 12,99",Pix,,,,03/23/2026 8:04:28 AM	,03/23/2026 8:05:48 AM	,03/23/2026 7:19:05 PM	,03/24/2026 12:22:33 PM	,03/26/2026 4:10:07 PM	,	,Fulfillment by seller,Depósito - Dualis,999880639550830,Shipped via platform,Entrega padrão,0.2,J&T Express Brazil,erikaarandi1,11793170843	,ERICA THAMARA ARANDA BENITEZ,e****  a*****,(+55)119******68,*************,****,*******,*******,São Paulo,SP,Brasil,********	,"e****  a*****
+(+55)119******68
+************* **** ******* *******
+São Paulo, SP
+********
+Brasil",NF-e valid,,,Product cards,
+583191532794709469	,1190378102131492317	,Concluído,Concluído,,Normal,1733956031291033446	,FIO-KIT5,"Kit 3 ou 5 Peças | Calcinha Tanga Fio Dental | Conforto, Leveza e sexy Discreta","Kit 5 Peças - TAMANHO ÚNICO, sortidas",Calcinhas,2,0,"BRL 29,99","BRL 59,98","BRL 0,00","BRL 28,00","BRL 31,98","BRL 3,20","BRL 13,20","BRL 0,00","BRL 10,00",,"BRL 35,18",Pix,,,,03/22/2026 4:10:02 PM	,03/22/2026 4:18:45 PM	,03/22/2026 7:00:47 PM	,03/23/2026 11:58:06 AM	,03/25/2026 3:23:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999880632302585,Shipped via platform,Entrega padrão,0.4,J&T Express Brazil,user689696264,01207737674	,SANDRA DE ASSIS MENDES,S*****,(+55)389******66,****************,**,**********,****,Curvelo,MG,Brasil,********	,"S*****
+(+55)389******66
+**************** ** ********** ****
+Curvelo, MG
+********
+Brasil",NF-e valid,,,Product cards,
+583181476477699227	,1190321333754561691	,Concluído,Concluído,,Normal,1733956031291033446	,FIO-KIT5,"Kit 3 ou 5 Peças | Calcinha Tanga Fio Dental | Conforto, Leveza e sexy Discreta","Kit 5 Peças - TAMANHO ÚNICO, sortidas",Calcinhas,1,0,"BRL 29,99","BRL 29,99","BRL 0,00","BRL 14,00","BRL 15,99","BRL 0,00","BRL 7,20","BRL 0,00","BRL 7,20",,"BRL 15,99",Pix,,,,03/22/2026 1:12:03 AM	,03/22/2026 1:13:39 AM	,03/22/2026 6:58:49 PM	,03/23/2026 11:58:06 AM	,03/25/2026 9:29:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999880631017184,Shipped via platform,Entrega padrão,0.2,J&T Express Brazil,menezeesx_,34964960889	,DANIELLE MENEZES BISPO DOS SANTOS,A*******,(+55)119******51,*******************,***,**************,****,Carapicuíba,SP,Brasil,********	,"A*******
+(+55)119******51
+******************* *** ************** ****
+Carapicuíba, SP
+********
+Brasil",NF-e valid,,,Product cards,
+583176155789362572	,1190289613098354060	,Concluído,Concluído,,Normal,1733894178353219430	,GALENA-Kit 2 peças Preto / Chocolate-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, GG",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 35,00","BRL 24,90","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 25,70",Parcelamento de cartão de crédito,,,,03/21/2026 11:57:21 AM	,03/21/2026 11:57:30 AM	,03/22/2026 6:58:49 PM	,03/23/2026 11:58:06 AM	,03/26/2026 4:49:06 PM	,	,Fulfillment by seller,Depósito - Dualis,999880633475176,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,annabsilva23,46726864850	,ANA BEATRIZ DA SILVA,A** B****** d* S****,(+55)189******82,***************************,****,*************************,******************,Braúna,SP,Brasil,********	,"A** B****** d* S****
+(+55)189******82
+*************************** **** ************************* ******************
+Braúna, SP
+********
+Brasil",NF-e valid,,,Product cards,
+583175931710703325	,1190288787240290013	,Concluído,Concluído,,Normal,1733956187395229542	,FIO-REG-KIT5,"Kit 3 ou 5 | Calcinha Fio Dental Microfibra com Regulagem – Confortável, Não Marca, Tamanho Único","Kit 5 Peças - TAMANHO ÚNICO, Sortidas",Calcinhas,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 20,09","BRL 19,90","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 19,90",Pix,,,,03/21/2026 11:35:46 AM	,03/21/2026 11:36:34 AM	,03/22/2026 6:58:49 PM	,03/23/2026 11:58:06 AM	,03/25/2026 1:20:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999880634480690,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,s9manmi29,12125045850	,SAICARD MADDAI LEIDA ELIEN,s****** m***** l**** e****,(+55)119******01,****************,***,******,******************************,São Paulo,SP,Brasil,********	,"s****** m***** l**** e****
+(+55)119******01
+**************** *** ****** ******************************
+São Paulo, SP
+********
+Brasil",NF-e valid,,,Product cards,
+583175317204403865	,1190286378102064793	,Concluído,Concluído,,Normal,1733894232181999462	,CG-K5-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, G",Calcinhas,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 15,09","BRL 34,90","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 34,90",Pix + Saldo do TikTok Shop,,,,03/21/2026 10:51:01 AM	,03/21/2026 10:52:20 AM	,03/22/2026 6:58:49 PM	,03/23/2026 11:58:32 AM	,03/25/2026 11:11:02 AM	,	,Fulfillment by seller,Depósito - Dualis,999880631531340,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,jssica.oliveyra,17261247707	,JESSICA DE OLIVEIRA BRAGA DA SILVA,J****** O*******,(+55)219******49,***************,**,**********,***************,Rio de Janeiro,RJ,Brasil,********	,"J****** O*******
+(+55)219******49
+*************** ** ********** ***************
+Rio de Janeiro, RJ
+********
+Brasil",NF-e valid,,,Product cards,
+583169223254836902	,1190244438995535526	,Concluído,Concluído,,Normal,1733894178352498534	,GALENA-1 unidade - Preto-M,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Preto, M",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 0,00","BRL 15,91","BRL 13,99","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 13,99",Pix,,,,03/21/2026 1:02:09 AM	,03/21/2026 1:02:53 AM	,03/22/2026 6:58:49 PM	,03/23/2026 11:58:32 AM	,03/25/2026 3:02:25 PM	,	,Fulfillment by seller,Depósito - Dualis,999880629056937,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,luanaespadilhadas,46177110827	,LUANA ESPADILHA DA SILVA,L****,(+55)119******37,***********************,****,*********************,****,São Paulo,SP,Brasil,********	,"L****
+(+55)119******37
+*********************** **** ********************* ****
+São Paulo, SP
+********
+Brasil",NF-e valid,,,Videos,mamae_creator
+583155519660460014	,1190148664431052782	,Concluído,Concluído,,Normal,1733894178352498534	,GALENA-1 unidade - Preto-M,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Preto, M",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 0,00","BRL 15,91","BRL 13,99","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 13,99",Pix,,,,03/19/2026 10:09:21 PM	,03/19/2026 10:10:02 PM	,03/20/2026 5:52:40 PM	,03/23/2026 11:55:23 AM	,03/25/2026 12:30:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999880619240774,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,__rafaelasz,33966236818	,WILMA PEREIRA DA SILVA,R****** P******,(+55)119******64,*********************,**,**************,*********************,Guarulhos,SP,Brasil,********	,"R****** P******
+(+55)119******64
+********************* ** ************** *********************
+Guarulhos, SP
+********
+Brasil",NF-e valid,,,Product cards,
+583154070695019898	,1190136505444697466	,Concluído,Concluído,,Normal,1733894232181671782	,CG-K3-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, M",Calcinhas,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 16,00","BRL 23,99","BRL 2,00","BRL 12,00","BRL 0,00","BRL 10,00",,"BRL 25,99",Pix,,,,03/19/2026 5:59:32 PM	,03/19/2026 6:01:24 PM	,03/19/2026 6:39:44 PM	,03/20/2026 2:14:06 PM	,03/23/2026 4:02:05 PM	,	,Fulfillment by seller,Depósito - Dualis,999880624548591,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,leonardo.domingos16,13119584606	,MARILENE CRISTINA LIBERATO MARIANO,L******* D*******,(+55)379******43,*****************,***,*******,****,Luz,MG,Brasil,********	,"L******* D*******
+(+55)379******43
+***************** *** ******* ****
+Luz, MG
+********
+Brasil",NF-e valid,,,Product cards,
+583143396435986188	,1190061687500932876	,Concluído,Concluído,,Normal,1733894232181933926	,CG-K5-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, M",Calcinhas,1,0,"BRL 49,99","BRL 49,99","BRL 2,09","BRL 15,09","BRL 32,81","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 32,81",Pix,,,,03/18/2026 10:59:58 PM	,03/18/2026 11:00:38 PM	,03/19/2026 6:39:44 PM	,03/20/2026 2:14:06 PM	,03/22/2026 1:28:01 PM	,	,Fulfillment by seller,Depósito - Dualis,999880622469366,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,gabrieleaguiar704,60327212802	,GABRIELE SILVA GONCALVES AGUIAR,g****************,(+55)139******36,**************************,****,****,******,Praia Grande,SP,Brasil,********	,"g****************
+(+55)139******36
+************************** **** **** ******
+Praia Grande, SP
+********
+Brasil",NF-e valid,,,Product cards,
+583139681463797730	,1190035112901904354	,Concluído,Concluído,,Normal,1733894232181868390	,CG-K3-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, XG",Calcinhas,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 16,00","BRL 23,99","BRL 0,00","BRL 8,16","BRL 0,00","BRL 8,16",,"BRL 23,99",Pix,,,,03/18/2026 12:32:15 PM	,03/18/2026 12:33:29 PM	,03/18/2026 6:28:39 PM	,03/19/2026 12:06:08 PM	,03/23/2026 8:53:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999880616561202,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,iranilde927,09050677622	,IRANILDE DE ALMEIDA PEREIRA,i*********,(+55)149******89,*************************,***,*******************************,****,Botucatu,SP,Brasil,********	,"i*********
+(+55)149******89
+************************* *** ******************************* ****
+Botucatu, SP
+********
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+583136219902150227	,1190017786988562003	,Concluído,Concluído,,Normal,1733894178353284966	,GALENA-Kit 2 peças Chocolate-M,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Chocolate, M",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 35,00","BRL 24,90","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 24,90",Pix,,,,03/18/2026 7:52:27 AM	,03/18/2026 7:54:48 AM	,03/18/2026 6:28:39 PM	,03/19/2026 12:06:08 PM	,03/23/2026 5:32:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999880617147105,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,marizaalmeida52,00946539847	,MARIZA ALMEIDA DE MELO,A**** A****** G******** M******,(+55)119******47,*************************,***,*********,****,Osasco,SP,Brasil,********	,"A**** A****** G******** M******
+(+55)119******47
+************************* *** ********* ****
+Osasco, SP
+********
+Brasil",NF-e valid,,,Videos,mamae_creator
+583135356050966046	,1190009824815515166	,Concluído,Concluído,,Normal,1733894178353219430	,GALENA-Kit 2 peças Preto / Chocolate-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, GG",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 35,00","BRL 24,90","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 24,90",Apple Pay,,,,03/18/2026 6:23:47 AM	,03/18/2026 6:24:33 AM	,03/18/2026 6:28:39 PM	,03/19/2026 12:06:08 PM	,03/20/2026 4:24:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999880609610975,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,soraiaprocopio0,12658851766	,SORAIA CELIA PROCOPIO DE MORAIS,S***** P*******,(+55)219******33,*******************,**,*********,***************************,Rio de Janeiro,RJ,Brasil,********	,"S***** P*******
+(+55)219******33
+******************* ** ********* ***************************
+Rio de Janeiro, RJ
+********
+Brasil",NF-e valid,,,Videos,mamae_creator
+583129174596749055	,1189948904514881279	,Concluído,Concluído,,Normal,1733894178352498534	,GALENA-1 unidade - Preto-M,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Preto, M",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 0,00","BRL 15,91","BRL 13,99","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 13,99",Pix,,,,03/17/2026 8:19:18 PM	,03/17/2026 8:20:16 PM	,03/18/2026 6:28:39 PM	,03/19/2026 12:06:08 PM	,03/21/2026 2:06:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999880620856333,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,maria.cardoso2315,04576159585	,MARIA LIDIANA DE SOUZA SA CARDOSO,M**** L****** d* S**** S* C******,(+55)319******98,**************************,***,*******************,**************************,Sarzedo,MG,Brasil,********	,"M**** L****** d* S**** S* C******
+(+55)319******98
+************************** *** ******************* **************************
+Sarzedo, MG
+********
+Brasil",NF-e valid,,,Product cards,
+583128623428175768	,1189945197831358360	,Concluído,Concluído,,Normal,1733894178352957286	,GALENA-Kit 2 unidades - Preto-G,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 unidades - Preto, G",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 35,00","BRL 24,90","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 25,70",Pix,,,,03/17/2026 6:33:49 PM	,03/17/2026 6:34:16 PM	,03/17/2026 6:45:02 PM	,03/18/2026 12:06:03 PM	,03/22/2026 6:20:01 PM	,	,Fulfillment by seller,Depósito - Dualis,999880594448585,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,trevizanisa,40151681864	,ISABELA TREVIZAN VICENTE,I**********,(+55)189******82,**********************,***,***************,****,Presidente Prudente,SP,Brasil,********	,"I**********
+(+55)189******82
+********************** *** *************** ****
+Presidente Prudente, SP
+********
+Brasil",NF-e valid,,,Product cards,
+583128534272345885	,1189944749219612445	,Concluído,Concluído,,Normal,1733956031290967910	,FIO-KIT3,"Kit 3 ou 5 Peças | Calcinha Tanga Fio Dental | Conforto, Leveza e sexy Discreta","Kit 3 Peças - TAMANHO ÚNICO, sortidas",Calcinhas,1,0,"BRL 19,99","BRL 19,99","BRL 0,00","BRL 7,00","BRL 12,99","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 12,99",Pix,,,,03/17/2026 6:14:39 PM	,03/17/2026 6:15:23 PM	,03/17/2026 6:31:13 PM	,03/18/2026 12:06:03 PM	,03/22/2026 4:08:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999880591667751,Shipped via platform,Entrega padrão,0.2,J&T Express Brazil,japaahcris,03945491045	,CAROLINE FATIMA VARGAS JUSTINO,C******* J******,(+55)519******77,*******************,****,***********,*****************************,São Leopoldo,RS,Brasil,********	,"C******* J******
+(+55)519******77
+******************* **** *********** *****************************
+São Leopoldo, RS
+********
+Brasil",NF-e valid,,,Product cards,
+583128303921955910	,1190084231734461510	,Concluído,Concluído,Return/Refund,Normal,1733894178353350502	,GALENA-Kit 2 peças Chocolate-G,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Chocolate, G",Calcinhas,1,1,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 35,00","BRL 24,90","BRL 0,00","BRL 13,20","BRL 0,00","BRL 13,20",,"BRL 24,90",Boleto,"BRL 24,90",,,03/17/2026 5:13:33 PM	,03/19/2026 3:02:56 AM	,03/19/2026 6:39:44 PM	,03/20/2026 2:14:06 PM	,03/23/2026 2:55:05 PM	,	,Fulfillment by seller,Depósito - Dualis,999880622630244,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,maria26603379,70592600645	,MARIA EDUARDA ALVES PEREIRA,M**** E******,(+55)389******36,***********************************************,***,*******,****,Morro da Garça,MG,Brasil,********	,"M**** E******
+(+55)389******36
+*********************************************** *** ******* ****
+Morro da Garça, MG
+********
+Brasil",NF-e valid,,,Product cards,
+583115448147608892	,1189841722039502140	,Concluído,Concluído,,Normal,1733894178352629606	,GALENA-1 unidade - Preto-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Preto, GG",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 0,00","BRL 15,91","BRL 13,99","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 13,99",Pix,,,,03/16/2026 8:15:51 PM	,03/16/2026 8:16:59 PM	,03/17/2026 6:31:13 PM	,03/18/2026 12:06:03 PM	,03/23/2026 10:49:04 AM	,	,Fulfillment by seller,Depósito - Dualis,999880594942977,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,cris6784,11930171650	,CRISTIANE EVANGELISTA DA ROCHA,C******** e********** d* r****,(+55)119******04,******************,***,************,*****,São Paulo,SP,Brasil,********	,"C******** e********** d* r****
+(+55)119******04
+****************** *** ************ *****
+São Paulo, SP
+********
+Brasil",NF-e valid,,,Videos,mamae_creator
+583114793880094460	,1189837073667098364	,Concluído,Concluído,,Normal,1733894178352629606	,GALENA-1 unidade - Preto-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Preto, GG",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 0,00","BRL 15,91","BRL 13,99","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 13,99",Pix,,,,03/16/2026 6:11:55 PM	,03/16/2026 6:12:48 PM	,03/16/2026 6:39:53 PM	,03/17/2026 11:47:06 AM	,03/19/2026 12:39:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999880619089824,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,teca.soares17,02727821816	,IVETE SOARES RODRIGUES,T*** S*****,(+55)119******02,***********,***,*************************,****,Itaquaquecetuba,SP,Brasil,********	,"T*** S*****
+(+55)119******02
+*********** *** ************************* ****
+Itaquaquecetuba, SP
+********
+Brasil",NF-e valid,,,Videos,mamae_creator
+583107916623349640	,1189790977181583240	,Concluído,Concluído,,Normal,1733894178353088358	,GALENA-Kit 2 peças Preto / Chocolate-M,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, M",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 35,00","BRL 24,90","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 25,70",Pix,,,,03/16/2026 6:13:58 AM	,03/16/2026 6:14:35 AM	,03/16/2026 6:39:53 PM	,03/17/2026 11:47:05 AM	,03/19/2026 8:26:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999880610169990,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,eliamarabragantim,46251406844	,ELIAMARA BRAGANTIN VITOR,E******* B********,(+55)159******35,***********************************************,***,**********************,************,Itapetininga,SP,Brasil,********	,"E******* B********
+(+55)159******35
+*********************************************** *** ********************** ************
+Itapetininga, SP
+********
+Brasil",NF-e valid,,,Product cards,
+583102550910207229	,1189733848415438077	,Concluído,Concluído,,Normal,1733894178353153894	,GALENA-Kit 2 peças Preto / Chocolate-G,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, G",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 35,00","BRL 24,90","BRL 0,18","BRL 9,18","BRL 0,00","BRL 9,00",,"BRL 25,08",Parcelamento de cartão de crédito,,,,03/15/2026 10:49:09 PM	,03/15/2026 10:49:15 PM	,03/16/2026 6:39:53 PM	,03/17/2026 11:47:05 AM	,03/19/2026 8:15:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999880619174542,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,alinefacr,32516392850	,ALINE FERNANDA DE ALMEIDA CHAVES GLUCKSMANN,A**** F******* d* A****** C*****,(+55)159******39,**********************************************,***,*****************,**********,Sorocaba,SP,Brasil,********	,"A**** F******* d* A****** C*****
+(+55)159******39
+********************************************** *** ***************** **********
+Sorocaba, SP
+********
+Brasil",NF-e valid,,,Videos,mamae_creator
+583100514231288844	,1189711210230744076	,Concluído,Concluído,,Normal,1733894232182130534	,CG-K5-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, XG",Calcinhas,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 21,50","BRL 28,49","BRL 9,60","BRL 9,60","BRL 0,00","BRL 0,00",,"BRL 38,09",Pix,,,,03/15/2026 6:15:25 PM	,03/15/2026 6:17:35 PM	,03/16/2026 6:39:53 PM	,03/17/2026 11:47:06 AM	,03/23/2026 8:22:01 AM	,	,Fulfillment by seller,Depósito - Dualis,999880619216522,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,jessicakarines,08778088992	,JESSICA KARINE SANTANA DA CRUZ,J****** K***** S****,(+55)449******79,************************,***,*************************************************,************************,Campo Mourão,PR,Brasil,********	,"J****** K***** S****
+(+55)449******79
+************************ *** ************************************************* ************************
+Campo Mourão, PR
+********
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+583100335772960379	,1189709871630288507	,Concluído,Concluído,,Normal,1733894232182064998	,CG-K5-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, GG",Calcinhas,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 21,50","BRL 28,49","BRL 9,60","BRL 9,60","BRL 0,00","BRL 0,00",,"BRL 38,09",Pix,,,,03/15/2026 5:36:01 PM	,03/15/2026 5:37:18 PM	,03/16/2026 6:39:53 PM	,03/17/2026 11:47:06 AM	,03/19/2026 10:01:02 AM	,	,Fulfillment by seller,Depósito - Dualis,999880617245633,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,psophiaaa,49119852835	,PEDRO HENRIQUE GODOY SALEMA,p********,(+55)119******80,**************************************,***,************,**************************************,Bragança Paulista,SP,Brasil,********	,"p********
+(+55)119******80
+************************************** *** ************ **************************************
+Bragança Paulista, SP
+********
+Brasil",NF-e valid,,,Product cards,
+583100015048558302	,1189709543217989342	,Concluído,Concluído,,Normal,1733894178352891750	,GALENA-Kit 2 unidades - Preto-M,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 unidades - Preto, M",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 40,91","BRL 18,99","BRL 3,20","BRL 13,20","BRL 0,00","BRL 10,00",,"BRL 22,19",Pix,,,,03/15/2026 5:19:32 PM	,03/15/2026 5:20:08 PM	,03/16/2026 6:39:53 PM	,03/17/2026 11:47:06 AM	,03/20/2026 1:56:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999880614747475,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,marilene.ventura86,05136223650	,MARILENE VENTURA DOS SANTOS PIMENTEL,M******* V******,(+55)339******93,*************************,***,*********,****,Governador Valadares,MG,Brasil,********	,"M******* V******
+(+55)339******93
+************************* *** ********* ****
+Governador Valadares, MG
+********
+Brasil",NF-e valid,,,Videos,mamae_creator
+583094169590335247	,1189677619206719247	,Concluído,Concluído,,Normal,1733894232182130534	,CG-K5-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, XG",Calcinhas,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 15,09","BRL 34,90","BRL 7,20","BRL 7,20","BRL 0,00","BRL 0,00",,"BRL 42,10",Pix,,,,03/15/2026 8:03:27 AM	,03/15/2026 8:04:41 AM	,03/16/2026 6:27:59 PM	,03/17/2026 11:46:33 AM	,03/19/2026 1:02:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999880618362808,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,eletrofix.motores,43125848857	,ALEX SANDRO AZEVEDO DE AMORIM,S******* c*******,(+55)119******74,*********************,***,************,*********,Mogi das Cruzes,SP,Brasil,********	,"S******* c*******
+(+55)119******74
+********************* *** ************ *********
+Mogi das Cruzes, SP
+********
+Brasil",NF-e valid,,,Product cards,
+583083788732302556	,1189600202359276764	,Concluído,Concluído,,Normal,1733894178353219430	,GALENA-Kit 2 peças Preto / Chocolate-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, GG",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 40,91","BRL 18,99","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 19,79",Google Pay,,,,03/14/2026 3:54:38 PM	,03/14/2026 3:54:44 PM	,03/16/2026 6:28:00 PM	,03/17/2026 11:46:33 AM	,03/19/2026 3:38:05 PM	,	,Fulfillment by seller,Depósito - Dualis,999880618466792,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,caah_ribeiro,49395487836	,CAROLINE RIBEIRO DE JESUS,C******* R******,(+55)199******72,**************************,****,*******************************,****,Sumaré,SP,Brasil,********	,"C******* R******
+(+55)199******72
+************************** **** ******************************* ****
+Sumaré, SP
+********
+Brasil",NF-e valid,,,Product cards,
+583083432120256486	,1189598161121609702	,Concluído,Concluído,,Normal,1733894232182130534	,CG-K5-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, XG",Calcinhas,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 21,50","BRL 28,49","BRL 0,00","BRL 18,10","BRL 0,00","BRL 18,10",,"BRL 28,49",Pix,,,,03/14/2026 2:51:16 PM	,03/14/2026 2:52:20 PM	,03/16/2026 6:27:59 PM	,03/17/2026 11:46:33 AM	,03/21/2026 10:38:02 AM	,	,Fulfillment by seller,Depósito - Dualis,999880619105136,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,lari_alm2,03746535182	,LARISSA ALMEIDA SANTOS,L****** A******,(+55)679******62,**************************************,****,***************,****,Dourados,MS,Brasil,********	,"L****** A******
+(+55)679******62
+************************************** **** *************** ****
+Dourados, MS
+********
+Brasil",NF-e valid,,,Product cards,
+583080547232352245	,1189584729119688693	,Concluído,Concluído,,Normal,1733894178353088358	,GALENA-Kit 2 peças Preto / Chocolate-M,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, M",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 40,91","BRL 18,99","BRL 2,00","BRL 12,00","BRL 0,00","BRL 10,00",,"BRL 20,99",Pix,,,,03/14/2026 10:58:38 AM	,03/14/2026 10:59:20 AM	,03/16/2026 6:27:59 PM	,03/17/2026 11:46:33 AM	,03/18/2026 12:54:05 PM	,	,Fulfillment by seller,Depósito - Dualis,999880617466330,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,kyssecia,12931697737	,MAYARA KYSS SANTOS DE MATOS,M*****,(+55)216******65,******************,***,**********,******************,Araruama,RJ,Brasil,********	,"M*****
+(+55)216******65
+****************** *** ********** ******************
+Araruama, RJ
+********
+Brasil",NF-e valid,,,Product cards,
+583080397925221708	,1189584131397813580	,Concluído,Concluído,,Normal,1733894178353022822	,GALENA-Kit 2 unidades - Preto-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 unidades - Preto, GG",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 40,91","BRL 18,99","BRL 0,00","BRL 10,80","BRL 0,00","BRL 10,80",,"BRL 18,99",Pix,,,,03/14/2026 10:53:59 AM	,03/14/2026 10:55:42 AM	,03/16/2026 6:27:59 PM	,03/17/2026 11:46:33 AM	,03/19/2026 12:26:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999880611786289,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,ingridilarissa969,08350127945	,INGRIDI LARISSA VIEIRA FERREIRA,I****** L******,(+55)419******83,***************************,**,*********,******,Curitiba,PR,Brasil,********	,"I****** L******
+(+55)419******83
+*************************** ** ********* ******
+Curitiba, PR
+********
+Brasil",NF-e valid,,,Videos,mamae_creator
+583071443991496449	,1189511511126542081	,Concluído,Concluído,,Normal,1733894178352629606	,GALENA-1 unidade - Preto-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Preto, GG",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 0,00","BRL 15,91","BRL 13,99","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 14,79",Pix,,,,03/14/2026 12:06:13 AM	,03/14/2026 12:08:30 AM	,03/16/2026 6:27:59 PM	,03/17/2026 11:46:33 AM	,03/19/2026 6:21:04 PM	,	,Fulfillment by seller,Depósito - Dualis,999880617862222,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,rbeka16,41606032895	,REBEKA FERNANDA MIRANDA FONSECA,r******,(+55)199******61,**********************************,***,*********,****,São Pedro,SP,Brasil,********	,"r******
+(+55)199******61
+********************************** *** ********* ****
+São Pedro, SP
+********
+Brasil",NF-e valid,,,Product cards,
+583068726680716461	,1189483339667244205	,Concluído,Concluído,,Normal,1733956031291033446	,FIO-KIT5,"Kit 3 ou 5 Peças | Calcinha Tanga Fio Dental | Conforto, Leveza e sexy Discreta","Kit 5 Peças - TAMANHO ÚNICO, sortidas",Calcinhas,1,0,"BRL 29,99","BRL 29,99","BRL 0,00","BRL 14,00","BRL 15,99","BRL 9,60","BRL 9,60","BRL 0,00","BRL 0,00",,"BRL 25,59",Pix,,,,03/13/2026 7:41:17 PM	,03/13/2026 7:41:53 PM	,03/16/2026 6:27:59 PM	,03/17/2026 11:46:33 AM	,03/19/2026 10:56:03 AM	,	,Fulfillment by seller,Depósito - Dualis,999880616581465,Shipped via platform,Entrega padrão,0.2,J&T Express Brazil,picsis1723,70778390284	,OBDULIANNE DEL CARMEN BRITO MARCANO,N*** d** C*****,(+55)959******25,************************,***,*****************,******,Curitiba,PR,Brasil,********	,"N*** d** C*****
+(+55)959******25
+************************ *** ***************** ******
+Curitiba, PR
+********
+Brasil",NF-e valid,,,Product cards,
+583068387163997334	,1189481291297686678	,Concluído,Concluído,,Normal,1733894178353219430	,GALENA-Kit 2 peças Preto / Chocolate-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, GG",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 35,00","BRL 24,90","BRL 3,20","BRL 13,20","BRL 0,00","BRL 10,00",,"BRL 28,10",Pix,,,,03/13/2026 6:49:37 PM	,03/13/2026 6:50:03 PM	,03/16/2026 6:27:59 PM	,03/17/2026 11:46:33 AM	,03/21/2026 1:53:01 PM	,	,Fulfillment by seller,Depósito - Dualis,999880619252947,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,leandraaparecidan6,03129364609	,LEANDRA APARECIDA NUNES,L******************** A*******,(+55)349******51,****************************,***,********,****,Coromandel,MG,Brasil,********	,"L******************** A*******
+(+55)349******51
+**************************** *** ******** ****
+Coromandel, MG
+********
+Brasil",NF-e valid,,,Product cards,
+583036543576671437	,1189226329384715469	,Concluído,Concluído,,Normal,1733894178353088358	,GALENA-Kit 2 peças Preto / Chocolate-M,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, M",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 40,91","BRL 18,99","BRL 2,00","BRL 12,00","BRL 0,00","BRL 10,00",,"BRL 20,99",Parcelamento de cartão de crédito,,,,03/11/2026 8:05:11 PM	,03/11/2026 8:05:18 PM	,03/12/2026 6:37:51 PM	,03/13/2026 11:21:07 AM	,03/14/2026 9:45:01 PM	,	,Fulfillment by seller,Depósito - Dualis,999880570921498,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,cassiacostt,12957885786	,CASSIA DA SILVA COSTA,c***** c****,(+55)219******06,************************,***,****,***,Teresópolis,RJ,Brasil,********	,"c***** c****
+(+55)219******06
+************************ *** **** ***
+Teresópolis, RJ
+********
+Brasil",NF-e valid,,,LIVE,daymodas45
+583021110071428207	,1189105221232591983	,Concluído,Concluído,,Normal,1733894178353153894	,GALENA-Kit 2 peças Preto / Chocolate-G,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, G",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 40,91","BRL 18,99","BRL 0,00","BRL 12,00","BRL 0,00","BRL 12,00",,"BRL 18,99",Pix,,,,03/10/2026 10:11:09 PM	,03/10/2026 10:12:45 PM	,03/11/2026 7:09:48 PM	,03/12/2026 11:06:06 AM	,03/18/2026 6:44:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999880565000969,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,tatiane_facco,06009628067	,TATIANE DE OLIVEIRA FACCO,T****** f****,(+55)559******89,*************************,***,********,****,Sant'Ana do Livramento,RS,Brasil,********	,"T****** f****
+(+55)559******89
+************************* *** ******** ****
+Sant'Ana do Livramento, RS
+********
+Brasil",NF-e valid,,,Product cards,
+583018200077403145	,1189083323318830089	,Concluído,Concluído,,Normal,1733894178353153894	,GALENA-Kit 2 peças Preto / Chocolate-G,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, G",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 40,91","BRL 18,99","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 18,99",Pix,,,,03/10/2026 3:07:52 PM	,03/10/2026 3:08:25 PM	,03/10/2026 6:07:38 PM	,03/11/2026 11:41:12 AM	,03/13/2026 3:11:06 PM	,	,Fulfillment by seller,Depósito - Dualis,999880557566403,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,looh.oliveira09,57707818822	,LOURRANA RODRIGUES DE OLIVEIRA,M***** C***** d* B**** J*****,(+55)119******53,**********************,****,***************,****************,São Paulo,SP,Brasil,********	,"M***** C***** d* B**** J*****
+(+55)119******53
+********************** **** *************** ****************
+São Paulo, SP
+********
+Brasil",NF-e valid,,,Product cards,
+583007854343194609	,1189007989556479985	,Concluído,Concluído,,Normal,1733894232181409638	,CG-P1-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"1 Unidade, M",Calcinhas,1,0,"BRL 19,99","BRL 19,99","BRL 0,00","BRL 10,50","BRL 9,49","BRL 0,00","BRL 7,20","BRL 0,00","BRL 7,20",,"BRL 9,49",Pix,,,,03/10/2026 2:30:20 AM	,03/10/2026 2:31:45 AM	,03/10/2026 6:07:38 PM	,03/11/2026 11:41:13 AM	,03/14/2026 7:57:01 PM	,	,Fulfillment by seller,Depósito - Dualis,999880558948861,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,giseleoliveira842,36227674800	,GISELE DE OLIVEIRA CLEMENTE,G***** O*******,(+55)119******10,**************************,***,**********,*************,São Paulo,SP,Brasil,********	,"G***** O*******
+(+55)119******10
+************************** *** ********** *************
+São Paulo, SP
+********
+Brasil",NF-e valid,,,Product cards,
+583002466748368094	,1188957655097181406	,Concluído,Concluído,,Normal,1733894178353088358	,GALENA-Kit 2 peças Preto / Chocolate-M,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, M",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 40,91","BRL 18,99","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 18,99",Pix,,,,03/09/2026 6:42:51 PM	,03/09/2026 6:43:41 PM	,03/09/2026 7:09:56 PM	,03/10/2026 12:03:06 PM	,03/12/2026 5:13:15 PM	,	,Fulfillment by seller,Depósito - Dualis,999880548173652,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,karina.ribeeiro,12785829670	,KARINA DE JESUS RIBEIRO ROSSE,K***** R****,(+55)319******05,********,***,*******************************,*********************,Nova Lima,MG,Brasil,********	,"K***** R****
+(+55)319******05
+******** *** ******************************* *********************
+Nova Lima, MG
+********
+Brasil",NF-e valid,,,Product cards,
+582984816849618260	,1188808272276129108	,Concluído,Concluído,,Normal,1733894232182064998	,CG-K5-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, GG",Calcinhas,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 21,50","BRL 28,49","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 29,29",Pix,,,,03/08/2026 5:43:50 PM	,03/08/2026 5:44:45 PM	,03/08/2026 7:02:44 PM	,03/09/2026 11:34:07 AM	,03/11/2026 3:27:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999880544748056,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,miurataynne,22385774755	,MIURA TAYNNE RIOS DURAES,M**** t***** r*** d*****,(+55)279******37,*****************,***,**********,********************,Vila Velha,ES,Brasil,********	,"M**** t***** r*** d*****
+(+55)279******37
+***************** *** ********** ********************
+Vila Velha, ES
+********
+Brasil",NF-e valid,,,Product cards,
+582965764693329451	,1188686663096174123	,Concluído,Concluído,,Normal,1733894232181737318	,CG-K3-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, G",Calcinhas,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 21,00","BRL 18,99","BRL 0,00","BRL 7,20","BRL 0,00","BRL 7,20",,"BRL 18,99",Pix,,,,03/07/2026 2:20:51 PM	,03/07/2026 2:21:44 PM	,03/07/2026 3:04:15 PM	,03/09/2026 11:34:09 AM	,03/12/2026 11:32:02 AM	,	,Fulfillment by seller,Depósito - Dualis,999880537924230,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,espinola.valdez.c,90086088807	,CAMILA DEL CARMEN ESPINOLA VALDEZ,E******* V***** C***,(+55)119******76,***********,***,*************,***********,São Paulo,SP,Brasil,********	,"E******* V***** C***
+(+55)119******76
+*********** *** ************* ***********
+São Paulo, SP
+********
+Brasil",NF-e valid,,,Product cards,
+582951351256188195	,1188706232944788771	,Concluído,Concluído,,Normal,1733894178353219430	,GALENA-Kit 2 peças Preto / Chocolate-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, GG",Calcinhas,2,0,"BRL 59,90","BRL 119,80","BRL 0,00","BRL 81,82","BRL 37,98","BRL 0,00","BRL 12,00","BRL 0,00","BRL 12,00",,"BRL 37,98",Google Pay,,,,03/06/2026 10:13:29 PM	,03/06/2026 10:14:56 PM	,03/08/2026 7:02:44 PM	,03/09/2026 11:34:08 AM	,03/13/2026 11:31:06 AM	,	,Fulfillment by seller,Depósito - Dualis,999880546356894,Shipped via platform,Entrega padrão,0.6,J&T Express Brazil,isabele.leal14,52343816840	,ISABELE DA SILVA LEAL,I****** L***,(+55)199******00,***************************,****,*******************,**************,Hortolândia,SP,Brasil,********	,"I****** L***
+(+55)199******00
+*************************** **** ******************* **************
+Hortolândia, SP
+********
+Brasil",NF-e valid,,,Videos,mamae_creator
+582950069709407961	,1188566548803127001	,Concluído,Concluído,,Normal,1733894232181802854	,CG-K3-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, GG",Calcinhas,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 16,50","BRL 23,49","BRL 2,00","BRL 12,00","BRL 0,00","BRL 10,00",,"BRL 25,49",Pix,,,,03/06/2026 7:43:14 PM	,03/06/2026 7:43:50 PM	,03/07/2026 1:39:29 PM	,03/09/2026 11:34:08 AM	,03/17/2026 11:57:05 AM	,	,Fulfillment by seller,Depósito - Dualis,999880541986368,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,senaria_barros,05357242330	,SENARIA BARROS BEZERRA,s******,(+55)349******95,*****************,***,********************,*************,São Gotardo,MG,Brasil,********	,"s******
+(+55)349******95
+***************** *** ******************** *************
+São Gotardo, MG
+********
+Brasil",NF-e valid,,,Product cards,
+582948568713430582	,1188557954163443254	,Concluído,Concluído,,Normal,1733956031291033446	,FIO-KIT5,"Kit 3 ou 5 Peças | Calcinha Tanga Fio Dental | Conforto, Leveza e sexy Discreta","Kit 5 Peças - TAMANHO ÚNICO, sortidas",Calcinhas,1,0,"BRL 29,99","BRL 29,99","BRL 0,00","BRL 14,00","BRL 15,99","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 15,99",Pix,,,,03/06/2026 3:29:06 PM	,03/06/2026 3:29:56 PM	,03/06/2026 6:26:55 PM	,03/07/2026 9:16:40 AM	,03/09/2026 1:16:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999880538048957,Shipped via platform,Entrega padrão,0.2,J&T Express Brazil,benne.soares190902,45067911859	,BENEDITA SOARES PEREIRA,B******* s***** p******,(+55)119******71,***********************,***,*****************,****,Casa Branca,SP,Brasil,********	,"B******* s***** p******
+(+55)119******71
+*********************** *** ***************** ****
+Casa Branca, SP
+********
+Brasil",NF-e valid,,,Product cards,
+582941155394815938	,1188512686044186562	,Concluído,Concluído,,Normal,1733894178352629606	,GALENA-1 unidade - Preto-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Preto, GG",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 0,00","BRL 16,41","BRL 13,49","BRL 9,60","BRL 9,60","BRL 0,00","BRL 0,00",,"BRL 23,09",Pix,,,,03/06/2026 6:31:06 AM	,03/06/2026 6:32:01 AM	,03/06/2026 7:10:05 AM	,03/06/2026 2:21:32 PM	,03/07/2026 1:42:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999880534449092,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,00001rafa,10741177781	,CLAUDIA CRISTINA OLIVEIRA DA SILVA FERREIRA,r*******,(+55)219******54,********************************************,***,***********,********************************************,São Gonçalo,RJ,Brasil,********	,"r*******
+(+55)219******54
+******************************************** *** *********** ********************************************
+São Gonçalo, RJ
+********
+Brasil",NF-e valid,,,Videos,mamae_creator
+582933220559258970	,1188435597652690266	,Concluído,Concluído,,Normal,1733894178352957286	,GALENA-Kit 2 unidades - Preto-G,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 unidades - Preto, G",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 40,91","BRL 18,99","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 18,99",Parcelamento de cartão de crédito,,,,03/05/2026 9:07:00 PM	,03/05/2026 9:07:07 PM	,03/06/2026 7:10:05 AM	,03/06/2026 2:21:33 PM	,03/09/2026 3:53:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999880535749446,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,lucienerosacoutinho,14697342739	,LUCIENE ROSA COUTINHO,L****** R*** c*******,(+55)219******88,**********************,***,**********,****,São Gonçalo,RJ,Brasil,********	,"L****** R*** c*******
+(+55)219******88
+********************** *** ********** ****
+São Gonçalo, RJ
+********
+Brasil",NF-e valid,,,Videos,mamae_creator
+582932592612247084	,1188430870123677228	,Concluído,Concluído,,Normal,1733894178352695142	,GALENA-1 unidade - Chocolate-M,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Chocolate, M",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 0,00","BRL 16,41","BRL 13,49","BRL 0,00","BRL 10,80","BRL 0,00","BRL 10,80",,"BRL 13,49",Pix,,,,03/05/2026 7:52:44 PM	,03/05/2026 7:53:39 PM	,03/06/2026 7:10:05 AM	,03/06/2026 2:21:33 PM	,03/10/2026 12:24:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999880532055705,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,jaquelineapareci123,77376951920	,JAQUELINE APARECIDA DE OLIVEIRA,J******** A******** d* O,(+55)439******23,**************,***,*****,****,Florestópolis,PR,Brasil,********	,"J******** A******** d* O
+(+55)439******23
+************** *** ***** ****
+Florestópolis, PR
+********
+Brasil",NF-e valid,,,Product cards,
+582932042978789319	,1188427502842841031	,Concluído,Concluído,,Normal,1733894178352826214	,GALENA-1 unidade - Chocolate-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Chocolate, GG",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 0,00","BRL 16,41","BRL 13,49","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 14,29",Pix,,,,03/05/2026 6:40:45 PM	,03/05/2026 6:42:57 PM	,03/05/2026 7:03:32 PM	,03/06/2026 2:21:33 PM	,03/09/2026 1:54:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999880532024769,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,paula.roberta163,38386533862	,PAULA ROBERTA DE OLIVEIRA,P**** R******,(+55)169******73,*****************,***,******,*****************,Morro Agudo,SP,Brasil,********	,"P**** R******
+(+55)169******73
+***************** *** ****** *****************
+Morro Agudo, SP
+********
+Brasil",NF-e valid,,,Product cards,
+582931155729418237	,1188422999020505085	,Concluído,Concluído,,Normal,1733894232181802854	,CG-K3-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, GG",Calcinhas,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 16,50","BRL 23,49","BRL 9,60","BRL 9,60","BRL 0,00","BRL 0,00",,"BRL 33,09",Pix,,,,03/05/2026 3:55:21 PM	,03/05/2026 3:56:32 PM	,03/05/2026 6:42:06 PM	,03/06/2026 2:21:32 PM	,03/09/2026 1:24:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999880530621407,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,encontreiemdeus,41199264865	,MONICA FRANCISCA DA SILVA IZA,M***** F******** d* S**** I**,(+55)199******01,****************,****,******,****,Limeira,SP,Brasil,********	,"M***** F******** d* S**** I**
+(+55)199******01
+**************** **** ****** ****
+Limeira, SP
+********
+Brasil",NF-e valid,,,Product cards,
+582930405887084431	,1188418380940937103	,Concluído,Concluído,,Normal,1733894178352957286	,GALENA-Kit 2 unidades - Preto-G,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 unidades - Preto, G",Calcinhas,2,0,"BRL 59,90","BRL 119,80","BRL 0,00","BRL 81,82","BRL 37,98","BRL 2,00","BRL 12,00","BRL 0,00","BRL 10,00",,"BRL 39,98",Parcelamento de cartão de crédito,,,,03/05/2026 2:05:58 PM	,03/05/2026 2:06:06 PM	,03/05/2026 6:42:06 PM	,03/06/2026 2:21:33 PM	,03/10/2026 10:23:20 AM	,	,Fulfillment by seller,Depósito - Dualis,999880504489264,Shipped via platform,Entrega padrão,0.6,J&T Express Brazil,amandahoffmann10,11252346956	,AMANDA DA SILVA HOFFMANN,A***** H*******,(+55)429******32,*****************,***,*********,****,Ponta Grossa,PR,Brasil,********	,"A***** H*******
+(+55)429******32
+***************** *** ********* ****
+Ponta Grossa, PR
+********
+Brasil",NF-e valid,,,Videos,mamae_creator
+582930347890213941	,1188417981134242869	,Concluído,Concluído,,Normal,1733894232181737318	,CG-K3-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, G",Calcinhas,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 16,00","BRL 23,99","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 23,99",Pix,,,,03/05/2026 1:55:46 PM	,03/05/2026 2:00:03 PM	,03/05/2026 6:42:06 PM	,03/06/2026 2:21:33 PM	,03/08/2026 11:34:01 AM	,	,Fulfillment by seller,Depósito - Dualis,999880534568787,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,emily_soophia12,38234570803	,ROSANA PERES DE FREITAS,E**** S***** F****** B****,(+55)199******56,**********************,***,***************,**********************,Elias Fausto,SP,Brasil,********	,"E**** S***** F****** B****
+(+55)199******56
+********************** *** *************** **********************
+Elias Fausto, SP
+********
+Brasil",NF-e valid,,,Product cards,
+582917533942056030	,1188317667099182174	,Concluído,Concluído,,Normal,1733894178352957286	,GALENA-Kit 2 unidades - Preto-G,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 unidades - Preto, G",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 40,91","BRL 18,99","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 19,79",Pix,,,,03/04/2026 11:27:29 PM	,03/04/2026 11:28:15 PM	,03/05/2026 6:42:06 PM	,03/06/2026 2:21:33 PM	,03/12/2026 7:51:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999880531661625,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,daygoncalves17,38144928890	,DAYANE SANTOS GONCALVES,D***** G********,(+55)189******20,******************,***,**********************************,**********************,Salto,SP,Brasil,********	,"D***** G********
+(+55)189******20
+****************** *** ********************************** **********************
+Salto, SP
+********
+Brasil",NF-e valid,,,Product cards,
+582912164020913264	,1188277471828673648	,Concluído,Concluído,,Normal,1733894178353022822	,GALENA-Kit 2 unidades - Preto-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 unidades - Preto, GG",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 40,91","BRL 18,99","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 19,79",Pix,,,,03/04/2026 12:40:37 PM	,03/04/2026 12:42:24 PM	,03/04/2026 6:43:39 PM	,03/05/2026 11:47:09 AM	,03/07/2026 11:59:02 AM	,	,Fulfillment by seller,Depósito - Dualis,999880530155346,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,raquelalves972,37451542823	,RAQUEL APARECIDA ALVES DE SIQUEIRA,R***** A****,(+55)119******13,************,**,****************,************,Itupeva,SP,Brasil,********	,"R***** A****
+(+55)119******13
+************ ** **************** ************
+Itupeva, SP
+********
+Brasil",NF-e valid,,,Videos,mamae_creator
+582907824966304828	,1188253183832917052	,Concluído,Concluído,,Normal,1733956031291033446	,FIO-KIT5,"Kit 3 ou 5 Peças | Calcinha Tanga Fio Dental | Conforto, Leveza e sexy Discreta","Kit 5 Peças - TAMANHO ÚNICO, sortidas",Calcinhas,1,0,"BRL 29,99","BRL 29,99","BRL 0,00","BRL 14,00","BRL 15,99","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 15,99",Apple Pay,,,,03/04/2026 8:29:19 AM	,03/04/2026 8:29:23 AM	,03/04/2026 6:43:39 PM	,03/05/2026 11:47:10 AM	,03/07/2026 9:38:01 AM	,	,Fulfillment by seller,Depósito - Dualis,999880530113325,Shipped via platform,Entrega padrão,0.2,J&T Express Brazil,gabi_rlopes,70195852648	,GABRIELA RODRIGUES LOPES DE PAULA,G******* R********,(+55)319******98,*******************************,***,**************,***************,Belo Horizonte,MG,Brasil,********	,"G******* R********
+(+55)319******98
+******************************* *** ************** ***************
+Belo Horizonte, MG
+********
+Brasil",NF-e valid,,,Product cards,
+582896106620880434	,1188147246289225266	,Concluído,Concluído,,Normal,1733894178353153894	,GALENA-Kit 2 peças Preto / Chocolate-G,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, G",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 40,91","BRL 18,99","BRL 9,60","BRL 9,60","BRL 0,00","BRL 0,00",,"BRL 28,59",Pix,,,,03/03/2026 3:14:54 PM	,03/03/2026 3:19:07 PM	,03/03/2026 6:06:40 PM	,03/04/2026 11:19:05 AM	,03/05/2026 4:10:14 PM	,	,Fulfillment by seller,Depósito - Dualis,999880525070054,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,07karollyneviana,18886222700	,KAROLLYNE SILVA DE PAULA,N****************** V****,(+55)229******59,****************,***,*****,***************,Nova Iguaçu,RJ,Brasil,********	,"N****************** V****
+(+55)229******59
+**************** *** ***** ***************
+Nova Iguaçu, RJ
+********
+Brasil",NF-e valid,,,Product cards,
+582895254501689257	,1188141432530175913	,Concluído,Concluído,,Normal,1733894178352629606	,GALENA-1 unidade - Preto-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Preto, GG",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 0,00","BRL 16,41","BRL 13,49","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 14,29",Pix,,,,03/03/2026 1:34:26 PM	,03/03/2026 1:35:20 PM	,03/03/2026 6:06:40 PM	,03/04/2026 11:19:06 AM	,03/10/2026 11:54:04 AM	,	,Fulfillment by seller,Depósito - Dualis,999880524030788,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,lucineiasilva3023,40217552846	,LUCINEIA RICARDO DA SILVA,l****************,(+55)189******66,********************,***,******,****,Glicério,SP,Brasil,********	,"l****************
+(+55)189******66
+******************** *** ****** ****
+Glicério, SP
+********
+Brasil",NF-e valid,,,Videos,mamae_creator
+582876808625489826	,1188001697636321186	,Concluído,Concluído,,Normal,1733894178353088358	,GALENA-Kit 2 peças Preto / Chocolate-M,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, M",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 40,91","BRL 18,99","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 18,99",Pix,,,,03/02/2026 4:26:49 PM	,03/02/2026 4:27:55 PM	,03/02/2026 6:30:57 PM	,03/03/2026 12:12:31 PM	,03/05/2026 11:51:02 AM	,	,Fulfillment by seller,Depósito - Dualis,999880519867298,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,larissasjlv4,50873258827	,LARISSA SILVA,L****** S****,(+55)119******44,*********,***,*************,*********,Osasco,SP,Brasil,********	,"L****** S****
+(+55)119******44
+********* *** ************* *********
+Osasco, SP
+********
+Brasil",NF-e valid,,,Product cards,
+582876763615495234	,1188001365408121922	,Concluído,Concluído,,Normal,1733894232181802854	,CG-K3-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, GG",Calcinhas,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 16,00","BRL 23,99","BRL 29,90","BRL 29,90","BRL 0,00","BRL 0,00",,"BRL 53,89",Pix,,,,03/02/2026 4:19:45 PM	,03/02/2026 4:20:53 PM	,03/02/2026 6:30:35 PM	,03/03/2026 12:12:31 PM	,03/10/2026 8:23:01 PM	,	,Fulfillment by seller,Depósito - Dualis,999880519761806,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,ingridnunesdas,04665577102	,INGRID NUNES DA SILVA,I***** N**** d* S****,(+55)639******44,*****************,**,**************,***************************,Natividade,TO,Brasil,********	,"I***** N**** d* S****
+(+55)639******44
+***************** ** ************** ***************************
+Natividade, TO
+********
+Brasil",NF-e valid,,,Product cards,
+582856833893172452	,1187840878658684132	,Concluído,Concluído,,Normal,1733894232182130534	,CG-K5-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, XG",Calcinhas,1,0,"BRL 49,99","BRL 49,99","BRL 4,16","BRL 21,50","BRL 24,33","BRL 12,00","BRL 12,00","BRL 0,00","BRL 0,00",,"BRL 36,33",Pix,,,,03/01/2026 1:54:33 PM	,03/01/2026 1:55:25 PM	,03/01/2026 3:04:47 PM	,03/02/2026 11:07:55 AM	,03/04/2026 12:57:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999880511055113,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,ludmila.souza94,14152573619	,LUDMILA APARECIDA BATISTA DE SOUZA,L****** S****,(+55)329******16,************************,**,******,************************,Ubá,MG,Brasil,********	,"L****** S****
+(+55)329******16
+************************ ** ****** ************************
+Ubá, MG
+********
+Brasil",NF-e valid,,,Product cards,

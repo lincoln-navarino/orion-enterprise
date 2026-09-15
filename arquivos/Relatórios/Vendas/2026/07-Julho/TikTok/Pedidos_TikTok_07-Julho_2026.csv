@@ -1,0 +1,985 @@
+﻿Order ID,Package ID,Order Status,Order Substatus,Cancelation/Return Type,Normal or Pre-order,SKU ID,Seller SKU,Product Name,Variation,Product Category,Quantity,Sku Quantity of return,SKU Unit Original Price,SKU Subtotal Before Discount,SKU Platform Discount,SKU Seller Discount,SKU Subtotal After Discount,Shipping Fee After Discount,Original Shipping Fee,Shipping Fee Seller Discount,Shipping Fee Platform Discount,Payment platform discount,Order Amount,Payment Method,Order Refund Amount,Cancel By,Cancel Reason,Created Time,Paid Time,RTS Time,Shipped Time,Delivered Time,Cancelled Time,Fulfillment Type,Warehouse Name,Tracking ID,Delivery Option Type,Delivery Option,Weight(kg),Shipping Provider Name,Buyer Username,CPF Number,CPF Name,Recipient,Phone #,Street Name,Street Number,Neighborhood,House Name or Number,City,State,Country,Zipcode,Shipping Information,Invoice Status,Buyer Message,Seller Note,Order Channel,Creator Handle
+585285338477462655	,1205437696612271231	,Concluído,Concluído,Return/Refund,Normal,1733894232181802854	,CG-K3-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, GG",Lingerie,1,1,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 13,09","BRL 26,90","BRL 0,00","BRL 7,20","BRL 0,00","BRL 7,20",,"BRL 26,90",Pix,"BRL 26,90",,,07/30/2026 8:23:48 AM	,07/30/2026 8:24:30 AM	,07/30/2026 1:27:22 PM	,07/31/2026 10:27:03 AM	,08/02/2026 4:20:01 PM	,	,Fulfillment by seller,Depósito - Dualis,999881557197449,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,andrieledri3,35098530830	,ANDRIELE PERES MOMESSO,Andriele Dri,(+55)119******30,Rua Jaboticabal,189,Cidade Soberana,Rua Jaboticabal,Guarulhos,SP,Brasil,07161200	,"Andriele Dri
+(+55)119******30
+Rua Jaboticabal 189 Cidade Soberana Rua Jaboticabal
+Guarulhos, SP
+07161200
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+585275904667715445	,1205354887799605109	,Concluído,Concluído,Return/Refund,Normal,1733894232181671782	,CG-K3-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, M",Lingerie,1,1,"BRL 39,99","BRL 39,99","BRL 5,00","BRL 13,09","BRL 21,90","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 21,90",Pix,"BRL 21,90",,,07/29/2026 8:33:43 PM	,07/29/2026 8:50:22 PM	,07/29/2026 8:57:21 PM	,07/31/2026 10:26:32 AM	,08/03/2026 12:45:04 PM	,	,Fulfillment by seller,Depósito - Dualis,999881550921510,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,ama8909,14513924608	,AMANDA ALVES LIMA,Amanda Lima Alves,(+55)319******36,Rua Mariana Oliveira Tavares,168,Ouro Preto,casa,Belo Horizonte,MG,Brasil,31320360	,"Amanda Lima Alves
+(+55)319******36
+Rua Mariana Oliveira Tavares 168 Ouro Preto casa
+Belo Horizonte, MG
+31320360
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+585251257733317781	,1205192484823925909	,Concluído,Concluído,Return/Refund,Normal,1733894178353088358	,GALENA-Kit 2 peças Preto / Chocolate-M,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, M",Calcinhas,1,1,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 30,00","BRL 29,90","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 29,90",Pix,"BRL 29,90",,,07/28/2026 7:16:21 AM	,07/28/2026 7:19:18 AM	,07/28/2026 7:27:20 AM	,07/29/2026 10:45:06 AM	,07/31/2026 3:39:04 PM	,	,Fulfillment by seller,Depósito - Dualis,999881537360551,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,dani.marto,34170249860	,DANIELA MARTO LEMOS DA SILVA,Dani Marto,(+55)119******21,Rua Jundiapeba,97,Jardim do Vale,casa 97 A em frente ao 102,Itaquaquecetuba,SP,Brasil,08595570	,"Dani Marto
+(+55)119******21
+Rua Jundiapeba 97 Jardim do Vale casa 97 A em frente ao 102
+Itaquaquecetuba, SP
+08595570
+Brasil",NF-e valid,,,Product cards,
+585250600158332926	,1205187703087990782	,Concluído,Concluído,,Normal,1733894232181737318	,CG-K3-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, G",Lingerie,2,0,"BRL 39,99","BRL 79,98","BRL 0,00","BRL 26,18","BRL 53,80","BRL 0,00","BRL 9,20","BRL 0,00","BRL 9,20",,"BRL 53,80",Pix,,,,07/28/2026 6:23:58 AM	,07/28/2026 6:24:46 AM	,07/28/2026 6:32:20 AM	,07/29/2026 10:45:33 AM	,07/30/2026 6:46:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881537324732,Shipped via platform,Entrega padrão,0.6,J&T Express Brazil,laissantos020,20753794756	,LAIS BEZERRA DA SILVA,Lais Santos,(+55)219******52,"Avenida Otávio malta, condomínio residencial vila carioca",1201,Anil,"Vl 4, bloco 4 apt 103",Rio de Janeiro,RJ,Brasil,22755054	,"Lais Santos
+(+55)219******52
+Avenida Otávio malta, condomínio residencial vila carioca 1201 Anil Vl 4, bloco 4 apt 103
+Rio de Janeiro, RJ
+22755054
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+585237790593811824	,1205091429887018352	,Concluído,Concluído,,Normal,1733894232182064998	,CG-K5-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, GG",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 10,09","BRL 39,90","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 39,90",Pix,,,,07/27/2026 10:37:14 AM	,07/27/2026 10:38:08 AM	,07/27/2026 10:42:21 AM	,07/28/2026 9:12:31 AM	,07/30/2026 10:36:03 AM	,	,Fulfillment by seller,Depósito - Dualis,999881529727558,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,thaiis0198,48828978813	,TAIS GONCALVES SOARES,Tais Gonçalves,(+55)199******80,Rua Jorge de Figueiredo Corrêa,1727,Chácara Primavera,Varejão,Campinas,SP,Brasil,13087490	,"Tais Gonçalves
+(+55)199******80
+Rua Jorge de Figueiredo Corrêa 1727 Chácara Primavera Varejão
+Campinas, SP
+13087490
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+585235143034111955	,1205073918948313043	,Concluído,Concluído,,Normal,1733894232181868390	,CG-K3-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, XG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 13,09","BRL 26,90","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 26,90",Pix,,,,07/27/2026 7:33:56 AM	,07/27/2026 7:35:21 AM	,07/27/2026 7:42:21 AM	,07/28/2026 9:12:31 AM	,07/30/2026 1:50:06 PM	,	,Fulfillment by seller,Depósito - Dualis,999881525330234,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,michelle.crispim1,13122992663	,MICHELLE CRISPIM DA SILVA,Michelle crispim,(+55)319******25,Rua Benício Lopes Rosado,21,Vereda,casa,Ribeirão das Neves,MG,Brasil,33822513	,"Michelle crispim
+(+55)319******25
+Rua Benício Lopes Rosado 21 Vereda casa
+Ribeirão das Neves, MG
+33822513
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+585232156237596459	,1205049606061000491	,Concluído,Concluído,,Normal,1733894232181999462	,CG-K5-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, G",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 10,09","BRL 39,90","BRL 0,00","BRL 6,10","BRL 0,00","BRL 6,10",,"BRL 39,90",Pix,,,,07/27/2026 4:08:11 AM	,07/27/2026 4:09:16 AM	,07/27/2026 4:12:20 AM	,07/28/2026 9:12:31 AM	,07/30/2026 10:01:02 AM	,	,Fulfillment by seller,Depósito - Dualis,999881524182784,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,dboracarolinealve7,54442088810	,DEBORA CAROLINE ALVES VIEIRA,Debora Cantora,(+55)119******07,Rua Flor do Ipê,40,Conjunto Habitacional 120 Casas,casa,Carapicuíba,SP,Brasil,06390443	,"Debora Cantora
+(+55)119******07
+Rua Flor do Ipê 40 Conjunto Habitacional 120 Casas casa
+Carapicuíba, SP
+06390443
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+585224788134757816	,1204978890955654584	,Concluído,Concluído,,Normal,1733894232182064998	,CG-K5-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, GG",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 10,09","BRL 39,90","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 39,90",Pix,,,,07/26/2026 5:36:33 PM	,07/26/2026 5:37:10 PM	,07/26/2026 5:42:21 PM	,07/27/2026 10:51:33 AM	,07/29/2026 2:19:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881519873513,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,manuuhzinhaavieira,10628603908	,EMANUELLE VIEIRA DE OLIVEIRA,manuuhzinhaavieira,(+55)419******02,Rua Aurora do Carmo dos Santos,61,Jardim Amélia,Rua Aurora do Carmo dos Santos,Pinhais,PR,Brasil,83330266	,"manuuhzinhaavieira
+(+55)419******02
+Rua Aurora do Carmo dos Santos 61 Jardim Amélia Rua Aurora do Carmo dos Santos
+Pinhais, PR
+83330266
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+585224329317549969	,1204976822611445649	,Concluído,Concluído,,Normal,1733894232181671782	,CG-K3-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, M",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,99","BRL 13,09","BRL 25,91","BRL 7,10","BRL 7,10","BRL 0,00","BRL 0,00",,"BRL 33,01",Pix,,,,07/26/2026 3:42:06 PM	,07/26/2026 3:52:07 PM	,07/26/2026 3:57:21 PM	,07/27/2026 10:51:04 AM	,07/28/2026 7:15:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881519499858,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,leeh_cardoso0,18838106711	,LETHICIA AMANDA CARDOSO DA CONCEICAO,Alan Lourenço,(+55)219******52,Rua Balbina,208,Quintino Bocaiúva,Portão com escada cinza,Rio de Janeiro,RJ,Brasil,20740000	,"Alan Lourenço
+(+55)219******52
+Rua Balbina 208 Quintino Bocaiúva Portão com escada cinza
+Rio de Janeiro, RJ
+20740000
+Brasil",NF-e valid,,,Product cards,
+585223967627052823	,1204974547494536983	,Concluído,Concluído,,Normal,1733894232181671782	,CG-K3-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, M",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 13,09","BRL 26,90","BRL 0,00","BRL 9,20","BRL 0,00","BRL 9,20",,"BRL 26,90",Pix,,,,07/26/2026 2:38:03 PM	,07/26/2026 2:38:38 PM	,07/26/2026 2:42:21 PM	,07/27/2026 10:51:03 AM	,07/29/2026 10:20:03 AM	,	,Fulfillment by seller,Depósito - Dualis,999881518528877,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,vix.sxz4,149.756.917.60	,CLAUDIA LAURENCO DIAS,vix.sxz4,(+55)279******00,avenida Getúlio Vargas,112,campo grande,salão Adriana dias bem estar,Cariacica,ES,Brasil,29146070	,"vix.sxz4
+(+55)279******00
+avenida Getúlio Vargas 112 campo grande salão Adriana dias bem estar
+Cariacica, ES
+29146070
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+585211789090850107	,1204906157213582651	,Concluído,Concluído,,Normal,1733894232181868390	,CG-K3-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, XG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 3,00","BRL 13,09","BRL 23,90","BRL 7,20","BRL 7,20","BRL 0,00","BRL 0,00",,"BRL 31,10",Pix,,,,07/26/2026 12:46:56 AM	,07/26/2026 12:50:21 AM	,07/26/2026 12:57:20 AM	,07/27/2026 10:51:32 AM	,07/29/2026 5:53:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881513461048,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,iancacardoso73,42780929898	,IANCA DO NASCIMENTO CARDOSO,Ianca,(+55)119******29,Rua Morioka,18,Jardim Angélica,Rua Morioka,Carapicuíba,SP,Brasil,06365595	,"Ianca
+(+55)119******29
+Rua Morioka 18 Jardim Angélica Rua Morioka
+Carapicuíba, SP
+06365595
+Brasil",NF-e valid,,,Product cards,
+585210616006084410	,1204898115817604922	,Concluído,Concluído,,Normal,1733956159950128998	,CMA-1UN-G-Bege,Cinta Modeladora Alta Compressão Cós Duplo - Não Enrola Confortável | Dualis,"G, Bege",Calcinhas,1,0,"BRL 27,97","BRL 27,97","BRL 0,00","BRL 8,07","BRL 19,90","BRL 0,30","BRL 20,30","BRL 0,00","BRL 20,00",,"BRL 20,20",Pix,,,,07/25/2026 11:31:17 PM	,07/25/2026 11:32:48 PM	,07/26/2026 6:22:20 PM	,07/27/2026 10:51:33 AM	,07/30/2026 2:15:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881515127505,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,meire.reis956,02549211162	,QUITERIA JUCIMEIRE DOS REIS,Meire Reis,(+55)619******99,Quadra QC 06,303,Cidade Jardins,bloco o1 cond belle giardino,Valparaíso de Goiás,GO,Brasil,72878330	,"Meire Reis
+(+55)619******99
+Quadra QC 06 303 Cidade Jardins bloco o1 cond belle giardino
+Valparaíso de Goiás, GO
+72878330
+Brasil",NF-e valid,,,Product cards,
+585206175657985369	,1204871640119936345	,Concluído,Concluído,,Normal,1733894232181868390	,CG-K3-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, XG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 13,09","BRL 26,90","BRL 0,00","BRL 7,20","BRL 0,00","BRL 7,20",,"BRL 26,90",Pix,,,,07/25/2026 1:20:44 PM	,07/25/2026 1:23:22 PM	,07/25/2026 1:27:21 PM	,07/27/2026 10:51:32 AM	,07/29/2026 3:38:05 PM	,	,Fulfillment by seller,Depósito - Dualis,999881514317791,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,glauciabarros01,38761299820	,GLAUCIA PESSOA DE BARROS,Glaucia Barros,(+55)119******28,Rua Lorenzo Massa,460,Cidade São Mateus,casa 3,São Paulo,SP,Brasil,03966050	,"Glaucia Barros
+(+55)119******28
+Rua Lorenzo Massa 460 Cidade São Mateus casa 3
+São Paulo, SP
+03966050
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+585190031249540140	,1204757479215236140	,Concluído,Concluído,,Normal,1733894232181671782	,CG-K3-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, M",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 5,00","BRL 13,09","BRL 21,90","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 21,90",Pix,,,,07/24/2026 3:04:58 PM	,07/24/2026 3:05:40 PM	,07/24/2026 3:12:20 PM	,07/25/2026 12:10:32 PM	,07/27/2026 12:23:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881508630348,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,laurinhamendess,57513496870	,LAURA MENDES DOS SANTOS,laura,(+55)169******87,Avenida Jandyra Pereira Corrêa Silva,197,Nova Cidade,casa frente,Matão,SP,Brasil,15991526	,"laura
+(+55)169******87
+Avenida Jandyra Pereira Corrêa Silva 197 Nova Cidade casa frente
+Matão, SP
+15991526
+Brasil",NF-e valid,,,Product cards,
+585182952453539110	,1204720065369310502	,Concluído,Concluído,,Normal,1733894232181868390	,CG-K3-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, XG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 13,09","BRL 26,90","BRL 0,00","BRL 4,60","BRL 0,00","BRL 4,60",,"BRL 26,90",Pix,,,,07/24/2026 6:36:38 AM	,07/24/2026 6:37:40 AM	,07/24/2026 6:42:20 AM	,07/25/2026 12:10:32 PM	,07/26/2026 2:30:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881499207043,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,viickjhonatan,21798388758	,VITORIA CRISTINA DE OLIVEIRA DUTRA,viickjhonatan,(+55)219******76,Rua Presidente Vargas,524,Comendador Soares,casa,Nova Iguaçu,RJ,Brasil,26280420	,"viickjhonatan
+(+55)219******76
+Rua Presidente Vargas 524 Comendador Soares casa
+Nova Iguaçu, RJ
+26280420
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+585174097541301375	,1204644274852562047	,Concluído,Concluído,,Normal,1733894178352957286	,GALENA-Kit 2 unidades - Preto-G,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 unidades - Preto, G",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 1,46","BRL 30,00","BRL 28,44","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 29,24",Pix,,,,07/23/2026 7:24:20 PM	,07/23/2026 7:26:00 PM	,07/23/2026 7:32:21 PM	,07/25/2026 12:10:32 PM	,07/29/2026 1:17:07 PM	,	,Fulfillment by seller,Depósito - Dualis,999881497345592,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,crevah.santos,06248923957	,CLEVANIR ALVES DOS SANTOS,Crevah Santos,(+55)439******07,rua das pedreiras,297,vila pavão,rua das pedreiras,Jataizinho,PR,Brasil,86210160	,"Crevah Santos
+(+55)439******07
+rua das pedreiras 297 vila pavão rua das pedreiras
+Jataizinho, PR
+86210160
+Brasil",NF-e valid,,,Product cards,
+585159462994543697	,1204539620506305617	,Concluído,Concluído,,Normal,1733894232181868390	,CG-K3-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, XG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 13,09","BRL 26,90","BRL 0,00","BRL 7,20","BRL 0,00","BRL 7,20",,"BRL 26,90",Pix,,,,07/22/2026 10:17:00 PM	,07/22/2026 10:17:54 PM	,07/22/2026 10:22:21 PM	,07/24/2026 10:57:05 AM	,07/26/2026 11:59:02 AM	,	,Fulfillment by seller,Depósito - Dualis,999881492686378,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,pretoonna,39505487851	,VANESSA SOUZA COSTA,Vanessa,(+55)119******55,Rua Alexandre Artot,321,Jardim Rodolfo Pirani,Bloco A3 Apt 23,São Paulo,SP,Brasil,08310015	,"Vanessa
+(+55)119******55
+Rua Alexandre Artot 321 Jardim Rodolfo Pirani Bloco A3 Apt 23
+São Paulo, SP
+08310015
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+585158343396853302	,1204528740928882230	,Concluído,Concluído,,Normal,1733894178352498534	,GALENA-1 unidade - Preto-M,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Preto, M",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 1,04","BRL 11,00","BRL 17,86","BRL 10,30","BRL 20,30","BRL 0,00","BRL 10,00",,"BRL 28,16",Pix,,,,07/22/2026 8:23:35 PM	,07/22/2026 8:24:22 PM	,07/22/2026 8:32:21 PM	,07/24/2026 10:57:05 AM	,07/27/2026 6:54:05 PM	,	,Fulfillment by seller,Depósito - Dualis,999881480822122,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,isabelsantos727,09511011537	,ISABEL DE SANTANA ARAUJO,isabel  Araújo,(+55)759******62,Rua Cinco casa 150,150,bairro mangabeira,pode ser entregue a Ruan,Feira de Santana,BA,Brasil,44056484	,"isabel  Araújo
+(+55)759******62
+Rua Cinco casa 150 150 bairro mangabeira pode ser entregue a Ruan
+Feira de Santana, BA
+44056484
+Brasil",NF-e valid,,,Product cards,
+585158326419687389	,1204528547841804253	,Concluído,Concluído,Return/Refund,Normal,1733894232182064998	,CG-K5-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, GG",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 10,09","BRL 39,90","BRL 0,00","BRL 8,60","BRL 0,00","BRL 8,60",,"BRL 39,90",Parcelamento de cartão de crédito,,,,07/22/2026 8:21:47 PM	,07/22/2026 8:21:51 PM	,07/22/2026 8:32:21 PM	,07/24/2026 10:57:05 AM	,07/27/2026 9:01:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881485069709,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,yaraaraujo77,04691213198	,YARA MATIAS DE ARAUJO,Yara Araujo,(+55)619******64,Quadra Quadra 801 Conjunto 6,16,Recanto das Emas,Casa,Brasília,DF,Brasil,72650035	,"Yara Araujo
+(+55)619******64
+Quadra Quadra 801 Conjunto 6 16 Recanto das Emas Casa
+Brasília, DF
+72650035
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+585157219758540652	,1204521405319186284	,Concluído,Concluído,,Normal,1733894232181999462	,CG-K5-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, G",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 10,09","BRL 39,90","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 39,90",Pix,,,,07/22/2026 4:26:36 PM	,07/22/2026 4:27:36 PM	,07/22/2026 4:32:20 PM	,07/23/2026 10:53:32 AM	,07/25/2026 10:45:04 AM	,	,Fulfillment by seller,Depósito - Dualis,999881489645626,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,josivania01,05299680538	,JOSIVANIA SANTOS DE SOUZA,Vânia,(+55)199******70,Rua Piramboia,195,Núcleo Residencial Princesa D'Oeste,casa,Campinas,SP,Brasil,13059435	,"Vânia
+(+55)199******70
+Rua Piramboia 195 Núcleo Residencial Princesa D'Oeste casa
+Campinas, SP
+13059435
+Brasil",NF-e valid,,,Videos,
+585157007693940011	,1204519826765153579	,Concluído,Concluído,,Normal,1733894232181868390	,CG-K3-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, XG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 5,00","BRL 13,09","BRL 21,90","BRL 0,00","BRL 7,60","BRL 0,00","BRL 7,60",,"BRL 21,90",Pix,,,,07/22/2026 3:29:12 PM	,07/22/2026 3:29:49 PM	,07/22/2026 3:32:21 PM	,07/23/2026 10:53:33 AM	,07/24/2026 7:56:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881491560177,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,jhuli153,17532856747	,JHULIENE DOS SANTOS DA LUZ,Jhuliene dos Santos da Luz,(+55)219******49,Rua Augusto da Fonseca,s/n,Jardim Catarina,Em frente ao bar amarelo,São Gonçalo,RJ,Brasil,24716140	,"Jhuliene dos Santos da Luz
+(+55)219******49
+Rua Augusto da Fonseca s/n Jardim Catarina Em frente ao bar amarelo
+São Gonçalo, RJ
+24716140
+Brasil",NF-e valid,,,Product cards,
+585151504867558909	,1204494027295065597	,Concluído,Concluído,,Normal,1733955877772494694	,CG-1UN-M-Vermelho,Calcinha Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"M, Vermelho",Calcinhas,1,0,"BRL 19,99","BRL 19,99","BRL 0,00","BRL 3,09","BRL 16,90","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 16,90",Parcelamento de cartão de crédito,,,,07/22/2026 8:33:57 AM	,07/22/2026 8:34:00 AM	,07/22/2026 1:37:21 PM	,07/23/2026 10:53:32 AM	,07/25/2026 2:42:04 PM	,	,Fulfillment by seller,Depósito - Dualis,999881489019592,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,maria.antonia.san036,02935692314	,MARIA ANTONIA SANTOS LIMA PINHEIRO,Maria Antonia Santos Lima,(+55)319******92,Rua Mara Núbia Gonçalves,03,Honório Bicalho,Casa A,Nova Lima,MG,Brasil,34012664	,"Maria Antonia Santos Lima
+(+55)319******92
+Rua Mara Núbia Gonçalves 03 Honório Bicalho Casa A
+Nova Lima, MG
+34012664
+Brasil",NF-e valid,,,Product cards,
+585151516054357501	,1204493322103653885	,Concluído,Concluído,,Normal,1733955877772429158	,CG-1UN-M-Preto,Calcinha Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"M, Preto",Calcinhas,1,0,"BRL 19,99","BRL 19,99","BRL 0,00","BRL 3,09","BRL 16,90","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 16,90",Parcelamento de cartão de crédito,,,,07/22/2026 8:33:19 AM	,07/22/2026 8:33:22 AM	,07/22/2026 1:37:21 PM	,07/23/2026 10:53:32 AM	,07/25/2026 2:42:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881490364348,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,maria.antonia.san036,02935692314	,MARIA ANTONIA SANTOS LIMA PINHEIRO,Maria Antonia Santos Lima,(+55)319******92,Rua Mara Núbia Gonçalves,03,Honório Bicalho,Casa A,Nova Lima,MG,Brasil,34012664	,"Maria Antonia Santos Lima
+(+55)319******92
+Rua Mara Núbia Gonçalves 03 Honório Bicalho Casa A
+Nova Lima, MG
+34012664
+Brasil",NF-e valid,,,Product cards,
+585148387019294590	,1204468154194298750	,Concluído,Concluído,,Normal,1733956159950325606	,CMA-1UN-GG-Bege,Cinta Modeladora Alta Compressão Cós Duplo - Não Enrola Confortável | Dualis,"GG, Bege",Calcinhas,1,0,"BRL 27,97","BRL 27,97","BRL 0,00","BRL 8,07","BRL 19,90","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 19,90",Pix,,,,07/22/2026 4:41:06 AM	,07/22/2026 4:41:54 AM	,07/22/2026 4:47:20 AM	,07/23/2026 10:50:22 AM	,07/25/2026 1:35:06 PM	,	,Fulfillment by seller,Depósito - Dualis,999881484177927,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,ruanita.daiana.va,40529247895	,RUANITA DAIANA VASCONCELLOS,Ruanita Daiana Vasconcellos,(+55)119******82,Rua Mirim,80,Estância Lago Azul,casa,Franco da Rocha,SP,Brasil,07866100	,"Ruanita Daiana Vasconcellos
+(+55)119******82
+Rua Mirim 80 Estância Lago Azul casa
+Franco da Rocha, SP
+07866100
+Brasil",NF-e valid,,,Product cards,
+585143840836061005	,1204429866559375181	,Concluído,Concluído,,Normal,1733894232181671782	,CG-K3-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, M",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 13,09","BRL 26,90","BRL 0,00","BRL 7,20","BRL 0,00","BRL 7,20",,"BRL 26,90",Pix,,,,07/21/2026 11:19:02 PM	,07/21/2026 11:19:59 PM	,07/21/2026 11:27:21 PM	,07/23/2026 10:53:33 AM	,07/25/2026 12:21:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881484176692,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,thais.santos2516,43166460870	,THAIS SANTOS,Thais Santos,(+55)119******06,Rua Laura Godinho,96,Conjunto Residencial Elisio Teixeira Leite,apt 21 bloco B (interfone 221),São Paulo,SP,Brasil,02815140	,"Thais Santos
+(+55)119******06
+Rua Laura Godinho 96 Conjunto Residencial Elisio Teixeira Leite apt 21 bloco B (interfone 221)
+São Paulo, SP
+02815140
+Brasil",NF-e valid,,,Product cards,
+585136192106497255	,1204380212730954983	,Concluído,Concluído,,Normal,1733956159949932390	,CMA-1UN-M-Bege,Cinta Modeladora Alta Compressão Cós Duplo - Não Enrola Confortável | Dualis,"M, Bege",Calcinhas,1,0,"BRL 27,97","BRL 27,97","BRL 0,00","BRL 8,07","BRL 19,90","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 20,70",Pix,,,,07/21/2026 9:48:06 AM	,07/21/2026 9:49:48 AM	,07/21/2026 4:47:20 PM	,07/22/2026 10:43:06 AM	,07/25/2026 11:54:04 AM	,	,Fulfillment by seller,Depósito - Dualis,999881472049529,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,rosana17100,88975452972	,ROSANA OURIQUES,Rosana ouriques,(+55)489******58,Rua Vidal Gregório Pereira,475,Jardim Atlântico,casa fundos,Florianópolis,SC,Brasil,88095030	,"Rosana ouriques
+(+55)489******58
+Rua Vidal Gregório Pereira 475 Jardim Atlântico casa fundos
+Florianópolis, SC
+88095030
+Brasil",NF-e valid,,,Product cards,
+585128980918600890	,1204322511218312378	,Concluído,Concluído,,Normal,1733894232181671782	,CG-K3-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, M",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 13,09","BRL 26,90","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 26,90",Parcelamento de cartão de crédito,,,,07/21/2026 1:01:20 AM	,07/21/2026 1:01:32 AM	,07/21/2026 1:07:21 AM	,07/22/2026 10:42:33 AM	,07/25/2026 1:01:05 PM	,	,Fulfillment by seller,Depósito - Dualis,999881475651023,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,thayla_t,57158186806	,THAYLANE TAWANE LEONARDO DA SILVA,Thaylane Leonardo,(+55)199******22,Rua Princesa Amélia,246,Monte Líbano,Rua Princesa Amélia,Piracicaba,SP,Brasil,13401533	,"Thaylane Leonardo
+(+55)199******22
+Rua Princesa Amélia 246 Monte Líbano Rua Princesa Amélia
+Piracicaba, SP
+13401533
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+585126792002897638	,1204300403193317094	,Concluído,Concluído,,Normal,1733894232181802854	,CG-K3-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, GG",Lingerie,2,0,"BRL 39,99","BRL 79,98","BRL 0,00","BRL 26,18","BRL 53,80","BRL 0,00","BRL 10,80","BRL 0,00","BRL 10,80",,"BRL 58,21",Parcelamento de cartão de crédito,,,,07/20/2026 10:12:01 PM	,07/20/2026 10:12:06 PM	,07/20/2026 10:17:21 PM	,07/22/2026 10:43:06 AM	,07/24/2026 2:16:05 PM	,	,Fulfillment by seller,Depósito - Dualis,999881483590254,Shipped via platform,Entrega padrão,0.6,J&T Express Brazil,eliana.ferreira840,01822708664	,ELIANA FERREIRA SOUZA,Eliana Ferreira,(+55)319******47,Rua Porto Seguro,130,São Pedro,casa,Esmeraldas,MG,Brasil,32809314	,"Eliana Ferreira
+(+55)319******47
+Rua Porto Seguro 130 São Pedro casa
+Esmeraldas, MG
+32809314
+Brasil",NF-e valid,,,Product cards,
+585126370264712612	,1204296369665508772	,Concluído,Concluído,,Normal,1733894232181737318	,CG-K3-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, G",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 13,09","BRL 26,90","BRL 9,60","BRL 9,60","BRL 0,00","BRL 0,00",,"BRL 36,50",Pix,,,,07/20/2026 9:33:38 PM	,07/20/2026 9:34:29 PM	,07/20/2026 9:42:21 PM	,07/22/2026 10:43:07 AM	,07/25/2026 3:33:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881474850283,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,mikelane.santos0,40897867890	,MARIA MIKELANE DA SILVA SANTOS,Mikelane Santos,(+55)199******45,Rua dos Bandeirantes,887,Jardim Bonfim,casa,Itapira,SP,Brasil,13972240	,"Mikelane Santos
+(+55)199******45
+Rua dos Bandeirantes 887 Jardim Bonfim casa
+Itapira, SP
+13972240
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+585125128028128264	,1204287345362764808	,Concluído,Concluído,,Normal,1733894232182130534	,CG-K5-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, XG",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 10,09","BRL 39,90","BRL 9,60","BRL 9,60","BRL 0,00","BRL 0,00",,"BRL 49,50",Parcelamento de cartão de crédito,,,,07/20/2026 6:39:17 PM	,07/20/2026 6:45:47 PM	,07/20/2026 6:52:21 PM	,07/21/2026 10:59:05 AM	,07/23/2026 7:34:01 PM	,	,Fulfillment by seller,Depósito - Dualis,999881473724765,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,prado_jessyka,37847846829	,JESSICA MARIA BATISTA DA SILVA,Jessica Prado,(+55)119******99,Rua Lázaro de Oliveira Bueno,81,Estância Santa Maria do Portão,morro Santa Maria,Atibaia,SP,Brasil,12948174	,"Jessica Prado
+(+55)119******99
+Rua Lázaro de Oliveira Bueno 81 Estância Santa Maria do Portão morro Santa Maria
+Atibaia, SP
+12948174
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+585124823059301836	,1204284836915283404	,Concluído,Concluído,,Normal,1733956159950194534	,CMA-1UN-GG-Preto,Cinta Modeladora Alta Compressão Cós Duplo - Não Enrola Confortável | Dualis,"GG, Preto",Calcinhas,1,0,"BRL 27,97","BRL 27,97","BRL 5,00","BRL 8,07","BRL 14,90","BRL 0,00","BRL 8,20","BRL 0,00","BRL 8,20",,"BRL 14,90",Pix,,,,07/20/2026 4:58:31 PM	,07/20/2026 4:58:59 PM	,07/20/2026 5:07:23 PM	,07/21/2026 4:38:31 PM	,07/22/2026 9:18:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881466643520,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,carolina.correia497,17834535757	,ANA CAROLINA CORREIA CESAR,Carolina Correia,(+55)219******09,Rua Javata,660,Anchieta,rua 2 casa 1,Rio de Janeiro,RJ,Brasil,21655400	,"Carolina Correia
+(+55)219******09
+Rua Javata 660 Anchieta rua 2 casa 1
+Rio de Janeiro, RJ
+21655400
+Brasil",NF-e valid,,,Product cards,
+585124485275682624	,1204282488886626112	,Concluído,Concluído,,Normal,1733894232181999462	,CG-K5-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, G",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 10,09","BRL 39,90","BRL 0,00","BRL 7,10","BRL 0,00","BRL 7,10",,"BRL 39,90",Pix,,,,07/20/2026 3:32:30 PM	,07/20/2026 3:34:33 PM	,07/20/2026 3:42:21 PM	,07/21/2026 10:59:04 AM	,07/22/2026 3:02:04 PM	,	,Fulfillment by seller,Depósito - Dualis,999881465132025,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,amanda2020225,61808974336	,AMANDA RODRIGUES SANTOS,Amanda Santos,(+55)219******58,Rua Camanducaia,314,Campo Grande,casa,Rio de Janeiro,RJ,Brasil,23052140	,"Amanda Santos
+(+55)219******58
+Rua Camanducaia 314 Campo Grande casa
+Rio de Janeiro, RJ
+23052140
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+585124095476859953	,1204280339344426033	,Concluído,Concluído,,Normal,1733894232181475174	,CG-P1-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"1 Unidade, G",Lingerie,1,0,"BRL 19,99","BRL 19,99","BRL 0,00","BRL 5,09","BRL 14,90","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 15,70",Pix,,,,07/20/2026 2:27:02 PM	,07/20/2026 2:27:51 PM	,07/20/2026 2:32:20 PM	,07/21/2026 10:59:04 AM	,07/22/2026 2:42:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881469792239,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,viviane.gomez.cod,07122008789	,VIVIANE GOMES DOS SANTOS,Viviane Gomez Coda,(+55)229******47,Estrada RJ - 138,3,Fazendinha,"Alpha Beach, lote 14, Qd 11",Araruama,RJ,Brasil,28984350	,"Viviane Gomez Coda
+(+55)229******47
+Estrada RJ - 138 3 Fazendinha Alpha Beach, lote 14, Qd 11
+Araruama, RJ
+28984350
+Brasil",NF-e valid,,,Product cards,
+585123338469148544	,1204276050483316608	,Concluído,Concluído,,Normal,1733894232181999462	,CG-K5-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, G",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 10,09","BRL 39,90","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 40,70",Pix,,,,07/20/2026 1:02:26 PM	,07/20/2026 1:03:56 PM	,07/20/2026 1:12:21 PM	,07/21/2026 10:59:04 AM	,07/22/2026 8:38:01 PM	,	,Fulfillment by seller,Depósito - Dualis,999881469591592,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,tatazinha01_,19331090765	,DOUGLAS GONCALVES SILVA,Fernanda,(+55)249******85,Praia Grande,00,Ilha do Araújo,Ilha do Araújo,Paraty,RJ,Brasil,23970000	,"Fernanda
+(+55)249******85
+Praia Grande 00 Ilha do Araújo Ilha do Araújo
+Paraty, RJ
+23970000
+Brasil",NF-e valid,,,Product cards,
+585109999592572764	,1204163117751830364	,Concluído,Concluído,,Normal,1733956159949932390	,CMA-1UN-M-Bege,Cinta Modeladora Alta Compressão Cós Duplo - Não Enrola Confortável | Dualis,"M, Bege",Calcinhas,1,0,"BRL 27,97","BRL 27,97","BRL 0,00","BRL 8,07","BRL 19,90","BRL 0,00","BRL 9,70","BRL 0,00","BRL 9,70",,"BRL 19,90",Pix,,,,07/19/2026 7:55:19 PM	,07/19/2026 7:56:13 PM	,07/19/2026 8:07:21 PM	,07/20/2026 10:49:05 AM	,07/23/2026 10:40:05 AM	,	,Fulfillment by seller,Depósito - Dualis,999881459182754,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,valdirpatricia,06156334980	,PATRICIA FONTONIO,Valdir Patricia,(+55)459******96,Rua Balduíno João Bellé,312,Santa Felicidade,casa dos fundos,Cascavel,PR,Brasil,85803127	,"Valdir Patricia
+(+55)459******96
+Rua Balduíno João Bellé 312 Santa Felicidade casa dos fundos
+Cascavel, PR
+85803127
+Brasil",NF-e valid,,,Product cards,
+585109742449887076	,1204161361053517668	,Concluído,Concluído,,Normal,1733894232181671782	,CG-K3-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, M",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 13,09","BRL 26,90","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 26,90",Pix,,,,07/19/2026 7:04:47 PM	,07/19/2026 7:05:23 PM	,07/19/2026 7:12:21 PM	,07/20/2026 10:49:05 AM	,07/22/2026 3:30:05 PM	,	,Fulfillment by seller,Depósito - Dualis,999881459164373,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,hevellynfreitas94,18220490675	,HEVELLYN MONTALVAO FREITAS,hevellynfreitas94,(+55)349******19,Rua dos Votos,198,Residencial Integração,casa,Uberlândia,MG,Brasil,38407043	,"hevellynfreitas94
+(+55)349******19
+Rua dos Votos 198 Residencial Integração casa
+Uberlândia, MG
+38407043
+Brasil",NF-e valid,,,Product cards,
+585109263187609303	,1204158369950107351	,Concluído,Concluído,,Normal,1733894232181868390	,CG-K3-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, XG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 6,72","BRL 13,09","BRL 20,18","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 20,18",Pix,,,,07/19/2026 4:53:50 PM	,07/19/2026 5:02:51 PM	,07/19/2026 5:07:21 PM	,07/20/2026 10:49:06 AM	,07/21/2026 11:17:02 AM	,	,Fulfillment by seller,Depósito - Dualis,999881458568015,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,cassiakelly60,17650300722	,CASSIA KELLY DOS SANTOS SALGADO FERREIRA,cassiakelly60,(+55)219******46,Travessa Ana Lima,00,Parque São Nicolau,"lote 5, sobrado",São João de Meriti,RJ,Brasil,25530041	,"cassiakelly60
+(+55)219******46
+Travessa Ana Lima 00 Parque São Nicolau lote 5, sobrado
+São João de Meriti, RJ
+25530041
+Brasil",NF-e valid,,,Product cards,
+585109210034767570	,1204157829753964242	,Concluído,Concluído,,Normal,1733894232182130534	,CG-K5-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, XG",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 17,96","BRL 10,09","BRL 21,94","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 21,94",Pix,,,,07/19/2026 4:35:33 PM	,07/19/2026 4:38:11 PM	,07/19/2026 4:42:21 PM	,07/20/2026 10:49:05 AM	,07/23/2026 4:50:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881459822521,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,elisngelaclaudine,12854810970	,KARINE ALVES PEREIRA,Elisângelaclaudineipereira,(+55)429******26,França Viana,392,França viana,casa,Piraí do Sul,PR,Brasil,84240000	,"Elisângelaclaudineipereira
+(+55)429******26
+França Viana 392 França viana casa
+Piraí do Sul, PR
+84240000
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+585107420443412433	,1204148890756745169	,Concluído,Concluído,,Normal,1733894232181671782	,CG-K3-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, M",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 13,09","BRL 26,90","BRL 0,00","BRL 7,20","BRL 0,00","BRL 7,20",,"BRL 26,90",Pix,,,,07/19/2026 12:38:16 PM	,07/19/2026 12:38:59 PM	,07/19/2026 12:42:21 PM	,07/20/2026 10:49:06 AM	,07/23/2026 1:07:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881445371302,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,_oliveiraxxz_1,50511964897	,GABRIEL AUGUSTO BRANDAO MENDES,ana caroliny,(+55)119******57,Rua Astorga,174,Jardim Luciana,casa,Itaquaquecetuba,SP,Brasil,08575650	,"ana caroliny
+(+55)119******57
+Rua Astorga 174 Jardim Luciana casa
+Itaquaquecetuba, SP
+08575650
+Brasil",NF-e valid,,,Product cards,
+585103382930294078	,1204131351441016126	,Concluído,Concluído,,Normal,1733894232181737318	,CG-K3-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, G",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 5,00","BRL 13,09","BRL 21,90","BRL 0,00","BRL 7,20","BRL 0,00","BRL 7,20",,"BRL 21,90",Pix,,,,07/19/2026 8:25:50 AM	,07/19/2026 8:26:52 AM	,07/19/2026 8:32:21 AM	,07/20/2026 10:49:05 AM	,07/22/2026 12:04:05 PM	,	,Fulfillment by seller,Depósito - Dualis,999881454252735,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,marianatorres8371,23645012885	,ANA CAMPOSANO TICA,ana campos,(+55)119******00,Rua Redenção,338,Chácara Tatuapé,Rua Redenção,São Paulo,SP,Brasil,03060010	,"ana campos
+(+55)119******00
+Rua Redenção 338 Chácara Tatuapé Rua Redenção
+São Paulo, SP
+03060010
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+585103197015279028	,1204130829508249012	,Concluído,Concluído,,Normal,1733894232182064998	,CG-K5-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, GG",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 10,09","BRL 39,90","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 40,70",Pix,,,,07/19/2026 8:11:55 AM	,07/19/2026 8:17:20 AM	,07/19/2026 8:22:20 AM	,07/20/2026 10:49:06 AM	,07/27/2026 10:09:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881440537156,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,elianechaves766,01127669001	,ELIANE ELI DA LUZ CHAVES,elianechaves766,(+55)559******71,Av Júlio trois,1660,"Av. Júlio Tróis, 1660",casa,São Borja,RS,Brasil,97670000	,"elianechaves766
+(+55)559******71
+Av Júlio trois 1660 Av. Júlio Tróis, 1660 casa
+São Borja, RS
+97670000
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+585098398766827419	,1204098194647123867	,Concluído,Concluído,,Normal,1733894232182130534	,CG-K5-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, XG",Lingerie,2,0,"BRL 49,99","BRL 99,98","BRL 3,00","BRL 20,18","BRL 76,80","BRL 14,80","BRL 34,80","BRL 0,00","BRL 20,00",,"BRL 91,60",Pix,,,,07/19/2026 2:25:58 AM	,07/19/2026 2:26:55 AM	,07/19/2026 2:32:19 AM	,07/20/2026 10:49:06 AM	,07/29/2026 10:40:01 PM	,	,Fulfillment by seller,Depósito - Dualis,999881456785308,Shipped via platform,Entrega padrão,0.6,J&T Express Brazil,deliciasdajackrr,02663928224	,JACKELINE BRITO GALVAO,Delícias da Jack,(+55)959******38,Rua Brigadeiro-do-Ar Nero Moura,482,Doutor Sílvio Botelho,Rua Brigadeiro-do-Ar Nero Moura,Boa Vista,RR,Brasil,69314490	,"Delícias da Jack
+(+55)959******38
+Rua Brigadeiro-do-Ar Nero Moura 482 Doutor Sílvio Botelho Rua Brigadeiro-do-Ar Nero Moura
+Boa Vista, RR
+69314490
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+585097462368208458	,1204091869690955338	,Concluído,Concluído,,Normal,1733894232181802854	,CG-K3-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, GG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 5,00","BRL 13,09","BRL 21,90","BRL 8,10","BRL 18,10","BRL 0,00","BRL 10,00",,"BRL 30,00",Pix,,,,07/19/2026 1:26:23 AM	,07/19/2026 1:28:09 AM	,07/19/2026 1:32:21 AM	,07/20/2026 10:49:33 AM	,07/25/2026 5:15:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881454878605,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,ariellesantosviei,85894322545	,ARIELLE SANTOS VIEIRA,Arielly,(+55)739******74,Rua bolifa de Almeida,55,Cambolo,Casa ao final da rua da linha.,Porto Seguro,BA,Brasil,45810000	,"Arielly
+(+55)739******74
+Rua bolifa de Almeida 55 Cambolo Casa ao final da rua da linha.
+Porto Seguro, BA
+45810000
+Brasil",NF-e valid,,,Product cards,
+585097173605189532	,1204090325941323676	,Concluído,Concluído,,Normal,1733894232181999462	,CG-K5-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, G",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 10,09","BRL 39,90","BRL 16,90","BRL 16,90","BRL 0,00","BRL 0,00",,"BRL 56,80",Pix,,,,07/19/2026 1:12:02 AM	,07/19/2026 1:12:57 AM	,07/19/2026 1:17:20 AM	,07/20/2026 10:48:33 AM	,07/27/2026 10:46:03 AM	,	,Fulfillment by seller,Depósito - Dualis,999881451251565,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,neia.rodrigues4494,05425653310	,EDINEIA RODRIGUES SERRA SOARES,Neia Rodrigues,(+55)989******97,Travessa Santa Luzia,13,Novo Angelim,casa,São Luís,MA,Brasil,65063540	,"Neia Rodrigues
+(+55)989******97
+Travessa Santa Luzia 13 Novo Angelim casa
+São Luís, MA
+65063540
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+585093587071370506	,1204065636851614986	,Concluído,Concluído,,Normal,1733894232181802854	,CG-K3-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, GG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 13,09","BRL 26,90","BRL 0,00","BRL 7,20","BRL 0,00","BRL 7,20",,"BRL 26,90",Pix,,,,07/18/2026 7:45:36 PM	,07/18/2026 7:46:11 PM	,07/18/2026 7:52:20 PM	,07/20/2026 10:49:05 AM	,07/22/2026 4:31:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881455947269,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,.a.m824,00779560876	,CINTHIA EVELIN APAZA MAMANI,cinthia evelin apaza mamani,(+55)119******41,Rua Santo Eliseu,297,Vila Maria,casa,São Paulo,SP,Brasil,02121000	,"cinthia evelin apaza mamani
+(+55)119******41
+Rua Santo Eliseu 297 Vila Maria casa
+São Paulo, SP
+02121000
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+585093388491655092	,1204064253700573108	,Concluído,Concluído,,Normal,1733894232181737318	,CG-K3-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, G",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 7,35","BRL 13,09","BRL 19,55","BRL 0,00","BRL 7,20","BRL 0,00","BRL 7,20",,"BRL 19,55",Pix,,,,07/18/2026 7:05:25 PM	,07/18/2026 7:06:13 PM	,07/18/2026 7:12:20 PM	,07/20/2026 10:49:04 AM	,07/22/2026 1:10:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881452580598,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,natlia.leticia2,60605465878	,NATALIA LETICIA LIMA DE SOUZA,Natália leticia,(+55)119******79,rua Benedito Antônio de Paula,118,chácara Guanabara,casa,Guararema,SP,Brasil,08900000	,"Natália leticia
+(+55)119******79
+rua Benedito Antônio de Paula 118 chácara Guanabara casa
+Guararema, SP
+08900000
+Brasil",NF-e valid,,,Product cards,
+585093248073041729	,1204063281384032065	,Concluído,Concluído,,Normal,1733894232181802854	,CG-K3-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, GG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 1,37","BRL 13,09","BRL 25,53","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 25,53",Pix,,,,07/18/2026 6:22:05 PM	,07/18/2026 6:22:59 PM	,07/18/2026 6:27:21 PM	,07/20/2026 10:49:33 AM	,07/22/2026 10:15:01 PM	,	,Fulfillment by seller,Depósito - Dualis,999881453292988,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,ludysena6,24214111818	,LUDIMILLA CRISTINA SENA DOS REIS,ludysena6,(+55)139******37,Rua Gabriel Higino Passos,115,Jardim Las Palmas,casa,Guarujá,SP,Brasil,11420225	,"ludysena6
+(+55)139******37
+Rua Gabriel Higino Passos 115 Jardim Las Palmas casa
+Guarujá, SP
+11420225
+Brasil",NF-e valid,,,Product cards,
+585088536805999663	,1204042099330417711	,Concluído,Concluído,,Normal,1733894178352629606	,GALENA-1 unidade - Preto-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Preto, GG",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 0,00","BRL 11,00","BRL 18,90","BRL 1,20","BRL 11,20","BRL 0,00","BRL 10,00",,"BRL 20,10",Parcelamento de cartão de crédito,,,,07/18/2026 9:54:05 AM	,07/18/2026 9:54:09 AM	,07/18/2026 9:57:20 AM	,07/18/2026 12:13:05 PM	,07/22/2026 2:01:01 PM	,	,Fulfillment by seller,Depósito - Dualis,999881452309058,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,nathveneruchi,05465331160	,NATHALY VENERUCHI GARCIA LOPES,nathalyveneruchi,(+55)679******42,Rua das Américas,264,Loteamento Paulo VI,Bloco A apto 54,Campo Grande,MS,Brasil,79023015	,"nathalyveneruchi
+(+55)679******42
+Rua das Américas 264 Loteamento Paulo VI Bloco A apto 54
+Campo Grande, MS
+79023015
+Brasil",NF-e valid,,,Product cards,
+585077334847686352	,1203952725199849168	,Concluído,Concluído,,Normal,1733894232182130534	,CG-K5-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, XG",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 10,09","BRL 39,90","BRL 0,00","BRL 12,00","BRL 0,00","BRL 12,00",,"BRL 39,90",Pix,,,,07/17/2026 7:26:48 PM	,07/17/2026 7:27:20 PM	,07/17/2026 7:32:21 PM	,07/18/2026 12:13:05 PM	,07/21/2026 2:25:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881449368844,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,linete2025,10986607657	,ELINETE CAMILA DE ANDRADE,Elinete camila de Andrade,(+55)339*****56,avenida Limoeiro,949,Centro,avenida Limoeiro,Dores de Guanhães,MG,Brasil,35894000	,"Elinete camila de Andrade
+(+55)339*****56
+avenida Limoeiro 949 Centro avenida Limoeiro
+Dores de Guanhães, MG
+35894000
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+585059181626885643	,1203823616301893131	,Concluído,Concluído,,Normal,1733894232181737318	,CG-K3-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, G",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 13,09","BRL 26,90","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 26,90",Pix,,,,07/16/2026 12:41:03 PM	,07/16/2026 12:43:30 PM	,07/16/2026 12:47:20 PM	,07/17/2026 10:59:07 AM	,07/20/2026 4:10:05 PM	,	,Fulfillment by seller,Depósito - Dualis,999881437362199,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,pri.aguiar8,40448201801	,PRISCILA AGUIAR DA SILVA DE SOUZA,pri Aguiar,(+55)139******85,alameda Santos,390,rocio,casa,Iguape,SP,Brasil,11920000	,"pri Aguiar
+(+55)139******85
+alameda Santos 390 rocio casa
+Iguape, SP
+11920000
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+585057943164651268	,1203817277063661316	,Concluído,Concluído,,Normal,1733894178352564070	,GALENA-1 unidade - Preto-G,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Preto, G",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 0,00","BRL 11,00","BRL 18,90","BRL 25,80","BRL 25,80","BRL 0,00","BRL 0,00",,"BRL 44,70",Parcelamento de cartão de crédito,,,,07/16/2026 11:20:38 AM	,07/16/2026 11:20:43 AM	,07/16/2026 11:27:21 AM	,07/17/2026 10:59:07 AM	,07/23/2026 3:39:04 PM	,	,Fulfillment by seller,Depósito - Dualis,999881430775721,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,gleice768,072.237.551-48	,GLEICIANE FERREIRA DA SILVA,Gleiciane ferreira da Silva,(+55)669******31,avenida jk,s/n,Módulo 1,lubriporto lubrificantes,Juína,MT,Brasil,78320000	,"Gleiciane ferreira da Silva
+(+55)669******31
+avenida jk s/n Módulo 1 lubriporto lubrificantes
+Juína, MT
+78320000
+Brasil",NF-e valid,,,Product cards,
+585056645647730431	,1203811346451302143	,Concluído,Concluído,,Normal,1733894232181868390	,CG-K3-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, XG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 13,09","BRL 26,90","BRL 0,00","BRL 7,10","BRL 0,00","BRL 7,10",,"BRL 26,90",Pix,,,,07/16/2026 10:03:02 AM	,07/16/2026 10:03:41 AM	,07/16/2026 10:07:21 AM	,07/17/2026 10:59:07 AM	,07/18/2026 2:17:05 PM	,	,Fulfillment by seller,Depósito - Dualis,999881436288930,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,thaybernardo29,15169152752	,THAYLINE MARIA BERNARDO,thaybernardo29,(+55)219******24,Rua Elcimar de Oliveira,10,Senador Camará,cada 1 andar,Rio de Janeiro,RJ,Brasil,21843173	,"thaybernardo29
+(+55)219******24
+Rua Elcimar de Oliveira 10 Senador Camará cada 1 andar
+Rio de Janeiro, RJ
+21843173
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+585056207706556090	,1203809266021140154	,Concluído,Concluído,,Normal,1733894232181737318	,CG-K3-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, G",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 13,09","BRL 26,90","BRL 0,00","BRL 7,20","BRL 0,00","BRL 7,20",,"BRL 26,90",Pix,,,,07/16/2026 9:38:58 AM	,07/16/2026 9:40:01 AM	,07/16/2026 9:47:21 AM	,07/17/2026 10:59:07 AM	,07/20/2026 3:29:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881433034045,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,a_vilas,24255107882	,RIHANNA SOPHIA PEREIRA ROCHA,Rihanna Sophia,(+55)119******98,Rua Uruguai,75,Jardim São Luís,casa 3,Santana de Parnaíba,SP,Brasil,06502300	,"Rihanna Sophia
+(+55)119******98
+Rua Uruguai 75 Jardim São Luís casa 3
+Santana de Parnaíba, SP
+06502300
+Brasil",NF-e valid,,,Product cards,
+585054251901486669	,1203796797372925517	,Concluído,Concluído,,Normal,1733894232181868390	,CG-K3-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, XG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 1,50","BRL 13,09","BRL 25,40","BRL 0,00","BRL 5,80","BRL 0,00","BRL 5,80",,"BRL 25,40",Pix,,,,07/16/2026 7:17:21 AM	,07/16/2026 7:18:27 AM	,07/16/2026 7:22:20 AM	,07/17/2026 10:59:07 AM	,07/21/2026 7:09:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881434334326,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,jefersontatiana1,09096960980	,TATIANA ALBRECHT RODRIGUES,Tatiana Albrecht Rodrigues,(+55)479******82,Ribeirão marreco,0000,rodovia Immo Zerna próximo ao mercado adervil,km 207,Witmarsum,SC,Brasil,89157000	,"Tatiana Albrecht Rodrigues
+(+55)479******82
+Ribeirão marreco 0000 rodovia Immo Zerna próximo ao mercado adervil km 207
+Witmarsum, SC
+89157000
+Brasil",NF-e valid,,,Product cards,
+585047607778641248	,1203737546830218592	,Concluído,Concluído,,Normal,1733894178352826214	,GALENA-1 unidade - Chocolate-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Chocolate, GG",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 0,45","BRL 11,00","BRL 18,45","BRL 0,00","BRL 5,90","BRL 0,00","BRL 5,90",,"BRL 18,45",Parcelamento de cartão de crédito,,,,07/15/2026 10:54:37 PM	,07/15/2026 10:54:43 PM	,07/15/2026 10:57:21 PM	,07/17/2026 10:59:07 AM	,07/21/2026 9:28:02 AM	,	,Fulfillment by seller,Depósito - Dualis,999881431361912,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,nathalycristine69,50382740807	,NATHALY CRISTINE LOPES STECCA,Nathaly Cristine,(+55)119******82,Rua Nova Yorque,662,Jardim Presidente Dutra,Casa,Guarulhos,SP,Brasil,07170010	,"Nathaly Cristine
+(+55)119******82
+Rua Nova Yorque 662 Jardim Presidente Dutra Casa
+Guarulhos, SP
+07170010
+Brasil",NF-e valid,,,Product cards,
+585046776867358185	,1203727155148785129	,Concluído,Concluído,,Normal,1733894232182130534	,CG-K5-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, XG",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 10,09","BRL 39,90","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 39,90",Parcelamento de cartão de crédito,,,,07/15/2026 9:36:17 PM	,07/15/2026 9:36:21 PM	,07/15/2026 9:42:21 PM	,07/17/2026 10:59:07 AM	,07/22/2026 2:50:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881428971940,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,lezinhaaraujo04,59917590811	,LETICIA ELISA DOMINGUES DE ARAUJO,Letícia Araújo,(+55)149******35,Rua dos Papa-Capins,53,Jardim Nova Lençóis,casa,Lençóis Paulista,SP,Brasil,18685600	,"Letícia Araújo
+(+55)149******35
+Rua dos Papa-Capins 53 Jardim Nova Lençóis casa
+Lençóis Paulista, SP
+18685600
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+585045119894914947	,1203714401071695747	,Concluído,Concluído,,Normal,1733955877772691302	,CG-1UN-G-Preto,Calcinha Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"G, Preto",Calcinhas,2,0,"BRL 19,99","BRL 39,98","BRL 1,58","BRL 0,00","BRL 38,40","BRL 0,20","BRL 10,20","BRL 0,00","BRL 10,00",,"BRL 38,60",Pix,,,,07/15/2026 4:53:52 PM	,07/15/2026 4:54:17 PM	,07/15/2026 6:47:20 PM	,07/16/2026 11:25:03 AM	,07/19/2026 2:01:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881431930185,Shipped via platform,Entrega padrão,0.6,J&T Express Brazil,lauany.cristiny1,45878729890	,LAUANY CRISTINY JUVENCIO DAMASCENA,Lauany Cristiny,(+55)169******00,rua da Concórdia,4900,parque dos Pinhais,bloco B apto 13,Franca,SP,Brasil,14405646	,"Lauany Cristiny
+(+55)169******00
+rua da Concórdia 4900 parque dos Pinhais bloco B apto 13
+Franca, SP
+14405646
+Brasil",NF-e valid,,,Product cards,
+585030163052791370	,1203600099874014794	,Concluído,Concluído,,Normal,1733894232181999462	,CG-K5-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, G",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 5,00","BRL 0,00","BRL 44,99","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 44,99",Pix,,,,07/14/2026 7:59:49 PM	,07/14/2026 8:00:25 PM	,07/14/2026 8:07:22 PM	,07/16/2026 11:25:03 AM	,07/18/2026 4:51:04 PM	,	,Fulfillment by seller,Depósito - Dualis,999881419423093,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,monise.guimaraes,43553943874	,MONISE GUIMARAES ISSA,Monise,(+55)169******40,Rua XV de Novembro,532,Centro,Loja Capela Masculino,Serrana,SP,Brasil,14150031	,"Monise
+(+55)169******40
+Rua XV de Novembro 532 Centro Loja Capela Masculino
+Serrana, SP
+14150031
+Brasil",NF-e valid,,,Product cards,
+585029561591891814	,1203595981409584998	,Concluído,Concluído,,Normal,1733894232181933926	,CG-K5-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, M",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 7,25","BRL 0,00","BRL 42,74","BRL 0,00","BRL 7,10","BRL 0,00","BRL 7,10",,"BRL 42,74",Pix,,,,07/14/2026 5:43:28 PM	,07/14/2026 5:43:59 PM	,07/14/2026 5:47:20 PM	,07/15/2026 11:08:03 AM	,07/16/2026 10:48:01 PM	,	,Fulfillment by seller,Depósito - Dualis,999881418732667,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,rafaela_bru1,19738700701	,RAFAELA BRUNIZIO CERQUEIRA,rafabru.,(+55)229******55,Rua Edmundo,119,Pilares,Vila casa 7 fundos,Rio de Janeiro,RJ,Brasil,20760700	,"rafabru.
+(+55)229******55
+Rua Edmundo 119 Pilares Vila casa 7 fundos
+Rio de Janeiro, RJ
+20760700
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+585027699480168104	,1203585723124057768	,Concluído,Concluído,,Normal,1733894232181737318	,CG-K3-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, G",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 1,39","BRL 0,00","BRL 38,60","BRL 21,40","BRL 21,40","BRL 0,00","BRL 0,00",,"BRL 60,00",Pix,,,,07/14/2026 12:45:39 PM	,07/14/2026 12:47:02 PM	,07/14/2026 12:52:21 PM	,07/15/2026 11:08:03 AM	,07/23/2026 4:29:04 PM	,	,Fulfillment by seller,Depósito - Dualis,999881420070559,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,jasson.jal,79693431200	,JASSON DE MELO MACEDO,Jasson Jal,(+55)929******22,Rua Osubaldo Orico,144,Compensa,casa,Manaus,AM,Brasil,69035593	,"Jasson Jal
+(+55)929******22
+Rua Osubaldo Orico 144 Compensa casa
+Manaus, AM
+69035593
+Brasil",NF-e valid,,,Product cards,
+585013847519626778	,1203478241181599258	,Concluído,Concluído,,Normal,1733894232181999462	,CG-K5-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, G",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 2,69","BRL 0,00","BRL 47,30","BRL 0,00","BRL 7,20","BRL 0,00","BRL 7,20",,"BRL 47,30",Pix,,,,07/13/2026 7:14:03 PM	,07/13/2026 7:15:10 PM	,07/13/2026 7:17:21 PM	,07/15/2026 11:07:32 AM	,07/17/2026 12:41:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881413235778,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,kethleenborges102,50674111800	,KETHLEEN PEREIRA BORGES,kethleenborges102,(+55)119******66,Rua São Raimundo das Mangabeiras,165,Jardim São Domingos,Casa,Guarulhos,SP,Brasil,07142260	,"kethleenborges102
+(+55)119******66
+Rua São Raimundo das Mangabeiras 165 Jardim São Domingos Casa
+Guarulhos, SP
+07142260
+Brasil",NF-e valid,,,Product cards,
+585012163211658909	,1203466864899950237	,Concluído,Concluído,,Normal,1733956159950194534	,CMA-1UN-GG-Preto,Cinta Modeladora Alta Compressão Cós Duplo - Não Enrola Confortável | Dualis,"GG, Preto",Calcinhas,1,0,"BRL 27,97","BRL 27,97","BRL 2,09","BRL 0,00","BRL 25,88","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 25,88",Pix,,,,07/13/2026 1:34:35 PM	,07/13/2026 1:34:58 PM	,07/13/2026 1:42:21 PM	,07/14/2026 10:48:04 AM	,07/17/2026 3:31:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881409520465,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,mellaline1,42131556845	,ALINE DA SILVA MELO GOMES,Aline Melo,(+55)119******08,Estrada da Cumbica,104,Cidade Ipava,Consultório de Fisioterapia,São Paulo,SP,Brasil,04947000	,"Aline Melo
+(+55)119******08
+Estrada da Cumbica 104 Cidade Ipava Consultório de Fisioterapia
+São Paulo, SP
+04947000
+Brasil",NF-e valid,,,Product cards,
+585004547505948535	,1203418106960381815	,Concluído,Concluído,,Normal,1733894232182064998	,CG-K5-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, GG",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 0,00","BRL 49,99","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 49,99",Pix,,,,07/13/2026 4:54:36 AM	,07/13/2026 4:55:26 AM	,07/13/2026 5:07:20 AM	,07/14/2026 10:47:33 AM	,07/17/2026 7:02:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881402557106,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,emanuellamoura7,48393049806	,EMANUELLA FERNANDA MOURA,Emanuella Moura,(+55)169******78,Rua Mahiba Barcha,221,Jardim Universal,Rua Mahiba Barcha,Araraquara,SP,Brasil,14801719	,"Emanuella Moura
+(+55)169******78
+Rua Mahiba Barcha 221 Jardim Universal Rua Mahiba Barcha
+Araraquara, SP
+14801719
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584999670672819860	,1203372088433542804	,Concluído,Concluído,,Normal,1733894232181606246	,CG-P1-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"1 Unidade, XG",Lingerie,1,0,"BRL 19,99","BRL 19,99","BRL 0,00","BRL 7,50","BRL 12,49","BRL 2,00","BRL 12,00","BRL 0,00","BRL 10,00",,"BRL 14,49",Pix,,,,07/12/2026 11:16:23 PM	,07/12/2026 11:17:38 PM	,07/12/2026 11:22:21 PM	,07/15/2026 11:08:03 AM	,07/18/2026 10:49:03 AM	,	,Fulfillment by seller,Depósito - Dualis,999881397191296,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,leticiareginaldo,08824624901	,LETICIA DA MOTA ALMEIDA,Leticia Reginaldo,(+55)389******89,rua José Bonifácio,170,bairro vanessa,casa,Monte Azul,MG,Brasil,39500000	,"Leticia Reginaldo
+(+55)389******89
+rua José Bonifácio 170 bairro vanessa casa
+Monte Azul, MG
+39500000
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584998836601390551	,1203358491152319959	,Concluído,Concluído,,Normal,1733894232182130534	,CG-K5-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, XG",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 15,59","BRL 34,40","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 34,40",Parcelamento de cartão de crédito,,,,07/12/2026 10:05:33 PM	,07/12/2026 10:05:39 PM	,07/12/2026 10:12:22 PM	,07/15/2026 11:07:32 AM	,07/16/2026 9:45:03 AM	,	,Fulfillment by seller,Depósito - Dualis,999881396586694,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,marcellensmoraes,15137952796	,MARCELLE NASCIMENTO SANTOS MORAES,Marcelle Nascimento,(+55)219******97,Avenida Coelho da Rocha,2235,Rocha Sobrinho,Administração Condomínio,Mesquita,RJ,Brasil,26572480	,"Marcelle Nascimento
+(+55)219******97
+Avenida Coelho da Rocha 2235 Rocha Sobrinho Administração Condomínio
+Mesquita, RJ
+26572480
+Brasil",NF-e valid,,,Product cards,
+584997472700827455	,1203343186308007743	,Concluído,Concluído,,Normal,1733894232182130534	,CG-K5-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, XG",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 15,59","BRL 34,40","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 34,40",Pix,,,,07/12/2026 7:05:55 PM	,07/12/2026 7:06:27 PM	,07/12/2026 7:12:21 PM	,07/14/2026 10:18:30 AM	,07/18/2026 5:58:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881399645312,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,joicecelestino525,43669622845	,JOICE CELESTINO DE FREITAS,Joice Celestino,(+55)189******28,Rua Doutor Gastão Vidigal,50,Jardim Santa Clara,Rua Doutor Gastão Vidigal,Dracena,SP,Brasil,17902032	,"Joice Celestino
+(+55)189******28
+Rua Doutor Gastão Vidigal 50 Jardim Santa Clara Rua Doutor Gastão Vidigal
+Dracena, SP
+17902032
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584997411225568586	,1203342737021502794	,Concluído,Concluído,,Normal,1733894232181868390	,CG-K3-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, XG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 6,10","BRL 15,59","BRL 18,30","BRL 0,00","BRL 13,20","BRL 0,00","BRL 13,20",,"BRL 18,30",Pix,,,,07/12/2026 6:53:57 PM	,07/12/2026 6:55:18 PM	,07/12/2026 7:07:23 PM	,07/13/2026 10:38:05 AM	,07/18/2026 4:32:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881393497431,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,ei.mily21,06272201184	,EMILY OLIVEIRA DA SILVA,ei.mily21,(+55)659******84,Rua das Rosas,21,Altos da Glória,perto do clube,Cuiabá,MT,Brasil,78057322	,"ei.mily21
+(+55)659******84
+Rua das Rosas 21 Altos da Glória perto do clube
+Cuiabá, MT
+78057322
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584995737977784304	,1203333880275634160	,Concluído,Concluído,,Normal,1733894232181737318	,CG-K3-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, G",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 15,59","BRL 24,40","BRL 3,20","BRL 13,20","BRL 0,00","BRL 10,00",,"BRL 27,60",Pix,,,,07/12/2026 1:33:55 PM	,07/12/2026 1:35:43 PM	,07/12/2026 1:42:22 PM	,07/13/2026 10:37:33 AM	,07/17/2026 11:04:04 AM	,	,Fulfillment by seller,Depósito - Dualis,999881397017356,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,nessahgoullart,01511899190	,VANESSA ROCHA TAVARES,VANESSA ROCHA TAVARES,(+55)629******59,Rua C 179,s/n,Jardim América,"Quadra 449, lote 16 - Casa 2",Goiânia,GO,Brasil,74275180	,"VANESSA ROCHA TAVARES
+(+55)629******59
+Rua C 179 s/n Jardim América Quadra 449, lote 16 - Casa 2
+Goiânia, GO
+74275180
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584995061041890843	,1203330709464909339	,Concluído,Concluído,,Normal,1733894232181737318	,CG-K3-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, G",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 15,59","BRL 24,40","BRL 0,00","BRL 7,10","BRL 0,00","BRL 7,10",,"BRL 24,40",Pix,,,,07/12/2026 12:38:10 PM	,07/12/2026 12:38:45 PM	,07/12/2026 12:42:20 PM	,07/13/2026 10:37:34 AM	,07/14/2026 9:54:02 AM	,	,Fulfillment by seller,Depósito - Dualis,999881396834051,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,laannyfernandes,19451445722	,LEILANE DA SILVA FERNANDES,Leilane Fernandes,(+55)219******09,Rua das Andorinhas,11,Chácaras Rio-Petrópolis,casa,Duque de Caxias,RJ,Brasil,25213020	,"Leilane Fernandes
+(+55)219******09
+Rua das Andorinhas 11 Chácaras Rio-Petrópolis casa
+Duque de Caxias, RJ
+25213020
+Brasil",NF-e valid,,,Product cards,
+584993722897565328	,1203325091251259024	,Concluído,Concluído,,Normal,1733956256082724710	,GALENA-Kit 2 peças Preto / Chocolate-M,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, M",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 30,90","BRL 29,00","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 29,00",Parcelamento de cartão de crédito,,,,07/12/2026 11:16:40 AM	,07/12/2026 11:16:45 AM	,07/12/2026 6:32:21 PM	,07/13/2026 10:34:34 AM	,07/14/2026 3:21:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881396932415,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,nataliacoutofisio,12324881780	,NATALIA FERREIRA COUTO,Natalia Couto,(+55)219******90,Rua Belisário de Sousa/ travessa mestre André,950,Realengo,Casa 3,Rio de Janeiro,RJ,Brasil,21721240	,"Natalia Couto
+(+55)219******90
+Rua Belisário de Sousa/ travessa mestre André 950 Realengo Casa 3
+Rio de Janeiro, RJ
+21721240
+Brasil",NF-e valid,,,Product cards,
+584982806613166062	,1203256550593890286	,Concluído,Concluído,Return/Refund,Normal,1733894232181868390	,CG-K3-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, XG",Lingerie,1,1,"BRL 39,99","BRL 39,99","BRL 5,00","BRL 15,59","BRL 19,40","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 19,40",Pix,"BRL 19,40",,,07/11/2026 10:46:39 PM	,07/11/2026 10:47:19 PM	,07/11/2026 10:52:21 PM	,07/13/2026 10:38:05 AM	,07/14/2026 7:17:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881394072914,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,claraana0__,16199319745	,ANA CLARA DOS SANTOS DA CONCEICAO,Y*** F*******,(+55)219******30,*****************************************************************,***,*****,*******************,Rio de Janeiro,RJ,Brasil,********	,"Y*** F*******
+(+55)219******30
+***************************************************************** *** ***** *******************
+Rio de Janeiro, RJ
+********
+Brasil",NF-e valid,,,Product cards,
+584981630799021357	,1203248110881506605	,Concluído,Concluído,,Normal,1733894232181999462	,CG-K5-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, G",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 15,59","BRL 34,40","BRL 8,10","BRL 18,10","BRL 0,00","BRL 10,00",,"BRL 42,50",Pix,,,,07/11/2026 8:55:53 PM	,07/11/2026 8:56:46 PM	,07/11/2026 9:07:22 PM	,07/13/2026 10:38:05 AM	,07/18/2026 11:11:03 AM	,	,Fulfillment by seller,Depósito - Dualis,999881393382168,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,mauriliachaves5,02152281381	,MAURILIA ANTONIA CHAVES LOIOLA,maurilia chaves,(+55)869******75,Rua Tancredo Neves,135,Águas negras,Residencial fé  em Deus,Belém,PA,Brasil,66822330	,"maurilia chaves
+(+55)869******75
+Rua Tancredo Neves 135 Águas negras Residencial fé  em Deus
+Belém, PA
+66822330
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584980722009277695	,1203242761398945023	,Concluído,Concluído,,Normal,1733894232182130534	,CG-K5-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, XG",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 10,32","BRL 15,59","BRL 24,08","BRL 11,20","BRL 31,20","BRL 0,00","BRL 20,00",,"BRL 35,28",Pix,,,,07/11/2026 5:50:17 PM	,07/11/2026 5:54:05 PM	,07/11/2026 5:57:21 PM	,07/13/2026 10:38:05 AM	,07/22/2026 6:54:01 PM	,	,Fulfillment by seller,Depósito - Dualis,999881390717616,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,geovanac5,03801916286	,GEOVANA DA SILVA CORREIA,Geovana,(+55)959******13,Rua José Cassimiro da Silva,2149,Senador Hélio Campos,Rua José Cassimiro da Silva,Boa Vista,RR,Brasil,69316502	,"Geovana
+(+55)959******13
+Rua José Cassimiro da Silva 2149 Senador Hélio Campos Rua José Cassimiro da Silva
+Boa Vista, RR
+69316502
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584980602430130060	,1203241887286069132	,Concluído,Concluído,,Normal,1733894178353088358	,GALENA-Kit 2 peças Preto / Chocolate-M,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, M",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 35,50","BRL 24,40","BRL 6,90","BRL 16,90","BRL 0,00","BRL 10,00",,"BRL 31,30",Pix,,,,07/11/2026 5:12:10 PM	,07/11/2026 5:13:21 PM	,07/11/2026 5:17:20 PM	,07/13/2026 10:38:06 AM	,07/20/2026 11:14:03 AM	,	,Fulfillment by seller,Depósito - Dualis,999881383276904,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,nascimento121284,05936968405	,SIMONE LIANZA CHAVES,simone,(+55)839******16,funcionário público Paulo Antônio Bastos Portela 845,845,gramame,deixar na portaria,João Pessoa,PB,Brasil,58067242	,"simone
+(+55)839******16
+funcionário público Paulo Antônio Bastos Portela 845 845 gramame deixar na portaria
+João Pessoa, PB
+58067242
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584979559318783712	,1203236510876731104	,Concluído,Concluído,,Normal,1733894232181933926	,CG-K5-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, M",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 15,59","BRL 34,40","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 34,40",Pix,,,,07/11/2026 2:01:13 PM	,07/11/2026 2:01:40 PM	,07/11/2026 2:07:23 PM	,07/13/2026 10:38:05 AM	,07/15/2026 10:12:08 AM	,	,Fulfillment by seller,Depósito - Dualis,999881385006025,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,sara.fonnseca,14168621618	,SARA AGUIAR DA FONSECA,Sara Aguiar da Fonseca,(+55)319******80,Rua Padre Francisco Suarez,355,Três Barras,bloco 18 apto 303,Contagem,MG,Brasil,32041010	,"Sara Aguiar da Fonseca
+(+55)319******80
+Rua Padre Francisco Suarez 355 Três Barras bloco 18 apto 303
+Contagem, MG
+32041010
+Brasil",NF-e valid,,,Product cards,
+584978045353362782	,1203230698784458078	,Concluído,Concluído,,Normal,1733894232182130534	,CG-K5-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, XG",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 15,59","BRL 34,40","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 34,40",Pix,,,,07/11/2026 12:03:23 PM	,07/11/2026 12:04:01 PM	,07/11/2026 12:12:21 PM	,07/13/2026 10:38:05 AM	,07/15/2026 4:57:05 PM	,	,Fulfillment by seller,Depósito - Dualis,999881373074393,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,honorato_najuh,35417351806	,TALITA APARECIDA DE OLIVEIRA,Ana Júlia de Oliveira Honorato,(+55)169******48,Avenida Manoel Antônio Dias,1339,Jardim Marchesi,casa,Ribeirão Preto,SP,Brasil,14031330	,"Ana Júlia de Oliveira Honorato
+(+55)169******48
+Avenida Manoel Antônio Dias 1339 Jardim Marchesi casa
+Ribeirão Preto, SP
+14031330
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584977790119806489	,1203229445580031513	,Concluído,Concluído,,Normal,1733894232181999462	,CG-K5-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, G",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 1,33","BRL 15,59","BRL 33,07","BRL 8,10","BRL 18,10","BRL 0,00","BRL 10,00",,"BRL 41,17",Parcelamento de cartão de crédito,,,,07/11/2026 11:45:23 AM	,07/11/2026 11:45:35 AM	,07/11/2026 11:47:20 AM	,07/13/2026 10:38:05 AM	,07/17/2026 7:10:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881392939745,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,analuisasantosdea5,10915098679	,ANA LUISA SANTOS DE ABREU,Ana luisa santos de Abreu,(+55)319******40,rua Joaquim Gonçalves ledo,180,centro,casa,Itamaraju,BA,Brasil,45836000	,"Ana luisa santos de Abreu
+(+55)319******40
+rua Joaquim Gonçalves ledo 180 centro casa
+Itamaraju, BA
+45836000
+Brasil",NF-e valid,,,Product cards,
+584974589894821433	,1203214536045856313	,Concluído,Concluído,,Normal,1733894232182064998	,CG-K5-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, GG",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 15,59","BRL 34,40","BRL 0,00","BRL 15,70","BRL 0,00","BRL 15,70",,"BRL 34,40",Pix,,,,07/11/2026 8:20:54 AM	,07/11/2026 8:21:55 AM	,07/11/2026 8:27:20 AM	,07/11/2026 11:15:33 AM	,07/18/2026 11:00:03 AM	,	,Fulfillment by seller,Depósito - Dualis,999881390447382,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,emylliagomes,05828978586	,EMILIA GOMES DA SILVA,emylliagomes,(+55)799******74,Rua Prefeito Cesar Rocha,444,Centro,Casa,Pirambu,SE,Brasil,49190000	,"emylliagomes
+(+55)799******74
+Rua Prefeito Cesar Rocha 444 Centro Casa
+Pirambu, SE
+49190000
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584969965257918078	,1203175708493186686	,Concluído,Concluído,,Normal,1733894232181802854	,CG-K3-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, GG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 15,59","BRL 24,40","BRL 15,10","BRL 25,10","BRL 0,00","BRL 10,00",,"BRL 39,50",Pix,,,,07/11/2026 2:38:58 AM	,07/11/2026 2:41:07 AM	,07/11/2026 2:47:20 AM	,07/11/2026 11:15:33 AM	,07/18/2026 1:03:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881388641442,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,fabienedias472,03138622305	,FABIENE DIAS DE AMORIM,fabienedias472,(+55)989******37,Avenida Milton lemos,159,Centro,Casa,Amapá do Maranhão,MA,Brasil,65293000	,"fabienedias472
+(+55)989******37
+Avenida Milton lemos 159 Centro Casa
+Amapá do Maranhão, MA
+65293000
+Brasil",NF-e valid,,,Product cards,
+584966581865777047	,1203148476020000663	,Concluído,Concluído,,Normal,1733894232181671782	,CG-K3-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, M",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 2,29","BRL 15,59","BRL 22,11","BRL 15,21","BRL 15,21","BRL 0,00","BRL 0,00",,"BRL 37,32",Pix,,,,07/10/2026 10:47:01 PM	,07/10/2026 10:47:31 PM	,07/10/2026 10:52:20 PM	,07/11/2026 11:16:06 AM	,07/17/2026 3:32:05 PM	,	,Fulfillment by seller,Depósito - Dualis,999881386222966,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,jacquelinesilva9030,00749854260	,JACQUELINE DA COSTA E SILVA,Jacqueline da Costa e Silva,(+55)929******38,Rua Angélica Corrêa/esquina com rua Antonio ribeiro,150,Santo Afonso,Apartamento 05,Rio Branco,AC,Brasil,69908840	,"Jacqueline da Costa e Silva
+(+55)929******38
+Rua Angélica Corrêa/esquina com rua Antonio ribeiro 150 Santo Afonso Apartamento 05
+Rio Branco, AC
+69908840
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584965992682521793	,1203141052949169345	,Concluído,Concluído,,Normal,1733894232181737318	,CG-K3-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, G",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 2,24","BRL 15,59","BRL 22,16","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 22,16",Pix,,,,07/10/2026 9:56:13 PM	,07/10/2026 9:56:47 PM	,07/10/2026 10:07:22 PM	,07/11/2026 11:15:33 AM	,07/13/2026 5:27:05 PM	,	,Fulfillment by seller,Depósito - Dualis,999881388041896,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,ymika7_,70455531617	,MICAELLE SAMELA SILVA LOPES,micaelle,(+55)319******88,Rua Onze,241,Oitis,casa,Contagem,MG,Brasil,32141084	,"micaelle
+(+55)319******88
+Rua Onze 241 Oitis casa
+Contagem, MG
+32141084
+Brasil",NF-e valid,,,Product cards,
+584965762799011659	,1203138456379295563	,Concluído,Concluído,,Normal,1733894232181671782	,CG-K3-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, M",Lingerie,2,0,"BRL 39,99","BRL 79,98","BRL 2,56","BRL 31,18","BRL 46,24","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 47,04",Parcelamento de cartão de crédito,,,,07/10/2026 9:34:50 PM	,07/10/2026 9:35:04 PM	,07/10/2026 9:42:21 PM	,07/11/2026 11:15:32 AM	,07/12/2026 9:51:01 PM	,	,Fulfillment by seller,Depósito - Dualis,999881385305675,Shipped via platform,Entrega padrão,0.6,J&T Express Brazil,macacochico1,19220584751	,CAMILA COSTA SILVA,Camila,(+55)219******93,Avenida Ministro Edgard Romero,239,Madureira,GALERIA C LOJA 134,Rio de Janeiro,RJ,Brasil,21360201	,"Camila
+(+55)219******93
+Avenida Ministro Edgard Romero 239 Madureira GALERIA C LOJA 134
+Rio de Janeiro, RJ
+21360201
+Brasil",NF-e valid,,,Product cards,
+584965418193028257	,1203135065211503777	,Concluído,Concluído,,Normal,1733894232182064998	,CG-K5-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, GG",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 5,00","BRL 15,59","BRL 29,40","BRL 0,00","BRL 7,20","BRL 0,00","BRL 7,20",,"BRL 29,40",Pix,,,,07/10/2026 8:56:56 PM	,07/10/2026 8:57:31 PM	,07/10/2026 9:07:23 PM	,07/11/2026 11:15:33 AM	,07/13/2026 6:38:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881379376075,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,lucieneluh08,43415092844	,LUCIENE FRANCISCA DA SILVA,Luciene Silva,(+55)119******36,Rua Cachoeira das Garças,95,Conjunto Habitacional Sitio Conceição,Casa,São Paulo,SP,Brasil,08473010	,"Luciene Silva
+(+55)119******36
+Rua Cachoeira das Garças 95 Conjunto Habitacional Sitio Conceição Casa
+São Paulo, SP
+08473010
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584965202825152338	,1203149156252092242	,Concluído,Concluído,,Normal,1733894232182130534	,CG-K5-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, XG",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 3,01","BRL 15,59","BRL 31,39","BRL 2,00","BRL 12,00","BRL 0,00","BRL 10,00",,"BRL 33,39",Pix,,,,07/10/2026 8:34:56 PM	,07/10/2026 10:58:36 PM	,07/10/2026 11:07:22 PM	,07/11/2026 11:15:33 AM	,07/16/2026 9:41:02 AM	,	,Fulfillment by seller,Depósito - Dualis,999881386786134,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,vnia_silva7,06233233380	,RUBERVANIA DO NASCIMENTO SILVA,Rubervania silva,(+55)869******38,Rua Professora Adalgisa Paiva,1430,Morada do Sol,casa própria,Teresina,PI,Brasil,64056490	,"Rubervania silva
+(+55)869******38
+Rua Professora Adalgisa Paiva 1430 Morada do Sol casa própria
+Teresina, PI
+64056490
+Brasil",NF-e valid,,,Product cards,
+584964201567520094	,1203126873015158110	,Concluído,Concluído,,Normal,1733894232181802854	,CG-K3-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, GG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 15,59","BRL 24,40","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 24,40",Pix,,,,07/10/2026 4:56:50 PM	,07/10/2026 4:57:35 PM	,07/10/2026 5:07:22 PM	,07/11/2026 11:15:20 AM	,07/12/2026 1:28:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881386648316,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,kheiceane,19055834785	,KASSYANE DA SILVA FIGUEIREDO,kheiceane,(+55)319******29,Avenida Pastor Antônio Antunes Rocha,1565,Chaperó,"casa, fundos",Itaguaí,RJ,Brasil,23812285	,"kheiceane
+(+55)319******29
+Avenida Pastor Antônio Antunes Rocha 1565 Chaperó casa, fundos
+Itaguaí, RJ
+23812285
+Brasil",NF-e valid,,,Product cards,
+584963468197463516	,1203122544203236828	,Concluído,Concluído,,Normal,1733894232181802854	,CG-K3-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, GG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 15,59","BRL 24,40","BRL 4,50","BRL 14,50","BRL 0,00","BRL 10,00",,"BRL 28,90",Pix,,,,07/10/2026 2:34:00 PM	,07/10/2026 2:34:29 PM	,07/10/2026 2:42:21 PM	,07/11/2026 11:16:06 AM	,07/17/2026 10:15:02 AM	,	,Fulfillment by seller,Depósito - Dualis,999881377737704,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,tamiresmaluh,05493903326	,TAMIRES DE OLIVEIRA DA SILVA,tamiresoliveira2055,(+55)859******32,Rua Ernesto Igel,656,Cais do Porto,altos,Fortaleza,CE,Brasil,60180425	,"tamiresoliveira2055
+(+55)859******32
+Rua Ernesto Igel 656 Cais do Porto altos
+Fortaleza, CE
+60180425
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584963127305667854	,1203120659595363598	,Concluído,Concluído,Return/Refund,Normal,1733894232181671782	,CG-K3-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, M",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 2,24","BRL 15,59","BRL 22,16","BRL 3,20","BRL 13,20","BRL 0,00","BRL 10,00",,"BRL 25,36",Pix,,,,07/10/2026 1:53:07 PM	,07/10/2026 1:53:47 PM	,07/10/2026 1:57:20 PM	,07/11/2026 11:15:32 AM	,07/16/2026 8:01:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881384356561,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,amanda.fogaa6,71554520177	,AMANDA FOGACA DO NASCIMENTO,Amanda Fogaça,(+55)629******18,Rua Joaquim Rosa filho,03,Vila Maria,"Quadra 31, lote 11",Aparecida de Goiânia,GO,Brasil,74919383	,"Amanda Fogaça
+(+55)629******18
+Rua Joaquim Rosa filho 03 Vila Maria Quadra 31, lote 11
+Aparecida de Goiânia, GO
+74919383
+Brasil",NF-e valid,,,Product cards,
+584962267374847586	,1203117149953820258	,Concluído,Concluído,,Normal,1733894232181737318	,CG-K3-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, G",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 1,33","BRL 15,59","BRL 23,07","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 23,07",Pix,,,,07/10/2026 12:37:48 PM	,07/10/2026 12:38:41 PM	,07/10/2026 12:42:20 PM	,07/11/2026 11:16:06 AM	,07/15/2026 3:11:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881382012926,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,priscilaprado83,43537119895	,ALINE PRISCILA DO PRADO FERNANDES,Priscila Prado,(+55)129******56,Rua Tupi,380,Vila Hepacare,Rua Tupi,Lorena,SP,Brasil,12608345	,"Priscila Prado
+(+55)129******56
+Rua Tupi 380 Vila Hepacare Rua Tupi
+Lorena, SP
+12608345
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584951174046057491	,1203038098817582099	,Concluído,Concluído,,Normal,1733956159950194534	,CMA-1UN-GG-Preto,Cinta Modeladora Alta Compressão Cós Duplo - Não Enrola Confortável | Dualis,"GG, Preto",Calcinhas,1,0,"BRL 27,97","BRL 27,97","BRL 0,00","BRL 9,57","BRL 18,40","BRL 4,50","BRL 14,50","BRL 0,00","BRL 10,00",,"BRL 22,90",Parcelamento de cartão de crédito,,,,07/10/2026 12:11:33 AM	,07/10/2026 12:11:41 AM	,07/10/2026 12:17:21 AM	,07/11/2026 11:15:32 AM	,07/16/2026 2:35:05 PM	,	,Fulfillment by seller,Depósito - Dualis,999881377056142,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,millenasthephany,70596787430	,MILLENA STHEPHANY SILVA PEREIRA,Millena Sthephany,(+55)819******62,Rua Ubiratan,25,Tabajara,Casa,Olinda,PE,Brasil,53350000	,"Millena Sthephany
+(+55)819******62
+Rua Ubiratan 25 Tabajara Casa
+Olinda, PE
+53350000
+Brasil",NF-e valid,,,Product cards,
+584949901112083675	,1203024373941437659	,Concluído,Concluído,,Normal,1733894178352826214	,GALENA-1 unidade - Chocolate-GG,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Chocolate, GG",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 0,00","BRL 14,50","BRL 15,40","BRL 12,60","BRL 22,60","BRL 0,00","BRL 10,00",,"BRL 28,00",Pix,,,,07/09/2026 10:36:42 PM	,07/09/2026 10:38:08 PM	,07/09/2026 10:42:22 PM	,07/11/2026 11:16:06 AM	,07/14/2026 2:45:18 PM	,	,Fulfillment by seller,Depósito - Dualis,999881377860595,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,irenemedeiross,30872189104	,IRENE COSTA ARRUDA MEDEIROS DE SOUZA,Irene Medeiros,(+55)679******71,Avenida Francisco Heriberto Vera,70,Bairro Campo Alegre,Avenida Francisco Heriberto Vera,Rio Verde de Mato Grosso,MS,Brasil,79480000	,"Irene Medeiros
+(+55)679******71
+Avenida Francisco Heriberto Vera 70 Bairro Campo Alegre Avenida Francisco Heriberto Vera
+Rio Verde de Mato Grosso, MS
+79480000
+Brasil",NF-e valid,,,Product cards,
+584947809307297520	,1203005517893633776	,Concluído,Concluído,,Normal,1733894178353088358	,GALENA-Kit 2 peças Preto / Chocolate-M,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, M",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 35,50","BRL 24,40","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 25,20",Pix,,,,07/09/2026 6:14:20 PM	,07/09/2026 6:15:08 PM	,07/09/2026 6:17:20 PM	,07/10/2026 11:12:05 AM	,07/13/2026 12:13:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881375460717,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,thaiissiqueiira,47672468812	,THAIS DE SIQUEIRA RUFINO EDUARDO,Otavio andre,(+55)139******77,Travessa Adelina,7,Paquetá,oficina,Santos,SP,Brasil,11013130	,"Otavio andre
+(+55)139******77
+Travessa Adelina 7 Paquetá oficina
+Santos, SP
+11013130
+Brasil",NF-e valid,,,Product cards,
+584947731495683833	,1203004833844594425	,Concluído,Concluído,,Normal,1733894232181933926	,CG-K5-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, M",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 15,59","BRL 34,40","BRL 1,40","BRL 21,40","BRL 0,00","BRL 20,00",,"BRL 35,80",Pix,,,,07/09/2026 5:51:29 PM	,07/09/2026 5:52:25 PM	,07/09/2026 5:57:21 PM	,07/10/2026 11:12:05 AM	,07/23/2026 4:53:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881375384241,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,silasfelipe27,08106204219	,YARA CAMILLY GARONE PAZ,Felipe Santos,(+55)929******81,Rua Cravinho,496,Jorge Teixeira,Lan House,Manaus,AM,Brasil,69088464	,"Felipe Santos
+(+55)929******81
+Rua Cravinho 496 Jorge Teixeira Lan House
+Manaus, AM
+69088464
+Brasil",NF-e valid,,,Product cards,
+584947625496512299	,1203004307323717419	,Concluído,Concluído,,Normal,1733894232181802854	,CG-K3-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, GG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 3,46","BRL 15,59","BRL 20,94","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 20,94",Parcelamento de cartão de crédito,,,,07/09/2026 5:28:01 PM	,07/09/2026 5:28:06 PM	,07/09/2026 5:32:20 PM	,07/10/2026 11:12:04 AM	,07/15/2026 12:45:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881376515323,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,mayymarques205,11921639407	,EDCLEDJA MAYARA FARIAS MARQUES,mayymarques205,(+55)449******85,Rua Campinas,58,Zona 04,casa fundos,Cianorte,PR,Brasil,87210012	,"mayymarques205
+(+55)449******85
+Rua Campinas 58 Zona 04 casa fundos
+Cianorte, PR
+87210012
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584947536017590254	,1203003662241269742	,Concluído,Concluído,,Normal,1733894232181606246	,CG-P1-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"1 Unidade, XG",Lingerie,1,0,"BRL 19,99","BRL 19,99","BRL 0,00","BRL 7,50","BRL 12,49","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 12,49",Pix,,,,07/09/2026 5:03:34 PM	,07/09/2026 5:04:20 PM	,07/09/2026 5:30:14 PM	,07/10/2026 11:12:33 AM	,07/11/2026 3:54:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881376413412,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,luziele.castro,16635178783	,LUZIELE DE CASTRO FERREIRA,Luziele Castro,(+55)219******37,Rua das Açucenas,0,Prados Verdes,Casa Lt 9 qd 22,Nova Iguaçu,RJ,Brasil,26299048	,"Luziele Castro
+(+55)219******37
+Rua das Açucenas 0 Prados Verdes Casa Lt 9 qd 22
+Nova Iguaçu, RJ
+26299048
+Brasil",NF-e valid,,,Product cards,
+584947510273017331	,1203003469038388723	,Concluído,Concluído,,Normal,1733894232181671782	,CG-K3-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, M",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 5,00","BRL 15,59","BRL 19,40","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 19,40",Pix,,,,07/09/2026 4:55:19 PM	,07/09/2026 4:56:04 PM	,07/09/2026 5:07:22 PM	,07/10/2026 11:09:56 AM	,07/13/2026 1:26:04 PM	,	,Fulfillment by seller,Depósito - Dualis,999881356044812,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,tk_annee,58962206854	,ANNE HELOISA DOS SANTOS DE OLIVEIRA,Anne Heloisa,(+55)149******90,Osmar de Assis Novaes,136,Monte verde,Casa,Garça,SP,Brasil,17401178	,"Anne Heloisa
+(+55)149******90
+Osmar de Assis Novaes 136 Monte verde Casa
+Garça, SP
+17401178
+Brasil",NF-e valid,,,Product cards,
+584947027758778207	,1203000346467272543	,Concluído,Concluído,,Normal,1733894232181409638	,CG-P1-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"1 Unidade, M",Lingerie,1,0,"BRL 19,99","BRL 19,99","BRL 0,00","BRL 7,50","BRL 12,49","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 13,29",Pix,,,,07/09/2026 3:06:55 PM	,07/09/2026 3:07:34 PM	,07/09/2026 3:12:21 PM	,07/10/2026 11:12:33 AM	,07/14/2026 1:27:04 PM	,	,Fulfillment by seller,Depósito - Dualis,999881375744991,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,carla_amorim01,09368362700	,MARIA CRISTINA AMORIM SOUZA,Maria Cristina Amorim Souza,(+55)279******82,Avenida Eldes Scherrer Souza,805,Parque Residencial Laranjeiras,Na agencia sicredi,Serra,ES,Brasil,29165680	,"Maria Cristina Amorim Souza
+(+55)279******82
+Avenida Eldes Scherrer Souza 805 Parque Residencial Laranjeiras Na agencia sicredi
+Serra, ES
+29165680
+Brasil",NF-e valid,,,Product cards,
+584944757734999571	,1202990027891639827	,Concluído,Concluído,,Normal,1733894232181671782	,CG-K3-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, M",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 15,59","BRL 24,40","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 24,40",Pix,,,,07/09/2026 11:51:23 AM	,07/09/2026 11:52:25 AM	,07/09/2026 11:57:21 AM	,07/10/2026 11:12:04 AM	,07/11/2026 11:21:05 AM	,	,Fulfillment by seller,Depósito - Dualis,999881369353815,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,paulacampelo3,21809205719	,PAULA CAROLINA CAMPELO DA CRUZ FLORENCIO,campelop,(+55)219******46,Rua Rio Bonito,143,Gramacho,casa,Duque de Caxias,RJ,Brasil,25035230	,"campelop
+(+55)219******46
+Rua Rio Bonito 143 Gramacho casa
+Duque de Caxias, RJ
+25035230
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584934758445123554	,1202916668801255394	,Concluído,Concluído,,Normal,1733894232181999462	,CG-K5-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, G",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 15,59","BRL 34,40","BRL 9,60","BRL 9,60","BRL 0,00","BRL 0,00",,"BRL 44,00",Apple Pay,,,,07/09/2026 12:29:43 AM	,07/09/2026 12:29:48 AM	,07/09/2026 12:33:49 AM	,07/10/2026 11:12:33 AM	,07/13/2026 3:14:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881367106799,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,mariana_almeida_m,08226566983	,MARIANA DA SILVA ALMEIDA,Mariana Almeida,(+55)459******48,Rua Dom Carmino Rocco,297,Porto Meira,"Casa,primeira rua",Foz do Iguaçu,PR,Brasil,85855625	,"Mariana Almeida
+(+55)459******48
+Rua Dom Carmino Rocco 297 Porto Meira Casa,primeira rua
+Foz do Iguaçu, PR
+85855625
+Brasil",NF-e valid,,,Product cards,
+584933477078042171	,1202903628749768251	,Concluído,Concluído,,Normal,1733894232181868390	,CG-K3-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, XG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 5,00","BRL 15,59","BRL 19,40","BRL 13,90","BRL 23,90","BRL 0,00","BRL 10,00",,"BRL 36,03",Parcelamento de cartão de crédito,,,,07/08/2026 10:59:31 PM	,07/08/2026 10:59:36 PM	,07/08/2026 11:09:13 PM	,07/10/2026 11:11:25 AM	,07/16/2026 9:36:03 AM	,	,Fulfillment by seller,Depósito - Dualis,999881365237247,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,ingrydgomesz,07206009360	,INGRYD LARA GOMES DA SILVA DE SOUSA,Ingryd gomes,(+55)889******73,Travessa Luiz Lúcio,1036,Carrascal,Casa,Quixadá,CE,Brasil,63902230	,"Ingryd gomes
+(+55)889******73
+Travessa Luiz Lúcio 1036 Carrascal Casa
+Quixadá, CE
+63902230
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584933301844346853	,1202903021885622245	,Concluído,Concluído,,Normal,1733894232181868390	,CG-K3-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, XG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 15,59","BRL 24,40","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 24,40",Pix,,,,07/08/2026 10:42:52 PM	,07/08/2026 10:43:29 PM	,07/08/2026 10:55:54 PM	,07/10/2026 11:12:34 AM	,07/15/2026 7:23:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881366921492,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,distribuidora.rog8,40451442857	,LETICIA SALVADOR DE ALMEIDA,Distribuidora rogerião,(+55)169******68,Avenida Luiz Ribeiro Filho,151,Jardim Roberto Selmi Dei,Casa,Araraquara,SP,Brasil,14806309	,"Distribuidora rogerião
+(+55)169******68
+Avenida Luiz Ribeiro Filho 151 Jardim Roberto Selmi Dei Casa
+Araraquara, SP
+14806309
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584931685481219808	,1202887036101494496	,Concluído,Concluído,,Normal,1733894232181999462	,CG-K5-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, G",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 15,59","BRL 34,40","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 34,40",Pix,,,,07/08/2026 7:58:53 PM	,07/08/2026 7:59:28 PM	,07/08/2026 8:07:49 PM	,07/10/2026 11:12:33 AM	,07/13/2026 2:10:36 PM	,	,Fulfillment by seller,Depósito - Dualis,999881368415341,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,sara.fonnseca,14168621618	,SARA AGUIAR DA FONSECA,Sara Aguiar da Fonseca,(+55)319******80,Rua Padre Francisco Suarez,355,Três Barras,bloco 18 apto 303,Contagem,MG,Brasil,32041010	,"Sara Aguiar da Fonseca
+(+55)319******80
+Rua Padre Francisco Suarez 355 Três Barras bloco 18 apto 303
+Contagem, MG
+32041010
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584931200713328042	,1202883358257612202	,Concluído,Concluído,,Normal,1733894178352498534	,GALENA-1 unidade - Preto-M,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Preto, M",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 0,00","BRL 14,50","BRL 15,40","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 15,40",Pix,,,,07/08/2026 6:08:47 PM	,07/08/2026 6:09:16 PM	,07/08/2026 6:39:08 PM	,07/09/2026 10:41:32 AM	,07/11/2026 1:20:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881368902835,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,agattha_aylla_,24200704889	,AGATHA SOUZA NEVES,Agatha Souza Neves,(+55)119******24,Travessa Jean Barrieri,146,Conjunto Habitacional Barro Branco,Casa 1,São Paulo,SP,Brasil,08473552	,"Agatha Souza Neves
+(+55)119******24
+Travessa Jean Barrieri 146 Conjunto Habitacional Barro Branco Casa 1
+São Paulo, SP
+08473552
+Brasil",NF-e valid,,,Product cards,
+584930830403732734	,1202880633338103038	,Concluído,Concluído,,Normal,1733894232181999462	,CG-K5-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, G",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 15,59","BRL 34,40","BRL 1,40","BRL 21,40","BRL 0,00","BRL 20,00",,"BRL 35,80",Pix,,,,07/08/2026 4:16:42 PM	,07/08/2026 4:19:03 PM	,07/08/2026 4:34:11 PM	,07/09/2026 10:41:32 AM	,07/17/2026 11:52:04 AM	,	,Fulfillment by seller,Depósito - Dualis,999881365857116,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,kelly.santos.vian,80179010204	,KELLY CRISTINA DOS SANTOS VIANA,Kelly Santos Viana,(+55)929******33,Rua Comendador J. G. Araújo,1667,Santo Antônio,casa,Manaus,AM,Brasil,69029130	,"Kelly Santos Viana
+(+55)929******33
+Rua Comendador J. G. Araújo 1667 Santo Antônio casa
+Manaus, AM
+69029130
+Brasil",NF-e valid,,,Product cards,
+584927272574813952	,1202862936625940224	,Concluído,Concluído,,Normal,1733956159949801318	,CMA-1UN-M-Preto,Cinta Modeladora Alta Compressão Cós Duplo - Não Enrola Confortável | Dualis,"M, Preto",Calcinhas,1,0,"BRL 27,97","BRL 27,97","BRL 0,72","BRL 9,57","BRL 17,68","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 17,68",Parcelamento de cartão de crédito,,,,07/08/2026 10:43:35 AM	,07/08/2026 10:43:58 AM	,07/08/2026 5:40:03 PM	,07/09/2026 10:41:32 AM	,07/11/2026 1:08:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881365798768,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,mamaedamariaalice1,44872707826	,MARCELA MARIANO DE CASTRO,dra marcela castro,(+55)119******88,Rua Pretória,437,Vila Formosa,132B,São Paulo,SP,Brasil,03416000	,"dra marcela castro
+(+55)119******88
+Rua Pretória 437 Vila Formosa 132B
+São Paulo, SP
+03416000
+Brasil",NF-e valid,,,Product cards,
+584926546425447802	,1202859538677007738	,Concluído,Concluído,,Normal,1733894232181868390	,CG-K3-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, XG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 15,59","BRL 24,40","BRL 0,00","BRL 15,39","BRL 0,00","BRL 15,39",,"BRL 24,40",Pix,,,,07/08/2026 10:00:26 AM	,07/08/2026 10:00:59 AM	,07/08/2026 10:20:35 AM	,07/09/2026 10:41:32 AM	,07/15/2026 9:56:04 AM	,	,Fulfillment by seller,Depósito - Dualis,999881363487317,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,cssiaalves70,05241533290	,CASSIA KATLEN DOS SANTOS ALVES,Cassia alves,(+55)669******56,Rua Antônio Conselheiro,261,Aurá,casa,Ananindeua,PA,Brasil,67032155	,"Cassia alves
+(+55)669******56
+Rua Antônio Conselheiro 261 Aurá casa
+Ananindeua, PA
+67032155
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584917150673176215	,1202778494028449431	,Concluído,Concluído,,Normal,1733894232182064998	,CG-K5-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, GG",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 15,59","BRL 34,40","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 35,20",Pix,,,,07/07/2026 10:53:18 PM	,07/07/2026 10:54:17 PM	,07/07/2026 10:56:36 PM	,07/09/2026 10:42:03 AM	,07/14/2026 10:40:02 AM	,	,Fulfillment by seller,Depósito - Dualis,999881359430730,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,mamaedokaleb01,10580363945	,FERNANDA PEREIRA GOMES LIMA,Fernanda lima,(+55)479******84,Rua Doutor Pedro Zimmermann,2371,Itoupavazinha,09 ou 10- Sala Omni,Blumenau,SC,Brasil,89066001	,"Fernanda lima
+(+55)479******84
+Rua Doutor Pedro Zimmermann 2371 Itoupavazinha 09 ou 10- Sala Omni
+Blumenau, SC
+89066001
+Brasil",NF-e valid,,,Product cards,
+584917001517106383	,1202777019181794511	,Concluído,Concluído,,Normal,1733894232181999462	,CG-K5-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, G",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 15,59","BRL 34,40","BRL 11,40","BRL 21,40","BRL 0,00","BRL 10,00",,"BRL 45,80",Pix,,,,07/07/2026 10:40:17 PM	,07/07/2026 10:41:03 PM	,07/07/2026 10:48:04 PM	,07/09/2026 10:41:32 AM	,07/17/2026 11:48:02 AM	,	,Fulfillment by seller,Depósito - Dualis,999881358338290,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,fabianecordeiro17,98774530291	,FABIANE PEREIRA CORDEIRO,Fabiane Cordeiro,(+55)929******88,Rua Professora Raymunda Magalhães,62,Coroado,Rua Professora Raymunda Magalhães,Manaus,AM,Brasil,69080271	,"Fabiane Cordeiro
+(+55)929******88
+Rua Professora Raymunda Magalhães 62 Coroado Rua Professora Raymunda Magalhães
+Manaus, AM
+69080271
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584915342180189982	,1202759997175138078	,Concluído,Concluído,Return/Refund,Normal,1733894232181999462	,CG-K5-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, G",Lingerie,1,1,"BRL 49,99","BRL 49,99","BRL 5,00","BRL 15,59","BRL 29,40","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 29,40",Pix + Saldo do TikTok Shop,"BRL 29,40",,,07/07/2026 8:08:05 PM	,07/07/2026 8:08:34 PM	,07/07/2026 8:13:05 PM	,07/09/2026 10:41:32 AM	,07/11/2026 3:05:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881358479014,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,dix_hagatta2009,51564552802	,JOAO VICTOR BRAIS,Bruna hagatta,(+55)179******19,rua jussari,295,cidade Jardim,casa,Catanduva,SP,Brasil,15808270	,"Bruna hagatta
+(+55)179******19
+rua jussari 295 cidade Jardim casa
+Catanduva, SP
+15808270
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584914832605480174	,1202756559772157166	,Concluído,Concluído,,Normal,1733894232181671782	,CG-K3-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, M",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 15,59","BRL 24,40","BRL 0,00","BRL 12,00","BRL 0,00","BRL 12,00",,"BRL 24,40",Pix,,,,07/07/2026 6:40:20 PM	,07/07/2026 6:42:23 PM	,07/07/2026 6:43:51 PM	,07/08/2026 10:45:33 AM	,07/11/2026 11:00:03 AM	,	,Fulfillment by seller,Depósito - Dualis,999881354841146,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,kairla.eduarda6,63777261394	,KAIRLA EDUARDA FREIRE SOUSA,Kairla Eduarda freire Sousa,(+55)349******40,Rua vazante 276 fundo,276,Alto da bela vista,Casa,São Gotardo,MG,Brasil,38800000	,"Kairla Eduarda freire Sousa
+(+55)349******40
+Rua vazante 276 fundo 276 Alto da bela vista Casa
+São Gotardo, MG
+38800000
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584914807300261869	,1202756263600424941	,Concluído,Concluído,,Normal,1733894232181802854	,CG-K3-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, GG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 15,59","BRL 24,40","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 24,40",Pix,,,,07/07/2026 6:29:53 PM	,07/07/2026 6:30:28 PM	,07/07/2026 6:31:55 PM	,07/08/2026 10:45:33 AM	,07/10/2026 8:45:04 PM	,	,Fulfillment by seller,Depósito - Dualis,999881357362806,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,jheniddias,51534146806	,JHENIFER KAROLAYNE CAMILO MELIN,Natan da Silva,(+55)179******94,rua projetada 4,3858,Jd Mônaco,rua projetada 4,Bady Bassitt,SP,Brasil,15115000	,"Natan da Silva
+(+55)179******94
+rua projetada 4 3858 Jd Mônaco rua projetada 4
+Bady Bassitt, SP
+15115000
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584913559768958364	,1202748440403674524	,Concluído,Concluído,,Normal,1733894232181737318	,CG-K3-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, G",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,84","BRL 15,59","BRL 23,56","BRL 8,40","BRL 8,40","BRL 0,00","BRL 0,00",,"BRL 31,96",Pix,,,,07/07/2026 2:16:03 PM	,07/07/2026 2:16:39 PM	,07/07/2026 2:20:03 PM	,07/08/2026 10:45:33 AM	,07/10/2026 8:32:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881355195869,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,karol30060,19309485736	,KAROL BARRETO SILVA DE OLIVEIRA,Karol barreto,(+55)219******44,Rua professora maria joaquina,25,Boa vista,Casa,São Gonçalo,RJ,Brasil,24466260	,"Karol barreto
+(+55)219******44
+Rua professora maria joaquina 25 Boa vista Casa
+São Gonçalo, RJ
+24466260
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584911268745217121	,1202737144935973985	,Concluído,Concluído,,Normal,1733894232181802854	,CG-K3-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, GG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 15,59","BRL 24,40","BRL 0,00","BRL 18,10","BRL 0,00","BRL 18,10",,"BRL 24,40",Pix,,,,07/07/2026 11:39:17 AM	,07/07/2026 11:43:52 AM	,07/07/2026 11:46:44 AM	,07/08/2026 10:45:33 AM	,07/13/2026 7:26:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881354057821,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,maitanechaves2,06225850104	,MAITANE CHAVES DOMINGUES,preta,(+55)679******98,Josefa Correia,1010,Nilton Nogueira,Josefa Correia,Nova Alvorada do Sul,MS,Brasil,79140000	,"preta
+(+55)679******98
+Josefa Correia 1010 Nilton Nogueira Josefa Correia
+Nova Alvorada do Sul, MS
+79140000
+Brasil",NF-e valid,,,Product cards,
+584902052843259837	,1202671059159648189	,Concluído,Concluído,,Normal,1733894232181999462	,CG-K5-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, G",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 15,59","BRL 34,40","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 34,40",Pix,,,,07/07/2026 2:41:31 AM	,07/07/2026 2:41:53 AM	,07/07/2026 2:44:03 AM	,07/08/2026 10:45:33 AM	,07/10/2026 5:01:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881342324989,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,laissantana52,19137798740	,LAIS SANTANA DOS SANTOS,Lais Santana,(+55)219******56,Rua Júlio Augusto Thizon,20,Três Pontes,QuadraA,Itaboraí,RJ,Brasil,24809274	,"Lais Santana
+(+55)219******56
+Rua Júlio Augusto Thizon 20 Três Pontes QuadraA
+Itaboraí, RJ
+24809274
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584899905389298891	,1202653541713413323	,Concluído,Concluído,,Normal,1733894178353153894	,GALENA-Kit 2 peças Preto / Chocolate-G,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, G",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 35,50","BRL 24,40","BRL 3,20","BRL 13,20","BRL 0,00","BRL 10,00",,"BRL 27,60",Pix,,,,07/07/2026 12:31:20 AM	,07/07/2026 12:31:56 AM	,07/07/2026 12:35:12 AM	,07/08/2026 10:45:33 AM	,07/10/2026 10:29:03 AM	,	,Fulfillment by seller,Depósito - Dualis,999881349794777,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,estefany_tavares45,70043772617	,ESTEFANY DE SOUZA TAVARES,Angélica Augusta,(+55)319******84,Rua Andrade Fernandino,27,Boa Vista,Casa,Sete Lagoas,MG,Brasil,35700088	,"Angélica Augusta
+(+55)319******84
+Rua Andrade Fernandino 27 Boa Vista Casa
+Sete Lagoas, MG
+35700088
+Brasil",NF-e valid,,,Product cards,
+584897793400603849	,1202633048647828681	,Concluído,Concluído,Return/Refund,Normal,1733894232181409638	,CG-P1-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"1 Unidade, M",Lingerie,1,1,"BRL 19,99","BRL 19,99","BRL 0,00","BRL 7,50","BRL 12,49","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 12,49",Pix,"BRL 12,49",,,07/06/2026 10:15:53 PM	,07/06/2026 10:17:08 PM	,07/06/2026 10:20:46 PM	,07/08/2026 10:45:33 AM	,07/10/2026 4:59:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881339586685,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,ana.laura1012,38965882818	,ANA LAURA MATEUS COSTA,A** l****,(+55)199******38,**************************,***,*******************,****,Campinas,SP,Brasil,********	,"A** l****
+(+55)199******38
+************************** *** ******************* ****
+Campinas, SP
+********
+Brasil",NF-e valid,,,Product cards,
+584896093112337950	,1202618882587919902	,Concluído,Concluído,Return/Refund,Normal,1733894232181802854	,CG-K3-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, GG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 15,59","BRL 24,40","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 24,40",Apple Pay,,,,07/06/2026 7:35:28 PM	,07/06/2026 7:35:34 PM	,07/06/2026 7:37:51 PM	,07/08/2026 10:45:05 AM	,07/13/2026 11:53:03 AM	,	,Fulfillment by seller,Depósito - Dualis,999881347976005,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,livia_limx,07741301136	,LIVIA SOUZA DE LIMA,Lívia Lima,(+55)619******88,Quadra QE 40 Conjunto H,08,Guará II,Loja Maroma,Brasília,DF,Brasil,71070082	,"Lívia Lima
+(+55)619******88
+Quadra QE 40 Conjunto H 08 Guará II Loja Maroma
+Brasília, DF
+71070082
+Brasil",NF-e valid,,,Product cards,
+584895632760997032	,1202615979415667880	,Concluído,Concluído,,Normal,1733894232181802854	,CG-K3-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, GG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 15,59","BRL 24,40","BRL 9,60","BRL 9,60","BRL 0,00","BRL 0,00",,"BRL 34,00",Pix,,,,07/06/2026 6:02:34 PM	,07/06/2026 6:03:31 PM	,07/06/2026 6:04:44 PM	,07/07/2026 10:52:04 AM	,07/11/2026 3:13:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881342148780,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,lisianne_machado,02576862071	,LISIANE MACHADO PEREIRA,Lisiane Machado,(+55)519******69,Rua Tenente Carlos Lemos Bastos,570,Arroio da Manteiga,casa branca,São Leopoldo,RS,Brasil,93135260	,"Lisiane Machado
+(+55)519******69
+Rua Tenente Carlos Lemos Bastos 570 Arroio da Manteiga casa branca
+São Leopoldo, RS
+93135260
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584895484167423970	,1202615016815691746	,Concluído,Concluído,,Normal,1733894232181737318	,CG-K3-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, G",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 15,09","BRL 24,90","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 25,70",Pix,,,,07/06/2026 5:25:55 PM	,07/06/2026 5:27:04 PM	,07/06/2026 5:28:45 PM	,07/07/2026 10:52:32 AM	,07/10/2026 12:44:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881345373227,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,emillysilv789,21089525788	,EMILLY CRISTINE COELHO FRANCISCO,reserv.mika,(+55)249******18,Rua Teresa Elisa Jesus Silva,80,Vila Ursulino,casa,Barra Mansa,RJ,Brasil,27351300	,"reserv.mika
+(+55)249******18
+Rua Teresa Elisa Jesus Silva 80 Vila Ursulino casa
+Barra Mansa, RJ
+27351300
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584895055213528814	,1202612140128896750	,Concluído,Concluído,,Normal,1733894232181671782	,CG-K3-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, M",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 5,00","BRL 15,59","BRL 19,40","BRL 2,00","BRL 12,00","BRL 0,00","BRL 10,00",,"BRL 21,40",Pix,,,,07/06/2026 3:46:03 PM	,07/06/2026 3:47:06 PM	,07/06/2026 3:50:46 PM	,07/07/2026 10:52:33 AM	,07/10/2026 12:42:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881335001691,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,edwiscsar,16831227635	,EDWIS CESAR DA SILVA,Edwis César,(+55)319******79,Rua Geraldo gomes,87,Ribeirão de São Domingos,Casa,Santa Margarida,MG,Brasil,36915000	,"Edwis César
+(+55)319******79
+Rua Geraldo gomes 87 Ribeirão de São Domingos Casa
+Santa Margarida, MG
+36915000
+Brasil",NF-e valid,,,Product cards,
+584894750831969283	,1202610052311122947	,Concluído,Concluído,,Normal,1733894232182064998	,CG-K5-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, GG",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 5,12","BRL 15,59","BRL 29,28","BRL 8,10","BRL 18,10","BRL 0,00","BRL 10,00",,"BRL 37,38",Pix,,,,07/06/2026 3:01:17 PM	,07/06/2026 3:01:58 PM	,07/06/2026 3:04:45 PM	,07/07/2026 10:52:32 AM	,07/10/2026 11:33:02 AM	,	,Fulfillment by seller,Depósito - Dualis,999881345425318,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,keziacerqueira1,09263557594	,KEZIA CERQUEIRA SILVA,Kezia Cerqueira,(+55)759******85,Rua Platina,74,Rua Nova,Rua Platina,Feira de Santana,BA,Brasil,44023365	,"Kezia Cerqueira
+(+55)759******85
+Rua Platina 74 Rua Nova Rua Platina
+Feira de Santana, BA
+44023365
+Brasil",NF-e valid,,,Product cards,
+584894442870638572	,1202608586477111276	,Concluído,Concluído,,Normal,1733894178353153894	,GALENA-Kit 2 peças Preto / Chocolate-G,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, G",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 1,22","BRL 35,50","BRL 23,18","BRL 3,20","BRL 13,20","BRL 0,00","BRL 10,00",,"BRL 26,38",Pix,,,,07/06/2026 2:30:45 PM	,07/06/2026 2:32:43 PM	,07/06/2026 2:34:45 PM	,07/07/2026 10:52:32 AM	,07/09/2026 5:52:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881344361699,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,alessandraoliveira092,10574920609	,ALESSANDRA RODRIGUES DE OLIVEIRA,Alessandra Oliveira,(+55)359******56,Rua comendador Nicolau,06,Centro,Rua comendador Nicolau,Itaú de Minas,MG,Brasil,37975000	,"Alessandra Oliveira
+(+55)359******56
+Rua comendador Nicolau 06 Centro Rua comendador Nicolau
+Itaú de Minas, MG
+37975000
+Brasil",NF-e valid,,,Product cards,
+584894317376537759	,1202609023951864991	,Concluído,Concluído,,Normal,1733894232181999462	,CG-K5-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, G",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 15,59","BRL 34,40","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 34,40",Apple Pay,,,,07/06/2026 2:22:47 PM	,07/06/2026 2:22:52 PM	,07/06/2026 5:44:45 PM	,07/07/2026 10:52:32 AM	,07/10/2026 1:06:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881345477574,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,michellealves556,03250649112	,MICHELLE ALVES DOS SANTOS,Michelle Alves,(+55)619******43,Área QNG Área Especial 21,35,Taguatinga Norte,Condomínio Aquarius,Brasília,DF,Brasil,72130007	,"Michelle Alves
+(+55)619******43
+Área QNG Área Especial 21 35 Taguatinga Norte Condomínio Aquarius
+Brasília, DF
+72130007
+Brasil",NF-e valid,,,Product cards,
+584893945395447262	,1202606595781461470	,Concluído,Concluído,,Normal,1733894232181868390	,CG-K3-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, XG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 5,00","BRL 15,59","BRL 19,40","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 19,40",Pix,,,,07/06/2026 1:54:35 PM	,07/06/2026 1:56:45 PM	,07/06/2026 1:58:45 PM	,07/07/2026 10:52:32 AM	,07/10/2026 7:18:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881342448451,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,thaysadrielle,49703841856	,THAYS ADRIELLE DE OLIVEIRA SANTOS,Thays Adrielle,(+55)129******96,rua dos Fernandes,86,centro,casa de baixo,Natividade da Serra,SP,Brasil,12180000	,"Thays Adrielle
+(+55)129******96
+rua dos Fernandes 86 centro casa de baixo
+Natividade da Serra, SP
+12180000
+Brasil",NF-e valid,,,Product cards,
+584892221383214488	,1202598050820687256	,Concluído,Concluído,,Normal,1733894178353153894	,GALENA-Kit 2 peças Preto / Chocolate-G,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, G",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 2,28","BRL 35,50","BRL 22,12","BRL 4,50","BRL 14,50","BRL 0,00","BRL 10,00",,"BRL 26,62",Pix,,,,07/06/2026 11:57:11 AM	,07/06/2026 11:59:11 AM	,07/06/2026 12:28:44 PM	,07/07/2026 10:52:32 AM	,07/10/2026 2:38:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881338592403,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,ellenp__7,86593313548	,ELLEM SAMIRA VIEIRA PINHEIRO,Ellen Pinheiro,(+55)779******17,Rua RB 8,s/n,Residencial Buriti,"QD-29, LT-25",Senador Canedo,GO,Brasil,75260417	,"Ellen Pinheiro
+(+55)779******17
+Rua RB 8 s/n Residencial Buriti QD-29, LT-25
+Senador Canedo, GO
+75260417
+Brasil",NF-e valid,,,Product cards,
+584890086976751373	,1202587370572973837	,Concluído,Concluído,,Normal,1733894232182130534	,CG-K5-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, XG",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 15,59","BRL 34,40","BRL 6,90","BRL 16,90","BRL 0,00","BRL 10,00",,"BRL 41,30",Parcelamento de cartão de crédito,,,,07/06/2026 10:01:25 AM	,07/06/2026 10:01:31 AM	,07/06/2026 12:28:44 PM	,07/07/2026 10:52:04 AM	,07/13/2026 12:03:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881343617354,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,sandradias6335,42749697387	,SANDRA REGINA SILVA DIAS,sandradias6335,(+55)989******94,Rua José Antonio,24,Divinéia,Rua José Antonio,São Luís,MA,Brasil,65068018	,"sandradias6335
+(+55)989******94
+Rua José Antonio 24 Divinéia Rua José Antonio
+São Luís, MA
+65068018
+Brasil",NF-e valid,,,Product cards,
+584888226753709751	,1202576475522565815	,Concluído,Concluído,,Normal,1733894232181737318	,CG-K3-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, G",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 1,92","BRL 15,59","BRL 22,48","BRL 0,00","BRL 7,20","BRL 0,00","BRL 7,20",,"BRL 22,48",Pix,,,,07/06/2026 8:07:56 AM	,07/06/2026 8:12:21 AM	,07/06/2026 9:15:45 AM	,07/07/2026 10:52:03 AM	,07/09/2026 11:29:03 AM	,	,Fulfillment by seller,Depósito - Dualis,999881338274351,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,a_valentim8,55746206857	,LUANA VALENTIM ALENCAR,Luana Valentim Alencar,(+55)119******69,Rua Pedro Valadares,516,Jardim Vitápolis,Rua Pedro Valadares,Itapevi,SP,Brasil,06693270	,"Luana Valentim Alencar
+(+55)119******69
+Rua Pedro Valadares 516 Jardim Vitápolis Rua Pedro Valadares
+Itapevi, SP
+06693270
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584886429631939861	,1202560748727600405	,Concluído,Concluído,,Normal,1733894232181737318	,CG-K3-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, G",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 1,64","BRL 15,59","BRL 22,76","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 22,76",Apple Pay,,,,07/06/2026 6:03:37 AM	,07/06/2026 6:03:42 AM	,07/06/2026 6:07:43 AM	,07/07/2026 10:52:04 AM	,07/10/2026 3:43:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881337031366,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,ingrid.amaral0,03607036071	,INGRID DA SILVA AMARAL CABRAL,Ingrid Amaral,(+55)519******44,Rua 25 de julho,603,Nova Parobé,Sala número 1 - sala comercial,Parobé,RS,Brasil,95630000	,"Ingrid Amaral
+(+55)519******44
+Rua 25 de julho 603 Nova Parobé Sala número 1 - sala comercial
+Parobé, RS
+95630000
+Brasil",NF-e valid,,,Product cards,
+584886361456477462	,1202559996490777878	,Concluído,Concluído,Return/Refund,Normal,1733894232181802854	,CG-K3-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, GG",Lingerie,1,1,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 15,59","BRL 24,40","BRL 0,00","BRL 7,20","BRL 0,00","BRL 7,20",,"BRL 24,40",Pix,"BRL 24,40",,,07/06/2026 5:54:27 AM	,07/06/2026 5:55:47 AM	,07/06/2026 5:58:43 AM	,07/07/2026 10:53:04 AM	,07/10/2026 1:51:05 PM	,	,Fulfillment by seller,Depósito - Dualis,999881336287676,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,jaquelinesena071,48639538875	,JAQUELINE SENA DOS SANTOS,Jaqueline Sena,(+55)119******29,Estrada do Schmidt,23,Jardim Morais Prado,deposito de construção,São Paulo,SP,Brasil,04855515	,"Jaqueline Sena
+(+55)119******29
+Estrada do Schmidt 23 Jardim Morais Prado deposito de construção
+São Paulo, SP
+04855515
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584884429627492047	,1202542361042519759	,Concluído,Concluído,,Normal,1733894232181999462	,CG-K5-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, G",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 15,59","BRL 34,40","BRL 0,00","BRL 10,80","BRL 0,00","BRL 10,80",,"BRL 34,40",Pix,,,,07/06/2026 3:43:06 AM	,07/06/2026 3:46:40 AM	,07/06/2026 3:50:38 AM	,07/07/2026 10:52:05 AM	,07/10/2026 5:07:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881327288041,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,kamilly.vitria.gu8,15919405759	,KAMILY VITORIA GUIZARDI DOS SANTOS,Kamilly vitória Guizardi dos S,(+55)279******36,Rua Colibri,61,Novo Porto Canoa,ao lado da igreja batista,Serra,ES,Brasil,29167551	,"Kamilly vitória Guizardi dos S
+(+55)279******36
+Rua Colibri 61 Novo Porto Canoa ao lado da igreja batista
+Serra, ES
+29167551
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584882674330928566	,1202526400066061750	,Concluído,Concluído,,Normal,1733894232181540710	,CG-P1-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"1 Unidade, GG",Lingerie,1,0,"BRL 19,99","BRL 19,99","BRL 0,00","BRL 7,50","BRL 12,49","BRL 0,00","BRL 8,28","BRL 0,00","BRL 8,28",,"BRL 12,49",Pix,,,,07/06/2026 1:43:40 AM	,07/06/2026 1:44:36 AM	,07/06/2026 5:42:43 AM	,07/07/2026 10:52:03 AM	,07/09/2026 11:00:02 AM	,	,Fulfillment by seller,Depósito - Dualis,999881336332861,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,lilianlumadeolive,49811229856	,LILIAN LUMA DE OLIVEIRA ALVES,LiLian Luma de Oliveira,(+55)119******53,Rua Domingos Magno,369,Vila Silveira,Casa 1,Guarulhos,SP,Brasil,07093030	,"LiLian Luma de Oliveira
+(+55)119******53
+Rua Domingos Magno 369 Vila Silveira Casa 1
+Guarulhos, SP
+07093030
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584878261121156569	,1202476113223648729	,Concluído,Concluído,,Normal,1733894232181868390	,CG-K3-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, XG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,88","BRL 15,59","BRL 23,52","BRL 0,00","BRL 7,20","BRL 0,00","BRL 7,20",,"BRL 23,52",Pix,,,,07/05/2026 7:08:11 PM	,07/05/2026 7:09:41 PM	,07/05/2026 7:52:58 PM	,07/06/2026 10:44:04 AM	,07/09/2026 6:13:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881331270699,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,talitanandasilva,41582570850	,TALITA FERNANDA DA SILVA LIMA,Talitanandasilva Lima,(+55)119******74,Rua Lírio da Paz,60,Jardim Zaira,Rua Lírio da Paz,Mauá,SP,Brasil,09321580	,"Talitanandasilva Lima
+(+55)119******74
+Rua Lírio da Paz 60 Jardim Zaira Rua Lírio da Paz
+Mauá, SP
+09321580
+Brasil",NF-e valid,,,Product cards,
+584874762142975874	,1202459180783470466	,Concluído,Concluído,,Normal,1733894232181540710	,CG-P1-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"1 Unidade, GG",Lingerie,2,0,"BRL 19,99","BRL 39,98","BRL 0,00","BRL 15,00","BRL 24,98","BRL 5,70","BRL 15,70","BRL 0,00","BRL 10,00",,"BRL 30,68",Parcelamento de cartão de crédito,,,,07/05/2026 11:37:14 AM	,07/05/2026 11:37:20 AM	,07/05/2026 7:52:57 PM	,07/06/2026 10:44:32 AM	,07/08/2026 10:57:01 AM	,	,Fulfillment by seller,Depósito - Dualis,999881327085725,Shipped via platform,Entrega padrão,0.6,J&T Express Brazil,j3ssica2811,12183908670	,JESSICA DA SILVA GOMES,Jhessfs,(+55)319******64,Avenida Prefeito Alberto Moura,1585,Portal da Serra,bl06 ap201,Sete Lagoas,MG,Brasil,35700791	,"Jhessfs
+(+55)319******64
+Avenida Prefeito Alberto Moura 1585 Portal da Serra bl06 ap201
+Sete Lagoas, MG
+35700791
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584872773256971681	,1202449753293292961	,Concluído,Concluído,,Normal,1733894232181671782	,CG-K3-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, M",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 1,79","BRL 15,59","BRL 22,61","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 23,41",Pix,,,,07/05/2026 9:51:40 AM	,07/05/2026 9:53:10 AM	,07/05/2026 7:52:57 PM	,07/06/2026 10:44:04 AM	,07/08/2026 2:43:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881334055504,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,emmy.carvalhoo,22688189778	,EMILLY DE CARVALHO OLIVEIRA,emmy.carvalhoo,(+55)229******31,Avenida Justiniano de Souza,27,Rasa,Em frente a escola,Armação dos Búzios,RJ,Brasil,28956430	,"emmy.carvalhoo
+(+55)229******31
+Avenida Justiniano de Souza 27 Rasa Em frente a escola
+Armação dos Búzios, RJ
+28956430
+Brasil",NF-e valid,,,Product cards,
+584871249546807028	,1202442385910695668	,Concluído,Concluído,,Normal,1733894232181933926	,CG-K5-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, M",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 15,59","BRL 34,40","BRL 0,00","BRL 7,20","BRL 0,00","BRL 7,20",,"BRL 34,40",Pix,,,,07/05/2026 8:10:15 AM	,07/05/2026 8:11:17 AM	,07/05/2026 7:52:02 PM	,07/06/2026 10:44:04 AM	,07/08/2026 2:02:04 PM	,	,Fulfillment by seller,Depósito - Dualis,999881333417985,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,biskami1,90137332807	,MIRIAN BISAKA LIPINDU,Servante miryam,(+55)119******63,"Rua Direita, 191",304,Sé,Andar 3 Ap 304,São Paulo,SP,Brasil,01002902	,"Servante miryam
+(+55)119******63
+Rua Direita, 191 304 Sé Andar 3 Ap 304
+São Paulo, SP
+01002902
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584862123956405874	,1202377398359721586	,Concluído,Concluído,,Normal,1733894232181737318	,CG-K3-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, G",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,30","BRL 15,59","BRL 24,10","BRL 9,60","BRL 9,60","BRL 0,00","BRL 0,00",,"BRL 33,70",Pix,,,,07/04/2026 9:41:03 PM	,07/04/2026 9:42:56 PM	,07/04/2026 9:46:43 PM	,07/06/2026 10:44:03 AM	,07/09/2026 3:58:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881330387990,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,mariajulianunes2006,42200677871	,MARIA JULIA ALVES NUNES,Maria julia Alves nunes,(+55)129******00,Rua Queluz,30,Jardim trabalhista (CDHU),Casa,Cachoeira Paulista,SP,Brasil,12630000	,"Maria julia Alves nunes
+(+55)129******00
+Rua Queluz 30 Jardim trabalhista (CDHU) Casa
+Cachoeira Paulista, SP
+12630000
+Brasil",NF-e valid,,,Product cards,
+584861597167158939	,1202374081158940315	,Concluído,Concluído,,Normal,1733894232182064998	,CG-K5-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, GG",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 5,00","BRL 15,59","BRL 29,40","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 29,40",Google Pay,,,,07/04/2026 8:46:29 PM	,07/04/2026 8:46:34 PM	,07/04/2026 8:50:44 PM	,07/06/2026 10:44:04 AM	,07/08/2026 4:47:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881328044916,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,victoriamachado03,46580167882	,VICTORIA CAROLINA MACHADO SANTOS,Vic Machado,(+55)199******73,Rua Doutor Anphilóphio de Mello Albuquerque,102,Recanto Novo Cosmópolis,Rua Doutor Anphilóphio de Mello Albuquerque,Cosmópolis,SP,Brasil,13152338	,"Vic Machado
+(+55)199******73
+Rua Doutor Anphilóphio de Mello Albuquerque 102 Recanto Novo Cosmópolis Rua Doutor Anphilóphio de Mello Albuquerque
+Cosmópolis, SP
+13152338
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584853719140763175	,1202335007659099687	,Concluído,Concluído,,Normal,1733894232181999462	,CG-K5-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, G",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 1,55","BRL 15,59","BRL 32,85","BRL 0,00","BRL 7,20","BRL 0,00","BRL 7,20",,"BRL 32,85",Parcelamento de cartão de crédito,,,,07/04/2026 7:49:01 AM	,07/04/2026 7:49:07 AM	,07/04/2026 7:52:43 AM	,07/04/2026 11:43:04 AM	,07/06/2026 1:49:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881326588499,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,__camilla.a,33420461801	,CAMILLA ANDRADE DOS SANTOS SILVA,Camilla Andrade,(+55)119******26,Rua Helena Zerrener,122,Liberdade,Apto 808,São Paulo,SP,Brasil,01512020	,"Camilla Andrade
+(+55)119******26
+Rua Helena Zerrener 122 Liberdade Apto 808
+São Paulo, SP
+01512020
+Brasil",NF-e valid,,,Product cards,
+584846169504253440	,1202271432257668608	,Concluído,Concluído,,Normal,1733894232182064998	,CG-K5-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, GG",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 15,59","BRL 34,40","BRL 6,90","BRL 16,90","BRL 0,00","BRL 10,00",,"BRL 41,30",Pix,,,,07/03/2026 11:20:13 PM	,07/03/2026 11:21:26 PM	,07/03/2026 11:23:04 PM	,07/04/2026 11:42:34 AM	,07/11/2026 4:18:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881318918428,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,gracielle833,12638004405	,GRACIELLE SOARES DIAS,Gracielle Soares Dias,(+55)819******90,rua da sede,24,usina Mussurepe,casa,Paudalho,PE,Brasil,55825000	,"Gracielle Soares Dias
+(+55)819******90
+rua da sede 24 usina Mussurepe casa
+Paudalho, PE
+55825000
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584845728872760818	,1202266761842951666	,Concluído,Concluído,,Normal,1733894178352957286	,GALENA-Kit 2 unidades - Preto-G,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 unidades - Preto, G",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 35,50","BRL 24,40","BRL 0,00","BRL 8,20","BRL 0,00","BRL 8,20",,"BRL 24,40",Parcelamento de cartão de crédito,,,,07/03/2026 10:53:37 PM	,07/03/2026 10:53:41 PM	,07/03/2026 10:55:44 PM	,07/04/2026 11:42:34 AM	,07/05/2026 4:53:01 PM	,	,Fulfillment by seller,Depósito - Dualis,999881323501095,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,cristinadejesus12939,07449762781	,CRISTINA SEVERO NUNES,cristinadejesus12939,(+55)219******41,Avenida Epitácio Pessoa,1154,Ipanema,ap 101,Rio de Janeiro,RJ,Brasil,22410090	,"cristinadejesus12939
+(+55)219******41
+Avenida Epitácio Pessoa 1154 Ipanema ap 101
+Rio de Janeiro, RJ
+22410090
+Brasil",NF-e valid,,,Product cards,
+584845372874458824	,1202262196537624264	,Concluído,Concluído,,Normal,1733894232182064998	,CG-K5-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, GG",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 15,59","BRL 34,40","BRL 0,00","BRL 7,20","BRL 0,00","BRL 7,20",,"BRL 34,40",Pix,,,,07/03/2026 10:21:12 PM	,07/03/2026 10:21:58 PM	,07/03/2026 10:25:58 PM	,07/04/2026 11:42:33 AM	,07/06/2026 10:14:02 AM	,	,Fulfillment by seller,Depósito - Dualis,999881320776742,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,danielle.cristina259,44979904866	,DANIELLE CRISTINA QUINTINO DA SILVA,dani,(+55)119*****98,Rua Marcelino Simões 494,s/n,Vila Cruz das Almas,casa,São Paulo,SP,Brasil,02804000	,"dani
+(+55)119*****98
+Rua Marcelino Simões 494 s/n Vila Cruz das Almas casa
+São Paulo, SP
+02804000
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584845051550860531	,1202258373253235955	,Concluído,Concluído,,Normal,1733894232182130534	,CG-K5-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, XG",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 5,00","BRL 15,59","BRL 29,40","BRL 0,00","BRL 7,20","BRL 0,00","BRL 7,20",,"BRL 29,40",Pix,,,,07/03/2026 9:54:28 PM	,07/03/2026 9:55:21 PM	,07/03/2026 9:59:01 PM	,07/04/2026 11:42:34 AM	,07/07/2026 4:17:01 PM	,	,Fulfillment by seller,Depósito - Dualis,999881321636520,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,esterr_aquino,53311257863	,ESTER CAMILLE SILVA AQUINO,Ester Aquino,(+55)119******32,Avenida Carmela Thomeu,204,Vila Carmela I,Bloco A1 AP 14,Guarulhos,SP,Brasil,07178001	,"Ester Aquino
+(+55)119******32
+Avenida Carmela Thomeu 204 Vila Carmela I Bloco A1 AP 14
+Guarulhos, SP
+07178001
+Brasil",NF-e valid,,,Product cards,
+584844656206054729	,1202257455570650441	,Concluído,Concluído,,Normal,1733894232181868390	,CG-K3-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, XG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 15,59","BRL 24,40","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 24,40",Pix,,,,07/03/2026 9:17:25 PM	,07/03/2026 9:41:33 PM	,07/03/2026 9:43:44 PM	,07/04/2026 11:43:04 AM	,07/06/2026 10:35:02 AM	,	,Fulfillment by seller,Depósito - Dualis,999881321517315,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,noemisantos288,22012811817	,NOEMI GONZAGA DOS SANTOS,Noemi Santos,(+55)199******99,Rio Paraná,117,Orestes Ongaro,Casa,Hortolândia,SP,Brasil,13183732	,"Noemi Santos
+(+55)199******99
+Rio Paraná 117 Orestes Ongaro Casa
+Hortolândia, SP
+13183732
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584844114998035651	,1202250881959822531	,Concluído,Concluído,,Normal,1733894232181737318	,CG-K3-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, G",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 15,59","BRL 24,40","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 25,20",Pix,,,,07/03/2026 8:17:40 PM	,07/03/2026 8:18:15 PM	,07/03/2026 8:19:44 PM	,07/04/2026 11:42:33 AM	,07/08/2026 11:26:03 AM	,	,Fulfillment by seller,Depósito - Dualis,999881305348051,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,lalaaysilva_ofc,86861329525	,LAILA SANTOS DA SILVA,Laila Silva,(+55)719******75,Rua São Miguel,26,Mata Escura,"2 andar, prédio moradas real",Salvador,BA,Brasil,41225600	,"Laila Silva
+(+55)719******75
+Rua São Miguel 26 Mata Escura 2 andar, prédio moradas real
+Salvador, BA
+41225600
+Brasil",NF-e valid,,,Product cards,
+584843320503010830	,1202245341680731662	,Concluído,Concluído,,Normal,1733894178353088358	,GALENA-Kit 2 peças Preto / Chocolate-M,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"Kit 2 peças Preto / Chocolate, M",Calcinhas,1,0,"BRL 59,90","BRL 59,90","BRL 0,00","BRL 35,50","BRL 24,40","BRL 0,80","BRL 10,80","BRL 0,00","BRL 10,00",,"BRL 25,20",Pix,,,,07/03/2026 5:24:29 PM	,07/03/2026 5:25:22 PM	,07/03/2026 5:27:45 PM	,07/04/2026 11:43:05 AM	,07/06/2026 12:34:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881321268553,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,merlya185,52531480862	,LETICIA CAMARAO DOS SANTOS,leticia camarão dos santos,(+55)139******48,Rua Monteiro Lobato,519,Sítio Paecara (Vicente de Carvalho),Rua Monteiro Lobato,Guarujá,SP,Brasil,11451350	,"leticia camarão dos santos
+(+55)139******48
+Rua Monteiro Lobato 519 Sítio Paecara (Vicente de Carvalho) Rua Monteiro Lobato
+Guarujá, SP
+11451350
+Brasil",NF-e valid,,,Product cards,
+584842909504406654	,1202242843033044094	,Concluído,Concluído,,Normal,1733894232181999462	,CG-K5-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, G",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 15,59","BRL 34,40","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 34,40",Pix,,,,07/03/2026 3:41:07 PM	,07/03/2026 3:43:49 PM	,07/03/2026 3:46:43 PM	,07/04/2026 11:43:04 AM	,07/06/2026 5:46:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881320766051,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,jucelidasilva90,76284930763	,JUCELI DA SILVA ROSA,juceli da Silva Rosa,(+55)219******12,Rua da Grama,781,Grama,Rua da Grama,Nova Iguaçu,RJ,Brasil,26060015	,"juceli da Silva Rosa
+(+55)219******12
+Rua da Grama 781 Grama Rua da Grama
+Nova Iguaçu, RJ
+26060015
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584842650875626580	,1202241437723690068	,Concluído,Concluído,,Normal,1733894232181802854	,CG-K3-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, GG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 6,10","BRL 15,59","BRL 18,30","BRL 0,00","BRL 10,80","BRL 0,00","BRL 10,80",,"BRL 18,30",Pix,,,,07/03/2026 2:53:30 PM	,07/03/2026 2:55:03 PM	,07/03/2026 2:58:44 PM	,07/04/2026 11:43:33 AM	,07/11/2026 9:07:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881322254378,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,roseliamesquita20,02694774032	,ROSELIA MESQUITA BORGES,Rosélia M.borges Batista,(+55)519******76,vila solidão km 190,1706,interior,casa,Mostardas,RS,Brasil,96270000	,"Rosélia M.borges Batista
+(+55)519******76
+vila solidão km 190 1706 interior casa
+Mostardas, RS
+96270000
+Brasil",NF-e valid,,,Product cards,
+584842392579114217	,1202239669247575273	,Concluído,Concluído,,Normal,1733894232181671782	,CG-K3-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, M",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 15,59","BRL 24,40","BRL 0,00","BRL 7,20","BRL 0,00","BRL 7,20",,"BRL 24,40",Pix,,,,07/03/2026 2:18:41 PM	,07/03/2026 2:19:54 PM	,07/03/2026 2:22:44 PM	,07/04/2026 11:43:05 AM	,07/07/2026 12:19:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881314769073,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,paulamarques143,61676115307	,PAULA BIANCA SILVA FERREIRA,bianca,(+55)989******17,Passagem Severo Bonini,62,Conjunto Promorar Estrada da Parada,casa verde de cerâmica,São Paulo,SP,Brasil,02873010	,"bianca
+(+55)989******17
+Passagem Severo Bonini 62 Conjunto Promorar Estrada da Parada casa verde de cerâmica
+São Paulo, SP
+02873010
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584841666314995580	,1202236418347468668	,Concluído,Concluído,,Normal,1733894232181409638	,CG-P1-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"1 Unidade, M",Lingerie,1,0,"BRL 19,99","BRL 19,99","BRL 0,00","BRL 7,50","BRL 12,49","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 12,49",Pix,,,,07/03/2026 1:10:11 PM	,07/03/2026 1:10:48 PM	,07/03/2026 1:13:44 PM	,07/04/2026 11:43:04 AM	,07/06/2026 5:50:05 PM	,	,Fulfillment by seller,Depósito - Dualis,999881317964661,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,julianatavaresbento,42099060851	,JULIANA VITORIA TAVARES BENTO,Juliana Tavares,(+55)119******88,Rua José Domingues,160,Centro,Clinica CRB IMAGEM,Bragança Paulista,SP,Brasil,12900260	,"Juliana Tavares
+(+55)119******88
+Rua José Domingues 160 Centro Clinica CRB IMAGEM
+Bragança Paulista, SP
+12900260
+Brasil",NF-e valid,,,Product cards,
+584830579782617017	,1202158695268517817	,Concluído,Concluído,,Normal,1733894232181999462	,CG-K5-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, G",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 2,28","BRL 15,59","BRL 32,12","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 32,12",Pix,,,,07/03/2026 12:52:32 AM	,07/03/2026 12:53:18 AM	,07/03/2026 12:55:44 AM	,07/04/2026 11:43:33 AM	,07/06/2026 3:21:04 PM	,	,Fulfillment by seller,Depósito - Dualis,999881316048953,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,mary_silvax3,52432970896	,MARIELY EDUARDA SILVA BRITO,Maryy,(+55)169******58,Rua Alípio Resende de Araújo,1320,Prolongamento Jardim Aeroporto I,Rua Alípio Resende de Araújo,Franca,SP,Brasil,14404095	,"Maryy
+(+55)169******58
+Rua Alípio Resende de Araújo 1320 Prolongamento Jardim Aeroporto I Rua Alípio Resende de Araújo
+Franca, SP
+14404095
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584826852728669887	,1202123348866664127	,Concluído,Concluído,,Normal,1733894232181671782	,CG-K3-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, M",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 15,59","BRL 24,40","BRL 0,00","BRL 7,20","BRL 0,00","BRL 7,20",,"BRL 24,40",Pix,,,,07/02/2026 7:29:58 PM	,07/02/2026 7:30:31 PM	,07/02/2026 7:31:44 PM	,07/03/2026 10:49:03 AM	,07/05/2026 1:11:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881303744113,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,viitoria____,54506125835	,LINO JUNIOR GOMES GONZAGA,Eshilley vitória do Carmo,(+55)119******37,Rua Vicente Durso,134,Jardim Santa Lídia,Casa,Guarulhos,SP,Brasil,07142016	,"Eshilley vitória do Carmo
+(+55)119******37
+Rua Vicente Durso 134 Jardim Santa Lídia Casa
+Guarulhos, SP
+07142016
+Brasil",NF-e valid,,,Product cards,
+584826702714537245	,1202122067713492253	,Concluído,Concluído,,Normal,1733894232182064998	,CG-K5-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, GG",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 15,09","BRL 34,90","BRL 0,00","BRL 9,18","BRL 0,00","BRL 9,18",,"BRL 34,90",Pix,,,,07/02/2026 7:01:02 PM	,07/02/2026 7:01:56 PM	,07/02/2026 7:04:44 PM	,07/03/2026 10:49:03 AM	,07/04/2026 3:38:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881312506618,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,geizi01,14024369717	,GEIZIANE DE RESENDE CHAGAS NERI,Geiziane de Resende Chagas Neri,(+55)219******36,Rua Treze,312,merisa / jardim itatiaia,casa,Itatiaia,RJ,Brasil,27583420	,"Geiziane de Resende Chagas Neri
+(+55)219******36
+Rua Treze 312 merisa / jardim itatiaia casa
+Itatiaia, RJ
+27583420
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584826159341471084	,1202118433002063212	,Concluído,Concluído,,Normal,1733894232181802854	,CG-K3-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, GG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 1,04","BRL 15,09","BRL 23,86","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 23,86",Pix,,,,07/02/2026 4:36:16 PM	,07/02/2026 4:37:19 PM	,07/02/2026 4:40:46 PM	,07/03/2026 10:49:03 AM	,07/07/2026 11:57:03 AM	,	,Fulfillment by seller,Depósito - Dualis,999881312758097,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,maiaradaianaacunha,86649892068	,MAIARA DAIANA BATISTA ACUNHA,Maiara Daiana Batista,(+55)519******87,Rua Nadir García Feijó,895,Elsa,casa1,Viamão,RS,Brasil,94420170	,"Maiara Daiana Batista
+(+55)519******87
+Rua Nadir García Feijó 895 Elsa casa1
+Viamão, RS
+94420170
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584825704934377355	,1202115408034367371	,Concluído,Concluído,Return/Refund,Normal,1733894232181999462	,CG-K5-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, G",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 0,00","BRL 15,09","BRL 34,90","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 34,90",Pix,,,,07/02/2026 3:03:32 PM	,07/02/2026 3:05:08 PM	,07/02/2026 3:07:15 PM	,07/03/2026 10:49:03 AM	,07/06/2026 3:01:04 PM	,	,Fulfillment by seller,Depósito - Dualis,999881313850545,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,myshell422,07221052077	,MICHAEL ALEJANDRA VELIZ GARCIA,Michelle Veliz,(+55)959******63,Rua Flor de Lótus,160,Águas Mortas,Casa 1,Gravataí,RS,Brasil,94100656	,"Michelle Veliz
+(+55)959******63
+Rua Flor de Lótus 160 Águas Mortas Casa 1
+Gravataí, RS
+94100656
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584822216128890879	,1202100130900707327	,Concluído,Concluído,,Normal,1733894232181802854	,CG-K3-GG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, GG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 15,09","BRL 24,90","BRL 0,00","BRL 7,92","BRL 0,00","BRL 7,92",,"BRL 24,90",Pix,,,,07/02/2026 10:37:29 AM	,07/02/2026 10:41:07 AM	,07/02/2026 6:40:44 PM	,07/03/2026 10:49:03 AM	,07/06/2026 4:33:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881314399731,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,andressajuli172,11752301463	,ANDRESSA JULIANA DA SILVA SANTOS,Andressa Juliana,(+55)119******03,Rua Obadia,100,Novo Osasco,Rua Obadia,Osasco,SP,Brasil,06142351	,"Andressa Juliana
+(+55)119******03
+Rua Obadia 100 Novo Osasco Rua Obadia
+Osasco, SP
+06142351
+Brasil",NF-e valid,,,Product cards,
+584822037812512170	,1202098426865878442	,Concluído,Concluído,,Normal,1733894232181671782	,CG-K3-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, M",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 15,09","BRL 24,90","BRL 9,60","BRL 9,60","BRL 0,00","BRL 0,00",,"BRL 34,50",Pix,,,,07/02/2026 10:24:04 AM	,07/02/2026 10:24:49 AM	,07/02/2026 6:39:45 PM	,07/03/2026 10:47:36 AM	,07/09/2026 5:04:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881313122233,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,jojopilantir312,11344203906	,JOCIMARA DOS ANJOS PILANTIR,jojopilantir312,(+55)429******92,Valentin Felice Pretto,13,Vila Mariana,casa,Bituruna,PR,Brasil,84640000	,"jojopilantir312
+(+55)429******92
+Valentin Felice Pretto 13 Vila Mariana casa
+Bituruna, PR
+84640000
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584813117826631402	,1202029134777714410	,Concluído,Concluído,,Normal,1733894232181671782	,CG-K3-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, M",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 1,74","BRL 15,09","BRL 23,16","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 23,16",Pix,,,,07/02/2026 12:28:56 AM	,07/02/2026 12:29:15 AM	,07/02/2026 12:32:06 AM	,07/03/2026 10:49:03 AM	,07/05/2026 11:52:02 AM	,	,Fulfillment by seller,Depósito - Dualis,999881307641353,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,amanda_f_santoos0,50134960807	,AMANDA FERREIRA DOS SANTOS,Amanda Ferreira,(+55)199******26,Rua Guido Orsi,370,Jardim Ouro Verde,Casa,Limeira,SP,Brasil,13482060	,"Amanda Ferreira
+(+55)199******26
+Rua Guido Orsi 370 Jardim Ouro Verde Casa
+Limeira, SP
+13482060
+Brasil",NF-e valid,,,Product cards,
+584810408117766018	,1202002396718270338	,Concluído,Concluído,,Normal,1733894178352760678	,GALENA-1 unidade - Chocolate-G,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Chocolate, G",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 3,12","BRL 14,00","BRL 12,78","BRL 0,00","BRL 8,20","BRL 0,00","BRL 8,20",,"BRL 14,03",Parcelamento de cartão de crédito,,,,07/01/2026 9:09:48 PM	,07/01/2026 9:09:54 PM	,07/02/2026 6:48:43 AM	,07/03/2026 10:49:03 AM	,07/04/2026 7:34:01 PM	,	,Fulfillment by seller,Depósito - Dualis,999881308821890,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,pavezzi.reis,16809315713	,ANA CAROLINA REIS ALMEIDA,Ana Carolina Reis Almeida,(+55)219******09,Rua José de Alvarenga,265,Centro,loja KAREN VICIUS,Duque de Caxias,RJ,Brasil,25020140	,"Ana Carolina Reis Almeida
+(+55)219******09
+Rua José de Alvarenga 265 Centro loja KAREN VICIUS
+Duque de Caxias, RJ
+25020140
+Brasil",NF-e valid,,,Product cards,
+584810045475161915	,1201999381263255355	,Concluído,Concluído,,Normal,1733894232181671782	,CG-K3-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, M",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 6,39","BRL 15,09","BRL 18,51","BRL 0,00","BRL 7,20","BRL 0,00","BRL 7,20",,"BRL 18,51",Pix,,,,07/01/2026 8:34:50 PM	,07/01/2026 8:35:46 PM	,07/02/2026 6:48:43 AM	,07/03/2026 10:49:03 AM	,07/06/2026 6:52:50 PM	,	,Fulfillment by seller,Depósito - Dualis,999881305673252,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,vivin.barbosa,49531021856	,VIVIANE BARBOSA LUZ,vivin.barbosa,(+55)759******56,Rua Viana do Castelo,379,Vila Califórnia,Casa,São Paulo,SP,Brasil,03213070	,"vivin.barbosa
+(+55)759******56
+Rua Viana do Castelo 379 Vila Califórnia Casa
+São Paulo, SP
+03213070
+Brasil",NF-e valid,,,Videos,dualis.lingerie
+584808850213734035	,1201991622230967955	,Concluído,Concluído,,Normal,1733894178352498534	,GALENA-1 unidade - Preto-M,Calcinha Cinta Cós Alto e Modeladora - Redutora de Medidas e Pós Parto - Conforto e Sustentação,"1 unidade - Preto, M",Calcinhas,1,0,"BRL 29,90","BRL 29,90","BRL 0,00","BRL 14,00","BRL 15,90","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 15,90",Pix,,,,07/01/2026 4:32:33 PM	,07/01/2026 4:34:43 PM	,07/01/2026 5:30:45 PM	,07/02/2026 10:46:04 AM	,07/04/2026 10:24:03 AM	,	,Fulfillment by seller,Depósito - Dualis,999881304870542,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,thayzinhan00,46592974893	,RODRIGO GIMENE MORAES,Thay,(+55)119******12,Rua Hortência,8,Inamar,Casa,Diadema,SP,Brasil,09973006	,"Thay
+(+55)119******12
+Rua Hortência 8 Inamar Casa
+Diadema, SP
+09973006
+Brasil",NF-e valid,,,Product cards,
+584807727925003947	,1201985727277467307	,Concluído,Concluído,,Normal,1733894232181671782	,CG-K3-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, M",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 15,09","BRL 24,90","BRL 0,00","BRL 9,24","BRL 0,00","BRL 9,24",,"BRL 24,90",Pix,,,,07/01/2026 1:42:19 PM	,07/01/2026 1:45:15 PM	,07/01/2026 6:50:09 PM	,07/02/2026 10:45:33 AM	,07/03/2026 4:07:05 PM	,	,Fulfillment by seller,Depósito - Dualis,999881300634620,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,paloma.costa076,17186683762	,PALOMA COSTA DE OLIVEIRA,Paloma Costa,(+55)219******79,Rua Dom Antônio,s/n,Parque Eldorado,Bloco 3 ap 105,Queimados,RJ,Brasil,26317070	,"Paloma Costa
+(+55)219******79
+Rua Dom Antônio s/n Parque Eldorado Bloco 3 ap 105
+Queimados, RJ
+26317070
+Brasil",NF-e valid,,,Product cards,
+584807589434656555	,1201984990755129131	,Concluído,Concluído,,Normal,1733894232181671782	,CG-K3-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, M",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 1,71","BRL 15,09","BRL 23,19","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 23,19",Pix,,,,07/01/2026 1:27:36 PM	,07/01/2026 1:34:07 PM	,07/01/2026 5:29:43 PM	,07/02/2026 10:46:05 AM	,07/06/2026 11:03:02 AM	,	,Fulfillment by seller,Depósito - Dualis,999881303114713,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,thaisnicolly,12258333962	,THAIS NICOLLY BIELLA,Thais Nicolly,(+55)419******62,Rua Afonso Dissenha,154,Bom Jesus,casa dos fundos,São José dos Pinhais,PR,Brasil,83020220	,"Thais Nicolly
+(+55)419******62
+Rua Afonso Dissenha 154 Bom Jesus casa dos fundos
+São José dos Pinhais, PR
+83020220
+Brasil",NF-e valid,,,Product cards,
+584805203313985321	,1201974580147357481	,Concluído,Concluído,,Normal,1733894232181737318	,CG-K3-G-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, G",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 6,39","BRL 15,09","BRL 18,51","BRL 0,00","BRL 7,20","BRL 0,00","BRL 7,20",,"BRL 18,51",Pix,,,,07/01/2026 10:58:05 AM	,07/01/2026 10:58:47 AM	,07/01/2026 11:02:44 AM	,07/02/2026 10:46:04 AM	,07/04/2026 2:52:02 PM	,	,Fulfillment by seller,Depósito - Dualis,999881302213922,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,..w.i.n.c.h.e.s.t.e.r,80060946911	,KAUANE ESTEFANI DA SILVA,Nicolly Victória,(+55)119******75,Rua Bahia,949,Parque Cento e Vinte,Rua Bahia,Francisco Morato,SP,Brasil,07941060	,"Nicolly Victória
+(+55)119******75
+Rua Bahia 949 Parque Cento e Vinte Rua Bahia
+Francisco Morato, SP
+07941060
+Brasil",NF-e valid,,,Product cards,
+584804408855398190	,1201969855950849838	,Concluído,Concluído,,Normal,1733894232181933926	,CG-K5-M-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 5 Peças, M",Lingerie,1,0,"BRL 49,99","BRL 49,99","BRL 1,20","BRL 15,09","BRL 33,70","BRL 0,00","BRL 9,60","BRL 0,00","BRL 9,60",,"BRL 35,35",Parcelamento de cartão de crédito,,,,07/01/2026 10:11:04 AM	,07/01/2026 10:11:18 AM	,07/01/2026 10:13:44 AM	,07/02/2026 10:45:33 AM	,07/04/2026 4:39:13 PM	,	,Fulfillment by seller,Depósito - Dualis,999881295444608,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,cielly00,86814272539	,LUCIELE JESUS DE SANTANA,Lucielle Jesus,(+55)199******28,Rua José Deboni,90,Vila São João,Casa pode jogar na garagem,Itupeva,SP,Brasil,13295266	,"Lucielle Jesus
+(+55)199******28
+Rua José Deboni 90 Vila São João Casa pode jogar na garagem
+Itupeva, SP
+13295266
+Brasil",NF-e valid,,,Product cards,
+584802439786825042	,1201958043317339474	,Concluído,Concluído,,Normal,1733894232181868390	,CG-K3-XG-SOR,Kit 3 ou 5 Calcinhas Gestante  e Pós Parto Cintura Alta Hot Pant Conforto -  Dualis,"Kit 3 Peças, XG",Lingerie,1,0,"BRL 39,99","BRL 39,99","BRL 0,00","BRL 15,09","BRL 24,90","BRL 0,00","BRL 8,40","BRL 0,00","BRL 8,40",,"BRL 24,90",Pix,,,,07/01/2026 8:03:57 AM	,07/01/2026 8:05:05 AM	,07/01/2026 6:49:13 PM	,07/02/2026 10:45:33 AM	,07/03/2026 1:01:03 PM	,	,Fulfillment by seller,Depósito - Dualis,999881305464021,Shipped via platform,Entrega padrão,0.3,J&T Express Brazil,karen_gomes1234,11689450703	,KAREN MARIANA GOMES BATISTA,Karen Gomes,(+55)219******01,Rua Anderson,402,Palhada,Casa,Nova Iguaçu,RJ,Brasil,26290135	,"Karen Gomes
+(+55)219******01
+Rua Anderson 402 Palhada Casa
+Nova Iguaçu, RJ
+26290135
+Brasil",NF-e valid,,,Videos,dualis.lingerie

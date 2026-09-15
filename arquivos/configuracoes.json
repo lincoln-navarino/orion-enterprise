@@ -1,0 +1,27 @@
+{
+    "perfil_fiscal": "MEI (4%)",
+    "aliquota_simples_perc": 4.0,
+    "roas_meta": 8.0,
+    "perfis_custom": {
+        "Simples Nacional (~10%)": {
+            "aliquota": 10.0,
+            "roas": 8.0
+        },
+        "MEI (4%)": {
+            "aliquota": 4.0,
+            "roas": 8.0
+        },
+        "MEI Zero (0%)": {
+            "aliquota": 0.0,
+            "roas": 10.0
+        },
+        "Personalizado": {
+            "aliquota": 10.0,
+            "roas": 8.0
+        },
+        "Simples 6%": {
+            "aliquota": 6.0,
+            "roas": 8.5
+        }
+    }
+}

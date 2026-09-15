@@ -348,6 +348,63 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+# ---------------------------------------------------------
+# AUTENTICAÇÃO E CONTROLE DE ACESSO
+# ---------------------------------------------------------
+USUARIOS_AUTORIZADOS = {
+    "Dualis": "Q1w2e3r4",
+    "Rafael": "vasco",
+    "Lincoln": "Mudar,123",
+}
+
+if "autenticado" not in st.session_state:
+    st.session_state["autenticado"] = False
+if "usuario_logado" not in st.session_state:
+    st.session_state["usuario_logado"] = ""
+
+def tela_login():
+    col1, col2, col3 = st.columns([1, 1.4, 1])
+    with col2:
+        st.markdown("""
+        <div style="background: linear-gradient(145deg, #101625, #080C16); border: 1px solid #1E293B; border-radius: 18px; padding: 36px 30px; box-shadow: 0 25px 60px rgba(0,0,0,0.7); margin-top: 40px; margin-bottom: 24px; text-align: center;">
+            <div style="background: linear-gradient(135deg, #38BDF8, #0284C7); width: 60px; height: 60px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 16px auto; box-shadow: 0 0 25px rgba(56,189,248,0.4);">🛡️</div>
+            <h2 style="font-family: 'Outfit', sans-serif; font-size: 26px; font-weight: 800; color: #F8FAFC; margin-bottom: 4px; letter-spacing: -0.5px;">ORION ENTERPRISE</h2>
+            <div style="color: #38BDF8; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px;">Dualis Lingerie</div>
+            <p style="color: #94A3B8; font-size: 14px; margin: 0;">Área restrita. Informe suas credenciais de acesso.</p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        with st.form("form_login", clear_on_submit=False):
+            usuario_input = st.text_input("Usuário", placeholder="Digite seu usuário").strip()
+            senha_input = st.text_input("Senha", type="password", placeholder="Digite sua senha")
+            st.markdown("<div style='height: 10px'></div>", unsafe_allow_html=True)
+            btn_entrar = st.form_submit_button("Entrar no Sistema", use_container_width=True, type="primary")
+            
+            if btn_entrar:
+                usuario_match = None
+                for u in USUARIOS_AUTORIZADOS:
+                    if u.lower() == usuario_input.lower():
+                        usuario_match = u
+                        break
+                
+                if usuario_match and USUARIOS_AUTORIZADOS[usuario_match] == senha_input:
+                    st.session_state["autenticado"] = True
+                    st.session_state["usuario_logado"] = usuario_match
+                    st.rerun()
+                else:
+                    st.error("Usuário ou senha incorretos.")
+
+if not st.session_state.get("autenticado", False):
+    st.markdown("""
+    <style>
+        [data-testid="stSidebar"], [data-testid="collapsedControl"] {
+            display: none !important;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+    tela_login()
+    st.stop()
+
 def render_kpi_cards(cards):
     """
     Renders a responsive flexbox grid of KPI metric cards that adapts automatically to any screen size.
@@ -1071,6 +1128,26 @@ with st.sidebar:
                     st.rerun()
                 else:
                     st.error("Digite um nome válido!")
+
+    # Usuário Conectado e Logout
+    st.markdown("<div style='height:14px'></div>", unsafe_allow_html=True)
+    st.markdown("<div style='border-top:1px solid #1E293B;margin:8px 0 14px 0'></div>", unsafe_allow_html=True)
+    
+    usuario_atual = st.session_state.get("usuario_logado", "")
+    st.markdown(f"""
+    <div style="background:#0D1321;border:1px solid #1E293B;border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:10px;margin-bottom:10px">
+        <div style="font-size:1.1rem">👤</div>
+        <div style="overflow:hidden">
+            <div style="color:#64748B;font-size:0.7rem;font-weight:700;text-transform:uppercase">Operador</div>
+            <div style="color:#F8FAFC;font-size:0.88rem;font-weight:700;font-family:'Outfit',sans-serif">{usuario_atual}</div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    if st.button("🚪 Sair do Sistema", key="btn_logout", use_container_width=True):
+        st.session_state["autenticado"] = False
+        st.session_state["usuario_logado"] = ""
+        st.rerun()
 
 aba = st.session_state.aba
 

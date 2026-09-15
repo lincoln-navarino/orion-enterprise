@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">ORION Enterprise</string>
-    <!-- Substitua pela sua URL pública após publicar na nuvem ou mantenha o placeholder para testes locais -->
-    <string name="default_server_url">http://10.0.2.2:8501</string>
+    <string name="default_server_url">https://orion-dualis.streamlit.app</string>
 </resources>

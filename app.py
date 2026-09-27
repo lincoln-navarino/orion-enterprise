@@ -423,7 +423,7 @@ if aba_selecionada == "📊 Dashboard":
         {"Plataforma": "Shein", "Faturamento": 13900.00, "Ads": 750.00, "Comissões": 2224.00, "Devoluções": 290.00, "Pedidos": 370, "Mês": "08-Agosto", "Ano": "2026"},
     ])
 
-    # Filtragem Dinâmica
+    # Filtragem Dinâmica e Agrupamento Único por Plataforma
     dados_plataformas = dados_brutos.copy()
     if ano_filtro != "Todos os Anos":
         dados_plataformas = dados_plataformas[dados_plataformas["Ano"] == ano_filtro]
@@ -434,6 +434,9 @@ if aba_selecionada == "📊 Dashboard":
 
     if len(dados_plataformas) == 0:
         dados_plataformas = dados_brutos[dados_brutos["Mês"] == "09-Setembro"]
+
+    # Agrupamento obrigatório por plataforma para eliminar duplicidades
+    dados_plataformas = dados_plataformas.groupby("Plataforma", as_index=False)[["Faturamento", "Ads", "Comissões", "Devoluções", "Pedidos"]].sum()
 
     st.markdown(f"""
     <div style="margin:12px 0 16px 0;display:flex;gap:10px">

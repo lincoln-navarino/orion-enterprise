@@ -953,11 +953,14 @@ if aba_selecionada == "📊 Dashboard":
     dados_plataformas = pd.DataFrame(registros_reais)
     dados_plataformas = dados_plataformas.groupby("Plataforma", as_index=False)[["Faturamento", "Ads", "Comissões", "Devoluções", "Pedidos", "RendaEfetiva"]].sum()
 
+    renda_total_efetiva = dados_plataformas["RendaEfetiva"].sum() if "RendaEfetiva" in dados_plataformas.columns else 0.0
+
     st.markdown(f"""
-    <div style="margin:12px 0 16px 0;display:flex;gap:10px">
+    <div style="margin:12px 0 16px 0;display:flex;gap:10px;flex-wrap:wrap">
         <span class="badge-pill badge-blue">📅 Ano: {ano_filtro}</span>
         <span class="badge-pill badge-purple">🗓️ Mês: {mes_filtro}</span>
         <span class="badge-pill badge-green">🎯 Canal: {plat_filtro}</span>
+        {(f"<span class='badge-pill badge-green'>💰 Repasse Liberado na Carteira: R$ {renda_total_efetiva:,.2f}</span>" if renda_total_efetiva > 0 else "")}
     </div>
     """, unsafe_allow_html=True)
 
@@ -986,28 +989,28 @@ if aba_selecionada == "📊 Dashboard":
     lucro_estimado = fat_total - (ads_total + com_total + dev_total + imp_total + cmv_estimado)
     margem_perc = (lucro_estimado / fat_total * 100.0) if fat_total > 0 else 0.0
 
-    col_m1, col_m2, col_m3, col_m4, col_m5 = st.columns(5)
+    col_m1, col_m2, col_m3, col_m4, col_m5, col_m6 = st.columns(6)
     with col_m1:
         st.markdown(f"""
         <div class="orion-card">
             <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">Faturamento Bruto</div>
-            <div style="color:#38BDF8;font-family:'Outfit';font-size:1.5rem;font-weight:800;margin-top:4px">R$ {fat_total:,.2f}</div>
+            <div style="color:#38BDF8;font-family:'Outfit';font-size:1.35rem;font-weight:800;margin-top:4px">R$ {fat_total:,.2f}</div>
             <div style="color:#34D399;font-size:0.75rem;font-weight:700;margin-top:4px">▲ {ped_total:,} Pedidos</div>
         </div>
         """, unsafe_allow_html=True)
     with col_m2:
         st.markdown(f"""
         <div class="orion-card">
-            <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">Investimento em Ads</div>
-            <div style="color:#C084FC;font-family:'Outfit';font-size:1.5rem;font-weight:800;margin-top:4px">R$ {ads_total:,.2f}</div>
-            <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;margin-top:4px">ROAS Geral: {(fat_total/ads_total if ads_total>0 else 0):.1f}x</div>
+            <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">Investimento Ads</div>
+            <div style="color:#C084FC;font-family:'Outfit';font-size:1.35rem;font-weight:800;margin-top:4px">R$ {ads_total:,.2f}</div>
+            <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;margin-top:4px">ROAS: {(fat_total/ads_total if ads_total>0 else 0):.1f}x</div>
         </div>
         """, unsafe_allow_html=True)
     with col_m3:
         st.markdown(f"""
         <div class="orion-card">
-            <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">Comissões de Canais</div>
-            <div style="color:#FBBF24;font-family:'Outfit';font-size:1.5rem;font-weight:800;margin-top:4px">R$ {com_total:,.2f}</div>
+            <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">Comissões Canais</div>
+            <div style="color:#FBBF24;font-family:'Outfit';font-size:1.35rem;font-weight:800;margin-top:4px">R$ {com_total:,.2f}</div>
             <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;margin-top:4px">Média ~{(com_total/fat_total*100 if fat_total>0 else 0):.1f}%</div>
         </div>
         """, unsafe_allow_html=True)
@@ -1015,59 +1018,26 @@ if aba_selecionada == "📊 Dashboard":
         st.markdown(f"""
         <div class="orion-card">
             <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">Devoluções / Trocas</div>
-            <div style="color:#F87171;font-family:'Outfit';font-size:1.5rem;font-weight:800;margin-top:4px">R$ {dev_total:,.2f}</div>
+            <div style="color:#F87171;font-family:'Outfit';font-size:1.35rem;font-weight:800;margin-top:4px">R$ {dev_total:,.2f}</div>
             <div style="color:#F87171;font-size:0.75rem;font-weight:700;margin-top:4px">Taxa ~{(dev_total/fat_total*100 if fat_total>0 else 0):.1f}%</div>
         </div>
         """, unsafe_allow_html=True)
     with col_m5:
+        tot_pecas_fis = sum(d.get('pecas_fisicas_vendidas', 0) for d in dados_pedidos_detalhados) if dados_pedidos_detalhados else 0
+        txt_cmv_sub = f"{tot_pecas_fis:,} peça(s)" if tot_pecas_fis > 0 else "CMV Estimado"
+        st.markdown(f"""
+        <div class="orion-card" style="border-color:#F97316">
+            <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">Custo Peças (CMV)</div>
+            <div style="color:#F97316;font-family:'Outfit';font-size:1.35rem;font-weight:800;margin-top:4px">R$ {cmv_estimado:,.2f}</div>
+            <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;margin-top:4px">🧵 {txt_cmv_sub}</div>
+        </div>
+        """, unsafe_allow_html=True)
+    with col_m6:
         st.markdown(f"""
         <div class="orion-card" style="border-color:#34D399">
             <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">Lucro Líquido Real</div>
-            <div style="color:#34D399;font-family:'Outfit';font-size:1.5rem;font-weight:800;margin-top:4px">R$ {lucro_estimado:,.2f}</div>
+            <div style="color:#34D399;font-family:'Outfit';font-size:1.35rem;font-weight:800;margin-top:4px">R$ {lucro_estimado:,.2f}</div>
             <div style="color:#34D399;font-size:0.75rem;font-weight:700;margin-top:4px">Margem Real: {margem_perc:.1f}%</div>
-        </div>
-        """, unsafe_allow_html=True)
-
-    renda_total_efetiva = dados_plataformas["RendaEfetiva"].sum() if "RendaEfetiva" in dados_plataformas.columns else 0.0
-
-    if renda_total_efetiva > 0:
-        st.markdown("<div style='height:12px'></div>", unsafe_allow_html=True)
-        st.markdown("##### 🏦 Conciliação Financeira (Minha Renda / Repasse Efetivo Liberado na Conta)")
-        
-        col_rec1, col_rec2, col_rec3 = st.columns(3)
-        with col_rec1:
-            st.markdown(f"""
-            <div class="orion-card" style="border-color:#38BDF8">
-                <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">💰 Repasse Liberado em Conta</div>
-                <div style="color:#38BDF8;font-family:'Outfit';font-size:1.6rem;font-weight:800;margin-top:4px">R$ {renda_total_efetiva:,.2f}</div>
-                <div style="color:#34D399;font-size:0.75rem;font-weight:700;margin-top:4px">✓ Dinheiro Depositado na Carteira</div>
-            </div>
-            """, unsafe_allow_html=True)
-        with col_rec2:
-            saldo_livre_caixa = renda_total_efetiva - cmv_estimado
-            cor_saldo = "#34D399" if saldo_livre_caixa >= 0 else "#F87171"
-            st.markdown(f"""
-            <div class="orion-card" style="border-color:{cor_saldo}">
-                <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">📦 Saldo Livre p/ Pagamento de Peças</div>
-                <div style="color:{cor_saldo};font-family:'Outfit';font-size:1.6rem;font-weight:800;margin-top:4px">R$ {saldo_livre_caixa:,.2f}</div>
-                <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;margin-top:4px">Repasse (-) Custo Peças (R$ {cmv_estimado:,.2f})</div>
-            </div>
-            """, unsafe_allow_html=True)
-        with col_rec3:
-            dif_proj = renda_total_efetiva - (fat_total - (com_total + dev_total))
-            status_conc = "✓ Conciliado em Caixa" if abs(dif_proj) < 100 else "⏳ Retenção Temporária de Garantia"
-            st.markdown(f"""
-            <div class="orion-card">
-                <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">🔍 Status de Conciliação</div>
-                <div style="color:#FBBF24;font-family:'Outfit';font-size:1.3rem;font-weight:800;margin-top:4px">{status_conc}</div>
-                <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;margin-top:4px">Variação: R$ {dif_proj:,.2f}</div>
-            </div>
-            """, unsafe_allow_html=True)
-    else:
-        st.markdown("""
-        <div style="background:#0E1424;border:1px dashed #334155;padding:10px 16px;border-radius:10px;margin:10px 0 14px 0">
-            <span style="color:#38BDF8;font-weight:700;font-size:0.85rem">💡 Conciliação Financeira Efetiva:</span>
-            <span style="color:#94A3B8;font-size:0.85rem">Você pode fazer o upload do relatório de <b>"Minha Renda / Extrato de Repasse"</b> da Shopee/Marketplaces na <b>Central de Relatórios</b> para conciliar o dinheiro líquido que caiu na conta bancária com o pagamento das peças aos fornecedores.</span>
         </div>
         """, unsafe_allow_html=True)
 

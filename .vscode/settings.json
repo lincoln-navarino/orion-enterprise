@@ -1,0 +1,13 @@
+{
+  "foam.edit.linkReferenceDefinitions": "without",
+  "foam.openDailyNote.directory": "docs/journal",
+  "foam.files.ignore": [
+    "**/node_modules/**",
+    "**/__pycache__/**",
+    "**/arquivos/**",
+    "**/arquivos_backup*/**",
+    "**/android/**"
+  ],
+  "markdown.preview.breaks": true,
+  "editor.wordWrap": "on"
+}

@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "foam.foam-vscode",
+    "bierner.markdown-mermaid",
+    "yzhang.markdown-all-in-one",
+    "mhutchie.git-graph",
+    "joaompinto.vscode-graphviz"
+  ]
+}

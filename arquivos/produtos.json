@@ -112,5 +112,53 @@
         "fornecedor": "Confecção Própria",
         "peso_g": 65,
         "observacoes": "Alça com regulagem reforçada"
+    },
+    {
+        "id": 8,
+        "nome": "Sutiã",
+        "sku": "tes",
+        "categoria": "Outros",
+        "custo_unitario": 15.0,
+        "custo_embalagem": 0.6,
+        "fornecedor": "Confecção Própria",
+        "peso_g": 120,
+        "observacoes": "",
+        "precos_praticados": {
+            "Shopee": {
+                "preco_cheio": 49.9,
+                "preco_oferta": 39.9,
+                "preco_relampago": 34.9,
+                "usar_roas": true,
+                "roas_esperado": 8.0
+            },
+            "TikTok Shop": {
+                "preco_cheio": 49.9,
+                "preco_oferta": 39.9,
+                "preco_relampago": 34.9,
+                "usar_roas": true,
+                "roas_esperado": 8.0
+            },
+            "Shein": {
+                "preco_cheio": 49.9,
+                "preco_oferta": 39.9,
+                "preco_relampago": 34.9,
+                "usar_roas": true,
+                "roas_esperado": 8.0
+            },
+            "Mercado Livre (Classic)": {
+                "preco_cheio": 49.9,
+                "preco_oferta": 39.9,
+                "preco_relampago": 34.9,
+                "usar_roas": true,
+                "roas_esperado": 8.0
+            },
+            "Mercado Livre (Premium)": {
+                "preco_cheio": 49.9,
+                "preco_oferta": 39.9,
+                "preco_relampago": 34.9,
+                "usar_roas": true,
+                "roas_esperado": 8.0
+            }
+        }
     }
 ]

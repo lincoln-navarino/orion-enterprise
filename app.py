@@ -1063,7 +1063,8 @@ if aba_selecionada == "📊 Dashboard":
                                     fat += meta_stats["faturamento_pago"]
                                     ped += meta_stats["pedidos_pagos"]
                                     dev += meta_stats.get("vendas_devolvidas", 0.0)
-                                    com += meta_stats["faturamento_pago"] * 0.14
+                                    tx_comm = 0.20 if "Shopee" in p else (0.10 if "TikTok" in p else 0.14)
+                                    com += meta_stats["faturamento_pago"] * tx_comm
                                     dados_shop_stats.append(meta_stats)
                             except Exception:
                                 pass
@@ -1093,7 +1094,8 @@ if aba_selecionada == "📊 Dashboard":
                                     v_fat, p_ped = extrair_faturamento_vendas(df_concat)
                                     fat += v_fat
                                     ped += p_ped
-                                    com += v_fat * 0.14
+                                    tx_comm = 0.20 if "Shopee" in p else (0.10 if "TikTok" in p else 0.14)
+                                    com += v_fat * tx_comm
                                 except Exception:
                                     pass
 
@@ -1136,8 +1138,7 @@ if aba_selecionada == "📊 Dashboard":
                             except Exception:
                                 pass
 
-                if taxas_exatas_plat > 0:
-                    com = taxas_exatas_plat
+                # Comissões mantidas na alíquota oficial da plataforma (20% Shopee) sobre o Produto Pago
 
                 # Extração da série de vendas diárias para o Pilar 2
                 df_diario_plat = extrair_serie_diaria_vendas(pastas_vendas, pastas_pedidos)

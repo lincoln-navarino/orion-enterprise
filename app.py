@@ -171,6 +171,61 @@ def obter_pastas_plataforma(tipo, ano, mes, plat):
             pastas.append(p)
     return pastas
 
+import unicodedata
+
+def normalizar_str(s):
+    s = str(s).lower()
+    return ''.join(c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn')
+
+def extrair_metadados_shopee_shop_stats(filepath):
+    """
+    Extrai métricas completas de gestão de e-commerce a partir do relatório Shopee Shop Stats (Produto Pago e Fontes de Tráfego).
+    """
+    try:
+        xl = pd.ExcelFile(filepath)
+        dados = {}
+        def to_f(v):
+            if pd.isna(v): return 0.0
+            v_str = str(v).replace('BRL', '').replace('R$', '').replace('%', '').strip()
+            if '.' in v_str and ',' in v_str: v_str = v_str.replace('.', '').replace(',', '.')
+            elif ',' in v_str: v_str = v_str.replace(',', '.')
+            try: return float(v_str)
+            except: return 0.0
+
+        def pegar_valor_coluna(row, termo_busca):
+            termo_n = normalizar_str(termo_busca)
+            for col in row.index:
+                if termo_n in normalizar_str(col):
+                    return to_f(row[col])
+            return 0.0
+
+        if 'Produto Pago' in xl.sheet_names:
+            df_pago = pd.read_excel(filepath, sheet_name='Produto Pago')
+            row0 = df_pago.iloc[0]
+            dados['faturamento_pago'] = pegar_valor_coluna(row0, 'vendas (brl)')
+            dados['pedidos_pagos'] = int(pegar_valor_coluna(row0, 'pedidos'))
+            dados['pedidos_cancelados'] = int(pegar_valor_coluna(row0, 'pedidos cancelados'))
+            dados['vendas_canceladas'] = pegar_valor_coluna(row0, 'vendas canceladas')
+            dados['pedidos_devolvidos'] = int(pegar_valor_coluna(row0, 'pedidos devolvidos'))
+            dados['vendas_devolvidas'] = pegar_valor_coluna(row0, 'vendas devolvidas')
+            dados['visitantes'] = int(pegar_valor_coluna(row0, 'visitantes'))
+            dados['taxa_conversao'] = pegar_valor_coluna(row0, 'taxa de conversao')
+            dados['taxa_recompra'] = pegar_valor_coluna(row0, 'repetir indice')
+
+        sheet_fontes = [s for s in xl.sheet_names if 'fontes' in normalizar_str(s) and 'pago' in normalizar_str(s)]
+        if sheet_fontes:
+            df_f = pd.read_excel(filepath, sheet_name=sheet_fontes[0])
+            row_f = df_f.iloc[0]
+            dados['vendas_cards'] = pegar_valor_coluna(row_f, 'cards')
+            dados['vendas_lives'] = pegar_valor_coluna(row_f, 'lives')
+            dados['vendas_videos'] = pegar_valor_coluna(row_f, 'videos')
+            dados['vendas_afiliados'] = pegar_valor_coluna(row_f, 'afiliado')
+            dados['vendas_anuncios'] = pegar_valor_coluna(row_f, 'anuncios')
+
+        return dados
+    except Exception:
+        return {}
+
 def carregar_produtos_disco(produtos_padrao):
     if os.path.exists(ARQUIVO_PRODUTOS):
         try:
@@ -559,6 +614,7 @@ if aba_selecionada == "📊 Dashboard":
     meses_lista = ['01-Janeiro', '02-Fevereiro', '03-Março', '04-Abril', '05-Maio', '06-Junho', '07-Julho', '08-Agosto', '09-Setembro', '10-Outubro', '11-Novembro', '12-Dezembro'] if mes_filtro == "Todos os Meses" else [mes_filtro]
 
     registros_reais = []
+    dados_shop_stats = []
     tem_relatorio_no_disco = False
 
     for a in anos_lista:
@@ -580,11 +636,20 @@ if aba_selecionada == "📊 Dashboard":
                         for file_name in files_v:
                             filepath = os.path.join(p_dir_vendas, file_name)
                             try:
-                                df_f = ler_dataframe_inteligente(filepath)
-                                v_fat, p_ped = extrair_faturamento_vendas(df_f)
-                                fat += v_fat
-                                ped += p_ped
-                                com += v_fat * 0.14
+                                # Verifica se é relatório avançado Shopee Shop Stats
+                                meta_stats = extrair_metadados_shopee_shop_stats(filepath)
+                                if meta_stats and meta_stats.get("faturamento_pago", 0) > 0:
+                                    fat += meta_stats["faturamento_pago"]
+                                    ped += meta_stats["pedidos_pagos"]
+                                    dev += meta_stats.get("vendas_devolvidas", 0.0)
+                                    com += meta_stats["faturamento_pago"] * 0.14
+                                    dados_shop_stats.append(meta_stats)
+                                else:
+                                    df_f = ler_dataframe_inteligente(filepath)
+                                    v_fat, p_ped = extrair_faturamento_vendas(df_f)
+                                    fat += v_fat
+                                    ped += p_ped
+                                    com += v_fat * 0.14
                             except Exception:
                                 pass
 
@@ -706,6 +771,98 @@ if aba_selecionada == "📊 Dashboard":
             tooltip=['Plataforma', 'Faturamento', 'Pedidos']
         ).properties(height=320)
         st.altair_chart(chart_donut, use_container_width=True)
+
+    # ---------------------------------------------------------
+    # PAINEL EXECUTIVO DE INTELIGÊNCIA DE E-COMMERCE (SHOP PERFORMANCE & CANAIS)
+    # ---------------------------------------------------------
+    if len(dados_shop_stats) > 0:
+        st.markdown("---")
+        st.markdown("### 🎯 Painel de Inteligência Operacional & Origem de Tráfego")
+        st.markdown("<p style='color:#94A3B8;font-size:0.9rem'>Análise aprofundada de funil de vendas, devoluções reais, recompra e atribuição de tráfego por canal (Shop Performance).</p>", unsafe_allow_html=True)
+        
+        tot_visitantes = sum(d.get('visitantes', 0) for d in dados_shop_stats)
+        tot_dev_val = sum(d.get('vendas_devolvidas', 0) for d in dados_shop_stats)
+        tot_dev_ped = sum(d.get('pedidos_devolvidos', 0) for d in dados_shop_stats)
+        tot_canc_val = sum(d.get('vendas_canceladas', 0) for d in dados_shop_stats)
+        tot_canc_ped = sum(d.get('pedidos_cancelados', 0) for d in dados_shop_stats)
+        
+        media_conversao = (sum(d.get('taxa_conversao', 0) for d in dados_shop_stats) / len(dados_shop_stats)) if dados_shop_stats else 0
+        media_recompra = (sum(d.get('taxa_recompra', 0) for d in dados_shop_stats) / len(dados_shop_stats)) if dados_shop_stats else 0
+        
+        v_cards = sum(d.get('vendas_cards', 0) for d in dados_shop_stats)
+        v_videos = sum(d.get('vendas_videos', 0) for d in dados_shop_stats)
+        v_afiliados = sum(d.get('vendas_afiliados', 0) for d in dados_shop_stats)
+        v_ads = sum(d.get('vendas_anuncios', 0) for d in dados_shop_stats)
+        
+        col_st1, col_st2, col_st3, col_st4 = st.columns(4)
+        with col_st1:
+            st.markdown(f"""
+            <div class="orion-card">
+                <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">👥 Tráfego de Visitantes</div>
+                <div style="color:#38BDF8;font-family:'Outfit';font-size:1.5rem;font-weight:800;margin-top:4px">{tot_visitantes:,}</div>
+                <div style="color:#34D399;font-size:0.75rem;font-weight:700;margin-top:4px">Taxa Conversão: {media_conversao:.2f}%</div>
+            </div>
+            """, unsafe_allow_html=True)
+            
+        with col_st2:
+            st.markdown(f"""
+            <div class="orion-card">
+                <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">🔄 Recompra & Fidelidade (LTV)</div>
+                <div style="color:#C084FC;font-family:'Outfit';font-size:1.5rem;font-weight:800;margin-top:4px">{media_recompra:.2f}%</div>
+                <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;margin-top:4px">Índice de Retenção de Clientes</div>
+            </div>
+            """, unsafe_allow_html=True)
+
+        with col_st3:
+            st.markdown(f"""
+            <div class="orion-card">
+                <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">📦 Devoluções / Reembolsos</div>
+                <div style="color:#F87171;font-family:'Outfit';font-size:1.5rem;font-weight:800;margin-top:4px">R$ {tot_dev_val:,.2f}</div>
+                <div style="color:#F87171;font-size:0.75rem;font-weight:700;margin-top:4px">{tot_dev_ped} pedido(s) devolvido(s)</div>
+            </div>
+            """, unsafe_allow_html=True)
+
+        with col_st4:
+            st.markdown(f"""
+            <div class="orion-card">
+                <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">❌ Pedidos Cancelados</div>
+                <div style="color:#FBBF24;font-family:'Outfit';font-size:1.5rem;font-weight:800;margin-top:4px">R$ {tot_canc_val:,.2f}</div>
+                <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;margin-top:4px">{tot_canc_ped} pedido(s) cancelado(s)</div>
+            </div>
+            """, unsafe_allow_html=True)
+
+        # Atribuição por Origem de Tráfego
+        col_traf1, col_traf2 = st.columns([1.2, 1])
+        with col_traf1:
+            st.markdown("##### 🚀 Origem de Vendas por Canal (Cards vs Vídeos vs Afiliados)")
+            df_fontes_chart = pd.DataFrame([
+                {"Canal": "📽️ Vídeos (Shopee Vídeos)", "Vendas (R$)": v_videos},
+                {"Canal": "🔍 Cards (Busca Orgânica)", "Vendas (R$)": v_cards},
+                {"Canal": "🤝 Marketing de Afiliados", "Vendas (R$)": v_afiliados},
+            ])
+            chart_fontes = alt.Chart(df_fontes_chart).mark_bar(cornerRadiusTopLeft=6, cornerRadiusBottomLeft=6).encode(
+                y=alt.Y('Canal:N', title=None, axis=alt.Axis(labelColor='#CBD5E1')),
+                x=alt.X('Vendas (R$):Q', title="Vendas Brutas (R$)", axis=alt.Axis(labelColor='#CBD5E1')),
+                color=alt.Color('Canal:N', scale=alt.Scale(
+                    domain=['📽️ Vídeos (Shopee Vídeos)', '🔍 Cards (Busca Orgânica)', '🤝 Marketing de Afiliados'],
+                    range=['#38BDF8', '#34D399', '#C084FC']
+                )),
+                tooltip=['Canal', 'Vendas (R$)']
+            ).properties(height=220)
+            st.altair_chart(chart_fontes, use_container_width=True)
+
+        with col_traf2:
+            st.markdown("##### 💡 Conselho Estratégico do Gestor (E-Commerce Skill)")
+            st.markdown(f"""
+            <div style="background:#0E1424;border:1px solid #1E293B;padding:16px;border-radius:14px">
+                <span style="color:#38BDF8;font-weight:800">📌 Diagnóstico de Performance & Recomendações:</span>
+                <ul style="color:#CBD5E1;font-size:0.85rem;margin-top:8px;padding-left:18px">
+                    <li><b>📽️ Poder do Conteúdo em Vídeo:</b> Os vídeos curtos geraram <b>R$ {v_videos:,.2f}</b> ({(v_videos/fat_total*100 if fat_total>0 else 0):.1f}% das vendas). Mantenha a postagem semanal demonstrando a elasticidade e modelagem das peças.</li>
+                    <li><b>📦 Controle de Devoluções:</b> Foram {tot_dev_ped} devoluções em Agosto (R$ {tot_dev_val:,.2f}). Inclua um guia visual de medidas (P a 48) para reduzir dúvidas de tamanho antes da compra.</li>
+                    <li><b>🔄 Oportunidade de Recompra:</b> O índice de recompra é de {media_recompra:.2f}%. Inclua cupons físicos de R$ 10 OFF na embalagem enviada para impulsionar recompras em kit.</li>
+                </ul>
+            </div>
+            """, unsafe_allow_html=True)
 
 # ---------------------------------------------------------
 # ABA 2: PRODUTOS (PRECIFICAÇÃO DE KITS 1 A 10 & ANÁLISE)

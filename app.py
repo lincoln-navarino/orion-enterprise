@@ -490,19 +490,35 @@ elif aba_selecionada == "📦 Produtos & Precificação":
             perfil_tributario = st.selectbox("Perfil Fiscal:", list(PERFIS_PRESETS_PADRAO.keys()), index=0)
             aliq_imp = PERFIS_PRESETS_PADRAO[perfil_tributario]["aliquota"]
 
-        com_perc, taxa_f = taxas_para_preco(plat_sel, 50.0)
+        com_padrao, taxa_f_padrao = taxas_para_preco(plat_sel, 50.0)
         custo_un = prod_obj["custo_unitario"]
         custo_emb = prod_obj["custo_embalagem"]
         
+        # Painel Interativo de Parâmetros Editáveis por Canal
+        with st.expander(f"⚙️ Ajustar Métricas & Regras de Precificação — {plat_sel}", expanded=True):
+            col_cfg1, col_cfg2, col_cfg3, col_cfg4 = st.columns(4)
+            with col_cfg1:
+                com_perc = st.number_input("Comissão do Canal (%)", value=float(com_padrao), step=0.5, help="Shopee, TikTok, etc.")
+            with col_cfg2:
+                taxa_f = st.number_input("Taxa Fixa por Item (R$)", value=float(taxa_f_padrao), step=0.50)
+            with col_cfg3:
+                usar_ads = st.checkbox("📢 Incluir Custo de Ads / ROAS", value=True)
+                roas_val = st.number_input("Meta ROAS (x)", value=float(st.session_state.roas_meta), step=0.5) if usar_ads else 0.0
+            with col_cfg4:
+                st.markdown("**Margem Relâmpago (Piso):**")
+                st.markdown("<span class='badge-pill badge-green'>🔒 20.0% FIXA</span>", unsafe_allow_html=True)
+
         st.markdown(f"##### 📋 Precificação de Kits (1 a 10 Peças) — **{prod_obj['nome']}** na **{plat_sel}**")
-        st.caption(f"CMV Unitário: R$ {custo_un:.2f} | Embalagem: R$ {custo_emb:.2f} | Comissão {plat_sel}: {com_perc:.1f}% + R$ {taxa_f:.2f} | Imposto: {aliq_imp:.1f}%")
+        st.caption(f"CMV Unitário: R$ {custo_un:.2f} | Embalagem: R$ {custo_emb:.2f} | Comissão: {com_perc:.1f}% + R$ {taxa_f:.2f} | Imposto: {aliq_imp:.1f}% | Ads: {'Ativado (' + str(roas_val) + 'x)' if usar_ads else 'OFF'}")
 
         precos_salvos_kits = prod_obj.get("precos_kits", {}).get(plat_sel, {})
         
-        margem_meta_perc = 15.0
-        fator_deducao = (1.0 - (com_perc / 100.0) - (aliq_imp / 100.0) - (1.0 / st.session_state.roas_meta) - (margem_meta_perc / 100.0))
+        # Cálculo da Margem de 20.0% Travada na Relâmpago
+        margem_meta_perc = 20.0
+        acos_perc = (100.0 / roas_val) if (usar_ads and roas_val > 0) else 0.0
+        fator_deducao = (1.0 - (com_perc / 100.0) - (aliq_imp / 100.0) - (acos_perc / 100.0) - (margem_meta_perc / 100.0))
         if fator_deducao <= 0.05:
-            fator_deducao = 0.35
+            fator_deducao = 0.20
 
         dados_kits_tabela = []
         for qtd in range(1, 11):
@@ -519,7 +535,7 @@ elif aba_selecionada == "📦 Produtos & Precificação":
 
             comissao_rs = (p_relampago * (com_perc / 100.0)) + taxa_f
             imposto_rs = p_relampago * (aliq_imp / 100.0)
-            ads_rs = p_relampago * (1.0 / st.session_state.roas_meta)
+            ads_rs = (p_relampago * (acos_perc / 100.0)) if usar_ads else 0.0
             sobra_rs = p_relampago - (cmv_kit + comissao_rs + imposto_rs + ads_rs)
             margem_pct = (sobra_rs / p_relampago * 100.0) if p_relampago > 0 else 0.0
 
@@ -531,7 +547,7 @@ elif aba_selecionada == "📦 Produtos & Precificação":
                 "🏷️ Preço Cheio (R$)": p_cheio,
                 "Lucro Relâmpago (R$)": round(sobra_rs, 2),
                 "Margem Relâmpago (%)": round(margem_pct, 1),
-                "Status": "🟢 Excelente" if margem_pct >= 15 else ("🟡 Aceitável" if margem_pct >= 5 else "🔴 Atenção")
+                "Status": "🟢 Excelente" if margem_pct >= 20 else ("🟡 Aceitável" if margem_pct >= 10 else "🔴 Atenção")
             })
 
         df_kits_display = pd.DataFrame(dados_kits_tabela)

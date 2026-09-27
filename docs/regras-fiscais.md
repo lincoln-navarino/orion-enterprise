@@ -1,41 +1,31 @@
-# 📊 Regras Fiscais & ROAS — ORION Enterprise
+# 📊 Regras de Precificação por Kits & Descontos (Shopee / TikTok)
 
-Este documento contém os parâmetros fiscais e de desempenho de mídia configurados no sistema.
-
----
-
-## 🏛️ Perfis Tributários Padrão
-
-O sistema suporta presets pré-configurados em `PERFIS_PRESETS_PADRAO`:
-
-| Perfil Tributário | Alíquota Imposto (%) | ROAS Meta Padrão |
-| :--- | :--- | :--- |
-| **Simples Nacional (~10%)** | 10.0% | 8.0x |
-| **MEI (4%)** | 4.0% | 8.0x |
-| **MEI Zero (0%)** | 0.0% | 10.0x |
-| **Personalizado** | Ajustável | Ajustável |
+Este documento registra a estratégia comercial oficial de precificação de kits (1 a 10 unidades) para **Shopee** e **TikTok Shop**.
 
 ---
 
-## 🧮 Fórmula de Margem e Cálculo de ROAS
+## 🎯 Estrutura dos 3 Níveis de Preço por Kit
 
 ```mermaid
-graph LR
-    Faturamento[Faturamento Bruto] --> Imposto[- Alíquota Fiscal]
-    Faturamento --> Custos[- Custo dos Produtos]
-    Faturamento --> TaxasMkt[- Taxas dos Marketplaces]
-    Faturamento --> InvestAds[- Investimento em Ads]
-    
-    Imposto --> LucroLiquido[💰 Lucro Líquido Final]
-    Custos --> LucroLiquido
-    TaxasMkt --> LucroLiquido
-    InvestAds --> LucroLiquido
+graph TD
+    Piso["⚡ Preço Relâmpago (Piso Mínimo)<br>Cobre: CMV + Comissão + Imposto + Ads + Margem Meta"] --> Oferta["🔥 Oferta Normal<br>(~11% superior ao Preço Relâmpago)"]
+    Oferta --> Cheio["🏷️ Preço Cheio<br>(~19% superior ao Preço Oferta / ~30% superior ao Relâmpago)"]
 ```
+
+---
+
+## 🧮 Fórmulas de Cálculo Automático
+
+1. **Preço Relâmpago ($P_{rel}$):**
+   $$P_{rel} = \frac{\text{CMV Kit} + \text{Taxa Fixa}}{1 - \text{Comissão\%} - \text{Imposto\%} - \text{Ads\%} - \text{Margem Meta\%}}$$
+2. **Oferta Normal ($P_{oferta}$):**
+   $$P_{oferta} = \frac{P_{rel}}{0.89} \quad (\text{Selo de 11\% OFF na Relâmpago})$$
+3. **Preço Cheio ($P_{cheio}$):**
+   $$P_{cheio} = \frac{P_{oferta}}{0.81} \quad (\text{Selo de 19\% OFF na Oferta})$$
 
 ---
 
 ## 🔗 Links Relacionados (Foam Graph)
 
 * [[index]]: Página Inicial.
-* [[arquitetura-do-codigo]]: Arquitetura do código.
-* [[integracoes-marketplaces]]: Taxas e conciliação por canal de venda.
+* [[arquitetura-do-codigo]]: Arquitetura do app.py.

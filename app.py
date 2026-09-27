@@ -410,32 +410,67 @@ if aba_selecionada == "📊 Dashboard":
     with col_f3:
         plat_filtro = st.selectbox("🎯 Plataforma / Marketplace", ["Todas as Plataformas", "Shopee", "TikTok Shop", "Mercado Livre", "Shein"], index=0)
 
-    # Base de dados com suporte a filtros de Ano, Mês e Plataforma
-    dados_brutos = pd.DataFrame([
-        {"Plataforma": "Shopee", "Faturamento": 48500.00, "Ads": 4200.00, "Comissões": 9700.00, "Devoluções": 1200.00, "Pedidos": 1250, "Mês": "09-Setembro", "Ano": "2026"},
-        {"Plataforma": "TikTok Shop", "Faturamento": 32100.00, "Ads": 3800.00, "Comissões": 3210.00, "Devoluções": 950.00, "Pedidos": 840, "Mês": "09-Setembro", "Ano": "2026"},
-        {"Plataforma": "Mercado Livre", "Faturamento": 28900.00, "Ads": 1800.00, "Comissões": 4335.00, "Devoluções": 600.00, "Pedidos": 620, "Mês": "09-Setembro", "Ano": "2026"},
-        {"Plataforma": "Shein", "Faturamento": 15400.00, "Ads": 850.00, "Comissões": 2464.00, "Devoluções": 310.00, "Pedidos": 410, "Mês": "09-Setembro", "Ano": "2026"},
+    # Leitura dinâmica dos arquivos de relatórios salvos no disco
+    plataformas_lista = ["Shopee", "TikTok Shop", "Mercado Livre", "Shein"] if plat_filtro == "Todas as Plataformas" else [plat_filtro]
+    anos_lista = ["2025", "2026", "2027"] if ano_filtro == "Todos os Anos" else [ano_filtro]
+    meses_lista = ['01-Janeiro', '02-Fevereiro', '03-Março', '04-Abril', '05-Maio', '06-Junho', '07-Julho', '08-Agosto', '09-Setembro', '10-Outubro', '11-Novembro', '12-Dezembro'] if mes_filtro == "Todos os Meses" else [mes_filtro]
 
-        {"Plataforma": "Shopee", "Faturamento": 42100.00, "Ads": 3900.00, "Comissões": 8420.00, "Devoluções": 1100.00, "Pedidos": 1100, "Mês": "08-Agosto", "Ano": "2026"},
-        {"Plataforma": "TikTok Shop", "Faturamento": 29800.00, "Ads": 3400.00, "Comissões": 2980.00, "Devoluções": 880.00, "Pedidos": 790, "Mês": "08-Agosto", "Ano": "2026"},
-        {"Plataforma": "Mercado Livre", "Faturamento": 26500.00, "Ads": 1600.00, "Comissões": 3975.00, "Devoluções": 550.00, "Pedidos": 580, "Mês": "08-Agosto", "Ano": "2026"},
-        {"Plataforma": "Shein", "Faturamento": 13900.00, "Ads": 750.00, "Comissões": 2224.00, "Devoluções": 290.00, "Pedidos": 370, "Mês": "08-Agosto", "Ano": "2026"},
-    ])
+    registros_reais = []
+    tem_relatorio_no_disco = False
 
-    # Filtragem Dinâmica e Agrupamento Único por Plataforma
-    dados_plataformas = dados_brutos.copy()
-    if ano_filtro != "Todos os Anos":
-        dados_plataformas = dados_plataformas[dados_plataformas["Ano"] == ano_filtro]
-    if mes_filtro != "Todos os Meses":
-        dados_plataformas = dados_plataformas[dados_plataformas["Mês"] == mes_filtro]
-    if plat_filtro != "Todas as Plataformas":
-        dados_plataformas = dados_plataformas[dados_plataformas["Plataforma"] == plat_filtro]
+    for a in anos_lista:
+        for m in meses_lista:
+            for p in plataformas_lista:
+                p_dir_vendas = os.path.join(DIR_RELATORIOS, "Vendas", a, m, p)
+                p_dir_ads = os.path.join(DIR_RELATORIOS, "Ads", a, m, p)
 
-    if len(dados_plataformas) == 0:
-        dados_plataformas = dados_brutos[dados_brutos["Mês"] == "09-Setembro"]
+                fat = 0.0
+                ads = 0.0
+                com = 0.0
+                dev = 0.0
+                ped = 0
 
-    # Agrupamento obrigatório por plataforma para eliminar duplicidades
+                if os.path.exists(p_dir_vendas):
+                    files_v = [f for f in os.listdir(p_dir_vendas) if f.endswith(".csv") or f.endswith(".xlsx")]
+                    if files_v:
+                        tem_relatorio_no_disco = True
+                        for file_name in files_v:
+                            filepath = os.path.join(p_dir_vendas, file_name)
+                            try:
+                                df_f = pd.read_csv(filepath) if file_name.endswith(".csv") else pd.read_excel(filepath)
+                                for col in df_f.columns:
+                                    col_l = str(col).lower()
+                                    if any(k in col_l for k in ["total", "faturamento", "valor", "receita", "gmv"]):
+                                        fat += float(pd.to_numeric(df_f[col].astype(str).str.replace(",", "."), errors="coerce").sum())
+                                        break
+                                ped += len(df_f)
+                                com += fat * 0.14
+                            except Exception:
+                                pass
+
+                if os.path.exists(p_dir_ads):
+                    files_a = [f for f in os.listdir(p_dir_ads) if f.endswith(".csv") or f.endswith(".xlsx")]
+                    if files_a:
+                        tem_relatorio_no_disco = True
+                        for file_name in files_a:
+                            filepath = os.path.join(p_dir_ads, file_name)
+                            try:
+                                df_a = pd.read_csv(filepath) if file_name.endswith(".csv") else pd.read_excel(filepath)
+                                for col in df_a.columns:
+                                    col_l = str(col).lower()
+                                    if any(k in col_l for k in ["custo", "despesa", "gasto", "investimento", "ads"]):
+                                        ads += float(pd.to_numeric(df_a[col].astype(str).str.replace(",", "."), errors="coerce").sum())
+                                        break
+                            except Exception:
+                                pass
+
+                registros_reais.append({
+                    "Plataforma": p, "Faturamento": fat, "Ads": ads,
+                    "Comissões": com, "Devoluções": dev, "Pedidos": ped,
+                    "Mês": m, "Ano": a
+                })
+
+    dados_plataformas = pd.DataFrame(registros_reais)
     dados_plataformas = dados_plataformas.groupby("Plataforma", as_index=False)[["Faturamento", "Ads", "Comissões", "Devoluções", "Pedidos"]].sum()
 
     st.markdown(f"""
@@ -445,6 +480,9 @@ if aba_selecionada == "📊 Dashboard":
         <span class="badge-pill badge-green">🎯 Canal: {plat_filtro}</span>
     </div>
     """, unsafe_allow_html=True)
+
+    if not tem_relatorio_no_disco:
+        st.info(f"ℹ️ Nenhum relatório de vendas ou ads importado para o período **{mes_filtro} / {ano_filtro}**. Vá até a **Central de Relatórios** para subir os arquivos da Shopee, TikTok, Shein ou Mercado Livre.")
 
     fat_total = dados_plataformas["Faturamento"].sum()
     ads_total = dados_plataformas["Ads"].sum()

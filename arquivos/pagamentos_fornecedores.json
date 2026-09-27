@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "data": "2026-09-20",
+        "fornecedor": "Confecção Própria",
+        "produto": "Calcinha Gestante",
+        "qtd_pecas": 500,
+        "valor_peca": 3.65,
+        "total": 1825.0,
+        "status": "Pago"
+    },
+    {
+        "id": 2,
+        "data": "2026-09-22",
+        "fornecedor": "Malharia Dualis",
+        "produto": "Cinta Cos Alto",
+        "qtd_pecas": 200,
+        "valor_peca": 7.8,
+        "total": 1560.0,
+        "status": "Pendente"
+    }
+]

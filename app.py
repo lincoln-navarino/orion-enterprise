@@ -633,25 +633,33 @@ if aba_selecionada == "📊 Dashboard":
                     files_v = [f for f in os.listdir(p_dir_vendas) if f.endswith(".csv") or f.endswith(".xlsx")]
                     if files_v:
                         tem_relatorio_no_disco = True
-                        for file_name in files_v:
-                            filepath = os.path.join(p_dir_vendas, file_name)
-                            try:
-                                # Verifica se é relatório avançado Shopee Shop Stats
-                                meta_stats = extrair_metadados_shopee_shop_stats(filepath)
-                                if meta_stats and meta_stats.get("faturamento_pago", 0) > 0:
-                                    fat += meta_stats["faturamento_pago"]
-                                    ped += meta_stats["pedidos_pagos"]
-                                    dev += meta_stats.get("vendas_devolvidas", 0.0)
-                                    com += meta_stats["faturamento_pago"] * 0.14
-                                    dados_shop_stats.append(meta_stats)
-                                else:
+                        
+                        # Trava Anti-Duplicação: se existir relatório oficial 'shop-stats', ele tem prioridade total na pasta
+                        stats_files = [f for f in files_v if any(k in f.lower() for k in ["shopee-shop-stats", "shop-stats", "performance"])]
+                        if stats_files:
+                            for file_name in stats_files:
+                                filepath = os.path.join(p_dir_vendas, file_name)
+                                try:
+                                    meta_stats = extrair_metadados_shopee_shop_stats(filepath)
+                                    if meta_stats and meta_stats.get("faturamento_pago", 0) > 0:
+                                        fat += meta_stats["faturamento_pago"]
+                                        ped += meta_stats["pedidos_pagos"]
+                                        dev += meta_stats.get("vendas_devolvidas", 0.0)
+                                        com += meta_stats["faturamento_pago"] * 0.14
+                                        dados_shop_stats.append(meta_stats)
+                                except Exception:
+                                    pass
+                        else:
+                            for file_name in files_v:
+                                filepath = os.path.join(p_dir_vendas, file_name)
+                                try:
                                     df_f = ler_dataframe_inteligente(filepath)
                                     v_fat, p_ped = extrair_faturamento_vendas(df_f)
                                     fat += v_fat
                                     ped += p_ped
                                     com += v_fat * 0.14
-                            except Exception:
-                                pass
+                                except Exception:
+                                    pass
 
                 for p_dir_ads in pastas_ads:
                     files_a = [f for f in os.listdir(p_dir_ads) if f.endswith(".csv") or f.endswith(".xlsx")]

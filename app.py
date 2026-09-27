@@ -8,9 +8,10 @@ import altair as alt
 # ---------------------------------------------------------
 # PERSISTÊNCIA DE DADOS EM ARQUIVO LOCAL (JSON) E PASTAS
 # ---------------------------------------------------------
-ARQUIVO_PRODUTOS = os.path.join("arquivos", "produtos.json")
-ARQUIVO_CFG      = os.path.join("arquivos", "configuracoes.json")
-DIR_RELATORIOS   = os.path.join("arquivos", "Relatórios")
+ARQUIVO_PRODUTOS   = os.path.join("arquivos", "produtos.json")
+ARQUIVO_CFG        = os.path.join("arquivos", "configuracoes.json")
+ARQUIVO_PAGAMENTOS = os.path.join("arquivos", "pagamentos_fornecedores.json")
+DIR_RELATORIOS     = os.path.join("arquivos", "Relatórios")
 
 def garantir_estrutura_pastas():
     """Garante que a árvore completa de pastas para Vendas e Ads exista no disco."""
@@ -47,6 +48,32 @@ def salvar_produtos_disco(lista_produtos):
         return True
     except Exception as e:
         print(f"Erro ao salvar produtos: {e}")
+        return False
+
+def carregar_pagamentos_disco():
+    defaults_pag = [
+        {"id": 1, "data": "2026-09-20", "fornecedor": "Confecção Própria", "produto": "Calcinha Gestante", "qtd_pecas": 500, "valor_peca": 3.65, "total": 1825.00, "status": "Pago"},
+        {"id": 2, "data": "2026-09-22", "fornecedor": "Malharia Dualis", "produto": "Cinta Cos Alto", "qtd_pecas": 200, "valor_peca": 7.80, "total": 1560.00, "status": "Pendente"},
+    ]
+    if os.path.exists(ARQUIVO_PAGAMENTOS):
+        try:
+            with open(ARQUIVO_PAGAMENTOS, "r", encoding="utf-8") as f:
+                dados = json.load(f)
+                if isinstance(dados, list):
+                    return dados
+        except Exception:
+            pass
+    salvar_pagamentos_disco(defaults_pag)
+    return defaults_pag
+
+def salvar_pagamentos_disco(lista_pagamentos):
+    try:
+        os.makedirs("arquivos", exist_ok=True)
+        with open(ARQUIVO_PAGAMENTOS, "w", encoding="utf-8") as f:
+            json.dump(lista_pagamentos, f, ensure_ascii=False, indent=4)
+        return True
+    except Exception as e:
+        print(f"Erro ao salvar pagamentos: {e}")
         return False
 
 PERFIS_PRESETS_PADRAO = {
@@ -101,26 +128,19 @@ st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap');
 
-    /* Ocultar header do Streamlit */
     header[data-testid="stHeader"], .stAppHeader {
         background: transparent !important;
         background-color: transparent !important;
     }
-    
-    /* Fundo da Aplicação */
     .stApp {
         background: linear-gradient(180deg, #050811 0%, #0B101D 50%, #060912 100%) !important;
         color: #F8FAFC !important;
         font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
     }
-
-    /* Ocultar barra lateral se necessário ou estilizar limpo */
     [data-testid="stSidebar"] {
         background: linear-gradient(180deg, #070B14 0%, #050810 100%) !important;
         border-right: 1px solid rgba(56,189,248,0.12) !important;
     }
-
-    /* Estilização dos Inputs */
     div[data-baseweb="input"], div[data-baseweb="select"] > div, div[data-baseweb="base-input"],
     div[data-testid="stNumberInput"] input, div[data-testid="stTextInput"] input,
     input, textarea, select {
@@ -130,22 +150,16 @@ st.markdown("""
         border-radius: 10px !important;
         font-family: 'Inter', sans-serif !important;
     }
-    
-    /* Tabelas e Dataframes */
     div[data-testid="stDataFrame"], div[data-testid="stDataEditor"],
     div[role="grid"], div[role="row"], div[role="gridcell"] {
         background-color: #101625 !important;
         color-scheme: dark !important;
     }
-
-    /* Cards e Containers */
     div[data-testid="stExpander"], div[data-testid="stForm"] {
         background-color: #101625 !important;
         border: 1px solid #1E293B !important;
         border-radius: 14px !important;
     }
-    
-    /* Badges e Tags Visualmente Marcantes */
     .badge-pill {
         display: inline-flex; align-items: center; gap: 5px;
         padding: 5px 14px; border-radius: 20px;
@@ -157,7 +171,6 @@ st.markdown("""
     .badge-blue { background: rgba(56,189,248,0.15); color: #38BDF8; border: 1px solid #38BDF8; }
     .badge-purple { background: rgba(192,132,252,0.15); color: #C084FC; border: 1px solid #C084FC; }
 
-    /* Top Navigation Bar Styling */
     .nav-header {
         background: linear-gradient(135deg, #0E1526 0%, #0B1020 100%);
         border: 1px solid #1E293B;
@@ -187,8 +200,6 @@ st.markdown("""
         letter-spacing: 1.5px;
         text-transform: uppercase;
     }
-
-    /* Orion Card Glassmorphism */
     .orion-card {
         background: linear-gradient(135deg, #101625 0%, #0B101D 100%);
         border: 1px solid #1E293B; border-radius: 14px; padding: 20px;
@@ -200,10 +211,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ---------------------------------------------------------
-# AUTENTICAÇÃO E CONTROLE DE ACESSO
-# ---------------------------------------------------------
-# ---------------------------------------------------------
-# AUTENTICAÇÃO E CONTROLE DE SESSÃO PERSISTENTE
+# AUTENTICAÇÃO E SESSÃO PERSISTENTE
 # ---------------------------------------------------------
 USUARIOS_AUTORIZADOS = {
     "Dualis": "Q1w2e3r4",
@@ -239,7 +247,6 @@ def limpar_sessao_persistente():
         except Exception:
             pass
 
-# Verificar e restaurar sessão persistente se ainda não autenticado nesta rodada
 user_persistente = carregar_sessao_persistente()
 if "autenticado" not in st.session_state or not st.session_state["autenticado"]:
     if user_persistente:
@@ -292,13 +299,13 @@ if not st.session_state.get("autenticado", False):
 # DADOS BASE E SESSION STATE
 # ---------------------------------------------------------
 PRODUTOS_PADRAO = [
-    {"id": 1, "nome": "Calcinha Gestante",   "custo_unitario": 3.65, "custo_embalagem": 0.30, "categoria": "Lingerie Gestante",    "sku": "GEST-01", "fornecedor": "Confecção Própria", "peso_g": 80,  "observacoes": "Algodão antialérgico com cós elástico anatômico"},
-    {"id": 2, "nome": "Calcinha Pala Dupla", "custo_unitario": 3.90, "custo_embalagem": 0.30, "categoria": "Lingerie / Underwear", "sku": "PALA-02", "fornecedor": "Confecção Própria", "peso_g": 75,  "observacoes": "Pala dupla de alta sustentação"},
-    {"id": 3, "nome": "Cinta Cos Baixo",     "custo_unitario": 5.50, "custo_embalagem": 0.30, "categoria": "Cintas & Modeladores", "sku": "CINT-03", "fornecedor": "Confecção Própria", "peso_g": 120, "observacoes": "Cós baixo com compressão média"},
-    {"id": 4, "nome": "Cinta Cos Alto",      "custo_unitario": 7.80, "custo_embalagem": 0.30, "categoria": "Cintas & Modeladores", "sku": "CINT-04", "fornecedor": "Confecção Própria", "peso_g": 150, "observacoes": "Cós alto compressão forte com barbatanas"},
-    {"id": 5, "nome": "Galena",              "custo_unitario": 6.00, "custo_embalagem": 0.30, "categoria": "Lingerie / Underwear", "sku": "GAL-05",  "fornecedor": "Confecção Própria", "peso_g": 90,  "observacoes": "Renda Galena de alta durabilidade"},
-    {"id": 6, "nome": "Fio dental",          "custo_unitario": 1.00, "custo_embalagem": 0.30, "categoria": "Fio Dental",           "sku": "FIO-06",  "fornecedor": "Confecção Própria", "peso_g": 40,  "observacoes": "Microfibra leve sem costura"},
-    {"id": 7, "nome": "Regulagem",           "custo_unitario": 2.10, "custo_embalagem": 0.30, "categoria": "Lingerie / Underwear", "sku": "REG-07",  "fornecedor": "Confecção Própria", "peso_g": 65,  "observacoes": "Alça com regulagem reforçada"},
+    {"id": 1, "nome": "Calcinha Gestante",   "custo_unitario": 3.65, "custo_embalagem": 0.30, "categoria": "Lingerie Gestante",    "sku": "GEST-01", "fornecedor": "Confecção Própria", "peso_g": 80},
+    {"id": 2, "nome": "Calcinha Pala Dupla", "custo_unitario": 3.90, "custo_embalagem": 0.30, "categoria": "Lingerie / Underwear", "sku": "PALA-02", "fornecedor": "Confecção Própria", "peso_g": 75},
+    {"id": 3, "nome": "Cinta Cos Baixo",     "custo_unitario": 5.50, "custo_embalagem": 0.30, "categoria": "Cintas & Modeladores", "sku": "CINT-03", "fornecedor": "Confecção Própria", "peso_g": 120},
+    {"id": 4, "nome": "Cinta Cos Alto",      "custo_unitario": 7.80, "custo_embalagem": 0.30, "categoria": "Cintas & Modeladores", "sku": "CINT-04", "fornecedor": "Confecção Própria", "peso_g": 150},
+    {"id": 5, "nome": "Galena",              "custo_unitario": 6.00, "custo_embalagem": 0.30, "categoria": "Lingerie / Underwear", "sku": "GAL-05",  "fornecedor": "Confecção Própria", "peso_g": 90},
+    {"id": 6, "nome": "Fio dental",          "custo_unitario": 1.00, "custo_embalagem": 0.30, "categoria": "Fio Dental",           "sku": "FIO-06",  "fornecedor": "Confecção Própria", "peso_g": 40},
+    {"id": 7, "nome": "Regulagem",           "custo_unitario": 2.10, "custo_embalagem": 0.30, "categoria": "Lingerie / Underwear", "sku": "REG-07",  "fornecedor": "Confecção Própria", "peso_g": 65},
 ]
 
 TAXAS_PADRAO = {
@@ -313,16 +320,14 @@ cfg_salva  = carregar_config_disco()
 p_salvo    = cfg_salva.get("perfil_fiscal", "Simples Nacional (~10%)")
 aliq_salva = float(cfg_salva.get("aliquota_simples_perc", 10.0))
 roas_salvo = float(cfg_salva.get("roas_meta", 8.0))
-perf_salvo = cfg_salva.get("perfis_custom", PERFIS_PRESETS_PADRAO.copy())
 
 defaults = {
-    "aba_ativa":             "Dashboard Geral",
     "produtos":              carregar_produtos_disco(PRODUTOS_PADRAO),
+    "pagamentos":            carregar_pagamentos_disco(),
     "presets_taxas":         TAXAS_PADRAO,
     "perfil_fiscal":         p_salvo,
     "aliquota_simples_perc": aliq_salva,
     "roas_meta":             roas_salvo,
-    "perfis_custom":         perf_salvo,
 }
 for k, v in defaults.items():
     if k not in st.session_state:
@@ -332,17 +337,16 @@ def taxas_para_preco(plataforma_nome, preco):
     cfg = st.session_state.presets_taxas.get(plataforma_nome, {"comissao": 14.0, "programa": 0.0, "taxa_fixa": 4.00})
     com_perc = cfg["comissao"] + cfg["programa"]
     taxa_f = cfg["taxa_fixa"]
-    desc = f"Comissão {cfg['comissao']}% + Prog. {cfg['programa']}% + Taxa Fixa R$ {taxa_f:.2f}"
-    return com_perc, taxa_f, desc
+    return com_perc, taxa_f
 
 # ---------------------------------------------------------
-# BARRA DE NAVEGAÇÃO SUPERIOR (TOP NAVBAR)
+# BARRA DE NAVEGAÇÃO SUPERIOR (TOP NAVBAR - ABAS FIXAS)
 # ---------------------------------------------------------
 st.markdown(f"""
 <div class="nav-header">
     <div>
         <div class="nav-title">🛡️ ORION ENTERPRISE</div>
-        <div class="nav-subtitle">Dualis Lingerie — Gestão de Precificação, Margens e Marketplaces</div>
+        <div class="nav-subtitle">Dualis Lingerie — Gestão Integrada de Vendas, Precificação e Fornecedores</div>
     </div>
     <div style="display:flex;align-items:center;gap:12px">
         <span class="badge-pill badge-blue">👤 {st.session_state.usuario_logado}</span>
@@ -351,20 +355,24 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-# Seletor de Abas no Topo (Design Fluido sem Sidebar poluído)
-abas_opcoes = ["📊 Dashboard Executivo", "🏷️ Catálogo & Precificação Mestre", "💰 Central de Vendas & Ads", "⚙️ Configurações Fiscais & Taxas"]
+# ABAS FIXAS DO NAVEGADOR
+abas_opcoes = [
+    "📊 Dashboard",
+    "📦 Produtos & Precificação",
+    "📄 Central de Relatórios",
+    "🚚 Pagamentos a Fornecedores"
+]
 
-st.markdown("<style>div[data-testid='stSegmentedControl'] {width: 100% !important; margin-bottom: 20px !important;}</style>", unsafe_allow_html=True)
-aba_selecionada = st.segmented_control("Navegação Principal", abas_opcoes, default="📊 Dashboard Executivo", label_visibility="collapsed")
+st.markdown("<style>div[data-testid='stSegmentedControl'] {width: 100% !important; margin-bottom: 24px !important;}</style>", unsafe_allow_html=True)
+aba_selecionada = st.segmented_control("Navegação Principal", abas_opcoes, default="📊 Dashboard", label_visibility="collapsed")
 
 # ---------------------------------------------------------
-# MÓDULO 1: DASHBOARD EXECUTIVO & GRÁFICOS
+# ABA 1: DASHBOARD
 # ---------------------------------------------------------
-if aba_selecionada == "📊 Dashboard Executivo":
+if aba_selecionada == "📊 Dashboard":
     st.markdown("### 📊 Visão Geral de Desempenho Executivo")
-    st.markdown("<p style='color:#94A3B8;font-size:0.9rem'>Resumo consolidado de faturamento, investimentos em Ads, comissões de marketplaces e indicador de margem real.</p>", unsafe_allow_html=True)
+    st.markdown("<p style='color:#94A3B8;font-size:0.9rem'>Consolidação estratégica de vendas, investimentos em Ads, comissões de canais e lucro líquido real.</p>", unsafe_allow_html=True)
     
-    # Dados Simulados / Reais para o Dashboard Executivo
     dados_plataformas = pd.DataFrame([
         {"Plataforma": "Shopee", "Faturamento": 48500.00, "Ads": 4200.00, "Comissões": 9700.00, "Devoluções": 1200.00, "Pedidos": 1250},
         {"Plataforma": "TikTok Shop", "Faturamento": 32100.00, "Ads": 3800.00, "Comissões": 3210.00, "Devoluções": 950.00, "Pedidos": 840},
@@ -377,11 +385,10 @@ if aba_selecionada == "📊 Dashboard Executivo":
     com_total = dados_plataformas["Comissões"].sum()
     dev_total = dados_plataformas["Devoluções"].sum()
     imp_total = fat_total * (st.session_state.aliquota_simples_perc / 100.0)
-    cmv_estimado = fat_total * 0.28  # ~28% custo médio do produto
+    cmv_estimado = fat_total * 0.28
     lucro_estimado = fat_total - (ads_total + com_total + dev_total + imp_total + cmv_estimado)
     margem_perc = (lucro_estimado / fat_total * 100.0) if fat_total > 0 else 0.0
 
-    # Cards de Métricas Principais (Flexbox Responsivo Cyber Navy)
     col_m1, col_m2, col_m3, col_m4, col_m5 = st.columns(5)
     with col_m1:
         st.markdown(f"""
@@ -426,9 +433,7 @@ if aba_selecionada == "📊 Dashboard Executivo":
 
     st.markdown("<div style='height:15px'></div>", unsafe_allow_html=True)
 
-    # GRÁFICOS VISUAIS DE ALTO IMPACTO (ALTAIR DARK THEME)
     col_g1, col_g2 = st.columns(2)
-    
     with col_g1:
         st.markdown("##### 📈 Faturamento vs. Investimento Ads por Plataforma")
         df_chart_melt = pd.melt(
@@ -461,218 +466,235 @@ if aba_selecionada == "📊 Dashboard Executivo":
         ).properties(height=320)
         st.altair_chart(chart_donut, use_container_width=True)
 
-    # ABA DE INTELIGÊNCIA COMERCIAL & ALERTAS (Integrada perfeitamente)
-    with st.expander("💡 Insights de Inteligência Comercial & Alertas de Margem", expanded=True):
-        col_i1, col_i2 = st.columns([1.2, 1])
-        with col_i1:
-            st.markdown("""
-            * 🟢 **Melhor ROAS Atual:** Mercado Livre Classic apresenta o melhor retorno líquido por real investido em anúncios.
-            * ⚠️ **Atenção em TikTok Shop:** O custo de comissão + Ads no TikTok está consumindo 21.8% da receita bruta. Recomendado reajustar preço relâmpago.
-            * 📉 **Impacto de Devoluções:** Shopee lidera em devoluções (R$ 1.200,00). Verificar embalagens da categoria *Lingerie Gestante*.
-            """)
-        with col_i2:
-            st.markdown("""
-            <div style="background:#0E1424;border:1px solid #1E293B;padding:14px;border-radius:12px">
-                <span class="badge-pill badge-green">Curva ABC: Top 3 Produtos</span>
-                <ol style="margin-top:8px;padding-left:20px;color:#CBD5E1;font-size:0.88rem">
-                    <li><b>Calcinha Gestante</b> (34% das vendas)</li>
-                    <li><b>Calcinha Pala Dupla</b> (26% das vendas)</li>
-                    <li><b>Cinta Cos Alto</b> (18% das vendas)</li>
-                </ol>
-            </div>
-            """, unsafe_allow_html=True)
-
 # ---------------------------------------------------------
-# MÓDULO 2: CATÁLOGO & PRECIFICAÇÃO MESTRE (UNIFICADO)
+# ABA 2: PRODUTOS (PRECIFICAÇÃO DE KITS 1 A 10 & ANÁLISE)
 # ---------------------------------------------------------
-elif aba_selecionada == "🏷️ Catálogo & Precificação Mestre":
-    st.markdown("### 🏷️ Catálogo Unificado & Precificação Praticada")
-    st.markdown("<p style='color:#94A3B8;font-size:0.9rem'>Visualize todos os preços praticados em um único local, simule novas margens e salve os preços no disco sem mudar de tela.</p>", unsafe_allow_html=True)
+elif aba_selecionada == "📦 Produtos & Precificação":
+    sub_aba_prod = st.radio("Selecione a Visão:", ["🏷️ Precificação Atual de Kits (1 a 10 Peças)", "📈 Análise de Performance do Produto"], horizontal=True)
     
     prods = st.session_state.produtos
-    nool_prods = len(prods)
     
-    # Barra de Ferramentas / Filtro
-    col_t1, col_t2, col_t3 = st.columns([1.5, 1, 1])
-    with col_t1:
-        busca_prod = st.text_input("🔍 Buscar Produto por Nome ou SKU", placeholder="Digite para filtrar...").strip().lower()
-    with col_t2:
-        plataforma_sel = st.selectbox("🎯 Canal / Marketplace para Diagnóstico", ["Shopee", "TikTok Shop", "Shein", "Mercado Livre (Classic)"])
-    with col_t3:
-        perfil_sel = st.selectbox("🏛️ Perfil Fiscal (Simulador)", list(PERFIS_PRESETS_PADRAO.keys()), index=0)
-        st.session_state.perfil_fiscal = perfil_sel
-        st.session_state.aliquota_simples_perc = PERFIS_PRESETS_PADRAO[perfil_sel]["aliquota"]
-
-    prods_filtrados = [p for p in prods if (busca_prod in p["nome"].lower() or busca_prod in p.get("sku", "").lower())]
-    
-    # MATRIZ GERAL DE PREÇOS PRATICADOS (TABELA COMPLETA)
-    st.markdown("#### 📊 Matriz Geral de Preços Praticados & Margens Líquidas")
-    
-    tabela_dados = []
-    simples_frac = st.session_state.aliquota_simples_perc / 100.0
-    com_perc, taxa_f, _ = taxas_para_preco(plataforma_sel, 40.0)
-
-    for p in prods_filtrados:
-        cmv = p["custo_unitario"] + p["custo_embalagem"]
-        precos_p = p.get("precos_praticados", {}).get(plataforma_sel, {})
+    if "Precificação" in sub_aba_prod:
+        st.markdown("### 🏷️ Precificação por Kits (1 a 10 Peças) & Salvar em Disco")
+        st.markdown("<p style='color:#94A3B8;font-size:0.9rem'>Simule e salve a tabela completa de preços praticados para cada produto, variando de 1 unidade até kits de 10 unidades por plataforma.</p>", unsafe_allow_html=True)
         
-        pr_cheio = precos_p.get("preco_cheio", 49.90)
-        pr_oferta = precos_p.get("preco_oferta", 39.90)
-        pr_relampago = precos_p.get("preco_relampago", 34.90)
+        col_p1, col_p2, col_p3 = st.columns([1.5, 1, 1])
+        with col_p1:
+            prod_nomes = [p["nome"] for p in prods]
+            prod_sel_nome = st.selectbox("Selecione o Produto:", prod_nomes)
+            idx_prod = next(i for i, p in enumerate(prods) if p["nome"] == prod_sel_nome)
+            prod_obj = prods[idx_prod]
+        with col_p2:
+            plat_sel = st.selectbox("Marketplace / Canal:", ["Shopee", "TikTok Shop", "Shein", "Mercado Livre (Classic)", "Mercado Livre (Premium)"])
+        with col_p3:
+            perfil_tributario = st.selectbox("Perfil Fiscal:", list(PERFIS_PRESETS_PADRAO.keys()), index=0)
+            aliq_imp = PERFIS_PRESETS_PADRAO[perfil_tributario]["aliquota"]
+
+        com_perc, taxa_f = taxas_para_preco(plat_sel, 50.0)
+        custo_un = prod_obj["custo_unitario"]
+        custo_emb = prod_obj["custo_embalagem"]
         
-        # Cálculo da margem no preço oferta (padrão de análise)
-        com_rs = pr_oferta * (com_perc / 100.0) + taxa_f
-        imp_rs = pr_oferta * simples_frac
-        ads_rs = pr_oferta * (1.0 / st.session_state.roas_meta)
-        lucro_rs = pr_oferta - (cmv + com_rs + imp_rs + ads_rs)
-        margem_perc = (lucro_rs / pr_oferta * 100.0) if pr_oferta > 0 else 0.0
+        st.markdown(f"##### 📋 Tabela de Kits (1 a 10 peças) — **{prod_obj['nome']}** na **{plat_sel}**")
+        st.caption(f"CMV Unitário: R$ {custo_un:.2f} | Embalagem Base: R$ {custo_emb:.2f} | Comissão {plat_sel}: {com_perc:.1f}% + R$ {taxa_f:.2f}")
 
-        tabela_dados.append({
-            "SKU": p.get("sku", "-"),
-            "Produto": p["nome"],
-            "Categoria": p["categoria"],
-            "CMV (R$)": f"R$ {cmv:.2f}",
-            "Preço Cheio": f"R$ {pr_cheio:.2f}",
-            "Preço Oferta": f"R$ {pr_oferta:.2f}",
-            "Preço Relâmpago": f"R$ {pr_relampago:.2f}",
-            "Lucro Oferta (R$)": f"R$ {lucro_rs:.2f}",
-            "Margem Líquida (%)": f"{margem_perc:.1f}%",
-            "Status Margem": "🟢 Excelente" if margem_perc >= 15 else ("🟡 Aceitável" if margem_perc >= 5 else "🔴 Atenção/Baixa")
-        })
-
-    df_precos = pd.DataFrame(tabela_dados)
-    st.dataframe(df_precos, use_container_width=True, hide_index=True)
-
-    st.markdown("---")
-    
-    # SIMULADOR VISUAL DE PRECIFICAÇÃO E EDIÇÃO POR PRODUTO
-    st.markdown("#### ⚡ Simulador de Precificação & Edição de Produto")
-    
-    nomer_prods = [p["nome"] for p in prods_filtrados]
-    if nomer_prods:
-        prod_selecionado_nome = st.selectbox("Selecione um Produto para Ajustar Preços e Margens:", nomer_prods)
-        idx_prod = next(i for i, p in enumerate(prods) if p["nome"] == prod_selecionado_nome)
-        prod_obj = prods[idx_prod]
-
-        col_s1, col_s2 = st.columns([1.2, 1])
+        # Tabela editável de kits de 1 a 10
+        precos_salvos_kits = prod_obj.get("precos_kits", {}).get(plat_sel, {})
         
-        with col_s1:
-            st.markdown(f"##### 📦 Ajustar Preços Praticados para: **{prod_obj['nome']}**")
-            precos_existentes = prod_obj.get("precos_praticados", {}).get(plataforma_sel, {})
+        dados_kits_tabela = []
+        for qtd in range(1, 11):
+            key_qtd = str(qtd)
+            # Custo proporcional do kit
+            cmv_kit = (custo_un * qtd) + custo_emb
             
-            val_cheio = st.number_input("Preço Cheio (R$)", value=float(precos_existentes.get("preco_cheio", 49.90)), step=1.0)
-            val_oferta = st.number_input("Preço Oferta (R$)", value=float(precos_existentes.get("preco_oferta", 39.90)), step=1.0)
-            val_relampago = st.number_input("Preço Oferta Relâmpago (R$)", value=float(precos_existentes.get("preco_relampago", 34.90)), step=1.0)
+            # Preço default sugerido se não houver salvo
+            preco_default = (cmv_kit * 2.5) + (taxa_f * 0.8)
+            preco_praticado = float(precos_salvos_kits.get(key_qtd, {}).get("preco", round(preco_default, 2)))
             
-            if st.button("💾 Salvar Preços de Todos os Canais no Disco", type="primary", use_container_width=True):
-                if "precos_praticados" not in st.session_state.produtos[idx_prod]:
-                    st.session_state.produtos[idx_prod]["precos_praticados"] = {}
+            comissao_rs = (preco_praticado * (com_perc / 100.0)) + taxa_f
+            imposto_rs = preco_praticado * (aliq_imp / 100.0)
+            ads_rs = preco_praticado * (1.0 / st.session_state.roas_meta)
+            
+            sobra_rs = preco_praticado - (cmv_kit + comissao_rs + imposto_rs + ads_rs)
+            margem_pct = (sobra_rs / preco_praticado * 100.0) if preco_praticado > 0 else 0.0
+
+            dados_kits_tabela.append({
+                "Qtd Peças (Kit)": f"Kit com {qtd}x",
+                "Qtd_Num": qtd,
+                "CMV Kit (R$)": cmv_kit,
+                "Preço Venda (R$)": preco_praticado,
+                "Comissão + Taxa (R$)": comissao_rs,
+                "Imposto (R$)": imposto_rs,
+                "Ads Estimado (R$)": ads_rs,
+                "Lucro Líquido (R$)": sobra_rs,
+                "Margem (%)": round(margem_pct, 1),
+                "Status": "🟢 Excelente" if margem_pct >= 15 else ("🟡 Aceitável" if margem_pct >= 5 else "🔴 Atenção")
+            })
+
+        df_kits_display = pd.DataFrame(dados_kits_tabela)
+
+        # Editor interativo de preços de kits
+        with st.form("form_kits"):
+            cols_k1, cols_k2 = st.columns([2, 1])
+            with cols_k1:
+                df_edited = st.data_editor(
+                    df_kits_display[["Qtd Peças (Kit)", "CMV Kit (R$)", "Preço Venda (R$)", "Lucro Líquido (R$)", "Margem (%)", "Status"]],
+                    disabled=["Qtd Peças (Kit)", "CMV Kit (R$)", "Lucro Líquido (R$)", "Margem (%)", "Status"],
+                    column_config={
+                        "Preço Venda (R$)": st.column_config.NumberColumn(format="R$ %.2f", min_value=1.0, step=1.0)
+                    },
+                    use_container_width=True,
+                    hide_index=True
+                )
+            with cols_k2:
+                st.markdown("""
+                <div style="background:#0E1424;border:1px solid #1E293B;padding:16px;border-radius:12px">
+                    <span style="color:#38BDF8;font-weight:700">💡 Dica de Precificação por Kit:</span>
+                    <p style="color:#94A3B8;font-size:0.85rem;margin-top:6px">
+                        Kits com mais peças (ex: 3x, 5x, 10x) diluem a <b>Taxa Fixa do Marketplace</b> e a embalagem, permitindo oferecer desconto ao cliente mantendo uma margem de lucro percentual superior.
+                    </p>
+                </div>
+                """, unsafe_allow_html=True)
+
+            btn_salvar_kits = st.form_submit_button("💾 Salvar Precificação de Kits no Disco", type="primary", use_container_width=True)
+            if btn_salvar_kits:
+                if "precos_kits" not in st.session_state.produtos[idx_prod]:
+                    st.session_state.produtos[idx_prod]["precos_kits"] = {}
+                if plat_sel not in st.session_state.produtos[idx_prod]["precos_kits"]:
+                    st.session_state.produtos[idx_prod]["precos_kits"][plat_sel] = {}
+
+                for row in df_edited.to_dict(orient="records"):
+                    qtd_str = str(row["Qtd Peças (Kit)"].replace("Kit com ", "").replace("x", "").strip())
+                    st.session_state.produtos[idx_prod]["precos_kits"][plat_sel][qtd_str] = {
+                        "preco": float(row["Preço Venda (R$)"])
+                    }
                 
-                st.session_state.produtos[idx_prod]["precos_praticados"][plataforma_sel] = {
-                    "preco_cheio": val_cheio,
-                    "preco_oferta": val_oferta,
-                    "preco_relampago": val_relampago,
-                    "usar_roas": True,
-                    "roas_esperado": st.session_state.roas_meta
-                }
                 salvar_produtos_disco(st.session_state.produtos)
-                st.success(f"✅ Preços salvos com sucesso para {prod_obj['nome']} em {plataforma_sel}!")
+                st.success(f"✅ Tabela de kits (1 a 10) de {prod_obj['nome']} salva no disco para {plat_sel}!")
                 st.rerun()
 
-        with col_s2:
-            st.markdown("##### 🧮 Diagnóstico Automático de Margem")
-            cmv = prod_obj["custo_unitario"] + prod_obj["custo_embalagem"]
-            
-            # Recálculo instantâneo na Oferta
-            com_rs = val_oferta * (com_perc / 100.0) + taxa_f
-            imp_rs = val_oferta * simples_frac
-            ads_rs = val_oferta * (1.0 / st.session_state.roas_meta)
-            sobra = val_oferta - (cmv + com_rs + imp_rs + ads_rs)
-            m_perc = (sobra / val_oferta * 100.0) if val_oferta > 0 else 0.0
-
-            badge_class = "badge-green" if m_perc >= 15 else ("badge-yellow" if m_perc >= 5 else "badge-red")
-            
-            st.markdown(f"""
-            <div style="background:#0E1526;border:1px solid #1E293B;padding:18px;border-radius:14px">
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-                    <span style="color:#94A3B8;font-size:0.85rem;font-weight:700">MARGEM EM OFERTA</span>
-                    <span class="badge-pill {badge_class}">{m_perc:.1f}% Líquido</span>
-                </div>
-                <div style="color:#F8FAFC;font-size:1.1rem;font-weight:700">Sobra por Peça: <span style="color:#38BDF8">R$ {sobra:.2f}</span></div>
-                <hr style="border-color:#1E293B;margin:10px 0">
-                <div style="font-size:0.8rem;color:#94A3B8">
-                    • <b>Custo Produto + Embalagem (CMV):</b> R$ {cmv:.2f}<br>
-                    • <b>Comissão {plataforma_sel}:</b> R$ {com_rs:.2f}<br>
-                    • <b>Imposto ({st.session_state.perfil_fiscal}):</b> R$ {imp_rs:.2f}<br>
-                    • <b>Ads Estimado (ROAS {st.session_state.roas_meta:.1f}x):</b> R$ {ads_rs:.2f}
-                </div>
+    else:
+        st.markdown("### 📈 Análise de Performance por Produto")
+        prod_sel_perf = st.selectbox("Selecione o Produto para Analisar:", [p["nome"] for p in prods])
+        
+        col_an1, col_an2, col_an3 = st.columns(3)
+        with col_an1:
+            st.markdown("""
+            <div class="orion-card">
+                <div style="color:#94A3B8;font-size:0.8rem">TOTAL DE VENDAS</div>
+                <div style="color:#38BDF8;font-size:1.6rem;font-weight:800">1.250 Unidades</div>
+            </div>
+            """, unsafe_allow_html=True)
+        with col_an2:
+            st.markdown("""
+            <div class="orion-card">
+                <div style="color:#94A3B8;font-size:0.8rem">FATURAMENTO ACUMULADO</div>
+                <div style="color:#34D399;font-size:1.6rem;font-weight:800">R$ 48.500,00</div>
+            </div>
+            """, unsafe_allow_html=True)
+        with col_an3:
+            st.markdown("""
+            <div class="orion-card">
+                <div style="color:#94A3B8;font-size:0.8rem">MARGEM MÉDIA REAL</div>
+                <div style="color:#FBBF24;font-size:1.6rem;font-weight:800">18.4%</div>
             </div>
             """, unsafe_allow_html=True)
 
 # ---------------------------------------------------------
-# MÓDULO 3: CENTRAL DE VENDAS & ADS (CONSOLIDADO)
+# ABA 3: CENTRAL DE RELATÓRIOS
 # ---------------------------------------------------------
-elif aba_selecionada == "💰 Central de Vendas & Ads":
-    st.markdown("### 💰 Central de Relatórios de Vendas & Anúncios")
-    st.markdown("<p style='color:#94A3B8;font-size:0.9rem'>Consolidação de relatórios exportados do Upseller, Shopee Ads e TikTok Ads.</p>", unsafe_allow_html=True)
+elif aba_selecionada == "📄 Central de Relatórios":
+    st.markdown("### 📄 Central de Relatórios de Vendas & Ads")
+    st.markdown("<p style='color:#94A3B8;font-size:0.9rem'>Faça o upload dos relatórios exportados da Shopee, TikTok Shop, Shein, Mercado Livre e Upseller.</p>", unsafe_allow_html=True)
     
-    aba_rel = st.radio("Selecione o Relatório:", ["🛒 Relatório de Vendas (Upseller / Multi-loja)", "📢 Desempenho de Anúncios (Shopee & TikTok Ads)"], horizontal=True)
-    
-    if "Vendas" in aba_rel:
-        st.markdown("#### 🛒 Consolidação de Vendas Multi-canal")
-        st.info("💡 Coloque os relatórios `.xlsx` ou `.csv` na pasta `arquivos/Relatórios/Vendas/` para processamento automático.")
-        
-        # Exemplo de visualização demonstrativa limpa
-        df_demo_vendas = pd.DataFrame([
-            {"Data": "2026-09-25", "Canal": "Shopee", "Pedido": "260925SHP01", "Produto": "Calcinha Gestante", "Qtd": 3, "Valor Bruto": 119.70, "Status": "Concluído"},
-            {"Data": "2026-09-25", "Canal": "TikTok Shop", "Pedido": "260925TTK02", "Produto": "Calcinha Pala Dupla", "Qtd": 2, "Valor Bruto": 79.80, "Status": "Concluído"},
-            {"Data": "2026-09-26", "Canal": "Mercado Livre", "Pedido": "260926MLB03", "Produto": "Cinta Cos Alto", "Qtd": 1, "Valor Bruto": 69.90, "Status": "Concluído"},
-        ])
-        st.dataframe(df_demo_vendas, use_container_width=True, hide_index=True)
-    else:
-        st.markdown("#### 📢 Análise de Desempenho de Ads")
-        col_ad1, col_ad2 = st.columns(2)
-        with col_ad1:
-            st.markdown("##### 🧡 Shopee Ads Summary")
-            st.markdown("<span class='badge-pill badge-green'>ROAS Média: 6.8x</span> <span class='badge-pill badge-blue'>Investimento: R$ 4.200,00</span>", unsafe_allow_html=True)
-        with col_ad2:
-            st.markdown("##### 🎵 TikTok Ads Summary")
-            st.markdown("<span class='badge-pill badge-yellow'>ROAS Média: 4.2x</span> <span class='badge-pill badge-purple'>Investimento: R$ 3.800,00</span>", unsafe_allow_html=True)
+    col_r1, col_r2 = st.columns([1.5, 1])
+    with col_r1:
+        st.markdown("##### 📤 Importar Novo Relatório")
+        tipo_rel = st.selectbox("Tipo de Relatório:", ["Vendas", "Ads / Anúncios"])
+        plat_rel = st.selectbox("Plataforma / Origem:", ["Shopee", "TikTok Shop", "Shein", "Mercado Livre", "Upseller"])
+        ano_rel  = st.selectbox("Ano:", ["2025", "2026", "2027"])
+        mes_rel  = st.selectbox("Mês:", ['01-Janeiro', '02-Fevereiro', '03-Março', '04-Abril', '05-Maio', '06-Junho', '07-Julho', '08-Agosto', '09-Setembro', '10-Outubro', '11-Novembro', '12-Dezembro'])
+
+        uploaded_file = st.file_uploader("Selecione o arquivo (.csv ou .xlsx)", type=["csv", "xlsx"])
+        if uploaded_file is not None:
+            if st.button("💾 Salvar Relatório na Pasta do Sistema", type="primary"):
+                pasta_destino = os.path.join(DIR_RELATORIOS, tipo_rel, ano_rel, mes_rel, plat_rel)
+                os.makedirs(pasta_destino, exist_ok=True)
+                caminho_final = os.path.join(pasta_destino, uploaded_file.name)
+                
+                with open(caminho_final, "wb") as f:
+                    f.write(uploaded_file.getbuffer())
+                
+                st.success(f"✅ Relatório **{uploaded_file.name}** salvo com sucesso em `{pasta_destino}`!")
+
+    with col_r2:
+        st.markdown("##### 📁 Relatórios Armazenados em Disco")
+        st.markdown("""
+        <div style="background:#0E1424;border:1px solid #1E293B;padding:16px;border-radius:12px">
+            <span style="color:#34D399;font-weight:700">● Sistema de Diretórios Ativo:</span>
+            <ul style="color:#CBD5E1;font-size:0.85rem;margin-top:8px;padding-left:18px">
+                <li><code>arquivos/Relatórios/Vendas/</code></li>
+                <li><code>arquivos/Relatórios/Ads/</code></li>
+            </ul>
+        </div>
+        """, unsafe_allow_html=True)
 
 # ---------------------------------------------------------
-# MÓDULO 4: CONFIGURAÇÕES FISCAIS & TAXAS
+# ABA 4: PAGAMENTOS A FORNECEDORES
 # ---------------------------------------------------------
-elif aba_selecionada == "⚙️ Configurações Fiscais & Taxas":
-    st.markdown("### ⚙️ Configurações de Alíquotas e Taxas de Canais")
-    st.markdown("<p style='color:#94A3B8;font-size:0.9rem'>Ajuste as taxas de comissão dos marketplaces e alíquotas de imposto do Simples Nacional ou MEI.</p>", unsafe_allow_html=True)
+elif aba_selecionada == "🚚 Pagamentos a Fornecedores":
+    st.markdown("### 🚚 Central de Pagamentos a Fornecedores")
+    st.markdown("<p style='color:#94A3B8;font-size:0.9rem'>Registre os lotes de confecção adquiridos, peças pegas, valores unitários e acompanhe o histórico de pagamentos.</p>", unsafe_allow_html=True)
     
-    col_c1, col_c2 = st.columns(2)
+    col_f1, col_f2 = st.columns([1.2, 1.8])
     
-    with col_c1:
-        st.markdown("#### 🏛️ Configuração do Perfil Fiscal")
-        perf_atual = st.selectbox("Perfil Tributário Ativo", list(st.session_state.perfis_custom.keys()), index=0)
-        aliq_val = st.number_input("Alíquota Efetiva do Imposto (%)", value=float(st.session_state.aliquota_simples_perc), step=0.5)
-        roas_val = st.number_input("Meta Global de ROAS (x)", value=float(st.session_state.roas_meta), step=0.5)
-        
-        if st.button("💾 Salvar Configurações Fiscais no Disco", type="primary"):
-            st.session_state.perfil_fiscal = perf_atual
-            st.session_state.aliquota_simples_perc = aliq_val
-            st.session_state.roas_meta = roas_val
+    with col_f1:
+        st.markdown("##### ➕ Registrar Novo Lote / Pagamento")
+        with st.form("form_fornecedor"):
+            data_lote = st.date_input("Data da Compra / Entrada")
+            fornecedor_input = st.text_input("Fornecedor / Oficina", placeholder="Ex: Confecção Própria, Malharia Dualis").strip()
+            prod_forn = st.selectbox("Produto Adquirido:", [p["nome"] for p in st.session_state.produtos])
+            qtd_pecas = st.number_input("Quantidade de Peças Pegas", min_value=1, value=100, step=10)
+            valor_peca = st.number_input("Valor por Peça (R$)", min_value=0.10, value=3.65, step=0.10)
+            status_pag = st.selectbox("Status do Pagamento", ["Pendente", "Pago", "Parcial"])
             
-            cfg_save = {
-                "perfil_fiscal": perf_atual,
-                "aliquota_simples_perc": aliq_val,
-                "roas_meta": roas_val,
-                "perfis_custom": st.session_state.perfis_custom
-            }
-            salvar_config_disco(cfg_save)
-            st.success("✅ Configurações salvas no disco com sucesso!")
-            st.rerun()
+            total_calculado = qtd_pecas * valor_peca
+            st.markdown(f"**Total do Lote:** <span style='color:#38BDF8;font-weight:800;font-size:1.1rem'>R$ {total_calculado:,.2f}</span>", unsafe_allow_html=True)
+            
+            btn_add_forn = st.form_submit_button("💾 Salvar Registro de Fornecedor", type="primary", use_container_width=True)
+            if btn_add_forn:
+                novo_reg = {
+                    "id": len(st.session_state.pagamentos) + 1,
+                    "data": str(data_lote),
+                    "fornecedor": fornecedor_input if fornecedor_input else "Confecção Própria",
+                    "produto": prod_forn,
+                    "qtd_pecas": int(qtd_pecas),
+                    "valor_peca": float(valor_peca),
+                    "total": float(total_calculado),
+                    "status": status_pag
+                }
+                st.session_state.pagamentos.append(novo_reg)
+                salvar_pagamentos_disco(st.session_state.pagamentos)
+                st.success("✅ Registro de fornecedor salvo no disco com sucesso!")
+                st.rerun()
 
-    with col_c2:
-        st.markdown("#### 🛍️ Taxas Padrão por Marketplace")
-        df_taxas = pd.DataFrame([
-            {"Marketplace": k, "Comissão (%)": v["comissao"], "Programa Extra (%)": v["programa"], "Taxa Fixa (R$)": f"R$ {v['taxa_fixa']:.2f}"}
-            for k, v in st.session_state.presets_taxas.items()
-        ])
-        st.dataframe(df_taxas, use_container_width=True, hide_index=True)
+    with col_f2:
+        st.markdown("##### 📊 Histórico de Registros de Pagamento")
+        df_pags = pd.DataFrame(st.session_state.pagamentos)
+        if len(df_pags) > 0:
+            df_display = df_pags.rename(columns={
+                "data": "Data", "fornecedor": "Fornecedor", "produto": "Produto",
+                "qtd_pecas": "Peças", "valor_peca": "Valor Peça (R$)", "total": "Total (R$)", "status": "Status"
+            })
+            st.dataframe(df_display[["Data", "Fornecedor", "Produto", "Peças", "Valor Peça (R$)", "Total (R$)", "Status"]], use_container_width=True, hide_index=True)
+            
+            tot_geral = df_pags["total"].sum()
+            tot_pago = df_pags[df_pags["status"] == "Pago"]["total"].sum()
+            tot_pend = df_pags[df_pags["status"] == "Pendente"]["total"].sum()
+            
+            st.markdown(f"""
+            <div style="display:flex;gap:12px;margin-top:16px">
+                <span class="badge-pill badge-blue">Total Lotes: R$ {tot_geral:,.2f}</span>
+                <span class="badge-pill badge-green">Pago: R$ {tot_pago:,.2f}</span>
+                <span class="badge-pill badge-yellow">Pendente: R$ {tot_pend:,.2f}</span>
+            </div>
+            """, unsafe_allow_html=True)

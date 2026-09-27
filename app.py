@@ -443,7 +443,7 @@ if aba_selecionada == "📊 Dashboard Executivo":
             )),
             xOffset='Métrica:N',
             tooltip=['Plataforma', 'Métrica', 'Valor']
-        ).properties(height=320).configure_background(fill='transparent').configure_view(strokeWidth=0)
+        ).properties(height=320).configure_view(strokeWidth=0)
         st.altair_chart(chart_bar, use_container_width=True)
 
     with col_g2:
@@ -455,7 +455,7 @@ if aba_selecionada == "📊 Dashboard Executivo":
                 range=['#EE4D2D', '#00F2FE', '#FFE600', '#FF4081']
             )),
             tooltip=['Plataforma', 'Faturamento', 'Pedidos']
-        ).properties(height=320).configure_background(fill='transparent').configure_view(strokeWidth=0)
+        ).properties(height=320).configure_view(strokeWidth=0)
         st.altair_chart(chart_donut, use_container_width=True)
 
     # ABA DE INTELIGÊNCIA COMERCIAL & ALERTAS (Integrada perfeitamente)

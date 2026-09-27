@@ -203,6 +203,7 @@ def extrair_metadados_shopee_shop_stats(filepath):
             df_pago = pd.read_excel(filepath, sheet_name='Produto Pago')
             row0 = df_pago.iloc[0]
             dados['faturamento_pago'] = pegar_valor_coluna(row0, 'vendas (brl)')
+            dados['vendas_sem_desconto'] = pegar_valor_coluna(row0, 'vendas sem os descontos')
             dados['pedidos_pagos'] = int(pegar_valor_coluna(row0, 'pedidos'))
             dados['pedidos_cancelados'] = int(pegar_valor_coluna(row0, 'pedidos cancelados'))
             dados['vendas_canceladas'] = pegar_valor_coluna(row0, 'vendas canceladas')
@@ -637,18 +638,20 @@ if aba_selecionada == "📊 Dashboard":
                         # Trava Anti-Duplicação: se existir relatório oficial 'shop-stats', ele tem prioridade total na pasta
                         stats_files = [f for f in files_v if any(k in f.lower() for k in ["shopee-shop-stats", "shop-stats", "performance"])]
                         if stats_files:
-                            for file_name in stats_files:
-                                filepath = os.path.join(p_dir_vendas, file_name)
-                                try:
-                                    meta_stats = extrair_metadados_shopee_shop_stats(filepath)
-                                    if meta_stats and meta_stats.get("faturamento_pago", 0) > 0:
-                                        fat += meta_stats["faturamento_pago"]
-                                        ped += meta_stats["pedidos_pagos"]
-                                        dev += meta_stats.get("vendas_devolvidas", 0.0)
-                                        com += meta_stats["faturamento_pago"] * 0.14
-                                        dados_shop_stats.append(meta_stats)
-                                except Exception:
-                                    pass
+                            # Pega apenas 1 arquivo máster (o mais recente/completo) para evitar somar cópias com (1).xlsx
+                            stats_files.sort(key=lambda x: (os.path.getmtime(os.path.join(p_dir_vendas, x)), os.path.getsize(os.path.join(p_dir_vendas, x))), reverse=True)
+                            master_file = stats_files[0]
+                            filepath = os.path.join(p_dir_vendas, master_file)
+                            try:
+                                meta_stats = extrair_metadados_shopee_shop_stats(filepath)
+                                if meta_stats and meta_stats.get("faturamento_pago", 0) > 0:
+                                    fat += meta_stats["faturamento_pago"]
+                                    ped += meta_stats["pedidos_pagos"]
+                                    dev += meta_stats.get("vendas_devolvidas", 0.0)
+                                    com += meta_stats["faturamento_pago"] * 0.14
+                                    dados_shop_stats.append(meta_stats)
+                            except Exception:
+                                pass
                         else:
                             # Caso não haja shop-stats, lê os arquivos de pedidos e remove duplicatas por ID de Pedido
                             dfs_pedidos = []

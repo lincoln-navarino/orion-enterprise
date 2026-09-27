@@ -202,16 +202,52 @@ st.markdown("""
 # ---------------------------------------------------------
 # AUTENTICAÇÃO E CONTROLE DE ACESSO
 # ---------------------------------------------------------
+# ---------------------------------------------------------
+# AUTENTICAÇÃO E CONTROLE DE SESSÃO PERSISTENTE
+# ---------------------------------------------------------
 USUARIOS_AUTORIZADOS = {
     "Dualis": "Q1w2e3r4",
     "Rafael": "vasco",
     "Lincoln": "Mudar,123",
 }
 
-if "autenticado" not in st.session_state:
-    st.session_state["autenticado"] = False
-if "usuario_logado" not in st.session_state:
-    st.session_state["usuario_logado"] = ""
+ARQUIVO_SESSAO_LOCAL = os.path.join("arquivos", "sessao_local.json")
+
+def carregar_sessao_persistente():
+    if os.path.exists(ARQUIVO_SESSAO_LOCAL):
+        try:
+            with open(ARQUIVO_SESSAO_LOCAL, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                if isinstance(data, dict) and data.get("autenticado") and data.get("usuario"):
+                    return data.get("usuario")
+        except Exception:
+            pass
+    return None
+
+def salvar_sessao_persistente(usuario):
+    try:
+        os.makedirs("arquivos", exist_ok=True)
+        with open(ARQUIVO_SESSAO_LOCAL, "w", encoding="utf-8") as f:
+            json.dump({"autenticado": True, "usuario": usuario}, f, ensure_ascii=False, indent=4)
+    except Exception as e:
+        print(f"Erro ao salvar sessao: {e}")
+
+def limpar_sessao_persistente():
+    if os.path.exists(ARQUIVO_SESSAO_LOCAL):
+        try:
+            os.remove(ARQUIVO_SESSAO_LOCAL)
+        except Exception:
+            pass
+
+# Verificar e restaurar sessão persistente se ainda não autenticado nesta rodada
+user_persistente = carregar_sessao_persistente()
+if "autenticado" not in st.session_state or not st.session_state["autenticado"]:
+    if user_persistente:
+        st.session_state["autenticado"] = True
+        st.session_state["usuario_logado"] = user_persistente
+    else:
+        st.session_state["autenticado"] = False
+        st.session_state["usuario_logado"] = ""
 
 def tela_login():
     col1, col2, col3 = st.columns([1, 1.4, 1])
@@ -228,6 +264,7 @@ def tela_login():
         with st.form("form_login", clear_on_submit=False):
             usuario_input = st.text_input("Usuário", placeholder="Digite seu usuário").strip()
             senha_input = st.text_input("Senha", type="password", placeholder="Digite sua senha")
+            manter_conectado = st.checkbox("📌 Manter conectado neste computador (Auto-login)", value=True)
             st.markdown("<div style='height: 10px'></div>", unsafe_allow_html=True)
             btn_entrar = st.form_submit_button("Entrar no Sistema", use_container_width=True, type="primary")
             
@@ -241,6 +278,8 @@ def tela_login():
                 if usuario_match and USUARIOS_AUTORIZADOS[usuario_match] == senha_input:
                     st.session_state["autenticado"] = True
                     st.session_state["usuario_logado"] = usuario_match
+                    if manter_conectado:
+                        salvar_sessao_persistente(usuario_match)
                     st.rerun()
                 else:
                     st.error("Usuário ou senha incorretos.")

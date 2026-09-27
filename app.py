@@ -288,9 +288,15 @@ def extrair_metadados_pedidos_shopee(filepath, produtos_cadastrados=None):
 
     top_variacoes = []
     if col_prod and col_qtd:
-        df_validos[col_var] = df_validos[col_var].fillna('Padrão') if col_var else 'Padrão'
-        top_df = df_validos.groupby([col_prod, col_var])[col_qtd].sum().reset_index()
+        c_v = col_var if (col_var and col_var in df_validos.columns) else 'Variação'
+        if c_v not in df_validos.columns:
+            df_validos[c_v] = 'Padrão'
+        else:
+            df_validos[c_v] = df_validos[c_v].fillna('Padrão')
+            
+        top_df = df_validos.groupby([col_prod, c_v])[col_qtd].sum().reset_index()
         top_df = top_df.sort_values(by=col_qtd, ascending=False).head(15)
+        top_df = top_df.rename(columns={col_prod: 'Nome do Produto', c_v: 'Nome da variação', col_qtd: 'Quantidade'})
         top_variacoes = top_df.to_dict(orient='records')
 
     return {
@@ -1120,13 +1126,35 @@ if aba_selecionada == "📊 Dashboard":
             all_top.extend(d.get('top_variacoes', []))
         if all_top:
             df_top = pd.DataFrame(all_top)
-            cols_qtd_f = [c for c in df_top.columns if c in ['Quantidade', 'qtd', 'quantity']]
-            if cols_qtd_f:
-                cq = cols_qtd_f[0]
-                df_top_grouped = df_top.groupby(['Nome do Produto', 'Nome da variação'])[cq].sum().reset_index()
-                df_top_grouped = df_top_grouped.sort_values(by=cq, ascending=False).head(10)
-                df_top_grouped = df_top_grouped.rename(columns={cq: 'Kits Vendidos (Qtd)', 'Nome do Produto': 'Produto', 'Nome da variação': 'Modelo / Tamanho'})
-                st.dataframe(df_top_grouped, use_container_width=True, hide_index=True)
+            cols_f = list(df_top.columns)
+            col_p_f = None
+            col_v_f = None
+            col_q_f = None
+
+            for c in cols_f:
+                cl = normalizar_str(c)
+                if any(k in cl for k in ['produto', 'item', 'titulo', 'name', 'product']):
+                    if not col_p_f: col_p_f = c
+                elif any(k in cl for k in ['variacao', 'opcao', 'modelo', 'tamanho', 'variation', 'option', 'sku']):
+                    if not col_v_f: col_v_f = c
+                elif cl in ['quantidade', 'qtd', 'quantity', 'unidades']:
+                    if not col_q_f: col_q_f = c
+
+            group_cols = [c for c in [col_p_f, col_v_f] if c and c in df_top.columns]
+            
+            if group_cols and col_q_f and col_q_f in df_top.columns:
+                try:
+                    df_top_grouped = df_top.groupby(group_cols)[col_q_f].sum().reset_index()
+                    df_top_grouped = df_top_grouped.sort_values(by=col_q_f, ascending=False).head(10)
+                    rename_map = {col_q_f: 'Kits Vendidos (Qtd)'}
+                    if col_p_f in group_cols: rename_map[col_p_f] = 'Produto'
+                    if col_v_f in group_cols: rename_map[col_v_f] = 'Modelo / Tamanho'
+                    df_top_grouped = df_top_grouped.rename(columns=rename_map)
+                    st.dataframe(df_top_grouped, use_container_width=True, hide_index=True)
+                except Exception:
+                    st.dataframe(df_top.head(10), use_container_width=True, hide_index=True)
+            else:
+                st.dataframe(df_top.head(10), use_container_width=True, hide_index=True)
     if len(dados_shop_stats) > 0:
         st.markdown("---")
         st.markdown("### 🎯 Painel de Inteligência Operacional & Origem de Tráfego")

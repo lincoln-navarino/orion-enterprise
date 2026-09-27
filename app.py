@@ -28,6 +28,149 @@ def garantir_estrutura_pastas():
 
 garantir_estrutura_pastas()
 
+# ---------------------------------------------------------
+# FUNÇÕES INTELIGENTES DE PARSER DE RELATÓRIOS (VENDAS E ADS)
+# ---------------------------------------------------------
+def ler_dataframe_inteligente(filepath):
+    """
+    Lê com inteligência arquivos CSV (ignorando linhas de cabeçalho de metadados da Shopee/TikTok)
+    e arquivos Excel (.xlsx).
+    """
+    if filepath.endswith('.csv'):
+        for encoding in ['utf-8-sig', 'utf-8', 'latin1', 'iso-8859-1', 'cp1252']:
+            try:
+                with open(filepath, 'r', encoding=encoding) as f:
+                    lines = f.readlines()
+                header_idx = 0
+                for idx, line in enumerate(lines[:30]):
+                    line_l = line.lower()
+                    if any(k in line_l for k in [
+                        'despesas', 'custo', 'investimento', 'nome do anúncio', 'nome do anǧncio', 
+                        'faturamento', 'total', 'gmv', 'valor', 'receita', 'id do pedido', 
+                        'order id', 'nº do pedido', 'status', 'sku', 'preço', 'preco'
+                    ]):
+                        header_idx = idx
+                        break
+                df = pd.read_csv(filepath, skiprows=header_idx, encoding=encoding)
+                return df
+            except Exception:
+                continue
+    else:
+        try:
+            df = pd.read_excel(filepath)
+            if any('Unnamed' in str(c) for c in df.columns[:3]):
+                for idx, row in df.iterrows():
+                    row_str = ' '.join([str(v).lower() for v in row.values])
+                    if any(k in row_str for k in ['custo', 'despesa', 'investimento', 'faturamento', 'total', 'gmv', 'receita', 'pedido', 'order']):
+                        df = pd.read_excel(filepath, skiprows=idx+1)
+                        break
+            return df
+        except Exception:
+            pass
+    return pd.DataFrame()
+
+def extrair_valor_numerico(series):
+    """
+    Converte uma série pandas com valores em string/moeda (ex: 'BRL 26,90', 'R$ 1.250,50', 26.9) 
+    em float numérico de maneira segura.
+    """
+    def converter_item(val):
+        val = str(val).strip()
+        if not val or val.lower() == 'nan':
+            return 0.0
+        val = val.replace('BRL', '').replace('R$', '').strip()
+        if '.' in val and ',' in val:
+            val = val.replace('.', '').replace(',', '.')
+        elif ',' in val:
+            val = val.replace(',', '.')
+        try:
+            return float(val)
+        except Exception:
+            return 0.0
+    return series.apply(converter_item)
+
+def extrair_custo_ads(df):
+    """
+    Extrai o custo total de Ads a partir do DataFrame importado.
+    Prioriza colunas como 'Despesas' (Shopee), 'Custo' (TikTok), 'Investimento', 'Gasto'.
+    Evita métricas unitárias como 'Custo por conversão'.
+    """
+    if df.empty:
+        return 0.0
+    cols = [str(c) for c in df.columns]
+    
+    # 1. Busca exata de prioridade para colunas de custo total
+    for c in cols:
+        cl = c.strip().lower()
+        if cl in ['despesas', 'despesa', 'investimento', 'gasto', 'gastos', 'custo total', 'total cost', 'custo']:
+            return float(extrair_valor_numerico(df[c]).sum())
+            
+    # 2. Busca parcial excluindo métricas unitárias (como 'custo por...', 'cost per...')
+    for c in cols:
+        cl = c.strip().lower()
+        if any(k in cl for k in ['despesa', 'investimento', 'gasto', 'custo', 'cost', 'ads']):
+            if not any(neg in cl for neg in ['por conversão', 'por conversao', 'por clique', 'per click', 'per conv', 'por pedido', 'unitario', 'por item', 'ctr', 'cpc', 'cpm', 'roas', 'acos']):
+                return float(extrair_valor_numerico(df[c]).sum())
+                
+    return 0.0
+
+def extrair_faturamento_vendas(df):
+    """
+    Extrai o Faturamento Bruto e quantidade de Pedidos únicos a partir do DataFrame de Vendas.
+    """
+    if df.empty:
+        return 0.0, 0
+        
+    cols = [str(c) for c in df.columns]
+    faturamento = 0.0
+    pedidos_cnt = len(df)
+    
+    for c in cols:
+        cl = c.strip().lower()
+        if any(k in cl for k in ['id do pedido', 'order id', 'nº do pedido', 'numero do pedido']):
+            pedidos_cnt = int(df[c].nunique())
+            break
+            
+    # 1. Prioridade exata de colunas de faturamento
+    for c in cols:
+        cl = c.strip().lower()
+        if cl in ['order amount', 'total do pedido', 'valor total', 'faturamento', 'gmv', 'receita total', 'total amount', 'subtotal do produto', 'total global']:
+            faturamento = float(extrair_valor_numerico(df[c]).sum())
+            return faturamento, pedidos_cnt
+            
+    # 2. Busca parcial excluindo taxas e descontos
+    for c in cols:
+        cl = c.strip().lower()
+        if any(k in cl for k in ['total', 'faturamento', 'gmv', 'receita', 'valor', 'amount']):
+            if not any(neg in cl for neg in ['comissão', 'comissao', 'taxa', 'desconto', 'frete', 'cupom', 'devolução', 'devolucao', 'reembolso', 'unitario', 'unidade', 'sku', 'original']):
+                faturamento = float(extrair_valor_numerico(df[c]).sum())
+                return faturamento, pedidos_cnt
+                
+    return faturamento, pedidos_cnt
+
+def obter_pastas_plataforma(tipo, ano, mes, plat):
+    """
+    Retorna a lista de pastas para uma determinada plataforma cobrindo aliases (TikTok vs TikTok Shop, ML Classic vs ML).
+    """
+    aliases = [plat]
+    if "TikTok" in plat:
+        aliases = ["TikTok", "TikTok Shop"]
+    elif "Shopee" in plat:
+        aliases = ["Shopee"]
+    elif "Mercado Livre" in plat or "Classic" in plat or "Premium" in plat:
+        aliases = ["Mercado Livre", "Mercado Livre (Classic)", "Mercado Livre (Premium)"]
+    elif "Shein" in plat:
+        aliases = ["Shein"]
+    elif "Upseller" in plat:
+        aliases = ["Upseller"]
+        
+    pastas = []
+    for alias in aliases:
+        p = os.path.join(DIR_RELATORIOS, tipo, ano, mes, alias)
+        if os.path.exists(p):
+            pastas.append(p)
+    return pastas
+
 def carregar_produtos_disco(produtos_padrao):
     if os.path.exists(ARQUIVO_PRODUTOS):
         try:
@@ -421,8 +564,8 @@ if aba_selecionada == "📊 Dashboard":
     for a in anos_lista:
         for m in meses_lista:
             for p in plataformas_lista:
-                p_dir_vendas = os.path.join(DIR_RELATORIOS, "Vendas", a, m, p)
-                p_dir_ads = os.path.join(DIR_RELATORIOS, "Ads", a, m, p)
+                pastas_vendas = obter_pastas_plataforma("Vendas", a, m, p)
+                pastas_ads = obter_pastas_plataforma("Ads", a, m, p)
 
                 fat = 0.0
                 ads = 0.0
@@ -430,37 +573,30 @@ if aba_selecionada == "📊 Dashboard":
                 dev = 0.0
                 ped = 0
 
-                if os.path.exists(p_dir_vendas):
+                for p_dir_vendas in pastas_vendas:
                     files_v = [f for f in os.listdir(p_dir_vendas) if f.endswith(".csv") or f.endswith(".xlsx")]
                     if files_v:
                         tem_relatorio_no_disco = True
                         for file_name in files_v:
                             filepath = os.path.join(p_dir_vendas, file_name)
                             try:
-                                df_f = pd.read_csv(filepath) if file_name.endswith(".csv") else pd.read_excel(filepath)
-                                for col in df_f.columns:
-                                    col_l = str(col).lower()
-                                    if any(k in col_l for k in ["total", "faturamento", "valor", "receita", "gmv"]):
-                                        fat += float(pd.to_numeric(df_f[col].astype(str).str.replace(",", "."), errors="coerce").sum())
-                                        break
-                                ped += len(df_f)
-                                com += fat * 0.14
+                                df_f = ler_dataframe_inteligente(filepath)
+                                v_fat, p_ped = extrair_faturamento_vendas(df_f)
+                                fat += v_fat
+                                ped += p_ped
+                                com += v_fat * 0.14
                             except Exception:
                                 pass
 
-                if os.path.exists(p_dir_ads):
+                for p_dir_ads in pastas_ads:
                     files_a = [f for f in os.listdir(p_dir_ads) if f.endswith(".csv") or f.endswith(".xlsx")]
                     if files_a:
                         tem_relatorio_no_disco = True
                         for file_name in files_a:
                             filepath = os.path.join(p_dir_ads, file_name)
                             try:
-                                df_a = pd.read_csv(filepath) if file_name.endswith(".csv") else pd.read_excel(filepath)
-                                for col in df_a.columns:
-                                    col_l = str(col).lower()
-                                    if any(k in col_l for k in ["custo", "despesa", "gasto", "investimento", "ads"]):
-                                        ads += float(pd.to_numeric(df_a[col].astype(str).str.replace(",", "."), errors="coerce").sum())
-                                        break
+                                df_a = ler_dataframe_inteligente(filepath)
+                                ads += extrair_custo_ads(df_a)
                             except Exception:
                                 pass
 
@@ -824,24 +960,25 @@ elif aba_selecionada == "📄 Central de Relatórios":
         for a in anos_scan:
             for m in meses_scan:
                 for c in canal_scan:
-                    pasta_check = os.path.join(DIR_RELATORIOS, t, a, m, c)
-                    if os.path.exists(pasta_check):
-                        files = os.listdir(pasta_check)
-                        for fname in files:
-                            if fname.endswith(".csv") or fname.endswith(".xlsx"):
-                                fpath = os.path.join(pasta_check, fname)
-                                size_kb = os.path.getsize(fpath) / 1024.0
-                                mod_time = pd.to_datetime(os.path.getmtime(fpath), unit='s').strftime('%Y-%m-%d %H:%M')
-                                lista_arquivos_disco.append({
-                                    "Caminho": fpath,
-                                    "Arquivo": fname,
-                                    "Tipo": t,
-                                    "Ano": a,
-                                    "Mês": m,
-                                    "Canal": c,
-                                    "Tamanho (KB)": f"{size_kb:.1f} KB",
-                                    "Data Envio": mod_time
-                                })
+                    pastas_check = obter_pastas_plataforma(t, a, m, c)
+                    for pasta_check in pastas_check:
+                        if os.path.exists(pasta_check):
+                            files = os.listdir(pasta_check)
+                            for fname in files:
+                                if fname.endswith(".csv") or fname.endswith(".xlsx"):
+                                    fpath = os.path.join(pasta_check, fname)
+                                    size_kb = os.path.getsize(fpath) / 1024.0
+                                    mod_time = pd.to_datetime(os.path.getmtime(fpath), unit='s').strftime('%Y-%m-%d %H:%M')
+                                    lista_arquivos_disco.append({
+                                        "Caminho": fpath,
+                                        "Arquivo": fname,
+                                        "Tipo": t,
+                                        "Ano": a,
+                                        "Mês": m,
+                                        "Canal": c,
+                                        "Tamanho (KB)": f"{size_kb:.1f} KB",
+                                        "Data Envio": mod_time
+                                    })
 
     if len(lista_arquivos_disco) > 0:
         df_mgt = pd.DataFrame(lista_arquivos_disco)

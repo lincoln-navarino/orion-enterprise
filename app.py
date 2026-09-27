@@ -282,7 +282,9 @@ def extrair_metadados_pedidos_shopee(filepath, produtos_cadastrados=None):
         custo_peca = float(produtos_cadastrados[0].get("custo_unitario", 3.65))
         custo_emb  = float(produtos_cadastrados[0].get("custo_embalagem", 0.30))
 
-    cmv_exato_total = (total_pecas_fisicas * custo_peca) + (total_kits_pacotes * custo_emb)
+    custo_pecas_total       = total_pecas_fisicas * custo_peca
+    custo_embalagens_total  = total_kits_pacotes * custo_emb
+    cmv_exato_total         = custo_pecas_total + custo_embalagens_total
 
     top_variacoes = []
     if col_prod and col_qtd:
@@ -295,6 +297,10 @@ def extrair_metadados_pedidos_shopee(filepath, produtos_cadastrados=None):
         "pedidos_validos": total_pedidos,
         "kits_vendidos": total_kits_pacotes,
         "pecas_fisicas_vendidas": total_pecas_fisicas,
+        "custo_pecas_total": custo_pecas_total,
+        "custo_embalagens_total": custo_embalagens_total,
+        "custo_unitario_peca": custo_peca,
+        "custo_unitario_emb": custo_emb,
         "cmv_real_exato": cmv_exato_total,
         "top_variacoes": top_variacoes,
         "col_qtd_nome": col_qtd,
@@ -1070,43 +1076,57 @@ if aba_selecionada == "📊 Dashboard":
     # ---------------------------------------------------------
     if len(dados_pedidos_detalhados) > 0:
         st.markdown("---")
-        st.markdown("### 📦 Pilar 3: Giro de Estoque & Peças Vendidas (Meus Pedidos Shopee)")
-        st.markdown("<p style='color:#94A3B8;font-size:0.9rem'>Visão granular extraída do relatório <b>Meus Pedidos</b> (Order Export), contabilizando volumes exatos de kits/peças de confecção e curva de tamanhos/modelos sem duplicação de faturamento.</p>", unsafe_allow_html=True)
+        st.markdown("### 📦 Pilar 3: Detalhamento de Confecção, Peças Físicas & Embalagens (Meus Pedidos Shopee)")
+        st.markdown("<p style='color:#94A3B8;font-size:0.9rem'>Visão exata extraída do relatório <b>Meus Pedidos</b>, mostrando o custo de matéria-prima das calcinhas físicas e embalagens sacos de envio.</p>", unsafe_allow_html=True)
         
-        tot_pecas_pedidos = sum(d.get('pecas_vendidas', 0) for d in dados_pedidos_detalhados)
-        tot_peds_validos  = sum(d.get('pedidos_validos', 0) for d in dados_pedidos_detalhados)
+        tot_pecas_fisicas_pedidos = sum(d.get('pecas_fisicas_vendidas', 0) for d in dados_pedidos_detalhados)
+        tot_kits_pedidos          = sum(d.get('kits_vendidos', 0) for d in dados_pedidos_detalhados)
+        tot_peds_validos          = sum(d.get('pedidos_validos', 0) for d in dados_pedidos_detalhados)
+        tot_custo_mp_pecas        = sum(d.get('custo_pecas_total', 0.0) for d in dados_pedidos_detalhados)
+        tot_custo_embalagens      = sum(d.get('custo_embalagens_total', 0.0) for d in dados_pedidos_detalhados)
+        tot_cmv_exato             = sum(d.get('cmv_real_exato', 0.0) for d in dados_pedidos_detalhados)
 
-        col_p1, col_p2 = st.columns([1, 2])
-        with col_p1:
+        col_custo1, col_custo2, col_custo3 = st.columns(3)
+        with col_custo1:
             st.markdown(f"""
             <div class="orion-card" style="border-color:#C084FC">
-                <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">📦 Total de Kits/Peças Vendidos</div>
-                <div style="color:#C084FC;font-family:'Outfit';font-size:1.8rem;font-weight:800;margin-top:4px">{tot_pecas_pedidos:,} Kits</div>
-                <div style="color:#34D399;font-size:0.75rem;font-weight:700;margin-top:4px">▲ em {tot_peds_validos:,} pedidos válidos</div>
+                <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">🧵 Peças Físicas de Confecção</div>
+                <div style="color:#C084FC;font-family:'Outfit';font-size:1.6rem;font-weight:800;margin-top:4px">{tot_pecas_fisicas_pedidos:,} Calcinhas</div>
+                <div style="color:#34D399;font-size:0.75rem;font-weight:700;margin-top:4px">Custo MP: R$ {tot_custo_mp_pecas:,.2f}</div>
             </div>
             """, unsafe_allow_html=True)
-            
+        with col_custo2:
             st.markdown(f"""
-            <div style="background:#0E1424;border:1px solid #1E293B;padding:12px;border-radius:10px;margin-top:10px">
-                <span style="color:#38BDF8;font-weight:700;font-size:0.85rem">💡 Gestão de Confecção:</span>
-                <p style="color:#94A3B8;font-size:0.8rem;margin-top:4px">Utilize essa contagem real de kits ({tot_pecas_pedidos:,} unidades) para comparar com os lotes adquiridos das oficinas e calcular a necessidade de reposição.</p>
+            <div class="orion-card" style="border-color:#38BDF8">
+                <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">✉️ Embalagens & Sacos de Envio</div>
+                <div style="color:#38BDF8;font-family:'Outfit';font-size:1.6rem;font-weight:800;margin-top:4px">{tot_kits_pedidos:,} Pacotes</div>
+                <div style="color:#34D399;font-size:0.75rem;font-weight:700;margin-top:4px">Custo Emb: R$ {tot_custo_embalagens:,.2f}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        with col_custo3:
+            st.markdown(f"""
+            <div class="orion-card" style="border-color:#FBBF24">
+                <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">🏭 CMV Total (Peças + Emb)</div>
+                <div style="color:#FBBF24;font-family:'Outfit';font-size:1.6rem;font-weight:800;margin-top:4px">R$ {tot_cmv_exato:,.2f}</div>
+                <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;margin-top:4px">Custo Exato Acumulado</div>
             </div>
             """, unsafe_allow_html=True)
 
-        with col_p2:
-            st.markdown("##### 🏆 Ranking de Vendas por Variação / Tamanho (Top Variações)")
-            all_top = []
-            for d in dados_pedidos_detalhados:
-                all_top.extend(d.get('top_variacoes', []))
-            if all_top:
-                df_top = pd.DataFrame(all_top)
-                cols_qtd_f = [c for c in df_top.columns if c in ['Quantidade', 'qtd', 'quantity']]
-                if cols_qtd_f:
-                    cq = cols_qtd_f[0]
-                    df_top_grouped = df_top.groupby(['Nome do Produto', 'Nome da variação'])[cq].sum().reset_index()
-                    df_top_grouped = df_top_grouped.sort_values(by=cq, ascending=False).head(10)
-                    df_top_grouped = df_top_grouped.rename(columns={cq: 'Kits Vendidos (Qtd)', 'Nome do Produto': 'Produto', 'Nome da variação': 'Modelo / Tamanho'})
-                    st.dataframe(df_top_grouped, use_container_width=True, hide_index=True)
+        st.markdown("<div style='height:12px'></div>", unsafe_allow_html=True)
+
+        st.markdown("##### 🏆 Ranking de Vendas por Variação / Tamanho (Top Variações)")
+        all_top = []
+        for d in dados_pedidos_detalhados:
+            all_top.extend(d.get('top_variacoes', []))
+        if all_top:
+            df_top = pd.DataFrame(all_top)
+            cols_qtd_f = [c for c in df_top.columns if c in ['Quantidade', 'qtd', 'quantity']]
+            if cols_qtd_f:
+                cq = cols_qtd_f[0]
+                df_top_grouped = df_top.groupby(['Nome do Produto', 'Nome da variação'])[cq].sum().reset_index()
+                df_top_grouped = df_top_grouped.sort_values(by=cq, ascending=False).head(10)
+                df_top_grouped = df_top_grouped.rename(columns={cq: 'Kits Vendidos (Qtd)', 'Nome do Produto': 'Produto', 'Nome da variação': 'Modelo / Tamanho'})
+                st.dataframe(df_top_grouped, use_container_width=True, hide_index=True)
     if len(dados_shop_stats) > 0:
         st.markdown("---")
         st.markdown("### 🎯 Painel de Inteligência Operacional & Origem de Tráfego")

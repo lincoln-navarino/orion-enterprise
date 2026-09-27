@@ -475,15 +475,63 @@ def extrair_metadados_pedidos_shopee(filepath, produtos_cadastrados=None):
     total_pecas_fisicas = int(df_validos['pecas_fisicas_reais'].sum())
     total_kits_pacotes = int(df_validos[col_qtd].sum()) if col_qtd else len(df_validos)
 
-    # Custos cadastrados de confecção e embalagem
-    custo_peca = 3.65
-    custo_emb  = 0.30
-    if produtos_cadastrados and len(produtos_cadastrados) > 0:
-        custo_peca = float(produtos_cadastrados[0].get("custo_unitario", 3.65))
-        custo_emb  = float(produtos_cadastrados[0].get("custo_embalagem", 0.30))
+    # Custos cadastrados de confecção e embalagem vinculados linha a linha por SKU / Produto
+    def vincular_custo_produto_linha(row):
+        sku_p = str(row.get('Nº de referência do SKU principal', '') or '').strip()
+        sku_v = str(row.get('Número de referência SKU', '') or '').strip()
+        nome_p = str(row.get(col_prod, '') if col_prod else '').strip()
+        nome_v = str(row.get(col_var, '') if col_var else '').strip()
+        
+        sku_p_norm = normalizar_str(sku_p)
+        sku_v_norm = normalizar_str(sku_v)
+        nome_p_norm = normalizar_str(nome_p)
+        nome_v_norm = normalizar_str(nome_v)
+        
+        full_text = f"{sku_p_norm} {sku_v_norm} {nome_p_norm} {nome_v_norm}"
+        
+        if produtos_cadastrados:
+            # 1. Busca por equivalência exata de SKU no cadastro
+            for p in produtos_cadastrados:
+                c_sku = normalizar_str(p.get('sku', ''))
+                if c_sku and (c_sku == sku_p_norm or c_sku in sku_v_norm or c_sku in sku_p_norm):
+                    return float(p.get('custo_unitario', 3.65)), float(p.get('custo_embalagem', 0.30)), p.get('nome', '')
 
-    custo_pecas_total       = total_pecas_fisicas * custo_peca
-    custo_embalagens_total  = total_kits_pacotes * custo_emb
+        # 2. Vínculo inteligente por palavras-chave de catálogo
+        if 'galena' in full_text:
+            p_match = next((p for p in (produtos_cadastrados or []) if 'galena' in p.get('nome', '').lower() or 'galena' in p.get('sku', '').lower()), None)
+            if p_match: return float(p_match.get('custo_unitario', 6.0)), float(p_match.get('custo_embalagem', 0.30)), p_match.get('nome', 'Galena')
+            return 6.00, 0.30, 'Galena'
+            
+        if any(k in full_text for k in ['cma', 'cintamodeladora', 'cosduplo', 'semelhanca', 'altaalta']):
+            p_match = next((p for p in (produtos_cadastrados or []) if 'cma' in p.get('sku', '').lower() or 'cos alto' in p.get('nome', '').lower()), None)
+            if p_match: return float(p_match.get('custo_unitario', 7.8)), float(p_match.get('custo_embalagem', 0.30)), p_match.get('nome', 'Cinta Cos Alto')
+            return 7.80, 0.30, 'Cinta Cos Alto'
+            
+        if any(k in full_text for k in ['cpd', 'paladupla']):
+            p_match = next((p for p in (produtos_cadastrados or []) if 'cpd' in p.get('sku', '').lower() or 'pala dupla' in p.get('nome', '').lower()), None)
+            if p_match: return float(p_match.get('custo_unitario', 3.9)), float(p_match.get('custo_embalagem', 0.30)), p_match.get('nome', 'Calcinha Pala Dupla')
+
+        if any(k in full_text for k in ['cg', 'gestante', 'hotpant']):
+            p_match = next((p for p in (produtos_cadastrados or []) if 'cg' in p.get('sku', '').lower() or 'gestante' in p.get('nome', '').lower()), None)
+            if p_match: return float(p_match.get('custo_unitario', 3.65)), float(p_match.get('custo_embalagem', 0.30)), p_match.get('nome', 'Calcinha Gestante')
+
+        # Fallback default
+        custo_def = float(produtos_cadastrados[0].get("custo_unitario", 3.65)) if produtos_cadastrados else 3.65
+        custo_emb_def = float(produtos_cadastrados[0].get("custo_embalagem", 0.30)) if produtos_cadastrados else 0.30
+        return custo_def, custo_emb_def, 'Calcinha Gestante'
+
+    res_linha = df_validos.apply(vincular_custo_produto_linha, axis=1)
+    df_validos['custo_unitario_peca'] = [r[0] for r in res_linha]
+    df_validos['custo_unitario_emb']  = [r[1] for r in res_linha]
+    df_validos['produto_cadastrado']  = [r[2] for r in res_linha]
+
+    df_validos['custo_mp_total_linha'] = df_validos['pecas_fisicas_reais'] * df_validos['custo_unitario_peca']
+    
+    qtd_pacotes_serie = df_validos[col_qtd] if col_qtd else pd.Series(1.0, index=df_validos.index)
+    df_validos['custo_emb_total_linha'] = qtd_pacotes_serie * df_validos['custo_unitario_emb']
+
+    custo_pecas_total       = float(df_validos['custo_mp_total_linha'].sum())
+    custo_embalagens_total  = float(df_validos['custo_emb_total_linha'].sum())
     cmv_exato_total         = custo_pecas_total + custo_embalagens_total
 
     top_variacoes = []
@@ -514,14 +562,17 @@ def extrair_metadados_pedidos_shopee(filepath, produtos_cadastrados=None):
             val = float(extrair_valor_numerico(df_validos[actual_col]).sum())
             taxas_plataforma_exatas += val
 
+    custo_peca_medio = (custo_pecas_total / total_pecas_fisicas) if total_pecas_fisicas > 0 else 3.65
+    custo_emb_medio  = (custo_embalagens_total / total_kits_pacotes) if total_kits_pacotes > 0 else 0.30
+
     return {
         "pedidos_validos": total_pedidos,
         "kits_vendidos": total_kits_pacotes,
         "pecas_fisicas_vendidas": total_pecas_fisicas,
         "custo_pecas_total": custo_pecas_total,
         "custo_embalagens_total": custo_embalagens_total,
-        "custo_unitario_peca": custo_peca,
-        "custo_unitario_emb": custo_emb,
+        "custo_unitario_peca": custo_peca_medio,
+        "custo_unitario_emb": custo_emb_medio,
         "cmv_real_exato": cmv_exato_total,
         "taxas_plataforma_exatas": taxas_plataforma_exatas,
         "top_variacoes": top_variacoes,

@@ -157,11 +157,11 @@ ARQUIVO_PAGAMENTOS = os.path.join("arquivos", "pagamentos_fornecedores.json")
 DIR_RELATORIOS     = os.path.join("arquivos", "Relatórios")
 
 def garantir_estrutura_pastas():
-    """Garante que a árvore completa de pastas para Vendas, Ads e Renda exista no disco."""
-    tipos = ['Vendas', 'Ads', 'Renda']
+    """Garante que a árvore completa de pastas para Pedidos (Order All), Vendas e Ads exista no disco."""
+    tipos = ['Pedidos', 'Vendas', 'Ads']
     anos = ['2025', '2026', '2027']
-    meses = ['01-Janeiro', '02-Fevereiro', '03-Março', '04-Abril', '05-Maio', '06-Junho', '07-Julho', '08-Agosto', '09-Setembro', '10-Outubro', '11-Novembro', '12-Dezembro']
-    plataformas = ['Shopee', 'TikTok', 'Shein', 'Mercado Livre']
+    meses = ['00-Consolidado-Ano', '01-Janeiro', '02-Fevereiro', '03-Março', '04-Abril', '05-Maio', '06-Junho', '07-Julho', '08-Agosto', '09-Setembro', '10-Outubro', '11-Novembro', '12-Dezembro']
+    plataformas = ['Shopee', 'TikTok', 'Shein', 'Mercado Livre', 'Upseller']
     for t in tipos:
         for a in anos:
             for m in meses:
@@ -366,19 +366,26 @@ def extrair_renda_plataforma(target):
 
     return renda_total, pedidos_cnt
 
-def extrair_metadados_pedidos_shopee(filepath, produtos_cadastrados=None):
+def extrair_metadados_pedidos_shopee(target, produtos_cadastrados=None):
     """
     Extrai contagem granular de peças físicas, SKUs, variações por tamanho/modelo e calcula o CMV REAL EXATO.
+    Aceita tanto caminho de arquivo quanto DataFrame do pandas.
     """
-    if not os.path.exists(filepath):
-        return {}
-
-    try:
-        if filepath.endswith('.xlsx') or filepath.endswith('.xls'):
-            df = pd.read_excel(filepath)
-        else:
-            df = ler_dataframe_inteligente(filepath)
-    except Exception:
+    if isinstance(target, pd.DataFrame):
+        df = target.copy()
+        filepath = "DataFrame Consolidado"
+    elif isinstance(target, str):
+        filepath = target
+        if not os.path.exists(filepath):
+            return {}
+        try:
+            if filepath.endswith('.xlsx') or filepath.endswith('.xls'):
+                df = pd.read_excel(filepath)
+            else:
+                df = ler_dataframe_inteligente(filepath)
+        except Exception:
+            return {}
+    else:
         return {}
 
     if df.empty:
@@ -1057,7 +1064,7 @@ if aba_selecionada == "📊 Dashboard":
     with col_f1:
         ano_filtro = st.selectbox("📅 Ano de Referência", ["2026", "2025", "2027", "Todos os Anos"], index=0)
     with col_f2:
-        mes_filtro = st.selectbox("🗓️ Mês de Referência", ["Todos os Meses", "01-Janeiro", "02-Fevereiro", "03-Março", "04-Abril", "05-Maio", "06-Junho", "07-Julho", "08-Agosto", "09-Setembro", "10-Outubro", "11-Novembro", "12-Dezembro"], index=9)
+        mes_filtro = st.selectbox("🗓️ Mês / Período", ["Todos os Meses", "Consolidado Ano", "01-Janeiro", "02-Fevereiro", "03-Março", "04-Abril", "05-Maio", "06-Junho", "07-Julho", "08-Agosto", "09-Setembro", "10-Outubro", "11-Novembro", "12-Dezembro"], index=0)
     with col_f3:
         plat_filtro = st.selectbox("🎯 Plataforma / Marketplace", ["Todas as Plataformas", "Shopee", "TikTok Shop", "Mercado Livre", "Shein"], index=0)
 
@@ -1091,7 +1098,12 @@ if aba_selecionada == "📊 Dashboard":
     # Leitura dinâmica dos arquivos de relatórios salvos no disco
     plataformas_lista = ["Shopee", "TikTok Shop", "Mercado Livre", "Shein"] if plat_filtro == "Todas as Plataformas" else [plat_filtro]
     anos_lista = ["2025", "2026", "2027"] if ano_filtro == "Todos os Anos" else [ano_filtro]
-    meses_lista = ['01-Janeiro', '02-Fevereiro', '03-Março', '04-Abril', '05-Maio', '06-Junho', '07-Julho', '08-Agosto', '09-Setembro', '10-Outubro', '11-Novembro', '12-Dezembro'] if mes_filtro == "Todos os Meses" else [mes_filtro]
+    if mes_filtro == "Consolidado Ano":
+        meses_lista = ['00-Consolidado-Ano', '01-Janeiro', '02-Fevereiro', '03-Março', '04-Abril', '05-Maio', '06-Junho', '07-Julho', '08-Agosto', '09-Setembro', '10-Outubro', '11-Novembro', '12-Dezembro']
+    elif mes_filtro == "Todos os Meses":
+        meses_lista = ['00-Consolidado-Ano', '01-Janeiro', '02-Fevereiro', '03-Março', '04-Abril', '05-Maio', '06-Junho', '07-Julho', '08-Agosto', '09-Setembro', '10-Outubro', '11-Novembro', '12-Dezembro']
+    else:
+        meses_lista = [mes_filtro]
 
     registros_reais = []
     dados_shop_stats = []
@@ -1856,40 +1868,47 @@ elif aba_selecionada == "📦 Produtos & Precificação":
 # ABA 3: CENTRAL DE RELATÓRIOS
 # ---------------------------------------------------------
 elif aba_selecionada == "📄 Central de Relatórios":
-    st.markdown("### 📄 Central de Relatórios (Vendas, Ads & Renda)")
-    st.markdown("<p style='color:#94A3B8;font-size:0.9rem'>Faça o upload dos relatórios exportados da Shopee, TikTok Shop, Shein, Mercado Livre e Upseller, incluindo relatórios de <b>Minha Renda / Extrato de Repasses</b>.</p>", unsafe_allow_html=True)
+    st.markdown("### 📄 Central de Relatórios (Order All & Ads)")
+    st.markdown("<p style='color:#94A3B8;font-size:0.9rem'>Importe os relatórios <b>Order All (Todos os Pedidos do Canal)</b> e <b>Ads (Anúncios Pagos)</b> por mês ou período <b>Consolidado Ano</b>.</p>", unsafe_allow_html=True)
     
     col_r1, col_r2 = st.columns([1.5, 1])
     with col_r1:
         st.markdown("##### 📤 Importar Novo Relatório")
-        tipo_rel_sel = st.selectbox("Tipo de Relatório:", ["Vendas", "Ads", "Renda / Repasses (Minha Carteira)"])
-        tipo_rel = "Renda" if "Renda" in tipo_rel_sel else tipo_rel_sel
+        tipo_rel_sel = st.selectbox("Tipo de Relatório:", ["Order All (Pedidos do Canal)", "Ads (Anúncios Pago)", "Shop Stats / Vendas"])
+        if "Order All" in tipo_rel_sel or "Pedidos" in tipo_rel_sel:
+            tipo_rel = "Pedidos"
+        elif "Ads" in tipo_rel_sel:
+            tipo_rel = "Ads"
+        else:
+            tipo_rel = "Vendas"
+
         plat_rel = st.selectbox("Plataforma / Origem:", ["Shopee", "TikTok Shop", "Shein", "Mercado Livre", "Upseller"])
-        ano_rel  = st.selectbox("Ano:", ["2025", "2026", "2027"])
-        mes_rel  = st.selectbox("Mês:", ['01-Janeiro', '02-Fevereiro', '03-Março', '04-Abril', '05-Maio', '06-Junho', '07-Julho', '08-Agosto', '09-Setembro', '10-Outubro', '11-Novembro', '12-Dezembro'])
+        ano_rel  = st.selectbox("Ano:", ["2026", "2025", "2027"])
+        mes_rel  = st.selectbox("Mês / Período:", ["Consolidado Ano", "01-Janeiro", "02-Fevereiro", "03-Março", "04-Abril", "05-Maio", "06-Junho", "07-Julho", "08-Agosto", "09-Setembro", "10-Outubro", "11-Novembro", "12-Dezembro"])
+        pasta_mes_rel = "00-Consolidado-Ano" if mes_rel == "Consolidado Ano" else mes_rel
 
         uploaded_file = st.file_uploader("Selecione o arquivo (.csv ou .xlsx)", type=["csv", "xlsx"])
         if uploaded_file is not None:
             if st.button("💾 Salvar Relatório na Pasta do Sistema", type="primary"):
-                pasta_destino = os.path.join(DIR_RELATORIOS, tipo_rel, ano_rel, mes_rel, plat_rel)
+                pasta_destino = os.path.join(DIR_RELATORIOS, tipo_rel, ano_rel, pasta_mes_rel, plat_rel)
                 os.makedirs(pasta_destino, exist_ok=True)
                 caminho_final = os.path.join(pasta_destino, uploaded_file.name)
                 
                 with open(caminho_final, "wb") as f:
                     f.write(uploaded_file.getbuffer())
                 
-                st.success(f"✅ Relatório **{uploaded_file.name}** salvo com sucesso em `{pasta_destino}`!")
+                st.success(f"✅ Relatório **{uploaded_file.name}** salvo com sucesso na pasta `{tipo_rel}/{ano_rel}/{pasta_mes_rel}/{plat_rel}`!")
                 st.rerun()
 
     with col_r2:
-        st.markdown("##### 📁 Relatórios Armazenados em Disco")
+        st.markdown("##### 📁 Estrutura de Diretórios Ativa")
         st.markdown("""
         <div style="background:#0E1424;border:1px solid #1E293B;padding:16px;border-radius:12px">
-            <span style="color:#34D399;font-weight:700">● Sistema de Diretórios Ativo:</span>
+            <span style="color:#34D399;font-weight:700">● Sistema de Armazenamento Consolidado:</span>
             <ul style="color:#CBD5E1;font-size:0.85rem;margin-top:8px;padding-left:18px">
-                <li><code>arquivos/Relatórios/Vendas/{Ano}/{Mês}/{Marketplace}</code></li>
-                <li><code>arquivos/Relatórios/Ads/{Ano}/{Mês}/{Marketplace}</code></li>
-                <li><code>arquivos/Relatórios/Renda/{Ano}/{Mês}/{Marketplace}</code></li>
+                <li><code>arquivos/Relatórios/Pedidos/{Ano}/{Mês ou Consolidado}/{Marketplace}</code></li>
+                <li><code>arquivos/Relatórios/Ads/{Ano}/{Mês ou Consolidado}/{Marketplace}</code></li>
+                <li><code>arquivos/Relatórios/Vendas/{Ano}/{Mês ou Consolidado}/{Marketplace}</code></li>
             </ul>
         </div>
         """, unsafe_allow_html=True)
@@ -1902,22 +1921,29 @@ elif aba_selecionada == "📄 Central de Relatórios":
     with col_mf1:
         ano_mgt = st.selectbox("Ano:", ["Todos", "2026", "2025", "2027"], index=0, key="mgt_ano")
     with col_mf2:
-        mes_mgt = st.selectbox("Mês:", ["Todos os Meses", "01-Janeiro", "02-Fevereiro", "03-Março", "04-Abril", "05-Maio", "06-Junho", "07-Julho", "08-Agosto", "09-Setembro", "10-Outubro", "11-Novembro", "12-Dezembro"], index=0, key="mgt_mes")
+        mes_mgt = st.selectbox("Mês / Período:", ["Todos os Meses", "Consolidado Ano", "01-Janeiro", "02-Fevereiro", "03-Março", "04-Abril", "05-Maio", "06-Junho", "07-Julho", "08-Agosto", "09-Setembro", "10-Outubro", "11-Novembro", "12-Dezembro"], index=0, key="mgt_mes")
     with col_mf3:
-        tipo_mgt = st.selectbox("Tipo:", ["Todos os Tipos", "Vendas", "Ads", "Renda / Repasses"], index=0, key="mgt_tipo")
+        tipo_mgt = st.selectbox("Tipo:", ["Todos os Tipos", "Order All (Pedidos)", "Ads (Anúncios Pago)", "Vendas"], index=0, key="mgt_tipo")
     with col_mf4:
         plat_mgt = st.selectbox("Canal:", ["Todos os Canais", "Shopee", "TikTok Shop", "Shein", "Mercado Livre", "Upseller"], index=0, key="mgt_plat")
 
     lista_arquivos_disco = []
     anos_scan = ["2025", "2026", "2027"] if ano_mgt == "Todos" else [ano_mgt]
-    meses_scan = ['01-Janeiro', '02-Fevereiro', '03-Março', '04-Abril', '05-Maio', '06-Junho', '07-Julho', '08-Agosto', '09-Setembro', '10-Outubro', '11-Novembro', '12-Dezembro'] if mes_mgt == "Todos os Meses" else [mes_mgt]
+    if mes_mgt == "Todos os Meses":
+        meses_scan = ['00-Consolidado-Ano', '01-Janeiro', '02-Fevereiro', '03-Março', '04-Abril', '05-Maio', '06-Junho', '07-Julho', '08-Agosto', '09-Setembro', '10-Outubro', '11-Novembro', '12-Dezembro']
+    elif mes_mgt == "Consolidado Ano":
+        meses_scan = ['00-Consolidado-Ano']
+    else:
+        meses_scan = [mes_mgt]
     
     if tipo_mgt == "Todos os Tipos":
-        tipos_scan = ["Vendas", "Ads", "Renda"]
-    elif "Renda" in tipo_mgt:
-        tipos_scan = ["Renda"]
+        tipos_scan = ["Pedidos", "Ads", "Vendas"]
+    elif "Pedidos" in tipo_mgt or "Order" in tipo_mgt:
+        tipos_scan = ["Pedidos"]
+    elif "Ads" in tipo_mgt:
+        tipos_scan = ["Ads"]
     else:
-        tipos_scan = [tipo_mgt]
+        tipos_scan = ["Vendas"]
 
     canal_scan = ["Shopee", "TikTok Shop", "Shein", "Mercado Livre", "Upseller"] if plat_mgt == "Todos os Canais" else [plat_mgt]
 

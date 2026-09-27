@@ -415,10 +415,19 @@ def extrair_metadados_shopee_shop_stats(filepath):
                     return to_f(row[col])
             return 0.0
 
-        if 'Produto Pago' in xl.sheet_names:
-            df_pago = pd.read_excel(filepath, sheet_name='Produto Pago')
-            row0 = df_pago.iloc[0]
-            dados['faturamento_pago'] = pegar_valor_coluna(row0, 'vendas (brl)')
+        sheet_target = None
+        if 'Pedido Feito' in xl.sheet_names:
+            sheet_target = 'Pedido Feito'
+        elif 'Produto Pago' in xl.sheet_names:
+            sheet_target = 'Produto Pago'
+
+        if sheet_target:
+            df_stats = pd.read_excel(filepath, sheet_name=sheet_target)
+            row0 = df_stats.iloc[0]
+            fat_val = pegar_valor_coluna(row0, 'vendas (brl)')
+            if fat_val <= 0:
+                fat_val = pegar_valor_coluna(row0, 'vendas sem os descontos')
+            dados['faturamento_pago'] = fat_val
             dados['vendas_sem_desconto'] = pegar_valor_coluna(row0, 'vendas sem os descontos')
             dados['pedidos_pagos'] = int(pegar_valor_coluna(row0, 'pedidos'))
             dados['pedidos_cancelados'] = int(pegar_valor_coluna(row0, 'pedidos cancelados'))

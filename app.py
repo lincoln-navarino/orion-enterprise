@@ -223,9 +223,9 @@ def extrair_renda_plataforma(target):
 
     return renda_total, pedidos_cnt
 
-def extrair_metadados_pedidos_shopee(filepath):
+def extrair_metadados_pedidos_shopee(filepath, produtos_cadastrados=None):
     """
-    Extrai contagem granular de peças, SKUs, variações por tamanho/modelo e volume de vendas a partir do relatório Meus Pedidos.
+    Extrai contagem granular de peças físicas, SKUs, variações por tamanho/modelo e calcula o CMV REAL EXATO.
     """
     if not os.path.exists(filepath):
         return {}
@@ -261,11 +261,28 @@ def extrair_metadados_pedidos_shopee(filepath):
 
     total_pedidos = df_validos['ID do pedido'].nunique() if 'ID do pedido' in df_validos.columns else len(df_validos)
     
-    if col_qtd:
-        df_validos[col_qtd] = pd.to_numeric(df_validos[col_qtd], errors='coerce').fillna(0)
-        total_pecas = int(df_validos[col_qtd].sum())
-    else:
-        total_pecas = len(df_validos)
+    # Função para extrair a contagem real de calcinhas/peças em cada linha de pedido
+    def calcular_pecas_linha(row):
+        variacao = str(row.get(col_var, '')).lower() if col_var else ''
+        qtd_p = float(row.get(col_qtd, 1)) if col_qtd else 1.0
+        if any(k in variacao for k in ['kit 5', '5 peças', '5 pecas', '5p']): return 5.0 * qtd_p
+        elif any(k in variacao for k in ['kit 3', '3 peças', '3 pecas', '3p']): return 3.0 * qtd_p
+        elif any(k in variacao for k in ['kit 2', '2 peças', '2 pecas']): return 2.0 * qtd_p
+        elif any(k in variacao for k in ['kit 10', '10 peças']): return 10.0 * qtd_p
+        return 1.0 * qtd_p
+
+    df_validos['pecas_fisicas_reais'] = df_validos.apply(calcular_pecas_linha, axis=1)
+    total_pecas_fisicas = int(df_validos['pecas_fisicas_reais'].sum())
+    total_kits_pacotes = int(df_validos[col_qtd].sum()) if col_qtd else len(df_validos)
+
+    # Custos cadastrados de confecção e embalagem
+    custo_peca = 3.65
+    custo_emb  = 0.30
+    if produtos_cadastrados and len(produtos_cadastrados) > 0:
+        custo_peca = float(produtos_cadastrados[0].get("custo_unitario", 3.65))
+        custo_emb  = float(produtos_cadastrados[0].get("custo_embalagem", 0.30))
+
+    cmv_exato_total = (total_pecas_fisicas * custo_peca) + (total_kits_pacotes * custo_emb)
 
     top_variacoes = []
     if col_prod and col_qtd:
@@ -276,7 +293,9 @@ def extrair_metadados_pedidos_shopee(filepath):
 
     return {
         "pedidos_validos": total_pedidos,
-        "pecas_vendidas": total_pecas,
+        "kits_vendidos": total_kits_pacotes,
+        "pecas_fisicas_vendidas": total_pecas_fisicas,
+        "cmv_real_exato": cmv_exato_total,
         "top_variacoes": top_variacoes,
         "col_qtd_nome": col_qtd,
         "arquivo": os.path.basename(filepath)
@@ -750,7 +769,8 @@ if aba_selecionada == "📊 Dashboard":
         col_cmv1, col_cmv2, col_cmv3 = st.columns([1.5, 1, 1])
         with col_cmv1:
             modo_cmv = st.selectbox("Método de Cálculo do CMV:", [
-                "📦 Custo Médio Real dos Produtos Cadastrados (R$ / Pedido)",
+                "🔥 Custo Real Exato de Peças (Extraído de Meus Pedidos / Order Export)",
+                "📦 Custo Médio Estimado por Pacote (R$ / Pedido)",
                 "📊 Porcentagem Customizada (% do Faturamento)",
                 "✏️ Custo Fixo por Pedido (R$ / Pedido)"
             ], index=0)
@@ -876,8 +896,8 @@ if aba_selecionada == "📊 Dashboard":
                         for file_name in files_p:
                             filepath = os.path.join(p_dir_pedidos, file_name)
                             try:
-                                meta_p = extrair_metadados_pedidos_shopee(filepath)
-                                if meta_p and meta_p.get("pecas_vendidas", 0) > 0:
+                                meta_p = extrair_metadados_pedidos_shopee(filepath, prods_cadastrados)
+                                if meta_p and meta_p.get("pecas_fisicas_vendidas", 0) > 0:
                                     dados_pedidos_detalhados.append(meta_p)
                             except Exception:
                                 pass
@@ -910,8 +930,12 @@ if aba_selecionada == "📊 Dashboard":
     ped_total = dados_plataformas["Pedidos"].sum()
     imp_total = fat_total * (st.session_state.aliquota_simples_perc / 100.0)
 
-    # Cálculo do CMV Real ou Percentual Selecionado
-    if "Custo Médio Real" in modo_cmv:
+    # Cálculo do CMV Real Exato (por peças físicas) ou Métodos alternativos
+    cmv_exato_pedidos = sum(d.get('cmv_real_exato', 0.0) for d in dados_pedidos_detalhados) if dados_pedidos_detalhados else 0.0
+
+    if ("Exato" in modo_cmv or "Peças" in modo_cmv) and cmv_exato_pedidos > 0:
+        cmv_estimado = cmv_exato_pedidos
+    elif "Custo Médio" in modo_cmv or "Pacote" in modo_cmv:
         cmv_estimado = ped_total * custo_medio_unidade
     elif "Porcentagem" in modo_cmv:
         cmv_estimado = fat_total * (val_perc_cmv / 100.0)

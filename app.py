@@ -14,8 +14,8 @@ ARQUIVO_PAGAMENTOS = os.path.join("arquivos", "pagamentos_fornecedores.json")
 DIR_RELATORIOS     = os.path.join("arquivos", "Relatórios")
 
 def garantir_estrutura_pastas():
-    """Garante que a árvore completa de pastas para Vendas e Ads exista no disco."""
-    tipos = ['Vendas', 'Ads']
+    """Garante que a árvore completa de pastas para Vendas, Ads e Renda exista no disco."""
+    tipos = ['Vendas', 'Ads', 'Renda']
     anos = ['2025', '2026', '2027']
     meses = ['01-Janeiro', '02-Fevereiro', '03-Março', '04-Abril', '05-Maio', '06-Junho', '07-Julho', '08-Agosto', '09-Setembro', '10-Outubro', '11-Novembro', '12-Dezembro']
     plataformas = ['Shopee', 'TikTok', 'Shein', 'Mercado Livre']
@@ -147,6 +147,52 @@ def extrair_faturamento_vendas(df):
                 return faturamento, pedidos_cnt
                 
     return faturamento, pedidos_cnt
+
+def extrair_renda_plataforma(df):
+    """
+    Extrai o valor de Renda Liberada (Repasse Líquido Efetivo na Conta) e a quantidade de transações repassadas.
+    Suporta relatórios da Shopee (Minha Renda / Wallet / Income), TikTok, Mercado Livre e Shein.
+    """
+    if df.empty:
+        return 0.0, 0
+
+    cols = [str(c) for c in df.columns]
+    renda_total = 0.0
+    pedidos_cnt = len(df)
+
+    for c in cols:
+        cl = normalizar_str(c)
+        if any(k in cl for k in ['id do pedido', 'order id', 'nº do pedido', 'numero do pedido', 'n. do pedido']):
+            pedidos_cnt = int(df[c].nunique())
+            break
+
+    # 1. Prioridade exata de colunas de repasse líquido / renda liberada
+    for c in cols:
+        cl = normalizar_str(c)
+        if cl in [
+            'valor liberado', 'renda liberada', 'valor do pagamento', 'payout amount', 
+            'valor creditado', 'net amount', 'renda total', 'valor liquido', 'valor repassado',
+            'renda do pedido', 'valor total pago', 'valor transferido', 'renda (brl)', 'renda'
+        ]:
+            renda_total = float(extrair_valor_numerico(df[c]).sum())
+            return renda_total, pedidos_cnt
+
+    # 2. Busca parcial para colunas de renda/liberação
+    for c in cols:
+        cl = normalizar_str(c)
+        if any(k in cl for k in ['liberado', 'creditado', 'repassado', 'renda', 'payout', 'liquido', 'transferido']):
+            if not any(neg in cl for neg in ['comissao', 'taxa', 'desconto', 'frete', 'cupom', 'devolucao', 'reembolso', 'unitario', 'bruto']):
+                renda_total = float(extrair_valor_numerico(df[c]).sum())
+                return renda_total, pedidos_cnt
+
+    # 3. Fallback para 'valor' ou 'total' caso não haja coluna específica
+    for c in cols:
+        cl = normalizar_str(c)
+        if cl in ['valor', 'total', 'amount', 'net']:
+            renda_total = float(extrair_valor_numerico(df[c]).sum())
+            return renda_total, pedidos_cnt
+
+    return renda_total, pedidos_cnt
 
 def obter_pastas_plataforma(tipo, ano, mes, plat):
     """
@@ -648,12 +694,14 @@ if aba_selecionada == "📊 Dashboard":
             for p in plataformas_lista:
                 pastas_vendas = obter_pastas_plataforma("Vendas", a, m, p)
                 pastas_ads = obter_pastas_plataforma("Ads", a, m, p)
+                pastas_renda = obter_pastas_plataforma("Renda", a, m, p)
 
                 fat = 0.0
                 ads = 0.0
                 com = 0.0
                 dev = 0.0
                 ped = 0
+                rnd = 0.0
 
                 for p_dir_vendas in pastas_vendas:
                     files_v = [f for f in os.listdir(p_dir_vendas) if f.endswith(".csv") or f.endswith(".xlsx")]
@@ -719,14 +767,28 @@ if aba_selecionada == "📊 Dashboard":
                             except Exception:
                                 pass
 
+                for p_dir_renda in pastas_renda:
+                    files_r = [f for f in os.listdir(p_dir_renda) if f.endswith(".csv") or f.endswith(".xlsx")]
+                    if files_r:
+                        tem_relatorio_no_disco = True
+                        for file_name in files_r:
+                            filepath = os.path.join(p_dir_renda, file_name)
+                            try:
+                                df_r = ler_dataframe_inteligente(filepath)
+                                v_rnd, _ = extrair_renda_plataforma(df_r)
+                                rnd += v_rnd
+                            except Exception:
+                                pass
+
                 registros_reais.append({
                     "Plataforma": p, "Faturamento": fat, "Ads": ads,
                     "Comissões": com, "Devoluções": dev, "Pedidos": ped,
+                    "RendaEfetiva": rnd,
                     "Mês": m, "Ano": a
                 })
 
     dados_plataformas = pd.DataFrame(registros_reais)
-    dados_plataformas = dados_plataformas.groupby("Plataforma", as_index=False)[["Faturamento", "Ads", "Comissões", "Devoluções", "Pedidos"]].sum()
+    dados_plataformas = dados_plataformas.groupby("Plataforma", as_index=False)[["Faturamento", "Ads", "Comissões", "Devoluções", "Pedidos", "RendaEfetiva"]].sum()
 
     st.markdown(f"""
     <div style="margin:12px 0 16px 0;display:flex;gap:10px">
@@ -796,6 +858,49 @@ if aba_selecionada == "📊 Dashboard":
             <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">Lucro Líquido Real</div>
             <div style="color:#34D399;font-family:'Outfit';font-size:1.5rem;font-weight:800;margin-top:4px">R$ {lucro_estimado:,.2f}</div>
             <div style="color:#34D399;font-size:0.75rem;font-weight:700;margin-top:4px">Margem Real: {margem_perc:.1f}%</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    renda_total_efetiva = dados_plataformas["RendaEfetiva"].sum() if "RendaEfetiva" in dados_plataformas.columns else 0.0
+
+    if renda_total_efetiva > 0:
+        st.markdown("<div style='height:12px'></div>", unsafe_allow_html=True)
+        st.markdown("##### 🏦 Conciliação Financeira (Minha Renda / Repasse Efetivo Liberado na Conta)")
+        
+        col_rec1, col_rec2, col_rec3 = st.columns(3)
+        with col_rec1:
+            st.markdown(f"""
+            <div class="orion-card" style="border-color:#38BDF8">
+                <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">💰 Repasse Liberado em Conta</div>
+                <div style="color:#38BDF8;font-family:'Outfit';font-size:1.6rem;font-weight:800;margin-top:4px">R$ {renda_total_efetiva:,.2f}</div>
+                <div style="color:#34D399;font-size:0.75rem;font-weight:700;margin-top:4px">✓ Dinheiro Depositado na Carteira</div>
+            </div>
+            """, unsafe_allow_html=True)
+        with col_rec2:
+            saldo_livre_caixa = renda_total_efetiva - cmv_estimado
+            cor_saldo = "#34D399" if saldo_livre_caixa >= 0 else "#F87171"
+            st.markdown(f"""
+            <div class="orion-card" style="border-color:{cor_saldo}">
+                <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">📦 Saldo Livre p/ Pagamento de Peças</div>
+                <div style="color:{cor_saldo};font-family:'Outfit';font-size:1.6rem;font-weight:800;margin-top:4px">R$ {saldo_livre_caixa:,.2f}</div>
+                <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;margin-top:4px">Repasse (-) Custo Peças (R$ {cmv_estimado:,.2f})</div>
+            </div>
+            """, unsafe_allow_html=True)
+        with col_rec3:
+            dif_proj = renda_total_efetiva - (fat_total - (com_total + dev_total))
+            status_conc = "✓ Conciliado em Caixa" if abs(dif_proj) < 100 else "⏳ Retenção Temporária de Garantia"
+            st.markdown(f"""
+            <div class="orion-card">
+                <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">🔍 Status de Conciliação</div>
+                <div style="color:#FBBF24;font-family:'Outfit';font-size:1.3rem;font-weight:800;margin-top:4px">{status_conc}</div>
+                <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;margin-top:4px">Variação: R$ {dif_proj:,.2f}</div>
+            </div>
+            """, unsafe_allow_html=True)
+    else:
+        st.markdown("""
+        <div style="background:#0E1424;border:1px dashed #334155;padding:10px 16px;border-radius:10px;margin:10px 0 14px 0">
+            <span style="color:#38BDF8;font-weight:700;font-size:0.85rem">💡 Conciliação Financeira Efetiva:</span>
+            <span style="color:#94A3B8;font-size:0.85rem">Você pode fazer o upload do relatório de <b>"Minha Renda / Extrato de Repasse"</b> da Shopee/Marketplaces na <b>Central de Relatórios</b> para conciliar o dinheiro líquido que caiu na conta bancária com o pagamento das peças aos fornecedores.</span>
         </div>
         """, unsafe_allow_html=True)
 
@@ -1119,13 +1224,14 @@ elif aba_selecionada == "📦 Produtos & Precificação":
 # ABA 3: CENTRAL DE RELATÓRIOS
 # ---------------------------------------------------------
 elif aba_selecionada == "📄 Central de Relatórios":
-    st.markdown("### 📄 Central de Relatórios de Vendas & Ads")
-    st.markdown("<p style='color:#94A3B8;font-size:0.9rem'>Faça o upload dos relatórios exportados da Shopee, TikTok Shop, Shein, Mercado Livre e Upseller, e gerencie arquivos salvos no disco.</p>", unsafe_allow_html=True)
+    st.markdown("### 📄 Central de Relatórios (Vendas, Ads & Renda)")
+    st.markdown("<p style='color:#94A3B8;font-size:0.9rem'>Faça o upload dos relatórios exportados da Shopee, TikTok Shop, Shein, Mercado Livre e Upseller, incluindo relatórios de <b>Minha Renda / Extrato de Repasses</b>.</p>", unsafe_allow_html=True)
     
     col_r1, col_r2 = st.columns([1.5, 1])
     with col_r1:
         st.markdown("##### 📤 Importar Novo Relatório")
-        tipo_rel = st.selectbox("Tipo de Relatório:", ["Vendas", "Ads"])
+        tipo_rel_sel = st.selectbox("Tipo de Relatório:", ["Vendas", "Ads", "Renda / Repasses (Minha Carteira)"])
+        tipo_rel = "Renda" if "Renda" in tipo_rel_sel else tipo_rel_sel
         plat_rel = st.selectbox("Plataforma / Origem:", ["Shopee", "TikTok Shop", "Shein", "Mercado Livre", "Upseller"])
         ano_rel  = st.selectbox("Ano:", ["2025", "2026", "2027"])
         mes_rel  = st.selectbox("Mês:", ['01-Janeiro', '02-Fevereiro', '03-Março', '04-Abril', '05-Maio', '06-Junho', '07-Julho', '08-Agosto', '09-Setembro', '10-Outubro', '11-Novembro', '12-Dezembro'])
@@ -1151,6 +1257,7 @@ elif aba_selecionada == "📄 Central de Relatórios":
             <ul style="color:#CBD5E1;font-size:0.85rem;margin-top:8px;padding-left:18px">
                 <li><code>arquivos/Relatórios/Vendas/{Ano}/{Mês}/{Marketplace}</code></li>
                 <li><code>arquivos/Relatórios/Ads/{Ano}/{Mês}/{Marketplace}</code></li>
+                <li><code>arquivos/Relatórios/Renda/{Ano}/{Mês}/{Marketplace}</code></li>
             </ul>
         </div>
         """, unsafe_allow_html=True)
@@ -1165,14 +1272,21 @@ elif aba_selecionada == "📄 Central de Relatórios":
     with col_mf2:
         mes_mgt = st.selectbox("Mês:", ["Todos os Meses", "01-Janeiro", "02-Fevereiro", "03-Março", "04-Abril", "05-Maio", "06-Junho", "07-Julho", "08-Agosto", "09-Setembro", "10-Outubro", "11-Novembro", "12-Dezembro"], index=0, key="mgt_mes")
     with col_mf3:
-        tipo_mgt = st.selectbox("Tipo:", ["Todos os Tipos", "Vendas", "Ads"], index=0, key="mgt_tipo")
+        tipo_mgt = st.selectbox("Tipo:", ["Todos os Tipos", "Vendas", "Ads", "Renda / Repasses"], index=0, key="mgt_tipo")
     with col_mf4:
         plat_mgt = st.selectbox("Canal:", ["Todos os Canais", "Shopee", "TikTok Shop", "Shein", "Mercado Livre", "Upseller"], index=0, key="mgt_plat")
 
     lista_arquivos_disco = []
     anos_scan = ["2025", "2026", "2027"] if ano_mgt == "Todos" else [ano_mgt]
     meses_scan = ['01-Janeiro', '02-Fevereiro', '03-Março', '04-Abril', '05-Maio', '06-Junho', '07-Julho', '08-Agosto', '09-Setembro', '10-Outubro', '11-Novembro', '12-Dezembro'] if mes_mgt == "Todos os Meses" else [mes_mgt]
-    tipos_scan = ["Vendas", "Ads"] if tipo_mgt == "Todos os Tipos" else [tipo_mgt]
+    
+    if tipo_mgt == "Todos os Tipos":
+        tipos_scan = ["Vendas", "Ads", "Renda"]
+    elif "Renda" in tipo_mgt:
+        tipos_scan = ["Renda"]
+    else:
+        tipos_scan = [tipo_mgt]
+
     canal_scan = ["Shopee", "TikTok Shop", "Shein", "Mercado Livre", "Upseller"] if plat_mgt == "Todos os Canais" else [plat_mgt]
 
     for t in tipos_scan:

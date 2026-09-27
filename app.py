@@ -148,11 +148,40 @@ def extrair_faturamento_vendas(df):
                 
     return faturamento, pedidos_cnt
 
-def extrair_renda_plataforma(df):
+def extrair_renda_plataforma(target):
     """
     Extrai o valor de Renda Liberada (Repasse Líquido Efetivo na Conta) e a quantidade de transações repassadas.
-    Suporta relatórios da Shopee (Minha Renda / Wallet / Income), TikTok, Mercado Livre e Shein.
+    Aceita caminho do arquivo ou DataFrame. Suporta relatórios Income (Shopee), TikTok, Mercado Livre e Shein.
     """
+    df = pd.DataFrame()
+    if isinstance(target, str):
+        filepath = target
+        if not os.path.exists(filepath):
+            return 0.0, 0
+        if filepath.endswith('.xlsx') or filepath.endswith('.xls'):
+            try:
+                xl = pd.ExcelFile(filepath)
+                sheet_target = None
+                for s in xl.sheet_names:
+                    if any(k in s.lower() for k in ['renda', 'payout', 'wallet', 'carteira', 'summary']):
+                        sheet_target = s
+                        if 'renda' in s.lower():
+                            break
+                if sheet_target:
+                    df_try = pd.read_excel(filepath, sheet_name=sheet_target, header=2)
+                    if any('Quantia total' in str(c) or 'Renda' in str(c) or 'ID do pedido' in str(c) for c in df_try.columns):
+                        df = df_try
+                    else:
+                        df = pd.read_excel(filepath, sheet_name=sheet_target, header=0)
+                else:
+                    df = pd.read_excel(filepath, sheet_name=0)
+            except Exception:
+                pass
+        else:
+            df = ler_dataframe_inteligente(filepath)
+    elif isinstance(target, pd.DataFrame):
+        df = target
+
     if df.empty:
         return 0.0, 0
 
@@ -170,9 +199,9 @@ def extrair_renda_plataforma(df):
     for c in cols:
         cl = normalizar_str(c)
         if cl in [
-            'valor liberado', 'renda liberada', 'valor do pagamento', 'payout amount', 
-            'valor creditado', 'net amount', 'renda total', 'valor liquido', 'valor repassado',
-            'renda do pedido', 'valor total pago', 'valor transferido', 'renda (brl)', 'renda'
+            'quantia total lancada (r$)', 'quantia total lancada', 'valor liberado', 'renda liberada', 
+            'valor do pagamento', 'payout amount', 'valor creditado', 'net amount', 'renda total', 
+            'valor liquido', 'valor repassado', 'renda do pedido', 'valor total pago', 'valor transferido'
         ]:
             renda_total = float(extrair_valor_numerico(df[c]).sum())
             return renda_total, pedidos_cnt
@@ -180,7 +209,7 @@ def extrair_renda_plataforma(df):
     # 2. Busca parcial para colunas de renda/liberação
     for c in cols:
         cl = normalizar_str(c)
-        if any(k in cl for k in ['liberado', 'creditado', 'repassado', 'renda', 'payout', 'liquido', 'transferido']):
+        if any(k in cl for k in ['lancada', 'liberado', 'creditado', 'repassado', 'renda', 'payout', 'liquido', 'transferido']):
             if not any(neg in cl for neg in ['comissao', 'taxa', 'desconto', 'frete', 'cupom', 'devolucao', 'reembolso', 'unitario', 'bruto']):
                 renda_total = float(extrair_valor_numerico(df[c]).sum())
                 return renda_total, pedidos_cnt
@@ -193,6 +222,65 @@ def extrair_renda_plataforma(df):
             return renda_total, pedidos_cnt
 
     return renda_total, pedidos_cnt
+
+def extrair_metadados_pedidos_shopee(filepath):
+    """
+    Extrai contagem granular de peças, SKUs, variações por tamanho/modelo e volume de vendas a partir do relatório Meus Pedidos.
+    """
+    if not os.path.exists(filepath):
+        return {}
+
+    try:
+        if filepath.endswith('.xlsx') or filepath.endswith('.xls'):
+            df = pd.read_excel(filepath)
+        else:
+            df = ler_dataframe_inteligente(filepath)
+    except Exception:
+        return {}
+
+    if df.empty:
+        return {}
+
+    cols = [str(c) for c in df.columns]
+    col_status = None
+    col_qtd = None
+    col_prod = None
+    col_var = None
+
+    for c in cols:
+        cl = normalizar_str(c)
+        if 'status' in cl and 'pedido' in cl: col_status = c
+        elif cl in ['quantidade', 'qtd', 'quantity']: col_qtd = c
+        elif 'nome do produto' in cl or 'produto' in cl: col_prod = c
+        elif 'variacao' in cl or 'opcao' in cl or 'nome da variacao' in cl: col_var = c
+
+    if col_status:
+        df_validos = df[~df[col_status].astype(str).str.lower().str.contains('cancelado', na=False)]
+    else:
+        df_validos = df
+
+    total_pedidos = df_validos['ID do pedido'].nunique() if 'ID do pedido' in df_validos.columns else len(df_validos)
+    
+    if col_qtd:
+        df_validos[col_qtd] = pd.to_numeric(df_validos[col_qtd], errors='coerce').fillna(0)
+        total_pecas = int(df_validos[col_qtd].sum())
+    else:
+        total_pecas = len(df_validos)
+
+    top_variacoes = []
+    if col_prod and col_qtd:
+        df_validos[col_var] = df_validos[col_var].fillna('Padrão') if col_var else 'Padrão'
+        top_df = df_validos.groupby([col_prod, col_var])[col_qtd].sum().reset_index()
+        top_df = top_df.sort_values(by=col_qtd, ascending=False).head(15)
+        top_variacoes = top_df.to_dict(orient='records')
+
+    return {
+        "pedidos_validos": total_pedidos,
+        "pecas_vendidas": total_pecas,
+        "top_variacoes": top_variacoes,
+        "col_qtd_nome": col_qtd,
+        "arquivo": os.path.basename(filepath)
+    }
 
 def obter_pastas_plataforma(tipo, ano, mes, plat):
     """
@@ -687,14 +775,16 @@ if aba_selecionada == "📊 Dashboard":
 
     registros_reais = []
     dados_shop_stats = []
+    dados_pedidos_detalhados = []
     tem_relatorio_no_disco = False
 
     for a in anos_lista:
         for m in meses_lista:
             for p in plataformas_lista:
-                pastas_vendas = obter_pastas_plataforma("Vendas", a, m, p)
-                pastas_ads = obter_pastas_plataforma("Ads", a, m, p)
-                pastas_renda = obter_pastas_plataforma("Renda", a, m, p)
+                pastas_vendas  = obter_pastas_plataforma("Vendas", a, m, p)
+                pastas_ads     = obter_pastas_plataforma("Ads", a, m, p)
+                pastas_renda   = obter_pastas_plataforma("Renda", a, m, p)
+                pastas_pedidos = obter_pastas_plataforma("Pedidos", a, m, p)
 
                 fat = 0.0
                 ads = 0.0
@@ -774,9 +864,21 @@ if aba_selecionada == "📊 Dashboard":
                         for file_name in files_r:
                             filepath = os.path.join(p_dir_renda, file_name)
                             try:
-                                df_r = ler_dataframe_inteligente(filepath)
-                                v_rnd, _ = extrair_renda_plataforma(df_r)
+                                v_rnd, _ = extrair_renda_plataforma(filepath)
                                 rnd += v_rnd
+                            except Exception:
+                                pass
+
+                for p_dir_pedidos in pastas_pedidos:
+                    files_p = [f for f in os.listdir(p_dir_pedidos) if f.endswith(".csv") or f.endswith(".xlsx")]
+                    if files_p:
+                        tem_relatorio_no_disco = True
+                        for file_name in files_p:
+                            filepath = os.path.join(p_dir_pedidos, file_name)
+                            try:
+                                meta_p = extrair_metadados_pedidos_shopee(filepath)
+                                if meta_p and meta_p.get("pecas_vendidas", 0) > 0:
+                                    dados_pedidos_detalhados.append(meta_p)
                             except Exception:
                                 pass
 
@@ -940,8 +1042,47 @@ if aba_selecionada == "📊 Dashboard":
         st.altair_chart(chart_donut, use_container_width=True)
 
     # ---------------------------------------------------------
-    # PAINEL EXECUTIVO DE INTELIGÊNCIA DE E-COMMERCE (SHOP PERFORMANCE & CANAIS)
+    # PILAR 3: MEUS PEDIDOS SHOPEE (GIRO DE PEÇAS & VARIAÇÕES)
     # ---------------------------------------------------------
+    if len(dados_pedidos_detalhados) > 0:
+        st.markdown("---")
+        st.markdown("### 📦 Pilar 3: Giro de Estoque & Peças Vendidas (Meus Pedidos Shopee)")
+        st.markdown("<p style='color:#94A3B8;font-size:0.9rem'>Visão granular extraída do relatório <b>Meus Pedidos</b> (Order Export), contabilizando volumes exatos de kits/peças de confecção e curva de tamanhos/modelos sem duplicação de faturamento.</p>", unsafe_allow_html=True)
+        
+        tot_pecas_pedidos = sum(d.get('pecas_vendidas', 0) for d in dados_pedidos_detalhados)
+        tot_peds_validos  = sum(d.get('pedidos_validos', 0) for d in dados_pedidos_detalhados)
+
+        col_p1, col_p2 = st.columns([1, 2])
+        with col_p1:
+            st.markdown(f"""
+            <div class="orion-card" style="border-color:#C084FC">
+                <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">📦 Total de Kits/Peças Vendidos</div>
+                <div style="color:#C084FC;font-family:'Outfit';font-size:1.8rem;font-weight:800;margin-top:4px">{tot_pecas_pedidos:,} Kits</div>
+                <div style="color:#34D399;font-size:0.75rem;font-weight:700;margin-top:4px">▲ em {tot_peds_validos:,} pedidos válidos</div>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            st.markdown(f"""
+            <div style="background:#0E1424;border:1px solid #1E293B;padding:12px;border-radius:10px;margin-top:10px">
+                <span style="color:#38BDF8;font-weight:700;font-size:0.85rem">💡 Gestão de Confecção:</span>
+                <p style="color:#94A3B8;font-size:0.8rem;margin-top:4px">Utilize essa contagem real de kits ({tot_pecas_pedidos:,} unidades) para comparar com os lotes adquiridos das oficinas e calcular a necessidade de reposição.</p>
+            </div>
+            """, unsafe_allow_html=True)
+
+        with col_p2:
+            st.markdown("##### 🏆 Ranking de Vendas por Variação / Tamanho (Top Variações)")
+            all_top = []
+            for d in dados_pedidos_detalhados:
+                all_top.extend(d.get('top_variacoes', []))
+            if all_top:
+                df_top = pd.DataFrame(all_top)
+                cols_qtd_f = [c for c in df_top.columns if c in ['Quantidade', 'qtd', 'quantity']]
+                if cols_qtd_f:
+                    cq = cols_qtd_f[0]
+                    df_top_grouped = df_top.groupby(['Nome do Produto', 'Nome da variação'])[cq].sum().reset_index()
+                    df_top_grouped = df_top_grouped.sort_values(by=cq, ascending=False).head(10)
+                    df_top_grouped = df_top_grouped.rename(columns={cq: 'Kits Vendidos (Qtd)', 'Nome do Produto': 'Produto', 'Nome da variação': 'Modelo / Tamanho'})
+                    st.dataframe(df_top_grouped, use_container_width=True, hide_index=True)
     if len(dados_shop_stats) > 0:
         st.markdown("---")
         st.markdown("### 🎯 Painel de Inteligência Operacional & Origem de Tráfego")

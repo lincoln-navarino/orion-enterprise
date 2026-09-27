@@ -475,8 +475,8 @@ elif aba_selecionada == "📦 Produtos & Precificação":
     prods = st.session_state.produtos
     
     if "Precificação" in sub_aba_prod:
-        st.markdown("### 🏷️ Precificação por Kits (1 a 10 Peças) & Salvar em Disco")
-        st.markdown("<p style='color:#94A3B8;font-size:0.9rem'>Simule e salve a tabela completa de preços praticados para cada produto, variando de 1 unidade até kits de 10 unidades por plataforma.</p>", unsafe_allow_html=True)
+        st.markdown("### 🏷️ Precificação por Kits (1 a 10 Peças) — 3 Campos de Preço")
+        st.markdown("<p style='color:#94A3B8;font-size:0.9rem'>Preço Relâmpago (base mínima com lucro + Ads + comissão), Oferta Normal (~11% desconto) e Preço Cheio (~19% desconto).</p>", unsafe_allow_html=True)
         
         col_p1, col_p2, col_p3 = st.columns([1.5, 1, 1])
         with col_p1:
@@ -494,68 +494,74 @@ elif aba_selecionada == "📦 Produtos & Precificação":
         custo_un = prod_obj["custo_unitario"]
         custo_emb = prod_obj["custo_embalagem"]
         
-        st.markdown(f"##### 📋 Tabela de Kits (1 a 10 peças) — **{prod_obj['nome']}** na **{plat_sel}**")
-        st.caption(f"CMV Unitário: R$ {custo_un:.2f} | Embalagem Base: R$ {custo_emb:.2f} | Comissão {plat_sel}: {com_perc:.1f}% + R$ {taxa_f:.2f}")
+        st.markdown(f"##### 📋 Precificação de Kits (1 a 10 Peças) — **{prod_obj['nome']}** na **{plat_sel}**")
+        st.caption(f"CMV Unitário: R$ {custo_un:.2f} | Embalagem: R$ {custo_emb:.2f} | Comissão {plat_sel}: {com_perc:.1f}% + R$ {taxa_f:.2f} | Imposto: {aliq_imp:.1f}%")
 
-        # Tabela editável de kits de 1 a 10
         precos_salvos_kits = prod_obj.get("precos_kits", {}).get(plat_sel, {})
         
+        margem_meta_perc = 15.0
+        fator_deducao = (1.0 - (com_perc / 100.0) - (aliq_imp / 100.0) - (1.0 / st.session_state.roas_meta) - (margem_meta_perc / 100.0))
+        if fator_deducao <= 0.05:
+            fator_deducao = 0.35
+
         dados_kits_tabela = []
         for qtd in range(1, 11):
             key_qtd = str(qtd)
-            # Custo proporcional do kit
             cmv_kit = (custo_un * qtd) + custo_emb
             
-            # Preço default sugerido se não houver salvo
-            preco_default = (cmv_kit * 2.5) + (taxa_f * 0.8)
-            preco_praticado = float(precos_salvos_kits.get(key_qtd, {}).get("preco", round(preco_default, 2)))
-            
-            comissao_rs = (preco_praticado * (com_perc / 100.0)) + taxa_f
-            imposto_rs = preco_praticado * (aliq_imp / 100.0)
-            ads_rs = preco_praticado * (1.0 / st.session_state.roas_meta)
-            
-            sobra_rs = preco_praticado - (cmv_kit + comissao_rs + imposto_rs + ads_rs)
-            margem_pct = (sobra_rs / preco_praticado * 100.0) if preco_praticado > 0 else 0.0
+            relampago_sugerido = round((cmv_kit + taxa_f) / fator_deducao, 2)
+            oferta_sugerida = round(relampago_sugerido / 0.89, 2)
+            cheio_sugerido = round(oferta_sugerida / 0.81, 2)
+
+            p_relampago = float(precos_salvos_kits.get(key_qtd, {}).get("preco_relampago", relampago_sugerido))
+            p_oferta = float(precos_salvos_kits.get(key_qtd, {}).get("preco_oferta", oferta_sugerida))
+            p_cheio = float(precos_salvos_kits.get(key_qtd, {}).get("preco_cheio", cheio_sugerido))
+
+            comissao_rs = (p_relampago * (com_perc / 100.0)) + taxa_f
+            imposto_rs = p_relampago * (aliq_imp / 100.0)
+            ads_rs = p_relampago * (1.0 / st.session_state.roas_meta)
+            sobra_rs = p_relampago - (cmv_kit + comissao_rs + imposto_rs + ads_rs)
+            margem_pct = (sobra_rs / p_relampago * 100.0) if p_relampago > 0 else 0.0
 
             dados_kits_tabela.append({
-                "Qtd Peças (Kit)": f"Kit com {qtd}x",
-                "Qtd_Num": qtd,
+                "Qtd Peças": f"Kit {qtd}x",
                 "CMV Kit (R$)": cmv_kit,
-                "Preço Venda (R$)": preco_praticado,
-                "Comissão + Taxa (R$)": comissao_rs,
-                "Imposto (R$)": imposto_rs,
-                "Ads Estimado (R$)": ads_rs,
-                "Lucro Líquido (R$)": sobra_rs,
-                "Margem (%)": round(margem_pct, 1),
+                "⚡ Preço Relâmpago (R$)": p_relampago,
+                "🔥 Oferta Normal (R$)": p_oferta,
+                "🏷️ Preço Cheio (R$)": p_cheio,
+                "Lucro Relâmpago (R$)": round(sobra_rs, 2),
+                "Margem Relâmpago (%)": round(margem_pct, 1),
                 "Status": "🟢 Excelente" if margem_pct >= 15 else ("🟡 Aceitável" if margem_pct >= 5 else "🔴 Atenção")
             })
 
         df_kits_display = pd.DataFrame(dados_kits_tabela)
 
-        # Editor interativo de preços de kits
         with st.form("form_kits"):
-            cols_k1, cols_k2 = st.columns([2, 1])
-            with cols_k1:
-                df_edited = st.data_editor(
-                    df_kits_display[["Qtd Peças (Kit)", "CMV Kit (R$)", "Preço Venda (R$)", "Lucro Líquido (R$)", "Margem (%)", "Status"]],
-                    disabled=["Qtd Peças (Kit)", "CMV Kit (R$)", "Lucro Líquido (R$)", "Margem (%)", "Status"],
-                    column_config={
-                        "Preço Venda (R$)": st.column_config.NumberColumn(format="R$ %.2f", min_value=1.0, step=1.0)
-                    },
-                    use_container_width=True,
-                    hide_index=True
-                )
-            with cols_k2:
-                st.markdown("""
-                <div style="background:#0E1424;border:1px solid #1E293B;padding:16px;border-radius:12px">
-                    <span style="color:#38BDF8;font-weight:700">💡 Dica de Precificação por Kit:</span>
-                    <p style="color:#94A3B8;font-size:0.85rem;margin-top:6px">
-                        Kits com mais peças (ex: 3x, 5x, 10x) diluem a <b>Taxa Fixa do Marketplace</b> e a embalagem, permitindo oferecer desconto ao cliente mantendo uma margem de lucro percentual superior.
-                    </p>
-                </div>
-                """, unsafe_allow_html=True)
+            st.markdown("##### ✏️ Edição dos 3 Campos de Preço por Kit (1 a 10 unidades)")
+            df_edited = st.data_editor(
+                df_kits_display[["Qtd Peças", "CMV Kit (R$)", "⚡ Preço Relâmpago (R$)", "🔥 Oferta Normal (R$)", "🏷️ Preço Cheio (R$)", "Lucro Relâmpago (R$)", "Margem Relâmpago (%)", "Status"]],
+                disabled=["Qtd Peças", "CMV Kit (R$)", "Lucro Relâmpago (R$)", "Margem Relâmpago (%)", "Status"],
+                column_config={
+                    "⚡ Preço Relâmpago (R$)": st.column_config.NumberColumn(format="R$ %.2f", min_value=1.0, step=1.0),
+                    "🔥 Oferta Normal (R$)": st.column_config.NumberColumn(format="R$ %.2f", min_value=1.0, step=1.0),
+                    "🏷️ Preço Cheio (R$)": st.column_config.NumberColumn(format="R$ %.2f", min_value=1.0, step=1.0),
+                },
+                use_container_width=True,
+                hide_index=True
+            )
+            
+            st.markdown("""
+            <div style="background:#0E1424;border:1px solid #1E293B;padding:14px;border-radius:12px;margin-top:10px">
+                <span style="color:#38BDF8;font-weight:700">💡 Estratégia de Descontos Automáticos:</span>
+                <ul style="color:#94A3B8;font-size:0.85rem;margin-top:4px;padding-left:18px">
+                    <li><b>⚡ Preço Relâmpago (Piso Mínimo):</b> Cobre CMV + Comissões + Imposto + Ads com lucro garantido.</li>
+                    <li><b>🔥 Oferta Normal:</b> ~11% superior para destacar o selo de desconto relâmpago.</li>
+                    <li><b>🏷️ Preço Cheio:</b> ~19% superior à Oferta Normal para destacar a promoção De / Por.</li>
+                </ul>
+            </div>
+            """, unsafe_allow_html=True)
 
-            btn_salvar_kits = st.form_submit_button("💾 Salvar Precificação de Kits no Disco", type="primary", use_container_width=True)
+            btn_salvar_kits = st.form_submit_button("💾 Salvar Tabela Completa de Kits no Disco", type="primary", use_container_width=True)
             if btn_salvar_kits:
                 if "precos_kits" not in st.session_state.produtos[idx_prod]:
                     st.session_state.produtos[idx_prod]["precos_kits"] = {}
@@ -563,13 +569,15 @@ elif aba_selecionada == "📦 Produtos & Precificação":
                     st.session_state.produtos[idx_prod]["precos_kits"][plat_sel] = {}
 
                 for row in df_edited.to_dict(orient="records"):
-                    qtd_str = str(row["Qtd Peças (Kit)"].replace("Kit com ", "").replace("x", "").strip())
+                    qtd_str = str(row["Qtd Peças"].replace("Kit ", "").replace("x", "").strip())
                     st.session_state.produtos[idx_prod]["precos_kits"][plat_sel][qtd_str] = {
-                        "preco": float(row["Preço Venda (R$)"])
+                        "preco_relampago": float(row["⚡ Preço Relâmpago (R$)"]),
+                        "preco_oferta": float(row["🔥 Oferta Normal (R$)"]),
+                        "preco_cheio": float(row["🏷️ Preço Cheio (R$)"])
                     }
                 
                 salvar_produtos_disco(st.session_state.produtos)
-                st.success(f"✅ Tabela de kits (1 a 10) de {prod_obj['nome']} salva no disco para {plat_sel}!")
+                st.success(f"✅ Tabela de 3 preços para os 10 kits de {prod_obj['nome']} em {plat_sel} foi salva com sucesso no disco!")
                 st.rerun()
 
     else:

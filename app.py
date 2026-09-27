@@ -36,7 +36,18 @@ def extrair_serie_diaria_vendas(pastas_vendas, pastas_pedidos):
                 filepath = os.path.join(p_dir_vendas, stats_files[0])
                 try:
                     xl = pd.ExcelFile(filepath)
-                    sheet_target = 'Produto Pago' if 'Produto Pago' in xl.sheet_names else ('Pedido Feito' if 'Pedido Feito' in xl.sheet_names else None)
+                    sheet_target = None
+                    for s in xl.sheet_names:
+                        sn = normalizar_str(s)
+                        if 'produto pago' in sn:
+                            sheet_target = s
+                            break
+                    if not sheet_target:
+                        for s in xl.sheet_names:
+                            sn = normalizar_str(s)
+                            if 'pago' in sn and not any(k in sn for k in ['fonte', 'contribui']):
+                                sheet_target = s
+                                break
                     if sheet_target:
                         df_raw = pd.read_excel(filepath, sheet_name=sheet_target)
                         header_row_idx = None
@@ -575,10 +586,17 @@ def extrair_metadados_shopee_shop_stats(filepath):
             return 0.0
 
         sheet_target = None
-        if 'Produto Pago' in xl.sheet_names:
-            sheet_target = 'Produto Pago'
-        elif 'Pedido Feito' in xl.sheet_names:
-            sheet_target = 'Pedido Feito'
+        for s in xl.sheet_names:
+            sn = normalizar_str(s)
+            if 'produto pago' in sn:
+                sheet_target = s
+                break
+        if not sheet_target:
+            for s in xl.sheet_names:
+                sn = normalizar_str(s)
+                if 'pago' in sn and not any(k in sn for k in ['fonte', 'contribui']):
+                    sheet_target = s
+                    break
 
         if sheet_target:
             df_stats = pd.read_excel(filepath, sheet_name=sheet_target)

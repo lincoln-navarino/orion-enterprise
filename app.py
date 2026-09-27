@@ -1272,6 +1272,23 @@ if aba_selecionada == "📊 Dashboard":
     lucro_estimado = fat_total - (ads_total + com_total + dev_total + imp_total + cmv_estimado)
     margem_perc = (lucro_estimado / fat_total * 100.0) if fat_total > 0 else 0.0
 
+    # Regra de cores dinâmica para Lucro Líquido Real:
+    # Abaixo de 10% -> Crítico (Vermelho #F87171)
+    # De 10% a 19.9% -> Atenção (Amarelo/Laranja #FBBF24)
+    # Acima de 20% -> Positivo/Excelente (Verde #34D399)
+    if margem_perc < 10.0:
+        cor_lucro = "#F87171"
+        bg_lucro = "rgba(239, 68, 68, 0.12)"
+        badge_status_lucro = "🚨 Crítico (<10%)"
+    elif margem_perc < 20.0:
+        cor_lucro = "#FBBF24"
+        bg_lucro = "rgba(245, 158, 11, 0.12)"
+        badge_status_lucro = "⚠️ Atenção (10%-19.9%)"
+    else:
+        cor_lucro = "#34D399"
+        bg_lucro = "rgba(16, 185, 129, 0.12)"
+        badge_status_lucro = "❇️ Positivo (≥20%)"
+
     col_m1, col_m2, col_m3, col_m4, col_m5, col_m6 = st.columns(6)
     with col_m1:
         st.markdown(f"""
@@ -1317,10 +1334,10 @@ if aba_selecionada == "📊 Dashboard":
         """, unsafe_allow_html=True)
     with col_m6:
         st.markdown(f"""
-        <div class="orion-card" style="border-color:#34D399">
+        <div class="orion-card" style="border-color:{cor_lucro}; background:{bg_lucro}">
             <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">Lucro Líquido Real</div>
-            <div style="color:#34D399;font-family:'Outfit';font-size:1.35rem;font-weight:800;margin-top:4px">R$ {lucro_estimado:,.2f}</div>
-            <div style="color:#34D399;font-size:0.75rem;font-weight:700;margin-top:4px">Margem Real: {margem_perc:.1f}%</div>
+            <div style="color:{cor_lucro};font-family:'Outfit';font-size:1.35rem;font-weight:800;margin-top:4px">R$ {lucro_estimado:,.2f}</div>
+            <div style="color:{cor_lucro};font-size:0.75rem;font-weight:700;margin-top:4px">{badge_status_lucro} | {margem_perc:.1f}%</div>
         </div>
         """, unsafe_allow_html=True)
 

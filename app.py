@@ -415,10 +415,38 @@ def extrair_metadados_pedidos_shopee(filepath, produtos_cadastrados=None):
                 col_var = c
                 break
 
-    if col_status:
-        df_validos = df[~df[col_status].astype(str).str.lower().str.contains('cancelado', na=False)]
-    else:
-        df_validos = df
+    # Filtro rigoroso anti-cancelamento: garante que NENHUM pedido cancelado entre nas métricas de peças/CMV
+    is_canceled = pd.Series(False, index=df.index)
+    for c in cols:
+        cl = normalizar_str(c).strip()
+        if 'status' in cl or 'cancel' in cl:
+            is_canceled = is_canceled | df[c].astype(str).str.lower().str.contains('cancelad', na=False)
+
+    df_validos = df[~is_canceled].copy()
+    df_cancelados = df[is_canceled].copy()
+
+    # Métricas estratégicas de pedidos cancelados (sangramento de lucro por falta de pagamento)
+    col_motivo = None
+    for c in cols:
+        cl = normalizar_str(c).strip()
+        if 'motivo' in cl or 'reason' in cl:
+            col_motivo = c
+            break
+
+    cnt_canc_total = len(df_cancelados)
+    cnt_canc_nao_pago = 0
+    if col_motivo and not df_cancelados.empty:
+        s_mot = df_cancelados[col_motivo].astype(str).apply(normalizar_str)
+        cnt_canc_nao_pago = int(s_mot.str.contains('nao pago', na=False).sum())
+
+    subtotal_col = None
+    for c in cols:
+        cl = normalizar_str(c).strip()
+        if cl in ['subtotal do produto', 'valor total', 'total do pedido', 'order amount']:
+            subtotal_col = c
+            break
+
+    val_perdido_canc = float(extrair_valor_numerico(df_cancelados[subtotal_col]).sum()) if subtotal_col else 0.0
 
     total_pedidos = df_validos['ID do pedido'].nunique() if 'ID do pedido' in df_validos.columns else len(df_validos)
     
@@ -487,6 +515,11 @@ def extrair_metadados_pedidos_shopee(filepath, produtos_cadastrados=None):
         "taxas_plataforma_exatas": taxas_plataforma_exatas,
         "top_variacoes": top_variacoes,
         "col_qtd_nome": col_qtd,
+        "cancelados_detalhes": {
+            "total": cnt_canc_total,
+            "nao_pago": cnt_canc_nao_pago,
+            "valor_perdido": val_perdido_canc
+        },
         "arquivo": os.path.basename(filepath)
     }
 
@@ -1394,6 +1427,32 @@ if aba_selecionada == "📊 Dashboard":
                 <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">🏭 CMV Total (Peças + Emb)</div>
                 <div style="color:#FBBF24;font-family:'Outfit';font-size:1.6rem;font-weight:800;margin-top:4px">R$ {tot_cmv_exato:,.2f}</div>
                 <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;margin-top:4px">Custo Exato Acumulado</div>
+            </div>
+            """, unsafe_allow_html=True)
+
+        tot_canc_geral     = sum(d.get('cancelados_detalhes', {}).get('total', 0) for d in dados_pedidos_detalhados)
+        tot_canc_nao_pago  = sum(d.get('cancelados_detalhes', {}).get('nao_pago', 0) for d in dados_pedidos_detalhados)
+        tot_canc_val_per   = sum(d.get('cancelados_detalhes', {}).get('valor_perdido', 0.0) for d in dados_pedidos_detalhados)
+
+        if tot_canc_geral > 0:
+            perc_nao_pago = (tot_canc_nao_pago / tot_canc_geral * 100.0) if tot_canc_geral > 0 else 0.0
+            st.markdown(f"""
+            <div style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.12), rgba(185, 28, 28, 0.08)); border: 1px solid rgba(239, 68, 68, 0.35); border-radius: 12px; padding: 18px 20px; margin: 12px 0 18px 0;">
+                <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+                    <span style="font-size:22px;">🩸</span>
+                    <span style="font-family:'Outfit'; font-size:15px; font-weight:800; color:#F87171; letter-spacing:-0.3px; text-transform:UPPERCASE;">
+                        Análise de Sangramento de Lucro: Pedidos Cancelados por Falta de Pagamento
+                    </span>
+                </div>
+                <div style="color:#CBD5E1; font-size:13.5px; line-height:1.6;">
+                    No relatório <b>Meus Pedidos</b>, foram identificados <b style="color:#F87171;">{tot_canc_geral:,} pedidos cancelados</b> no período.
+                    <br>
+                    • <b>Boletos / Pix Não Pagos:</b> <b style="color:#EF4444;">{tot_canc_nao_pago:,} pedidos ({perc_nao_pago:.1f}% de todos os cancelamentos)</b> cancelados automaticamente por falta de pagamento.
+                    <br>
+                    • <b>Faturamento Não Concretizado:</b> <span style="color:#F87171; font-weight:700;">R$ {tot_canc_val_per:,.2f}</span>
+                    <br>
+                    💡 <i><b>Impacto Estratégico em Ads:</b> O Shopee Ads contabilizou o clique e a conversão no momento em que o boleto/pix foi gerado, consumindo verba de tráfego pago para gerar vendas que acabaram canceladas automaticamente por inadimplência do comprador.</i>
+                </div>
             </div>
             """, unsafe_allow_html=True)
 

@@ -1,36 +1,35 @@
-# 📐 Arquitetura do Código (Repaginação) — ORION Enterprise
+# 📐 Arquitetura do Código (Abas Fixas) — ORION Enterprise
 
-Este documento descreve a nova arquitetura do aplicativo de gestão ([`app.py`](file:///c:/Users/Lincoln/Desktop/Aplicativo%20de%20gest%C3%A3o/app.py)), desenvolvida com navegação por Top Navbar, gráficos executivos em Altair e precificação mestre unificada.
+Este documento descreve a nova estrutura com **4 Abas Fixas de Navegação** implementada no [`app.py`](file:///c:/Users/Lincoln/Desktop/Aplicativo%20de%20gest%C3%A3o/app.py).
 
 ---
 
-## 📊 Grafo da Nova Estrutura Unificada
+## 🗺️ Estrutura de Abas Fixas
 
 ```mermaid
 graph TD
-    User([👤 Usuário / Gestor]) --> TopNav["📱 Top Navbar (Navegação Superior)"]
+    User([👤 Gestor Dualis]) --> TopNav["📱 Top Navbar (Abas Fixas)"]
 
-    subgraph Modulos ["🚀 Módulos do Sistema (app.py)"]
-        TopNav --> M1["📊 Dashboard Executivo"]
-        TopNav --> M2["🏷️ Catálogo & Precificação Mestre"]
-        TopNav --> M3["💰 Central de Vendas & Ads"]
-        TopNav --> M4["⚙️ Configurações Fiscais & Taxas"]
+    subgraph Abas ["🚀 4 Abas Fixas de Navegação (app.py)"]
+        TopNav --> A1["📊 1. Dashboard"]
+        TopNav --> A2["📦 2. Produtos & Precificação"]
+        TopNav --> A3["📄 3. Central de Relatórios"]
+        TopNav --> A4["🚚 4. Pagamentos a Fornecedores"]
     end
 
-    subgraph M1_Details ["Detalhamento Dashboard"]
-        M1 --> KPI["Cards de Faturamento, Ads, Comissões e Devoluções"]
-        M1 --> Charts["Gráficos Altair (Faturamento vs Ads + Donut de Marketplaces)"]
-        M1 --> Insights["Insights de Inteligência Comercial & Curva ABC"]
+    subgraph A2_Sub ["Sub-abas de Produtos"]
+        A2 --> A2_1["🏷️ Precificação de Kits (1 a 10 Peças por Marketplace)"]
+        A2 --> A2_2["📈 Análise de Performance do Produto"]
     end
 
-    subgraph M2_Details ["Detalhamento Precificação"]
-        M2 --> Matriz["Matriz Geral de Preços Praticados (Todos os Produtos)"]
-        M2 --> Simulador["Simulador Dinâmico com Recálculo Instantâneo de Margem"]
+    subgraph A4_Sub ["Controle de Fornecedores"]
+        A4 --> RegForn["➕ Registrar Peças Pegas + Valor Unitário"]
+        A4 --> HistForn["📊 Histórico de Pagamentos (Pendente, Pago, Parcial)"]
     end
 
-    subgraph Storage ["💾 Persistência em Disco"]
-        Matriz <-->|JSON UTF-8| ProdJSON["arquivos/produtos.json"]
-        M4 <-->|JSON UTF-8| CfgJSON["arquivos/configuracoes.json"]
+    subgraph Data ["💾 Arquivos JSON Persistentes"]
+        A2_1 <-->|Salvar Kits| ProdJSON["arquivos/produtos.json"]
+        A4 <-->|Salvar Lotes| FornJSON["arquivos/pagamentos_fornecedores.json"]
     end
 ```
 
@@ -39,5 +38,4 @@ graph TD
 ## 🔗 Links Relacionados (Foam Graph)
 
 * [[index]]: Página Inicial do Foam.
-* [[licoes-aprendidas]]: Prevenção de erros e codificação UTF-8 no Windows.
-* [[regras-fiscais]]: Alíquotas e margem de ROAS.
+* [[licoes-aprendidas]]: Prevenção de erros e codificação UTF-8.

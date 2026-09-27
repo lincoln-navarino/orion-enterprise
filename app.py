@@ -248,11 +248,40 @@ def extrair_metadados_pedidos_shopee(filepath, produtos_cadastrados=None):
     col_var = None
 
     for c in cols:
-        cl = normalizar_str(c)
+        cl = normalizar_str(c).strip()
         if 'status' in cl and 'pedido' in cl: col_status = c
-        elif cl in ['quantidade', 'qtd', 'quantity']: col_qtd = c
-        elif 'nome do produto' in cl or 'produto' in cl: col_prod = c
-        elif 'variacao' in cl or 'opcao' in cl or 'nome da variacao' in cl: col_var = c
+
+    for c in cols:
+        cl = normalizar_str(c).strip()
+        if cl in ['quantidade', 'qtd', 'quantity']:
+            col_qtd = c
+            break
+
+    for c in cols:
+        cl = normalizar_str(c).strip()
+        if cl in ['nome do produto', 'produto', 'product name']:
+            col_prod = c
+            break
+
+    if not col_prod:
+        for c in cols:
+            cl = normalizar_str(c).strip()
+            if 'nome do produto' in cl and not any(k in cl for k in ['id', 'sku', 'numero', 'referencia']):
+                col_prod = c
+                break
+
+    for c in cols:
+        cl = normalizar_str(c).strip()
+        if cl in ['nome da variacao', 'variacao', 'variation name', 'opcao']:
+            col_var = c
+            break
+
+    if not col_var:
+        for c in cols:
+            cl = normalizar_str(c).strip()
+            if 'variacao' in cl or 'opcao' in cl:
+                col_var = c
+                break
 
     if col_status:
         df_validos = df[~df[col_status].astype(str).str.lower().str.contains('cancelado', na=False)]
@@ -1120,41 +1149,52 @@ if aba_selecionada == "📊 Dashboard":
 
         st.markdown("<div style='height:12px'></div>", unsafe_allow_html=True)
 
-        st.markdown("##### 🏆 Ranking de Vendas por Variação / Tamanho (Top Variações)")
+        st.markdown("##### 🏆 Ranking de Giro de Estoque por Variação / Tamanho (Top Variações)")
         all_top = []
         for d in dados_pedidos_detalhados:
             all_top.extend(d.get('top_variacoes', []))
         if all_top:
             df_top = pd.DataFrame(all_top)
-            cols_f = list(df_top.columns)
-            col_p_f = None
-            col_v_f = None
-            col_q_f = None
-
-            for c in cols_f:
-                cl = normalizar_str(c)
-                if any(k in cl for k in ['produto', 'item', 'titulo', 'name', 'product']):
-                    if not col_p_f: col_p_f = c
-                elif any(k in cl for k in ['variacao', 'opcao', 'modelo', 'tamanho', 'variation', 'option', 'sku']):
-                    if not col_v_f: col_v_f = c
-                elif cl in ['quantidade', 'qtd', 'quantity', 'unidades']:
-                    if not col_q_f: col_q_f = c
-
-            group_cols = [c for c in [col_p_f, col_v_f] if c and c in df_top.columns]
             
-            if group_cols and col_q_f and col_q_f in df_top.columns:
-                try:
-                    df_top_grouped = df_top.groupby(group_cols)[col_q_f].sum().reset_index()
-                    df_top_grouped = df_top_grouped.sort_values(by=col_q_f, ascending=False).head(10)
-                    rename_map = {col_q_f: 'Kits Vendidos (Qtd)'}
-                    if col_p_f in group_cols: rename_map[col_p_f] = 'Produto'
-                    if col_v_f in group_cols: rename_map[col_v_f] = 'Modelo / Tamanho'
-                    df_top_grouped = df_top_grouped.rename(columns=rename_map)
-                    st.dataframe(df_top_grouped, use_container_width=True, hide_index=True)
-                except Exception:
-                    st.dataframe(df_top.head(10), use_container_width=True, hide_index=True)
-            else:
-                st.dataframe(df_top.head(10), use_container_width=True, hide_index=True)
+            col_p_f = 'Nome do Produto' if 'Nome do Produto' in df_top.columns else ([c for c in df_top.columns if 'produto' in normalizar_str(c)][0] if any('produto' in normalizar_str(c) for c in df_top.columns) else list(df_top.columns)[0])
+            col_v_f = 'Nome da variação' if 'Nome da variação' in df_top.columns else ([c for c in df_top.columns if 'variacao' in normalizar_str(c) or 'opcao' in normalizar_str(c)][0] if any('variacao' in normalizar_str(c) for c in df_top.columns) else list(df_top.columns)[1])
+            col_q_f = 'Quantidade' if 'Quantidade' in df_top.columns else ([c for c in df_top.columns if 'quantidade' in normalizar_str(c) or 'qtd' in normalizar_str(c)][0] if any('quantidade' in normalizar_str(c) for c in df_top.columns) else list(df_top.columns)[2])
+
+            df_top_grouped = df_top.groupby([col_p_f, col_v_f])[col_q_f].sum().reset_index()
+            df_top_grouped = df_top_grouped.sort_values(by=col_q_f, ascending=False).head(10)
+            
+            df_top_grouped['Produto_Curto'] = df_top_grouped[col_p_f].astype(str).apply(lambda x: x.split('-')[0].strip()[:35])
+            df_top_grouped['Modelo_Tamanho'] = df_top_grouped[col_v_f].astype(str).str.strip()
+            df_top_grouped['Kits_Vendidos'] = df_top_grouped[col_q_f].astype(int)
+            
+            chart_top = alt.Chart(df_top_grouped).mark_bar(cornerRadiusTopRight=6, cornerRadiusBottomRight=6).encode(
+                y=alt.Y('Modelo_Tamanho:N', title=None, sort='-x', axis=alt.Axis(labelColor='#CBD5E1', labelFontSize=12)),
+                x=alt.X('Kits_Vendidos:Q', title="Kits / Pacotes Vendidos", axis=alt.Axis(labelColor='#CBD5E1')),
+                color=alt.Color('Kits_Vendidos:Q', scale=alt.Scale(scheme='purpleblue'), legend=None),
+                tooltip=['Produto_Curto:N', 'Modelo_Tamanho:N', 'Kits_Vendidos:Q']
+            ).properties(height=320)
+            
+            col_chart_top, col_tbl_top = st.columns([1.3, 1])
+            with col_chart_top:
+                st.altair_chart(chart_top, use_container_width=True)
+            with col_tbl_top:
+                df_display_top = df_top_grouped[['Modelo_Tamanho', 'Kits_Vendidos']].rename(columns={
+                    'Modelo_Tamanho': '🏷️ Modelo / Tamanho',
+                    'Kits_Vendidos': '📦 Kits (Qtd)'
+                })
+                st.dataframe(
+                    df_display_top,
+                    column_config={
+                        '📦 Kits (Qtd)': st.column_config.ProgressColumn(
+                            '📦 Kits (Qtd)',
+                            format="%d Kits",
+                            min_value=0,
+                            max_value=int(df_display_top['📦 Kits (Qtd)'].max() * 1.1)
+                        )
+                    },
+                    use_container_width=True,
+                    hide_index=True
+                )
     if len(dados_shop_stats) > 0:
         st.markdown("---")
         st.markdown("### 🎯 Painel de Inteligência Operacional & Origem de Tráfego")

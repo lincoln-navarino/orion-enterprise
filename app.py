@@ -765,12 +765,12 @@ elif aba_selecionada == "📦 Produtos & Precificação":
 # ---------------------------------------------------------
 elif aba_selecionada == "📄 Central de Relatórios":
     st.markdown("### 📄 Central de Relatórios de Vendas & Ads")
-    st.markdown("<p style='color:#94A3B8;font-size:0.9rem'>Faça o upload dos relatórios exportados da Shopee, TikTok Shop, Shein, Mercado Livre e Upseller.</p>", unsafe_allow_html=True)
+    st.markdown("<p style='color:#94A3B8;font-size:0.9rem'>Faça o upload dos relatórios exportados da Shopee, TikTok Shop, Shein, Mercado Livre e Upseller, e gerencie arquivos salvos no disco.</p>", unsafe_allow_html=True)
     
     col_r1, col_r2 = st.columns([1.5, 1])
     with col_r1:
         st.markdown("##### 📤 Importar Novo Relatório")
-        tipo_rel = st.selectbox("Tipo de Relatório:", ["Vendas", "Ads / Anúncios"])
+        tipo_rel = st.selectbox("Tipo de Relatório:", ["Vendas", "Ads"])
         plat_rel = st.selectbox("Plataforma / Origem:", ["Shopee", "TikTok Shop", "Shein", "Mercado Livre", "Upseller"])
         ano_rel  = st.selectbox("Ano:", ["2025", "2026", "2027"])
         mes_rel  = st.selectbox("Mês:", ['01-Janeiro', '02-Fevereiro', '03-Março', '04-Abril', '05-Maio', '06-Junho', '07-Julho', '08-Agosto', '09-Setembro', '10-Outubro', '11-Novembro', '12-Dezembro'])
@@ -786,6 +786,7 @@ elif aba_selecionada == "📄 Central de Relatórios":
                     f.write(uploaded_file.getbuffer())
                 
                 st.success(f"✅ Relatório **{uploaded_file.name}** salvo com sucesso em `{pasta_destino}`!")
+                st.rerun()
 
     with col_r2:
         st.markdown("##### 📁 Relatórios Armazenados em Disco")
@@ -793,11 +794,78 @@ elif aba_selecionada == "📄 Central de Relatórios":
         <div style="background:#0E1424;border:1px solid #1E293B;padding:16px;border-radius:12px">
             <span style="color:#34D399;font-weight:700">● Sistema de Diretórios Ativo:</span>
             <ul style="color:#CBD5E1;font-size:0.85rem;margin-top:8px;padding-left:18px">
-                <li><code>arquivos/Relatórios/Vendas/</code></li>
-                <li><code>arquivos/Relatórios/Ads/</code></li>
+                <li><code>arquivos/Relatórios/Vendas/{Ano}/{Mês}/{Marketplace}</code></li>
+                <li><code>arquivos/Relatórios/Ads/{Ano}/{Mês}/{Marketplace}</code></li>
             </ul>
         </div>
         """, unsafe_allow_html=True)
+
+    st.markdown("---")
+    st.markdown("#### 🗑️ Gerenciador de Arquivos Enviados (Visualizar & Excluir)")
+    st.markdown("<p style='color:#94A3B8;font-size:0.85rem'>Filtre os relatórios armazenados por mês/ano e exclua arquivos indesejados para atualizar o Dashboard.</p>", unsafe_allow_html=True)
+
+    col_mf1, col_mf2, col_mf3, col_mf4 = st.columns(4)
+    with col_mf1:
+        ano_mgt = st.selectbox("Ano:", ["Todos", "2026", "2025", "2027"], index=0, key="mgt_ano")
+    with col_mf2:
+        mes_mgt = st.selectbox("Mês:", ["Todos os Meses", "01-Janeiro", "02-Fevereiro", "03-Março", "04-Abril", "05-Maio", "06-Junho", "07-Julho", "08-Agosto", "09-Setembro", "10-Outubro", "11-Novembro", "12-Dezembro"], index=0, key="mgt_mes")
+    with col_mf3:
+        tipo_mgt = st.selectbox("Tipo:", ["Todos os Tipos", "Vendas", "Ads"], index=0, key="mgt_tipo")
+    with col_mf4:
+        plat_mgt = st.selectbox("Canal:", ["Todos os Canais", "Shopee", "TikTok Shop", "Shein", "Mercado Livre", "Upseller"], index=0, key="mgt_plat")
+
+    lista_arquivos_disco = []
+    anos_scan = ["2025", "2026", "2027"] if ano_mgt == "Todos" else [ano_mgt]
+    meses_scan = ['01-Janeiro', '02-Fevereiro', '03-Março', '04-Abril', '05-Maio', '06-Junho', '07-Julho', '08-Agosto', '09-Setembro', '10-Outubro', '11-Novembro', '12-Dezembro'] if mes_mgt == "Todos os Meses" else [mes_mgt]
+    tipos_scan = ["Vendas", "Ads"] if tipo_mgt == "Todos os Tipos" else [tipo_mgt]
+    canal_scan = ["Shopee", "TikTok Shop", "Shein", "Mercado Livre", "Upseller"] if plat_mgt == "Todos os Canais" else [plat_mgt]
+
+    for t in tipos_scan:
+        for a in anos_scan:
+            for m in meses_scan:
+                for c in canal_scan:
+                    pasta_check = os.path.join(DIR_RELATORIOS, t, a, m, c)
+                    if os.path.exists(pasta_check):
+                        files = os.listdir(pasta_check)
+                        for fname in files:
+                            if fname.endswith(".csv") or fname.endswith(".xlsx"):
+                                fpath = os.path.join(pasta_check, fname)
+                                size_kb = os.path.getsize(fpath) / 1024.0
+                                mod_time = pd.to_datetime(os.path.getmtime(fpath), unit='s').strftime('%Y-%m-%d %H:%M')
+                                lista_arquivos_disco.append({
+                                    "Caminho": fpath,
+                                    "Arquivo": fname,
+                                    "Tipo": t,
+                                    "Ano": a,
+                                    "Mês": m,
+                                    "Canal": c,
+                                    "Tamanho (KB)": f"{size_kb:.1f} KB",
+                                    "Data Envio": mod_time
+                                })
+
+    if len(lista_arquivos_disco) > 0:
+        df_mgt = pd.DataFrame(lista_arquivos_disco)
+        st.markdown(f"**Total de {len(df_mgt)} arquivo(s) encontrado(s):**")
+        
+        for idx, row in df_mgt.iterrows():
+            col_file1, col_file2 = st.columns([3, 1])
+            with col_file1:
+                st.markdown(f"""
+                <div style="background:#0E1424;border:1px solid #1E293B;padding:12px 16px;border-radius:10px;margin-bottom:6px">
+                    <span style="color:#38BDF8;font-weight:700">📄 {row['Arquivo']}</span> 
+                    <span style="color:#94A3B8;font-size:0.85rem">({row['Tipo']} | {row['Canal']} | {row['Mês']}/{row['Ano']} | {row['Tamanho (KB)']} | {row['Data Envio']})</span>
+                </div>
+                """, unsafe_allow_html=True)
+            with col_file2:
+                if st.button(f"🗑️ Excluir Arquivo", key=f"del_btn_{idx}"):
+                    try:
+                        os.remove(row["Caminho"])
+                        st.success(f"✅ Arquivo {row['Arquivo']} excluído com sucesso do disco!")
+                        st.rerun()
+                    except Exception as e:
+                        st.error(f"Erro ao excluir arquivo: {e}")
+    else:
+        st.info("ℹ️ Nenhum relatório armazenado foi encontrado para os filtros selecionados.")
 
 # ---------------------------------------------------------
 # ABA 4: PAGAMENTOS A FORNECEDORES

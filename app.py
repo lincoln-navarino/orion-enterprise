@@ -431,19 +431,22 @@ if aba_selecionada == "📊 Dashboard Executivo":
     
     with col_g1:
         st.markdown("##### 📈 Faturamento vs. Investimento Ads por Plataforma")
-        chart_bar = alt.Chart(dados_plataformas).transform_fold(
-            ['Faturamento', 'Ads', 'Comissões'],
-            as_=['Métrica', 'Valor']
-        ).mark_bar(cornerRadiusTopLeft=6, cornerRadiusTopRight=6).encode(
+        df_chart_melt = pd.melt(
+            dados_plataformas,
+            id_vars=['Plataforma'],
+            value_vars=['Faturamento', 'Ads', 'Comissões'],
+            var_name='Métrica',
+            value_name='Valor'
+        )
+        chart_bar = alt.Chart(df_chart_melt).mark_bar(cornerRadiusTopLeft=4, cornerRadiusTopRight=4).encode(
             x=alt.X('Plataforma:N', title=None, axis=alt.Axis(labelAngle=0, labelColor='#CBD5E1')),
             y=alt.Y('Valor:Q', title="Valor em Reais (R$)", axis=alt.Axis(labelColor='#CBD5E1')),
             color=alt.Color('Métrica:N', scale=alt.Scale(
                 domain=['Faturamento', 'Ads', 'Comissões'],
                 range=['#38BDF8', '#C084FC', '#FBBF24']
             )),
-            xOffset='Métrica:N',
             tooltip=['Plataforma', 'Métrica', 'Valor']
-        ).properties(height=320).configure_view(strokeWidth=0)
+        ).properties(height=320)
         st.altair_chart(chart_bar, use_container_width=True)
 
     with col_g2:
@@ -455,7 +458,7 @@ if aba_selecionada == "📊 Dashboard Executivo":
                 range=['#EE4D2D', '#00F2FE', '#FFE600', '#FF4081']
             )),
             tooltip=['Plataforma', 'Faturamento', 'Pedidos']
-        ).properties(height=320).configure_view(strokeWidth=0)
+        ).properties(height=320)
         st.altair_chart(chart_donut, use_container_width=True)
 
     # ABA DE INTELIGÊNCIA COMERCIAL & ALERTAS (Integrada perfeitamente)

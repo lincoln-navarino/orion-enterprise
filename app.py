@@ -401,17 +401,53 @@ if aba_selecionada == "📊 Dashboard":
     st.markdown("### 📊 Visão Geral de Desempenho Executivo")
     st.markdown("<p style='color:#94A3B8;font-size:0.9rem'>Consolidação estratégica de vendas, investimentos em Ads, comissões de canais e lucro líquido real.</p>", unsafe_allow_html=True)
     
-    dados_plataformas = pd.DataFrame([
-        {"Plataforma": "Shopee", "Faturamento": 48500.00, "Ads": 4200.00, "Comissões": 9700.00, "Devoluções": 1200.00, "Pedidos": 1250},
-        {"Plataforma": "TikTok Shop", "Faturamento": 32100.00, "Ads": 3800.00, "Comissões": 3210.00, "Devoluções": 950.00, "Pedidos": 840},
-        {"Plataforma": "Mercado Livre", "Faturamento": 28900.00, "Ads": 1800.00, "Comissões": 4335.00, "Devoluções": 600.00, "Pedidos": 620},
-        {"Plataforma": "Shein", "Faturamento": 15400.00, "Ads": 850.00, "Comissões": 2464.00, "Devoluções": 310.00, "Pedidos": 410},
+    # BARRA DE FILTROS DINÂMICOS DO DASHBOARD
+    col_f1, col_f2, col_f3 = st.columns(3)
+    with col_f1:
+        ano_filtro = st.selectbox("📅 Ano de Referência", ["2026", "2025", "2027", "Todos os Anos"], index=0)
+    with col_f2:
+        mes_filtro = st.selectbox("🗓️ Mês de Referência", ["Todos os Meses", "01-Janeiro", "02-Fevereiro", "03-Março", "04-Abril", "05-Maio", "06-Junho", "07-Julho", "08-Agosto", "09-Setembro", "10-Outubro", "11-Novembro", "12-Dezembro"], index=9)
+    with col_f3:
+        plat_filtro = st.selectbox("🎯 Plataforma / Marketplace", ["Todas as Plataformas", "Shopee", "TikTok Shop", "Mercado Livre", "Shein"], index=0)
+
+    # Base de dados com suporte a filtros de Ano, Mês e Plataforma
+    dados_brutos = pd.DataFrame([
+        {"Plataforma": "Shopee", "Faturamento": 48500.00, "Ads": 4200.00, "Comissões": 9700.00, "Devoluções": 1200.00, "Pedidos": 1250, "Mês": "09-Setembro", "Ano": "2026"},
+        {"Plataforma": "TikTok Shop", "Faturamento": 32100.00, "Ads": 3800.00, "Comissões": 3210.00, "Devoluções": 950.00, "Pedidos": 840, "Mês": "09-Setembro", "Ano": "2026"},
+        {"Plataforma": "Mercado Livre", "Faturamento": 28900.00, "Ads": 1800.00, "Comissões": 4335.00, "Devoluções": 600.00, "Pedidos": 620, "Mês": "09-Setembro", "Ano": "2026"},
+        {"Plataforma": "Shein", "Faturamento": 15400.00, "Ads": 850.00, "Comissões": 2464.00, "Devoluções": 310.00, "Pedidos": 410, "Mês": "09-Setembro", "Ano": "2026"},
+
+        {"Plataforma": "Shopee", "Faturamento": 42100.00, "Ads": 3900.00, "Comissões": 8420.00, "Devoluções": 1100.00, "Pedidos": 1100, "Mês": "08-Agosto", "Ano": "2026"},
+        {"Plataforma": "TikTok Shop", "Faturamento": 29800.00, "Ads": 3400.00, "Comissões": 2980.00, "Devoluções": 880.00, "Pedidos": 790, "Mês": "08-Agosto", "Ano": "2026"},
+        {"Plataforma": "Mercado Livre", "Faturamento": 26500.00, "Ads": 1600.00, "Comissões": 3975.00, "Devoluções": 550.00, "Pedidos": 580, "Mês": "08-Agosto", "Ano": "2026"},
+        {"Plataforma": "Shein", "Faturamento": 13900.00, "Ads": 750.00, "Comissões": 2224.00, "Devoluções": 290.00, "Pedidos": 370, "Mês": "08-Agosto", "Ano": "2026"},
     ])
-    
+
+    # Filtragem Dinâmica
+    dados_plataformas = dados_brutos.copy()
+    if ano_filtro != "Todos os Anos":
+        dados_plataformas = dados_plataformas[dados_plataformas["Ano"] == ano_filtro]
+    if mes_filtro != "Todos os Meses":
+        dados_plataformas = dados_plataformas[dados_plataformas["Mês"] == mes_filtro]
+    if plat_filtro != "Todas as Plataformas":
+        dados_plataformas = dados_plataformas[dados_plataformas["Plataforma"] == plat_filtro]
+
+    if len(dados_plataformas) == 0:
+        dados_plataformas = dados_brutos[dados_brutos["Mês"] == "09-Setembro"]
+
+    st.markdown(f"""
+    <div style="margin:12px 0 16px 0;display:flex;gap:10px">
+        <span class="badge-pill badge-blue">📅 Ano: {ano_filtro}</span>
+        <span class="badge-pill badge-purple">🗓️ Mês: {mes_filtro}</span>
+        <span class="badge-pill badge-green">🎯 Canal: {plat_filtro}</span>
+    </div>
+    """, unsafe_allow_html=True)
+
     fat_total = dados_plataformas["Faturamento"].sum()
     ads_total = dados_plataformas["Ads"].sum()
     com_total = dados_plataformas["Comissões"].sum()
     dev_total = dados_plataformas["Devoluções"].sum()
+    ped_total = dados_plataformas["Pedidos"].sum()
     imp_total = fat_total * (st.session_state.aliquota_simples_perc / 100.0)
     cmv_estimado = fat_total * 0.28
     lucro_estimado = fat_total - (ads_total + com_total + dev_total + imp_total + cmv_estimado)
@@ -423,7 +459,7 @@ if aba_selecionada == "📊 Dashboard":
         <div class="orion-card">
             <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">Faturamento Bruto</div>
             <div style="color:#38BDF8;font-family:'Outfit';font-size:1.5rem;font-weight:800;margin-top:4px">R$ {fat_total:,.2f}</div>
-            <div style="color:#34D399;font-size:0.75rem;font-weight:700;margin-top:4px">▲ 3.120 Pedidos</div>
+            <div style="color:#34D399;font-size:0.75rem;font-weight:700;margin-top:4px">▲ {ped_total:,} Pedidos</div>
         </div>
         """, unsafe_allow_html=True)
     with col_m2:
@@ -431,7 +467,7 @@ if aba_selecionada == "📊 Dashboard":
         <div class="orion-card">
             <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">Investimento em Ads</div>
             <div style="color:#C084FC;font-family:'Outfit';font-size:1.5rem;font-weight:800;margin-top:4px">R$ {ads_total:,.2f}</div>
-            <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;margin-top:4px">ROAS Geral: {fat_total/ads_total:.1f}x</div>
+            <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;margin-top:4px">ROAS Geral: {(fat_total/ads_total if ads_total>0 else 0):.1f}x</div>
         </div>
         """, unsafe_allow_html=True)
     with col_m3:
@@ -439,7 +475,7 @@ if aba_selecionada == "📊 Dashboard":
         <div class="orion-card">
             <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">Comissões de Canais</div>
             <div style="color:#FBBF24;font-family:'Outfit';font-size:1.5rem;font-weight:800;margin-top:4px">R$ {com_total:,.2f}</div>
-            <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;margin-top:4px">Média ~{(com_total/fat_total*100):.1f}%</div>
+            <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;margin-top:4px">Média ~{(com_total/fat_total*100 if fat_total>0 else 0):.1f}%</div>
         </div>
         """, unsafe_allow_html=True)
     with col_m4:
@@ -447,7 +483,7 @@ if aba_selecionada == "📊 Dashboard":
         <div class="orion-card">
             <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">Devoluções / Trocas</div>
             <div style="color:#F87171;font-family:'Outfit';font-size:1.5rem;font-weight:800;margin-top:4px">R$ {dev_total:,.2f}</div>
-            <div style="color:#F87171;font-size:0.75rem;font-weight:700;margin-top:4px">Taxa ~{(dev_total/fat_total*100):.1f}%</div>
+            <div style="color:#F87171;font-size:0.75rem;font-weight:700;margin-top:4px">Taxa ~{(dev_total/fat_total*100 if fat_total>0 else 0):.1f}%</div>
         </div>
         """, unsafe_allow_html=True)
     with col_m5:

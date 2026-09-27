@@ -3,7 +3,13 @@ import pandas as pd
 import numpy as np
 import os
 import json
+import unicodedata
 import altair as alt
+
+def normalizar_str(s):
+    s = str(s).lower()
+    return ''.join(c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn')
+
 
 # ---------------------------------------------------------
 # PERSISTÊNCIA DE DADOS EM ARQUIVO LOCAL (JSON) E PASTAS
@@ -328,6 +334,21 @@ def extrair_metadados_pedidos_shopee(filepath, produtos_cadastrados=None):
         top_df = top_df.rename(columns={col_prod: 'Nome do Produto', c_v: 'Nome da variação', col_qtd: 'Quantidade'})
         top_variacoes = top_df.to_dict(orient='records')
 
+    # Extração das taxas exatas da plataforma em Order.all (Comissão Líquida, Serviço Líquido, Transação, Envio Reverso)
+    taxas_plataforma_exatas = 0.0
+    cols_norm_map = {normalizar_str(c).strip(): c for c in df_validos.columns}
+    target_fee_keys = [
+        'taxa de comissao liquida',
+        'taxa de servico liquida',
+        'taxa de transacao',
+        'taxa de envio reversa'
+    ]
+    for key in target_fee_keys:
+        if key in cols_norm_map:
+            actual_col = cols_norm_map[key]
+            val = float(extrair_valor_numerico(df_validos[actual_col]).sum())
+            taxas_plataforma_exatas += val
+
     return {
         "pedidos_validos": total_pedidos,
         "kits_vendidos": total_kits_pacotes,
@@ -337,6 +358,7 @@ def extrair_metadados_pedidos_shopee(filepath, produtos_cadastrados=None):
         "custo_unitario_peca": custo_peca,
         "custo_unitario_emb": custo_emb,
         "cmv_real_exato": cmv_exato_total,
+        "taxas_plataforma_exatas": taxas_plataforma_exatas,
         "top_variacoes": top_variacoes,
         "col_qtd_nome": col_qtd,
         "arquivo": os.path.basename(filepath)
@@ -930,6 +952,7 @@ if aba_selecionada == "📊 Dashboard":
                             except Exception:
                                 pass
 
+                taxas_exatas_plat = 0.0
                 for p_dir_pedidos in pastas_pedidos:
                     files_p = [f for f in os.listdir(p_dir_pedidos) if f.endswith(".csv") or f.endswith(".xlsx")]
                     if files_p:
@@ -940,8 +963,12 @@ if aba_selecionada == "📊 Dashboard":
                                 meta_p = extrair_metadados_pedidos_shopee(filepath, prods_cadastrados)
                                 if meta_p and meta_p.get("pecas_fisicas_vendidas", 0) > 0:
                                     dados_pedidos_detalhados.append(meta_p)
+                                    taxas_exatas_plat += meta_p.get("taxas_plataforma_exatas", 0.0)
                             except Exception:
                                 pass
+
+                if taxas_exatas_plat > 0:
+                    com = taxas_exatas_plat
 
                 registros_reais.append({
                     "Plataforma": p, "Faturamento": fat, "Ads": ads,

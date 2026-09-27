@@ -334,10 +334,38 @@ for k, v in defaults.items():
         st.session_state[k] = v
 
 def taxas_para_preco(plataforma_nome, preco):
+    """
+    Calcula automaticamente as comissões e taxas fixas oficiais de 2026 por patamar de preço.
+    """
+    if "Shopee" in plataforma_nome:
+        if preco < 80.00:
+            return 20.0, 4.00
+        elif preco < 100.00:
+            return 14.0, 16.00
+        elif preco < 200.00:
+            return 14.0, 20.00
+        else:
+            return 14.0, 26.00
+            
+    elif "TikTok" in plataforma_nome:
+        if preco < 50.00:
+            return 16.0, 4.00
+        else:
+            return 12.0, 6.00
+
+    elif "Shein" in plataforma_nome:
+        return 16.0, 3.00
+
+    elif "Classic" in plataforma_nome:
+        taxa_f = 6.00 if preco < 79.00 else 0.00
+        return 12.0, taxa_f
+
+    elif "Premium" in plataforma_nome:
+        taxa_f = 6.00 if preco < 79.00 else 0.00
+        return 16.5, taxa_f
+
     cfg = st.session_state.presets_taxas.get(plataforma_nome, {"comissao": 14.0, "programa": 0.0, "taxa_fixa": 4.00})
-    com_perc = cfg["comissao"] + cfg["programa"]
-    taxa_f = cfg["taxa_fixa"]
-    return com_perc, taxa_f
+    return cfg["comissao"] + cfg["programa"], cfg["taxa_fixa"]
 
 # ---------------------------------------------------------
 # BARRA DE NAVEGAÇÃO SUPERIOR (TOP NAVBAR - ABAS FIXAS)
@@ -496,11 +524,23 @@ elif aba_selecionada == "📦 Produtos & Precificação":
         
         # Painel Interativo de Parâmetros Editáveis por Canal
         with st.expander(f"⚙️ Ajustar Métricas & Regras de Precificação — {plat_sel}", expanded=True):
+            modo_comissao = st.radio("Cálculo de Comissão:", ["🤖 Automático Oficial 2026 (Por Faixa de Preço)", "✏️ Manual Customizado"], horizontal=True)
+            
             col_cfg1, col_cfg2, col_cfg3, col_cfg4 = st.columns(4)
             with col_cfg1:
-                com_perc = st.number_input("Comissão do Canal (%)", value=float(com_padrao), step=0.5, help="Shopee, TikTok, etc.")
+                if "Automático" in modo_comissao:
+                    st.markdown("**Comissão do Canal:**")
+                    st.markdown("<span class='badge-pill badge-blue'>🤖 Regra 2026 Ativa</span>", unsafe_allow_html=True)
+                    com_perc_manual = None
+                else:
+                    com_perc_manual = st.number_input("Comissão do Canal (%)", value=float(com_padrao), step=0.5)
             with col_cfg2:
-                taxa_f = st.number_input("Taxa Fixa por Item (R$)", value=float(taxa_f_padrao), step=0.50)
+                if "Automático" in modo_comissao:
+                    st.markdown("**Taxa Fixa:**")
+                    st.markdown("<span class='badge-pill badge-purple'>🤖 Faixa Dinâmica</span>", unsafe_allow_html=True)
+                    taxa_f_manual = None
+                else:
+                    taxa_f_manual = st.number_input("Taxa Fixa por Item (R$)", value=float(taxa_f_padrao), step=0.50)
             with col_cfg3:
                 usar_ads = st.checkbox("📢 Incluir Custo de Ads / ROAS", value=True)
                 roas_val = st.number_input("Meta ROAS (x)", value=float(st.session_state.roas_meta), step=0.5) if usar_ads else 0.0
@@ -509,29 +549,49 @@ elif aba_selecionada == "📦 Produtos & Precificação":
                 st.markdown("<span class='badge-pill badge-green'>🔒 20.0% FIXA</span>", unsafe_allow_html=True)
 
         st.markdown(f"##### 📋 Precificação de Kits (1 a 10 Peças) — **{prod_obj['nome']}** na **{plat_sel}**")
-        st.caption(f"CMV Unitário: R$ {custo_un:.2f} | Embalagem: R$ {custo_emb:.2f} | Comissão: {com_perc:.1f}% + R$ {taxa_f:.2f} | Imposto: {aliq_imp:.1f}% | Ads: {'Ativado (' + str(roas_val) + 'x)' if usar_ads else 'OFF'}")
+        st.caption(f"CMV Unitário: R$ {custo_un:.2f} | Embalagem: R$ {custo_emb:.2f} | Imposto: {aliq_imp:.1f}% | Margem Mínima: 20.0% | Ads: {'Ativado (' + str(roas_val) + 'x)' if usar_ads else 'OFF'}")
 
         precos_salvos_kits = prod_obj.get("precos_kits", {}).get(plat_sel, {})
-        
-        # Cálculo da Margem de 20.0% Travada na Relâmpago
         margem_meta_perc = 20.0
         acos_perc = (100.0 / roas_val) if (usar_ads and roas_val > 0) else 0.0
-        fator_deducao = (1.0 - (com_perc / 100.0) - (aliq_imp / 100.0) - (acos_perc / 100.0) - (margem_meta_perc / 100.0))
-        if fator_deducao <= 0.05:
-            fator_deducao = 0.20
 
         dados_kits_tabela = []
         for qtd in range(1, 11):
             key_qtd = str(qtd)
             cmv_kit = (custo_un * qtd) + custo_emb
             
+            # Estimativa de faixa para aplicar a comissão oficial 2026 ou usar manual
+            estimativa_preco = (cmv_kit * 2.2) + 4.00
+            if "Automático" in modo_comissao:
+                com_perc, taxa_f = taxas_para_preco(plat_sel, estimativa_preco)
+            else:
+                com_perc = com_perc_manual if com_perc_manual is not None else com_padrao
+                taxa_f = taxa_f_manual if taxa_f_manual is not None else taxa_f_padrao
+
+            fator_deducao = (1.0 - (com_perc / 100.0) - (aliq_imp / 100.0) - (acos_perc / 100.0) - (margem_meta_perc / 100.0))
+            if fator_deducao <= 0.05:
+                fator_deducao = 0.20
+
             relampago_sugerido = round((cmv_kit + taxa_f) / fator_deducao, 2)
+            
+            # Recalcular comissão exata sobre a sugestão final
+            if "Automático" in modo_comissao:
+                com_perc, taxa_f = taxas_para_preco(plat_sel, relampago_sugerido)
+                fator_deducao = (1.0 - (com_perc / 100.0) - (aliq_imp / 100.0) - (acos_perc / 100.0) - (margem_meta_perc / 100.0))
+                if fator_deducao <= 0.05:
+                    fator_deducao = 0.20
+                relampago_sugerido = round((cmv_kit + taxa_f) / fator_deducao, 2)
+
             oferta_sugerida = round(relampago_sugerido / 0.89, 2)
             cheio_sugerido = round(oferta_sugerida / 0.81, 2)
 
             p_relampago = float(precos_salvos_kits.get(key_qtd, {}).get("preco_relampago", relampago_sugerido))
             p_oferta = float(precos_salvos_kits.get(key_qtd, {}).get("preco_oferta", oferta_sugerida))
             p_cheio = float(precos_salvos_kits.get(key_qtd, {}).get("preco_cheio", cheio_sugerido))
+
+            # Recálculo final da comissão sobre o preço relâmpago praticado
+            if "Automático" in modo_comissao:
+                com_perc, taxa_f = taxas_para_preco(plat_sel, p_relampago)
 
             comissao_rs = (p_relampago * (com_perc / 100.0)) + taxa_f
             imposto_rs = p_relampago * (aliq_imp / 100.0)

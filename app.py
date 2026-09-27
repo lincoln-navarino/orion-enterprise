@@ -600,7 +600,6 @@ if aba_selecionada == "📊 Dashboard":
     st.markdown("### 📊 Visão Geral de Desempenho Executivo")
     st.markdown("<p style='color:#94A3B8;font-size:0.9rem'>Consolidação estratégica de vendas, investimentos em Ads, comissões de canais e lucro líquido real.</p>", unsafe_allow_html=True)
     
-    # BARRA DE FILTROS DINÂMICOS DO DASHBOARD
     col_f1, col_f2, col_f3 = st.columns(3)
     with col_f1:
         ano_filtro = st.selectbox("📅 Ano de Referência", ["2026", "2025", "2027", "Todos os Anos"], index=0)
@@ -608,6 +607,32 @@ if aba_selecionada == "📊 Dashboard":
         mes_filtro = st.selectbox("🗓️ Mês de Referência", ["Todos os Meses", "01-Janeiro", "02-Fevereiro", "03-Março", "04-Abril", "05-Maio", "06-Junho", "07-Julho", "08-Agosto", "09-Setembro", "10-Outubro", "11-Novembro", "12-Dezembro"], index=9)
     with col_f3:
         plat_filtro = st.selectbox("🎯 Plataforma / Marketplace", ["Todas as Plataformas", "Shopee", "TikTok Shop", "Mercado Livre", "Shein"], index=0)
+
+    # Cálculo dinâmico do Custo Médio por Unidade/Embalagem cadastrado nos produtos
+    prods_cadastrados = st.session_state.produtos
+    custo_medio_unidade = (sum(p["custo_unitario"] + p["custo_embalagem"] for p in prods_cadastrados) / len(prods_cadastrados)) if prods_cadastrados else 4.80
+
+    with st.expander("⚙️ Ajustar Custo dos Produtos (CMV Real vs Estimado)", expanded=False):
+        col_cmv1, col_cmv2, col_cmv3 = st.columns([1.5, 1, 1])
+        with col_cmv1:
+            modo_cmv = st.selectbox("Método de Cálculo do CMV:", [
+                "📦 Custo Médio Real dos Produtos Cadastrados (R$ / Pedido)",
+                "📊 Porcentagem Customizada (% do Faturamento)",
+                "✏️ Custo Fixo por Pedido (R$ / Pedido)"
+            ], index=0)
+        with col_cmv2:
+            if "Porcentagem" in modo_cmv:
+                val_perc_cmv = st.number_input("Alíquota de CMV (%)", value=18.0, step=1.0)
+                val_custom_cmv = custo_medio_unidade
+            elif "Fixo" in modo_cmv or "Personalizado" in modo_cmv:
+                val_custom_cmv = st.number_input("Custo Unitário (R$)", value=float(custo_medio_unidade), step=0.50)
+                val_perc_cmv = 18.0
+            else:
+                val_perc_cmv = 18.0
+                val_custom_cmv = custo_medio_unidade
+        with col_cmv3:
+            st.markdown("**Custo Médio da Carteira:**")
+            st.markdown(f"<span class='badge-pill badge-green'>📦 R$ {custo_medio_unidade:.2f} / Peça + Emb.</span>", unsafe_allow_html=True)
 
     # Leitura dinâmica dos arquivos de relatórios salvos no disco
     plataformas_lista = ["Shopee", "TikTok Shop", "Mercado Livre", "Shein"] if plat_filtro == "Todas as Plataformas" else [plat_filtro]
@@ -720,7 +745,15 @@ if aba_selecionada == "📊 Dashboard":
     dev_total = dados_plataformas["Devoluções"].sum()
     ped_total = dados_plataformas["Pedidos"].sum()
     imp_total = fat_total * (st.session_state.aliquota_simples_perc / 100.0)
-    cmv_estimado = fat_total * 0.28
+
+    # Cálculo do CMV Real ou Percentual Selecionado
+    if "Custo Médio Real" in modo_cmv:
+        cmv_estimado = ped_total * custo_medio_unidade
+    elif "Porcentagem" in modo_cmv:
+        cmv_estimado = fat_total * (val_perc_cmv / 100.0)
+    else:
+        cmv_estimado = ped_total * val_custom_cmv
+
     lucro_estimado = fat_total - (ads_total + com_total + dev_total + imp_total + cmv_estimado)
     margem_perc = (lucro_estimado / fat_total * 100.0) if fat_total > 0 else 0.0
 

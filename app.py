@@ -10,6 +10,132 @@ def normalizar_str(s):
     s = str(s).lower()
     return ''.join(c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn')
 
+def to_f(v):
+    if pd.isna(v): return 0.0
+    v_str = str(v).replace('BRL', '').replace('R$', '').replace('%', '').strip()
+    if '.' in v_str and ',' in v_str: v_str = v_str.replace('.', '').replace(',', '.')
+    elif ',' in v_str: v_str = v_str.replace(',', '.')
+    try: return float(v_str)
+    except: return 0.0
+
+def extrair_serie_diaria_vendas(pastas_vendas, pastas_pedidos):
+    """
+    Extrai a série temporal diária de vendas (Data, Faturamento, Pedidos, Ticket Médio, Dia da Semana)
+    a partir dos relatórios em disco.
+    """
+    records = []
+    dias_semana_pt = {0: 'Segunda', 1: 'Terça', 2: 'Quarta', 3: 'Quinta', 4: 'Sexta', 5: 'Sábado', 6: 'Domingo'}
+
+    # 1. Tenta extrair do relatório oficial Shopee Shop Stats na pasta de Vendas
+    for p_dir_vendas in pastas_vendas:
+        if os.path.exists(p_dir_vendas):
+            files_v = [f for f in os.listdir(p_dir_vendas) if f.endswith('.xlsx') or f.endswith('.csv')]
+            stats_files = [f for f in files_v if any(k in f.lower() for k in ["shopee-shop-stats", "shop-stats", "performance"])]
+            if stats_files:
+                stats_files.sort(key=lambda x: os.path.getmtime(os.path.join(p_dir_vendas, x)), reverse=True)
+                filepath = os.path.join(p_dir_vendas, stats_files[0])
+                try:
+                    xl = pd.ExcelFile(filepath)
+                    sheet_target = 'Pedido Feito' if 'Pedido Feito' in xl.sheet_names else ('Produto Pago' if 'Produto Pago' in xl.sheet_names else None)
+                    if sheet_target:
+                        df_raw = pd.read_excel(filepath, sheet_name=sheet_target)
+                        header_row_idx = None
+                        for idx, r in df_raw.iterrows():
+                            row_vals = [str(v).strip().lower() for v in r.values]
+                            if 'data' in row_vals and any(k in row_vals for k in ['vendas (brl)', 'vendas', 'pedidos']):
+                                header_row_idx = idx
+                                break
+                        if header_row_idx is not None:
+                            cols = df_raw.iloc[header_row_idx].values
+                            df_daily = pd.read_excel(filepath, sheet_name=sheet_target, skiprows=header_row_idx+1)
+                            df_daily.columns = cols
+                            for idx, r in df_daily.iterrows():
+                                d_str = str(r.get('Data', '')).strip()
+                                if not d_str or d_str.lower() == 'nan' or '-' in d_str or len(d_str) < 6:
+                                    continue
+                                dt = pd.to_datetime(d_str, format='%d/%m/%Y', errors='coerce')
+                                if pd.isna(dt): continue
+                                v = to_f(r.get('Vendas (BRL)', 0))
+                                p = int(to_f(r.get('Pedidos', 0)))
+                                if v > 0 or p > 0:
+                                    records.append({
+                                        'Data': dt.strftime('%Y-%m-%d'),
+                                        'DiaFormatado': dt.strftime('%d/%m'),
+                                        'DiaDaSemana': dias_semana_pt[dt.weekday()],
+                                        'DiaNum': dt.day,
+                                        'Faturamento': v,
+                                        'Pedidos': p,
+                                        'TicketMedio': (v / p) if p > 0 else 0.0
+                                    })
+                            if records:
+                                return pd.DataFrame(records)
+                except Exception:
+                    pass
+
+    # 2. Fallback: extrai agrupando por data de criação nos arquivos de Pedidos / Order.all
+    for p_dir_pedidos in pastas_pedidos:
+        if os.path.exists(p_dir_pedidos):
+            files_p = [f for f in os.listdir(p_dir_pedidos) if f.endswith('.xlsx') or f.endswith('.csv')]
+            if files_p:
+                dfs = []
+                for fn in files_p:
+                    fp = os.path.join(p_dir_pedidos, fn)
+                    try:
+                        if fp.endswith('.xlsx'):
+                            dfs.append(pd.read_excel(fp))
+                        else:
+                            dfs.append(pd.read_csv(fp, encoding='utf-8-sig'))
+                    except Exception:
+                        pass
+                if dfs:
+                    df_concat = pd.concat(dfs, ignore_index=True)
+                    date_col = None
+                    subtotal_col = None
+                    status_col = None
+                    for c in df_concat.columns:
+                        cl = normalizar_str(c).strip()
+                        if 'status' in cl and 'pedido' in cl: status_col = c
+                        if not date_col and any(k in cl for k in ['data de criacao do pedido', 'hora do pagamento', 'created time', 'paid time']):
+                            date_col = c
+                        if not subtotal_col and cl in ['subtotal do produto', 'valor total', 'total do pedido', 'order amount']:
+                            subtotal_col = c
+                    if date_col and subtotal_col:
+                        if status_col:
+                            df_concat = df_concat[~df_concat[status_col].astype(str).str.lower().str.contains('cancelado', na=False)]
+                        df_concat['date_dt'] = pd.to_datetime(df_concat[date_col], errors='coerce')
+                        df_concat = df_concat.dropna(subset=['date_dt'])
+                        df_concat['date_str'] = df_concat['date_dt'].dt.strftime('%Y-%m-%d')
+                        df_concat['subtotal_num'] = df_concat[subtotal_col].apply(to_f)
+
+                        col_id = None
+                        for c in df_concat.columns:
+                            if 'id do pedido' in normalizar_str(c) or 'order id' in normalizar_str(c):
+                                col_id = c
+                                break
+
+                        grouped = df_concat.groupby('date_str').agg(
+                            Vendas=('subtotal_num', 'sum'),
+                            Pedidos=(col_id, 'nunique') if col_id else ('subtotal_num', 'count')
+                        ).reset_index()
+
+                        for idx, r in grouped.iterrows():
+                            dt = pd.to_datetime(r['date_str'])
+                            v = float(r['Vendas'])
+                            p = int(r['Pedidos'])
+                            records.append({
+                                'Data': dt.strftime('%Y-%m-%d'),
+                                'DiaFormatado': dt.strftime('%d/%m'),
+                                'DiaDaSemana': dias_semana_pt[dt.weekday()],
+                                'DiaNum': dt.day,
+                                'Faturamento': v,
+                                'Pedidos': p,
+                                'TicketMedio': (v / p) if p > 0 else 0.0
+                            })
+                        if records:
+                            return pd.DataFrame(records)
+
+    return pd.DataFrame(records)
+
 
 # ---------------------------------------------------------
 # PERSISTÊNCIA DE DADOS EM ARQUIVO LOCAL (JSON) E PASTAS
@@ -868,6 +994,7 @@ if aba_selecionada == "📊 Dashboard":
     registros_reais = []
     dados_shop_stats = []
     dados_pedidos_detalhados = []
+    dados_diarios_acumulados = []
     tem_relatorio_no_disco = False
 
     for a in anos_lista:
@@ -978,6 +1105,11 @@ if aba_selecionada == "📊 Dashboard":
 
                 if taxas_exatas_plat > 0:
                     com = taxas_exatas_plat
+
+                # Extração da série de vendas diárias para o Pilar 2
+                df_diario_plat = extrair_serie_diaria_vendas(pastas_vendas, pastas_pedidos)
+                if not df_diario_plat.empty:
+                    dados_diarios_acumulados.append(df_diario_plat)
 
                 registros_reais.append({
                     "Plataforma": p, "Faturamento": fat, "Ads": ads,
@@ -1111,6 +1243,118 @@ if aba_selecionada == "📊 Dashboard":
             tooltip=['Plataforma', 'Faturamento', 'Pedidos']
         ).properties(height=320)
         st.altair_chart(chart_donut, use_container_width=True)
+
+    # ---------------------------------------------------------
+    # PILAR 2: EVOLUÇÃO DE VENDAS DIÁRIAS & MELHORES DIAS
+    # ---------------------------------------------------------
+    if len(dados_diarios_acumulados) > 0:
+        df_diario_total = pd.concat(dados_diarios_acumulados, ignore_index=True)
+        df_diario_grouped = df_diario_total.groupby(['Data', 'DiaFormatado', 'DiaDaSemana'], as_index=False).agg(
+            Faturamento=('Faturamento', 'sum'),
+            Pedidos=('Pedidos', 'sum')
+        ).sort_values(by='Data')
+        df_diario_grouped['TicketMedio'] = df_diario_grouped.apply(
+            lambda r: (r['Faturamento'] / r['Pedidos']) if r['Pedidos'] > 0 else 0.0, axis=1
+        )
+
+        st.markdown("---")
+        st.markdown("### 📅 Pilar 2: Evolução Diária de Vendas & Melhores Dias de Desempenho")
+        st.markdown("<p style='color:#94A3B8;font-size:0.9rem'>Acompanhe o ritmo diário de faturamento, picos de pedidos e descubra os dias da semana com maior conversão.</p>", unsafe_allow_html=True)
+
+        if not df_diario_grouped.empty:
+            melhor_dia_row = df_diario_grouped.sort_values(by='Faturamento', ascending=False).iloc[0]
+            media_fat_dia  = df_diario_grouped['Faturamento'].mean()
+            media_ped_dia  = df_diario_grouped['Pedidos'].mean()
+            
+            df_semana = df_diario_grouped.groupby('DiaDaSemana', as_index=False)['Faturamento'].sum().sort_values(by='Faturamento', ascending=False)
+            melhor_dia_semana_nome = df_semana.iloc[0]['DiaDaSemana']
+            melhor_dia_semana_fat  = df_semana.iloc[0]['Faturamento']
+
+            col_d1, col_d2, col_d3, col_d4 = st.columns(4)
+            with col_d1:
+                st.markdown(f"""
+                <div class="orion-card" style="border-color:#38BDF8">
+                    <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">🏆 Recorde Diário de Vendas</div>
+                    <div style="color:#38BDF8;font-family:'Outfit';font-size:1.4rem;font-weight:800;margin-top:4px">R$ {melhor_dia_row['Faturamento']:,.2f}</div>
+                    <div style="color:#34D399;font-size:0.75rem;font-weight:700;margin-top:4px">📅 {melhor_dia_row['DiaFormatado']} ({melhor_dia_row['DiaDaSemana']}) • {int(melhor_dia_row['Pedidos'])} peds</div>
+                </div>
+                """, unsafe_allow_html=True)
+            with col_d2:
+                st.markdown(f"""
+                <div class="orion-card" style="border-color:#C084FC">
+                    <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">📈 Média de Vendas / Dia</div>
+                    <div style="color:#C084FC;font-family:'Outfit';font-size:1.4rem;font-weight:800;margin-top:4px">R$ {media_fat_dia:,.2f}</div>
+                    <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;margin-top:4px">Ritmo diário de faturamento</div>
+                </div>
+                """, unsafe_allow_html=True)
+            with col_d3:
+                st.markdown(f"""
+                <div class="orion-card" style="border-color:#FBBF24">
+                    <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">📦 Média de Pedidos / Dia</div>
+                    <div style="color:#FBBF24;font-family:'Outfit';font-size:1.4rem;font-weight:800;margin-top:4px">{media_ped_dia:.1f} Pedidos</div>
+                    <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;margin-top:4px">Volume médio por dia</div>
+                </div>
+                """, unsafe_allow_html=True)
+            with col_d4:
+                st.markdown(f"""
+                <div class="orion-card" style="border-color:#34D399">
+                    <div style="color:#94A3B8;font-size:0.75rem;font-weight:700;text-transform:uppercase">⭐ Melhor Dia da Semana</div>
+                    <div style="color:#34D399;font-family:'Outfit';font-size:1.4rem;font-weight:800;margin-top:4px">{melhor_dia_semana_nome}</div>
+                    <div style="color:#34D399;font-size:0.75rem;font-weight:700;margin-top:4px">Total: R$ {melhor_dia_semana_fat:,.2f}</div>
+                </div>
+                """, unsafe_allow_html=True)
+
+            st.markdown("<div style='height:15px'></div>", unsafe_allow_html=True)
+
+            col_cd1, col_cd2 = st.columns([2, 1])
+            with col_cd1:
+                st.markdown("##### 📈 Curva de Evolução Diária de Faturamento (R$)")
+                chart_area = alt.Chart(df_diario_grouped).mark_area(
+                    line={'color':'#38BDF8', 'size':2},
+                    color=alt.Gradient(
+                        gradient='linear',
+                        stops=[alt.GradientStop(color='rgba(56, 189, 248, 0.4)', offset=0),
+                               alt.GradientStop(color='rgba(56, 189, 248, 0.0)', offset=1)],
+                        x1=1, x2=1, y1=0, y2=1
+                    )
+                ).encode(
+                    x=alt.X('DiaFormatado:N', title="Dia do Mês", axis=alt.Axis(labelColor='#CBD5E1', labelAngle=0)),
+                    y=alt.Y('Faturamento:Q', title="Faturamento (R$)", axis=alt.Axis(labelColor='#CBD5E1')),
+                    tooltip=['DiaFormatado:N', 'DiaDaSemana:N', 'Faturamento:Q', 'Pedidos:Q', 'TicketMedio:Q']
+                ).properties(height=320)
+                
+                chart_points = alt.Chart(df_diario_grouped).mark_circle(size=40, color='#38BDF8').encode(
+                    x=alt.X('DiaFormatado:N'),
+                    y=alt.Y('Faturamento:Q'),
+                    tooltip=['DiaFormatado:N', 'DiaDaSemana:N', 'Faturamento:Q', 'Pedidos:Q', 'TicketMedio:Q']
+                )
+                st.altair_chart(chart_area + chart_points, use_container_width=True)
+
+            with col_cd2:
+                st.markdown("##### 📊 Faturamento por Dia da Semana")
+                chart_semana = alt.Chart(df_semana).mark_bar(cornerRadiusTopRight=6, cornerRadiusBottomRight=6).encode(
+                    y=alt.Y('DiaDaSemana:N', title=None, sort='-x', axis=alt.Axis(labelColor='#CBD5E1', labelFontSize=12)),
+                    x=alt.X('Faturamento:Q', title="Total Vendas (R$)", axis=alt.Axis(labelColor='#CBD5E1')),
+                    color=alt.Color('Faturamento:Q', scale=alt.Scale(scheme='tealblues'), legend=None),
+                    tooltip=['DiaDaSemana:N', 'Faturamento:Q']
+                ).properties(height=320)
+                st.altair_chart(chart_semana, use_container_width=True)
+
+            st.markdown("##### 🏆 Ranking dos 5 Melhores Dias de Venda no Mês")
+            df_top5_dias = df_diario_grouped.sort_values(by='Faturamento', ascending=False).head(5)[
+                ['DiaFormatado', 'DiaDaSemana', 'Faturamento', 'Pedidos', 'TicketMedio']
+            ].copy()
+            df_top5_dias.columns = ['Data', 'Dia da Semana', 'Faturamento (R$)', 'Pedidos', 'Ticket Médio (R$)']
+            st.dataframe(
+                df_top5_dias,
+                use_container_width=True,
+                column_config={
+                    "Faturamento (R$)": st.column_config.NumberColumn(format="R$ %.2f"),
+                    "Ticket Médio (R$)": st.column_config.NumberColumn(format="R$ %.2f"),
+                    "Pedidos": st.column_config.NumberColumn(format="%d ped(s)"),
+                },
+                hide_index=True
+            )
 
     # ---------------------------------------------------------
     # PILAR 3: MEUS PEDIDOS SHOPEE (GIRO DE PEÇAS & VARIAÇÕES)

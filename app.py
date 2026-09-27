@@ -650,11 +650,29 @@ if aba_selecionada == "📊 Dashboard":
                                 except Exception:
                                     pass
                         else:
+                            # Caso não haja shop-stats, lê os arquivos de pedidos e remove duplicatas por ID de Pedido
+                            dfs_pedidos = []
                             for file_name in files_v:
                                 filepath = os.path.join(p_dir_vendas, file_name)
                                 try:
                                     df_f = ler_dataframe_inteligente(filepath)
-                                    v_fat, p_ped = extrair_faturamento_vendas(df_f)
+                                    if not df_f.empty:
+                                        dfs_pedidos.append(df_f)
+                                except Exception:
+                                    pass
+                            
+                            if dfs_pedidos:
+                                try:
+                                    df_concat = pd.concat(dfs_pedidos, ignore_index=True)
+                                    col_id = None
+                                    for col in df_concat.columns:
+                                        if any(k in str(col).lower() for k in ['id do pedido', 'order id', 'nº do pedido', 'numero do pedido']):
+                                            col_id = col
+                                            break
+                                    if col_id:
+                                        df_concat = df_concat.drop_duplicates(subset=[col_id], keep='last')
+                                    
+                                    v_fat, p_ped = extrair_faturamento_vendas(df_concat)
                                     fat += v_fat
                                     ped += p_ped
                                     com += v_fat * 0.14

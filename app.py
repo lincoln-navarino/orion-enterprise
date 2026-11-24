@@ -1696,6 +1696,51 @@ if aba_selecionada == "📊 Dashboard":
 # ABA 2: PRODUTOS (PRECIFICAÇÃO DE KITS 1 A 10 & ANÁLISE)
 # ---------------------------------------------------------
 elif aba_selecionada == "📦 Produtos & Precificação":
+    with st.expander("➕ Adicionar Novo Produto", expanded=False):
+        with st.form("form_novo_produto", clear_on_submit=True):
+            col_np1, col_np2, col_np3 = st.columns([1.5, 0.8, 1.2])
+            with col_np1:
+                novo_nome = st.text_input("Nome do Produto *")
+            with col_np2:
+                novo_sku = st.text_input("SKU *")
+            with col_np3:
+                nova_cat = st.text_input("Categoria", value="Geral")
+
+            col_np4, col_np5, col_np6, col_np7 = st.columns(4)
+            with col_np4:
+                novo_custo_un = st.number_input("Custo Unitário (R$)", min_value=0.0, value=0.0, step=0.10)
+            with col_np5:
+                novo_custo_emb = st.number_input("Custo Embalagem (R$)", min_value=0.0, value=0.30, step=0.05)
+            with col_np6:
+                novo_forn = st.text_input("Fornecedor", value="Confecção Própria")
+            with col_np7:
+                novo_peso = st.number_input("Peso (g)", min_value=0, value=100, step=10)
+
+            nova_obs = st.text_input("Observações")
+            if st.form_submit_button("💾 Salvar Novo Produto", type="primary"):
+                nome_limpo = novo_nome.strip()
+                sku_limpo = novo_sku.strip().upper()
+                if not nome_limpo or not sku_limpo:
+                    st.error("Preencha pelo menos Nome do Produto e SKU.")
+                elif any(p.get("sku", "").strip().upper() == sku_limpo for p in st.session_state.produtos):
+                    st.warning(f"Já existe um produto cadastrado com o SKU '{sku_limpo}'.")
+                else:
+                    novo_id = max((p.get("id", 0) for p in st.session_state.produtos), default=0) + 1
+                    st.session_state.produtos.append({
+                        "id": novo_id,
+                        "nome": nome_limpo,
+                        "sku": sku_limpo,
+                        "categoria": nova_cat.strip() or "Geral",
+                        "custo_unitario": float(novo_custo_un),
+                        "custo_embalagem": float(novo_custo_emb),
+                        "fornecedor": novo_forn.strip() or "Confecção Própria",
+                        "peso_g": int(novo_peso),
+                        "observacoes": nova_obs.strip(),
+                    })
+                    salvar_produtos_disco(st.session_state.produtos)
+                    st.success(f"Produto '{nome_limpo}' ({sku_limpo}) adicionado com sucesso!")
+                    st.rerun()
+
     sub_aba_prod = st.radio("Selecione a Visão:", ["🏷️ Precificação Atual de Kits (1 a 10 Peças)", "📈 Análise de Performance do Produto"], horizontal=True)
     
     prods = st.session_state.produtos

@@ -10,6 +10,7 @@ from modulos.criativos_afiliados import render_painel_criativos
 from modulos.github_sync import sincronizar_arquivo_github
 from modulos.margem_afiliados import render_margem_afiliados
 from modulos.otimizador_gemini import render_otimizador_gemini
+from modulos.regras_comissao_2026 import calcular_taxa_oficial_2026, render_auditoria_equilibrio_kits
 from modulos.ui_tema import aplicar_tema_saas, render_menu_principal
 
 def normalizar_str(s):
@@ -1004,35 +1005,8 @@ def taxas_para_preco(plataforma_nome, preco):
     """
     Calcula automaticamente as comissões e taxas fixas oficiais de 2026 por patamar de preço.
     """
-    if "Shopee" in plataforma_nome:
-        if preco < 80.00:
-            return 20.0, 4.00
-        elif preco < 100.00:
-            return 14.0, 16.00
-        elif preco < 200.00:
-            return 14.0, 20.00
-        else:
-            return 14.0, 26.00
-            
-    elif "TikTok" in plataforma_nome:
-        if preco < 50.00:
-            return 16.0, 4.00
-        else:
-            return 12.0, 6.00
-
-    elif "Shein" in plataforma_nome:
-        return 16.0, 3.00
-
-    elif "Classic" in plataforma_nome:
-        taxa_f = 6.00 if preco < 79.00 else 0.00
-        return 12.0, taxa_f
-
-    elif "Premium" in plataforma_nome:
-        taxa_f = 6.00 if preco < 79.00 else 0.00
-        return 16.5, taxa_f
-
-    cfg = st.session_state.presets_taxas.get(plataforma_nome, {"comissao": 14.0, "programa": 0.0, "taxa_fixa": 4.00})
-    return cfg["comissao"] + cfg["programa"], cfg["taxa_fixa"]
+    pct, fixa, _ = calcular_taxa_oficial_2026(plataforma_nome, preco)
+    return pct, fixa
 
 # ---------------------------------------------------------
 # BARRA DE NAVEGAÇÃO SUPERIOR (TOP NAVBAR - ABAS FIXAS)
@@ -1873,6 +1847,8 @@ elif aba_selecionada == "📦 Produtos & Precificação":
                 salvar_produtos_disco(st.session_state.produtos)
                 st.success(f"✅ Tabela de 3 preços para os 10 kits de {prod_obj['nome']} em {plat_sel} foi salva com sucesso no disco!")
                 st.rerun()
+
+        render_auditoria_equilibrio_kits(prod_obj, plat_sel, dados_kits_tabela)
 
     elif "Performance" in sub_aba_prod:
         st.markdown("### 📈 Análise de Performance por Produto")

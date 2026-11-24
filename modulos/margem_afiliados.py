@@ -1,4 +1,5 @@
 import streamlit as st
+from modulos.regras_comissao_2026 import analisar_armadilha_kit, calcular_taxa_oficial_2026
 from modulos.ui_tema import estilizar_cards_metricas
 
 
@@ -65,14 +66,18 @@ def render_margem_afiliados(produtos: list, taxas_fn, perfis_fiscais: dict):
         imposto_pct = float(perfis_fiscais[perfil]["aliquota"])
 
     cmv_kit = float(prod.get("custo_unitario", 0.0)) * qtd + float(prod.get("custo_embalagem", 0.0))
-    com_padrao, taxa_padrao = taxas_fn(canal, 49.9)
     preco_kit_salvo = prod.get("precos_kits", {}).get(canal, {}).get(str(qtd), {}).get("preco_oferta")
     preco_base_salvo = prod.get("precos_praticados", {}).get(canal, {}).get("preco_oferta")
     preco_inicial = float(preco_kit_salvo or preco_base_salvo or 49.90)
 
+    o1, o2 = st.columns(2)
+    tiktok_frete = o1.checkbox("TikTok Programa Taxas de Envio (+6%, teto R$ 50)", value=True, key="ma_tt_frete") if "TikTok" in canal else True
+    shopee_cpf = o2.checkbox("Shopee Conta CPF >450 pedidos/90d (+R$ 3,00/item)", value=False, key="ma_shp_cpf") if "Shopee" in canal else False
+
     p1, p2, p3, p4, p5 = st.columns(5)
     with p1:
         preco = st.number_input("Preço de Venda (R$)", min_value=1.0, value=preco_inicial, step=1.0, key=f"ma_preco_{prod.get('id', prod_nome)}_{canal}_{qtd}")
+    com_padrao, taxa_padrao, _ = calcular_taxa_oficial_2026(canal, preco, tiktok_frete_gratis=tiktok_frete, shopee_cpf_alto_volume=shopee_cpf)
     with p2:
         afiliado_pct = st.number_input("% Afiliado / Criador", min_value=0.0, max_value=50.0, value=10.0 if canal == "TikTok Shop" else 5.0, step=1.0, key="ma_afil")
     with p3:
@@ -80,7 +85,11 @@ def render_margem_afiliados(produtos: list, taxas_fn, perfis_fiscais: dict):
     with p4:
         ads_pct = st.number_input("% Ads / ACOS", min_value=0.0, max_value=60.0, value=8.0, step=1.0, key="ma_ads")
     with p5:
-        com_pct = st.number_input("% Comissão Canal", min_value=0.0, max_value=40.0, value=float(com_padrao), step=0.5, key="ma_com")
+        com_pct = st.number_input("% Comissão Canal", min_value=0.0, max_value=50.0, value=float(com_padrao), step=0.5, key=f"ma_com_{canal}_{int(preco)}_{tiktok_frete}")
+
+    diag_kit = analisar_armadilha_kit(canal, preco)
+    if diag_kit["armadilha"]:
+        st.warning(diag_kit["mensagem"])
 
     res = calcular_margem_real_afiliado(
         preco_venda=preco,

@@ -2036,6 +2036,58 @@ elif aba_selecionada == "📄 Central de Relatórios":
                 st.rerun()
 
     with col_r2:
+        st.markdown("##### 📖 Guia: Como Baixar & Melhor Planilha")
+        guias_plataformas = {
+            "Shopee": {
+                "pedidos": ("Order.all.*.xlsx (.xlsx)", "Central do Vendedor → Pedidos → Meus Pedidos → Exportar", "Traz SKU, variação, peças e status (filtra cancelados e calcula o CMV exato)."),
+                "vendas": ("shopee-shop-stats.*.xlsx (.xlsx)", "Informações Gerenciais → Vendas → Exportar Dados", "Ideal para série diária de faturamento e pedidos pagos."),
+                "ads": ("Dados de Shopee Ads (.csv ou .xlsx)", "Shopee Ads → Todos os Anúncios → Exportar", "Usa a coluna 'Despesas' para calcular ROAS e lucro líquido real."),
+                "devolucoes": ("Devolução/Reembolso ou Order.all (.xlsx)", "Pedidos → Devolução/Reembolso → Exportar", "O Order.all já filtra pedidos cancelados; use este para conferir perdas."),
+            },
+            "TikTok Shop": {
+                "pedidos": ("Manage Orders Export (.xlsx ou .csv)", "Seller Center → Orders → Manage Orders → Export", "Lê 'Order Amount', 'Created Time' e 'SKU' automaticamente."),
+                "vendas": ("Data Compass / Sales (.xlsx)", "Seller Center → Analytics → Product/Sales → Export", "Complementa o histórico diário de receita."),
+                "ads": ("TikTok Shop Ads Report (.csv ou .xlsx)", "TikTok Ads / Shop Ads → Campaigns → Export", "Usa a coluna 'Cost' / 'Custo' para descontar o investimento."),
+                "devolucoes": ("Returns & Refunds (.xlsx ou .csv)", "Orders → Manage Returns → Export", "Permite auditar reembolsos e devoluções do canal."),
+            },
+            "Upseller": {
+                "pedidos": ("Exportação de Pedidos (.xlsx)", "UpSeller → Pedidos → Todos os Pedidos → Exportar", "Melhor opção para subir vendas consolidadas de múltiplos canais."),
+                "vendas": ("Relatório de Vendas (.xlsx)", "UpSeller → Análise → Vendas → Exportar", "Resumo financeiro por loja/canal."),
+                "ads": ("Exportar direto da Shopee / TikTok", "Painel de Ads de cada marketplace", "O UpSeller não traz o gasto detalhado de Ads; baixe no canal."),
+                "devolucoes": ("Pedidos Cancelados/Devolvidos (.xlsx)", "UpSeller → Pedidos → Filtrar Cancelados → Exportar", "Filtra perdas por canal."),
+            },
+            "Mercado Livre": {
+                "pedidos": ("Relatório de Vendas (.xlsx)", "Vendas → Vendas → Baixar relatório de vendas", "Selecione o período completo em .xlsx."),
+                "vendas": ("Métricas de Vendas (.xlsx)", "Métricas → Vendas → Exportar", "Visão diária de faturamento."),
+                "ads": ("Product Ads (.xlsx ou .csv)", "Publicidade → Product Ads → Exportar", "Contém o investimento total em anúncios."),
+                "devolucoes": ("Reclamações e Devoluções (.xlsx)", "Vendas → Reclamações → Exportar", "Acompanha devoluções."),
+            },
+            "Shein": {
+                "pedidos": ("Order List Export (.xlsx ou .csv)", "Shein Seller Hub → Orders → Order List → Export", "Exportação padrão de pedidos e SKUs."),
+                "vendas": ("Sales Summary (.xlsx)", "Analytics → Sales → Export", "Resumo diário de vendas."),
+                "ads": ("Shein Ads (.csv ou .xlsx)", "Marketing / Ads → Export", "Custo de campanhas patrocinadas."),
+                "devolucoes": ("Return Orders (.xlsx)", "Orders → Return Management → Export", "Controle de devoluções."),
+            },
+        }
+        guia_atual = guias_plataformas.get(plat_rel, guias_plataformas["Shopee"])
+        if "Order All" in tipo_rel_sel or "Pedidos" in tipo_rel_sel:
+            modelo, onde, motivo = guia_atual["pedidos"]
+        elif "Ads" in tipo_rel_sel:
+            modelo, onde, motivo = guia_atual["ads"]
+        else:
+            modelo, onde, motivo = guia_atual["vendas"]
+
+        st.info(
+            f"**{plat_rel} — {tipo_rel_sel}**\n\n"
+            f"- **Melhor modelo:** `{modelo}`\n"
+            f"- **Onde baixar:** {onde}\n"
+            f"- **Por quê:** {motivo}"
+        )
+
+        with st.expander("📋 Guia Completo (Pedidos, Ads, Vendas e Devoluções)"):
+            for nome_tipo, (mod_t, onde_t, mot_t) in guia_atual.items():
+                st.markdown(f"**{nome_tipo.capitalize()}:** `{mod_t}` — {onde_t} *({mot_t})*")
+
         st.markdown("##### 📁 Estrutura de Diretórios Ativa")
         st.markdown("""
         <div style="background:#0E1424;border:1px solid #1E293B;padding:16px;border-radius:12px">

@@ -66,10 +66,13 @@ def render_margem_afiliados(produtos: list, taxas_fn, perfis_fiscais: dict):
 
     cmv_kit = float(prod.get("custo_unitario", 0.0)) * qtd + float(prod.get("custo_embalagem", 0.0))
     com_padrao, taxa_padrao = taxas_fn(canal, 49.9)
+    preco_kit_salvo = prod.get("precos_kits", {}).get(canal, {}).get(str(qtd), {}).get("preco_oferta")
+    preco_base_salvo = prod.get("precos_praticados", {}).get(canal, {}).get("preco_oferta")
+    preco_inicial = float(preco_kit_salvo or preco_base_salvo or 49.90)
 
     p1, p2, p3, p4, p5 = st.columns(5)
     with p1:
-        preco = st.number_input("Preço de Venda (R$)", min_value=1.0, value=49.90, step=1.0, key="ma_preco")
+        preco = st.number_input("Preço de Venda (R$)", min_value=1.0, value=preco_inicial, step=1.0, key=f"ma_preco_{prod.get('id', prod_nome)}_{canal}_{qtd}")
     with p2:
         afiliado_pct = st.number_input("% Afiliado / Criador", min_value=0.0, max_value=50.0, value=10.0 if canal == "TikTok Shop" else 5.0, step=1.0, key="ma_afil")
     with p3:

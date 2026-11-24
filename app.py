@@ -5,6 +5,7 @@ import os
 import json
 import unicodedata
 import altair as alt
+from modulos.catalogo_produtos import render_catalogo_produtos
 from modulos.criativos_afiliados import render_painel_criativos
 from modulos.margem_afiliados import render_margem_afiliados
 from modulos.otimizador_gemini import render_otimizador_gemini
@@ -1057,7 +1058,7 @@ abas_opcoes = [
 ]
 
 aplicar_tema_saas()
-aba_selecionada = render_menu_principal(abas_opcoes)
+aba_selecionada = render_menu_principal(abas_opcoes, len(st.session_state.produtos))
 
 # ---------------------------------------------------------
 # ABA 1: DASHBOARD
@@ -1702,132 +1703,19 @@ if aba_selecionada == "📊 Dashboard":
 # ABA 2: PRODUTOS (PRECIFICAÇÃO DE KITS 1 A 10 & ANÁLISE)
 # ---------------------------------------------------------
 elif aba_selecionada == "📦 Produtos & Precificação":
-    with st.expander("➕ Adicionar Novo Produto", expanded=False):
-        with st.form("form_novo_produto", clear_on_submit=True):
-            col_np1, col_np2, col_np3 = st.columns([1.5, 0.8, 1.2])
-            with col_np1:
-                novo_nome = st.text_input("Nome do Produto *")
-            with col_np2:
-                novo_sku = st.text_input("SKU *")
-            with col_np3:
-                nova_cat = st.text_input("Categoria", value="Geral")
-
-            col_np4, col_np5, col_np6, col_np7 = st.columns(4)
-            with col_np4:
-                novo_custo_un = st.number_input("Custo Unitário (R$)", min_value=0.0, value=0.0, step=0.10)
-            with col_np5:
-                novo_custo_emb = st.number_input("Custo Embalagem (R$)", min_value=0.0, value=0.30, step=0.05)
-            with col_np6:
-                novo_forn = st.text_input("Fornecedor", value="Confecção Própria")
-            with col_np7:
-                novo_peso = st.number_input("Peso (g)", min_value=0, value=100, step=10)
-
-            nova_obs = st.text_input("Observações")
-            if st.form_submit_button("💾 Salvar Novo Produto", type="primary"):
-                nome_limpo = novo_nome.strip()
-                sku_limpo = novo_sku.strip().upper()
-                if not nome_limpo or not sku_limpo:
-                    st.error("Preencha pelo menos Nome do Produto e SKU.")
-                elif any(p.get("sku", "").strip().upper() == sku_limpo for p in st.session_state.produtos):
-                    st.warning(f"Já existe um produto cadastrado com o SKU '{sku_limpo}'.")
-                else:
-                    novo_id = max((p.get("id", 0) for p in st.session_state.produtos), default=0) + 1
-                    st.session_state.produtos.append({
-                        "id": novo_id,
-                        "nome": nome_limpo,
-                        "sku": sku_limpo,
-                        "categoria": nova_cat.strip() or "Geral",
-                        "custo_unitario": float(novo_custo_un),
-                        "custo_embalagem": float(novo_custo_emb),
-                        "fornecedor": novo_forn.strip() or "Confecção Própria",
-                        "peso_g": int(novo_peso),
-                        "observacoes": nova_obs.strip(),
-                    })
-                    salvar_produtos_disco(st.session_state.produtos)
-                    st.success(f"Produto '{nome_limpo}' ({sku_limpo}) adicionado com sucesso!")
-                    st.rerun()
-
-    with st.expander("✏️ Editar Catálogo de Produtos Cadastrados", expanded=False):
-        if st.session_state.produtos:
-            opcoes_edit = [f"{p.get('nome', '')} ({p.get('sku', '')})" for p in st.session_state.produtos]
-            idx_edit = st.selectbox(
-                "Selecione o produto para editar:",
-                range(len(opcoes_edit)),
-                format_func=lambda i: opcoes_edit[i],
-                key="sel_editar_produto_catalogo",
-            )
-            prod_edit = st.session_state.produtos[idx_edit]
-
-            with st.form(f"form_editar_produto_{prod_edit.get('id', idx_edit)}"):
-                col_ed1, col_ed2, col_ed3 = st.columns([1.5, 0.8, 1.2])
-                with col_ed1:
-                    ed_nome = st.text_input("Nome do Produto *", value=prod_edit.get("nome", ""))
-                with col_ed2:
-                    ed_sku = st.text_input("SKU *", value=prod_edit.get("sku", ""))
-                with col_ed3:
-                    ed_cat = st.text_input("Categoria", value=prod_edit.get("categoria", "Geral"))
-
-                col_ed4, col_ed5, col_ed6, col_ed7 = st.columns(4)
-                with col_ed4:
-                    ed_custo_un = st.number_input("Custo Unitário (R$)", min_value=0.0, value=float(prod_edit.get("custo_unitario", 0.0)), step=0.10)
-                with col_ed5:
-                    ed_custo_emb = st.number_input("Custo Embalagem (R$)", min_value=0.0, value=float(prod_edit.get("custo_embalagem", 0.30)), step=0.05)
-                with col_ed6:
-                    ed_forn = st.text_input("Fornecedor", value=prod_edit.get("fornecedor", "Confecção Própria"))
-                with col_ed7:
-                    ed_peso = st.number_input("Peso (g)", min_value=0, value=int(prod_edit.get("peso_g", 100)), step=10)
-
-                ed_obs = st.text_input("Observações", value=prod_edit.get("observacoes", ""))
-
-                col_btn_ed1, col_btn_ed2 = st.columns([1, 1])
-                with col_btn_ed1:
-                    salvar_ed = st.form_submit_button("💾 Salvar Alterações", type="primary")
-                with col_btn_ed2:
-                    excluir_ed = st.form_submit_button("🗑️ Excluir Produto")
-
-                if salvar_ed:
-                    nome_limpo = ed_nome.strip()
-                    sku_limpo = ed_sku.strip().upper()
-                    duplicado = any(
-                        i != idx_edit and p.get("sku", "").strip().upper() == sku_limpo
-                        for i, p in enumerate(st.session_state.produtos)
-                    )
-                    if not nome_limpo or not sku_limpo:
-                        st.error("Preencha pelo menos Nome do Produto e SKU.")
-                    elif duplicado:
-                        st.warning(f"Já existe outro produto com o SKU '{sku_limpo}'.")
-                    else:
-                        st.session_state.produtos[idx_edit].update({
-                            "nome": nome_limpo,
-                            "sku": sku_limpo,
-                            "categoria": ed_cat.strip() or "Geral",
-                            "custo_unitario": float(ed_custo_un),
-                            "custo_embalagem": float(ed_custo_emb),
-                            "fornecedor": ed_forn.strip() or "Confecção Própria",
-                            "peso_g": int(ed_peso),
-                            "observacoes": ed_obs.strip(),
-                        })
-                        salvar_produtos_disco(st.session_state.produtos)
-                        st.success(f"Produto '{nome_limpo}' ({sku_limpo}) atualizado com sucesso!")
-                        st.rerun()
-
-                if excluir_ed:
-                    if len(st.session_state.produtos) <= 1:
-                        st.warning("Mantenha pelo menos 1 produto cadastrado no catálogo.")
-                    else:
-                        removido = st.session_state.produtos.pop(idx_edit)
-                        salvar_produtos_disco(st.session_state.produtos)
-                        st.success(f"Produto '{removido.get('nome', '')}' removido do catálogo.")
-                        st.rerun()
-
     sub_aba_prod = st.radio(
         "Selecione a Visão:",
-        ["🏷️ Precificação Atual de Kits (1 a 10 Peças)", "📈 Análise de Performance do Produto", "🤝 Margem Real (Afiliados & Devoluções)"],
+        [
+            "🏷️ Precificação de Kits (1 a 10 Peças)",
+            "🤝 Margem Real (Afiliados & Devoluções)",
+            "📝 Catálogo (Novo / Editar)",
+            "📈 Performance do Produto",
+        ],
         horizontal=True,
     )
-    
+
     prods = st.session_state.produtos
-    
+
     if "Precificação" in sub_aba_prod:
         st.markdown("### 🏷️ Precificação por Kits (1 a 10 Peças) — 3 Campos de Preço")
         st.markdown("<p style='color:#94A3B8;font-size:0.9rem'>Preço Relâmpago (base mínima com lucro + Ads + comissão), Oferta Normal (~11% desconto) e Preço Cheio (~19% desconto).</p>", unsafe_allow_html=True)
@@ -2011,6 +1899,9 @@ elif aba_selecionada == "📦 Produtos & Precificação":
 
     elif "Margem Real" in sub_aba_prod:
         render_margem_afiliados(prods, taxas_para_preco, PERFIS_PRESETS_PADRAO)
+
+    elif "Catálogo" in sub_aba_prod:
+        render_catalogo_produtos(prods, salvar_produtos_disco)
 
 # ---------------------------------------------------------
 # ABA 3: CENTRAL DE RELATÓRIOS

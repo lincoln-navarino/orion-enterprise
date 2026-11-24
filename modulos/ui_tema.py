@@ -2,11 +2,15 @@ import streamlit as st
 
 
 def aplicar_tema_saas():
-    """Injeta CSS moderno estilo SaaS escuro para cards, métricas e espaçamento."""
+    """Injeta CSS moderno estilo SaaS escuro para sidebar, cards, abas e métricas."""
     st.markdown(
         """
         <style>
-        .block-container { padding-top: 1.4rem !important; padding-bottom: 2.5rem !important; }
+        .block-container { padding-top: 1.2rem !important; padding-bottom: 2.5rem !important; max-width: 1400px; }
+        section[data-testid="stSidebar"] {
+            background: #0A0F1D !important;
+            border-right: 1px solid #1E293B !important;
+        }
         div[data-testid="stMetric"] {
             background: linear-gradient(145deg, #111827, #0B1120);
             border: 1px solid #1E293B;
@@ -48,8 +52,8 @@ def estilizar_cards_metricas():
         pass
 
 
-def render_menu_principal(abas_opcoes: list) -> str:
-    """Renderiza menu horizontal SaaS com ícones (streamlit-option-menu) e fallback seguro."""
+def render_menu_principal(abas_opcoes: list, total_produtos: int = 0) -> str:
+    """Renderiza navegação vertical limpa na Sidebar liberando 100% da área útil."""
     icones_mapa = {
         "📊 Dashboard": "speedometer2",
         "📦 Produtos & Precificação": "box-seam",
@@ -58,23 +62,37 @@ def render_menu_principal(abas_opcoes: list) -> str:
         "🎬 Criativos & Afiliados": "camera-reels",
         "🧠 Otimizador IA": "stars",
     }
-    try:
-        from streamlit_option_menu import option_menu
-        rotulos = [a.split(" ", 1)[1] if " " in a else a for a in abas_opcoes]
-        icones = [icones_mapa.get(a, "circle") for a in abas_opcoes]
-        escolhido = option_menu(
-            menu_title=None,
-            options=rotulos,
-            icons=icones,
-            orientation="horizontal",
-            styles={
-                "container": {"padding": "4px !important", "background-color": "#0E1424", "border": "1px solid #1E293B", "border-radius": "12px", "margin-bottom": "20px"},
-                "icon": {"color": "#818CF8", "font-size": "15px"},
-                "nav-link": {"font-size": "13px", "font-weight": "600", "color": "#CBD5E1", "border-radius": "8px", "margin": "0 3px", "padding": "8px 12px"},
-                "nav-link-selected": {"background-color": "#4F46E5", "color": "#FFFFFF"},
-            },
+    with st.sidebar:
+        st.markdown(
+            "<div style='padding:6px 4px 12px 4px'>"
+            "<div style='font-size:1.1rem;font-weight:800;color:#F8FAFC'>🛡️ ORION ENTERPRISE</div>"
+            "<div style='font-size:0.75rem;color:#94A3B8'>Dualis Lingerie • Gestão Integrada</div>"
+            "</div>",
+            unsafe_allow_html=True,
         )
-        idx = rotulos.index(escolhido)
-        return abas_opcoes[idx]
-    except Exception:
-        return st.segmented_control("Navegação Principal", abas_opcoes, default=abas_opcoes[0], label_visibility="collapsed")
+        try:
+            from streamlit_option_menu import option_menu
+            rotulos = [a.split(" ", 1)[1] if " " in a else a for a in abas_opcoes]
+            icones = [icones_mapa.get(a, "circle") for a in abas_opcoes]
+            escolhido = option_menu(
+                menu_title="Navegação",
+                options=rotulos,
+                icons=icones,
+                menu_icon="grid",
+                styles={
+                    "container": {"padding": "6px !important", "background-color": "#0E1424", "border": "1px solid #1E293B", "border-radius": "12px"},
+                    "menu-title": {"font-size": "11px", "color": "#64748B", "text-transform": "uppercase", "letter-spacing": "0.08em"},
+                    "icon": {"color": "#818CF8", "font-size": "15px"},
+                    "nav-link": {"font-size": "13px", "font-weight": "600", "color": "#CBD5E1", "border-radius": "8px", "margin": "3px 0", "padding": "9px 12px"},
+                    "nav-link-selected": {"background-color": "#4F46E5", "color": "#FFFFFF"},
+                },
+            )
+            selecionada = abas_opcoes[rotulos.index(escolhido)]
+        except Exception:
+            selecionada = st.radio("Navegação Principal", abas_opcoes, label_visibility="collapsed")
+
+        st.markdown("---")
+        st.caption(f"📦 Produtos no catálogo: **{total_produtos}**")
+        st.caption("⚡ Dica: no celular, toque no `>` no topo para recolher/abrir o menu.")
+
+    return selecionada

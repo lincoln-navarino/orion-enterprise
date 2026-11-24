@@ -8,6 +8,7 @@ import altair as alt
 from modulos.catalogo_produtos import render_catalogo_produtos
 from modulos.criativos_afiliados import render_painel_criativos
 from modulos.github_sync import sincronizar_arquivo_github
+from modulos.google_sheets_pagamentos import render_conexao_google_sheets
 from modulos.margem_afiliados import render_margem_afiliados
 from modulos.otimizador_gemini import render_otimizador_gemini
 from modulos.regras_comissao_2026 import calcular_taxa_oficial_2026, render_auditoria_equilibrio_kits
@@ -2076,59 +2077,57 @@ elif aba_selecionada == "🧠 Otimizador IA":
     render_otimizador_gemini(st.session_state.produtos)
 
 elif aba_selecionada == "🚚 Pagamentos a Fornecedores":
-    st.markdown("### 🚚 Central de Pagamentos a Fornecedores")
-    st.markdown("<p style='color:#94A3B8;font-size:0.9rem'>Registre os lotes de confecção adquiridos, peças pegas, valores unitários e acompanhe o histórico de pagamentos.</p>", unsafe_allow_html=True)
-    
-    col_f1, col_f2 = st.columns([1.2, 1.8])
-    
-    with col_f1:
-        st.markdown("##### ➕ Registrar Novo Lote / Pagamento")
-        with st.form("form_fornecedor"):
-            data_lote = st.date_input("Data da Compra / Entrada")
-            fornecedor_input = st.text_input("Fornecedor / Oficina", placeholder="Ex: Confecção Própria, Malharia Dualis").strip()
-            prod_forn = st.selectbox("Produto Adquirido:", [p["nome"] for p in st.session_state.produtos])
-            qtd_pecas = st.number_input("Quantidade de Peças Pegas", min_value=1, value=100, step=10)
-            valor_peca = st.number_input("Valor por Peça (R$)", min_value=0.10, value=3.65, step=0.10)
-            status_pag = st.selectbox("Status do Pagamento", ["Pendente", "Pago", "Parcial"])
-            
-            total_calculado = qtd_pecas * valor_peca
-            st.markdown(f"**Total do Lote:** <span style='color:#38BDF8;font-weight:800;font-size:1.1rem'>R$ {total_calculado:,.2f}</span>", unsafe_allow_html=True)
-            
-            btn_add_forn = st.form_submit_button("💾 Salvar Registro de Fornecedor", type="primary", use_container_width=True)
-            if btn_add_forn:
-                novo_reg = {
-                    "id": len(st.session_state.pagamentos) + 1,
-                    "data": str(data_lote),
-                    "fornecedor": fornecedor_input if fornecedor_input else "Confecção Própria",
-                    "produto": prod_forn,
-                    "qtd_pecas": int(qtd_pecas),
-                    "valor_peca": float(valor_peca),
-                    "total": float(total_calculado),
-                    "status": status_pag
-                }
-                st.session_state.pagamentos.append(novo_reg)
-                salvar_pagamentos_disco(st.session_state.pagamentos)
-                st.success("✅ Registro de fornecedor salvo no disco com sucesso!")
-                st.rerun()
+    st.markdown("### Central de Pagamentos a Fornecedores")
+    tab_gs, tab_manual = st.tabs(["Google Sheets (Ao Vivo)", "Lançamento Manual"])
+    with tab_gs:
+        render_conexao_google_sheets()
+    with tab_manual:
+        st.caption("Registre lotes manuais caso queira complementar a planilha.")
+        col_f1, col_f2 = st.columns([1.2, 1.8])
+        with col_f1:
+            st.markdown("##### Registrar Novo Lote / Pagamento")
+            with st.form("form_fornecedor"):
+                data_lote = st.date_input("Data da Compra / Entrada")
+                fornecedor_input = st.text_input("Fornecedor / Oficina", placeholder="Ex: Confecção Própria, Malharia Dualis").strip()
+                prod_forn = st.selectbox("Produto Adquirido:", [p["nome"] for p in st.session_state.produtos])
+                qtd_pecas = st.number_input("Quantidade de Peças Pegas", min_value=1, value=100, step=10)
+                valor_peca = st.number_input("Valor por Peça (R$)", min_value=0.10, value=3.65, step=0.10)
+                status_pag = st.selectbox("Status do Pagamento", ["Pendente", "Pago", "Parcial"])
+                total_calculado = qtd_pecas * valor_peca
+                st.markdown(f"**Total do Lote:** <span style='color:#38BDF8;font-weight:800;font-size:1.1rem'>R$ {total_calculado:,.2f}</span>", unsafe_allow_html=True)
+                btn_add_forn = st.form_submit_button("Salvar Registro de Fornecedor", type="primary", use_container_width=True)
+                if btn_add_forn:
+                    novo_reg = {
+                        "id": len(st.session_state.pagamentos) + 1,
+                        "data": str(data_lote),
+                        "fornecedor": fornecedor_input if fornecedor_input else "Confecção Própria",
+                        "produto": prod_forn,
+                        "qtd_pecas": int(qtd_pecas),
+                        "valor_peca": float(valor_peca),
+                        "total": float(total_calculado),
+                        "status": status_pag
+                    }
+                    st.session_state.pagamentos.append(novo_reg)
+                    salvar_pagamentos_disco(st.session_state.pagamentos)
+                    st.success("Registro de fornecedor salvo.")
+                    st.rerun()
 
-    with col_f2:
-        st.markdown("##### 📊 Histórico de Registros de Pagamento")
-        df_pags = pd.DataFrame(st.session_state.pagamentos)
-        if len(df_pags) > 0:
-            df_display = df_pags.rename(columns={
-                "data": "Data", "fornecedor": "Fornecedor", "produto": "Produto",
-                "qtd_pecas": "Peças", "valor_peca": "Valor Peça (R$)", "total": "Total (R$)", "status": "Status"
-            })
-            st.dataframe(df_display[["Data", "Fornecedor", "Produto", "Peças", "Valor Peça (R$)", "Total (R$)", "Status"]], use_container_width=True, hide_index=True)
-            
-            tot_geral = df_pags["total"].sum()
-            tot_pago = df_pags[df_pags["status"] == "Pago"]["total"].sum()
-            tot_pend = df_pags[df_pags["status"] == "Pendente"]["total"].sum()
-            
-            st.markdown(f"""
-            <div style="display:flex;gap:12px;margin-top:16px">
-                <span class="badge-pill badge-blue">Total Lotes: R$ {tot_geral:,.2f}</span>
-                <span class="badge-pill badge-green">Pago: R$ {tot_pago:,.2f}</span>
-                <span class="badge-pill badge-yellow">Pendente: R$ {tot_pend:,.2f}</span>
-            </div>
-            """, unsafe_allow_html=True)
+        with col_f2:
+            st.markdown("##### Histórico de Registros de Pagamento")
+            df_pags = pd.DataFrame(st.session_state.pagamentos)
+            if len(df_pags) > 0:
+                df_display = df_pags.rename(columns={
+                    "data": "Data", "fornecedor": "Fornecedor", "produto": "Produto",
+                    "qtd_pecas": "Peças", "valor_peca": "Valor Peça (R$)", "total": "Total (R$)", "status": "Status"
+                })
+                st.dataframe(df_display[["Data", "Fornecedor", "Produto", "Peças", "Valor Peça (R$)", "Total (R$)", "Status"]], use_container_width=True, hide_index=True)
+                tot_geral = df_pags["total"].sum()
+                tot_pago = df_pags[df_pags["status"] == "Pago"]["total"].sum()
+                tot_pend = df_pags[df_pags["status"] == "Pendente"]["total"].sum()
+                st.markdown(f"""
+                <div style="display:flex;gap:12px;margin-top:16px">
+                    <span class="badge-pill badge-blue">Total Lotes: R$ {tot_geral:,.2f}</span>
+                    <span class="badge-pill badge-green">Pago: R$ {tot_pago:,.2f}</span>
+                    <span class="badge-pill badge-yellow">Pendente: R$ {tot_pend:,.2f}</span>
+                </div>
+                """, unsafe_allow_html=True)

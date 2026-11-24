@@ -1,4 +1,5 @@
 import streamlit as st
+from modulos.ui_tema import estilizar_cards_metricas
 
 
 def calcular_margem_real_afiliado(
@@ -99,10 +100,37 @@ def render_margem_afiliados(produtos: list, taxas_fn, perfis_fiscais: dict):
     m2.metric("Margem Real", f"{margem:.1f}%", status_txt)
     m3.metric("Comissão Afiliado", f"R$ {res['afiliado_rs']:.2f}")
     m4.metric("Preço Mín. p/ 20% Margem", f"R$ {res['preco_ideal_20']:.2f}")
+    estilizar_cards_metricas()
 
     st.markdown(
-        f"<div style='padding:10px 14px;border-radius:10px;border:1px solid {cor};background:#0E1424;color:{cor};font-weight:600'>"
+        f"<div style='padding:10px 14px;border-radius:10px;border:1px solid {cor};background:#0E1424;color:{cor};font-weight:600;margin-bottom:12px'>"
         f"Diagnóstico {canal}: {status_txt} — CMV do Kit: R$ {cmv_kit:.2f} | Taxa Canal: R$ {res['taxa_canal_rs']:.2f} | Imposto: R$ {res['imposto_rs']:.2f} | Ads: R$ {res['ads_rs']:.2f}"
         f"</div>",
         unsafe_allow_html=True,
     )
+
+    try:
+        import plotly.graph_objects as go
+        perda_dev = max(0.0, preco - res["receita_efetiva"])
+        labels = ["CMV Kit", "Taxa Canal", "Afiliado", "Imposto", "Ads", "Devoluções", "Lucro Líquido"]
+        values = [
+            round(cmv_kit, 2),
+            round(res["taxa_canal_rs"], 2),
+            round(res["afiliado_rs"], 2),
+            round(res["imposto_rs"], 2),
+            round(res["ads_rs"], 2),
+            round(perda_dev, 2),
+            round(max(0.0, res["lucro_liquido"]), 2),
+        ]
+        fig = go.Figure(data=[go.Pie(labels=labels, values=values, hole=0.55, textinfo="label+percent")])
+        fig.update_layout(
+            title=f"Composição do Preço (R$ {preco:.2f}) — {canal}",
+            template="plotly_dark",
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
+            height=340,
+            margin=dict(t=45, b=10, l=10, r=10),
+        )
+        st.plotly_chart(fig, use_container_width=True)
+    except Exception:
+        pass

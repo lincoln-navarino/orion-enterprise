@@ -8,6 +8,7 @@ import altair as alt
 from modulos.criativos_afiliados import render_painel_criativos
 from modulos.margem_afiliados import render_margem_afiliados
 from modulos.otimizador_gemini import render_otimizador_gemini
+from modulos.ui_tema import aplicar_tema_saas, render_menu_principal
 
 def normalizar_str(s):
     s = str(s).lower()
@@ -1055,8 +1056,8 @@ abas_opcoes = [
     "🧠 Otimizador IA"
 ]
 
-st.markdown("<style>div[data-testid='stSegmentedControl'] {width: 100% !important; margin-bottom: 24px !important;}</style>", unsafe_allow_html=True)
-aba_selecionada = st.segmented_control("Navegação Principal", abas_opcoes, default="📊 Dashboard", label_visibility="collapsed")
+aplicar_tema_saas()
+aba_selecionada = render_menu_principal(abas_opcoes)
 
 # ---------------------------------------------------------
 # ABA 1: DASHBOARD

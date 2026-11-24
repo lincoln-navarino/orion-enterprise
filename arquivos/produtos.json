@@ -160,5 +160,16 @@
                 "roas_esperado": 8.0
             }
         }
+    },
+    {
+        "id": 9,
+        "nome": "Calcinha Fio Sem Costura",
+        "sku": "FDP",
+        "categoria": "Lingerie / Underwear",
+        "custo_unitario": 2.9,
+        "custo_embalagem": 0.3,
+        "fornecedor": "Confecção Própria",
+        "peso_g": 65,
+        "observacoes": "Calcinha fio sem costura"
     }
 ]

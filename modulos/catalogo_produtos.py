@@ -1,10 +1,38 @@
+import json
 import pandas as pd
 import streamlit as st
+from modulos.github_sync import obter_github_token
 
 
 def render_catalogo_produtos(produtos: list, salvar_fn):
-    """Renderiza gestão completa do catálogo: tabela resumo, cadastro e edição/exclusão."""
+    """Renderiza gestão completa do catálogo: tabela resumo, backup/sync, cadastro e edição/exclusão."""
     st.markdown("### 📝 Catálogo de Produtos Cadastrados")
+
+    if obter_github_token():
+        st.success("☁️ Persistência permanente ativa: alterações são salvas automaticamente no GitHub.")
+    else:
+        st.info("⚠️ No Streamlit Cloud, sem `GITHUB_TOKEN` em Secrets, alterações feitas pela tela são temporárias até o próximo redeploy. Use o backup abaixo ou configure `GITHUB_TOKEN`.")
+
+    if produtos:
+        b_col1, b_col2 = st.columns([1, 2])
+        with b_col1:
+            st.download_button(
+                "📥 Baixar Backup (produtos.json)",
+                data=json.dumps(produtos, ensure_ascii=False, indent=4),
+                file_name="produtos.json",
+                mime="application/json",
+                use_container_width=True,
+            )
+        with b_col2:
+            up_bkp = st.file_uploader("Restaurar backup produtos.json", type=["json"], label_visibility="collapsed")
+            if up_bkp is not None and st.button("📤 Restaurar Catálogo do Backup"):
+                dados_bkp = json.loads(up_bkp.read().decode("utf-8"))
+                if isinstance(dados_bkp, list) and dados_bkp:
+                    produtos.clear()
+                    produtos.extend(dados_bkp)
+                    salvar_fn(produtos)
+                    st.success("Catálogo restaurado!")
+                    st.rerun()
 
     if produtos:
         df_cat = pd.DataFrame([

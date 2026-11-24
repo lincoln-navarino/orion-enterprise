@@ -7,6 +7,7 @@ import unicodedata
 import altair as alt
 from modulos.catalogo_produtos import render_catalogo_produtos
 from modulos.criativos_afiliados import render_painel_criativos
+from modulos.github_sync import sincronizar_arquivo_github
 from modulos.margem_afiliados import render_margem_afiliados
 from modulos.otimizador_gemini import render_otimizador_gemini
 from modulos.ui_tema import aplicar_tema_saas, render_menu_principal
@@ -707,8 +708,10 @@ def carregar_produtos_disco(produtos_padrao):
 def salvar_produtos_disco(lista_produtos):
     try:
         os.makedirs("arquivos", exist_ok=True)
+        conteudo = json.dumps(lista_produtos, ensure_ascii=False, indent=4)
         with open(ARQUIVO_PRODUTOS, "w", encoding="utf-8") as f:
-            json.dump(lista_produtos, f, ensure_ascii=False, indent=4)
+            f.write(conteudo)
+        sincronizar_arquivo_github("arquivos/produtos.json", conteudo, "chore: atualiza catalogo de produtos via app")
         return True
     except Exception as e:
         print(f"Erro ao salvar produtos: {e}")

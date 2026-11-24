@@ -1741,6 +1741,79 @@ elif aba_selecionada == "📦 Produtos & Precificação":
                     st.success(f"Produto '{nome_limpo}' ({sku_limpo}) adicionado com sucesso!")
                     st.rerun()
 
+    with st.expander("✏️ Editar Catálogo de Produtos Cadastrados", expanded=False):
+        if st.session_state.produtos:
+            opcoes_edit = [f"{p.get('nome', '')} ({p.get('sku', '')})" for p in st.session_state.produtos]
+            idx_edit = st.selectbox(
+                "Selecione o produto para editar:",
+                range(len(opcoes_edit)),
+                format_func=lambda i: opcoes_edit[i],
+                key="sel_editar_produto_catalogo",
+            )
+            prod_edit = st.session_state.produtos[idx_edit]
+
+            with st.form(f"form_editar_produto_{prod_edit.get('id', idx_edit)}"):
+                col_ed1, col_ed2, col_ed3 = st.columns([1.5, 0.8, 1.2])
+                with col_ed1:
+                    ed_nome = st.text_input("Nome do Produto *", value=prod_edit.get("nome", ""))
+                with col_ed2:
+                    ed_sku = st.text_input("SKU *", value=prod_edit.get("sku", ""))
+                with col_ed3:
+                    ed_cat = st.text_input("Categoria", value=prod_edit.get("categoria", "Geral"))
+
+                col_ed4, col_ed5, col_ed6, col_ed7 = st.columns(4)
+                with col_ed4:
+                    ed_custo_un = st.number_input("Custo Unitário (R$)", min_value=0.0, value=float(prod_edit.get("custo_unitario", 0.0)), step=0.10)
+                with col_ed5:
+                    ed_custo_emb = st.number_input("Custo Embalagem (R$)", min_value=0.0, value=float(prod_edit.get("custo_embalagem", 0.30)), step=0.05)
+                with col_ed6:
+                    ed_forn = st.text_input("Fornecedor", value=prod_edit.get("fornecedor", "Confecção Própria"))
+                with col_ed7:
+                    ed_peso = st.number_input("Peso (g)", min_value=0, value=int(prod_edit.get("peso_g", 100)), step=10)
+
+                ed_obs = st.text_input("Observações", value=prod_edit.get("observacoes", ""))
+
+                col_btn_ed1, col_btn_ed2 = st.columns([1, 1])
+                with col_btn_ed1:
+                    salvar_ed = st.form_submit_button("💾 Salvar Alterações", type="primary")
+                with col_btn_ed2:
+                    excluir_ed = st.form_submit_button("🗑️ Excluir Produto")
+
+                if salvar_ed:
+                    nome_limpo = ed_nome.strip()
+                    sku_limpo = ed_sku.strip().upper()
+                    duplicado = any(
+                        i != idx_edit and p.get("sku", "").strip().upper() == sku_limpo
+                        for i, p in enumerate(st.session_state.produtos)
+                    )
+                    if not nome_limpo or not sku_limpo:
+                        st.error("Preencha pelo menos Nome do Produto e SKU.")
+                    elif duplicado:
+                        st.warning(f"Já existe outro produto com o SKU '{sku_limpo}'.")
+                    else:
+                        st.session_state.produtos[idx_edit].update({
+                            "nome": nome_limpo,
+                            "sku": sku_limpo,
+                            "categoria": ed_cat.strip() or "Geral",
+                            "custo_unitario": float(ed_custo_un),
+                            "custo_embalagem": float(ed_custo_emb),
+                            "fornecedor": ed_forn.strip() or "Confecção Própria",
+                            "peso_g": int(ed_peso),
+                            "observacoes": ed_obs.strip(),
+                        })
+                        salvar_produtos_disco(st.session_state.produtos)
+                        st.success(f"Produto '{nome_limpo}' ({sku_limpo}) atualizado com sucesso!")
+                        st.rerun()
+
+                if excluir_ed:
+                    if len(st.session_state.produtos) <= 1:
+                        st.warning("Mantenha pelo menos 1 produto cadastrado no catálogo.")
+                    else:
+                        removido = st.session_state.produtos.pop(idx_edit)
+                        salvar_produtos_disco(st.session_state.produtos)
+                        st.success(f"Produto '{removido.get('nome', '')}' removido do catálogo.")
+                        st.rerun()
+
     sub_aba_prod = st.radio("Selecione a Visão:", ["🏷️ Precificação Atual de Kits (1 a 10 Peças)", "📈 Análise de Performance do Produto"], horizontal=True)
     
     prods = st.session_state.produtos

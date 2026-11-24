@@ -1706,20 +1706,21 @@ if aba_selecionada == "📊 Dashboard":
 # ABA 2: PRODUTOS (PRECIFICAÇÃO DE KITS 1 A 10 & ANÁLISE)
 # ---------------------------------------------------------
 elif aba_selecionada == "📦 Produtos & Precificação":
-    sub_aba_prod = st.radio(
-        "Selecione a Visão:",
+    sub_aba_prod = st.segmented_control(
+        "Visão de Produtos",
         [
-            "🏷️ Precificação de Kits (1 a 10 Peças)",
-            "🤝 Margem Real (Afiliados & Devoluções)",
-            "📝 Catálogo (Novo / Editar)",
-            "📈 Performance do Produto",
+            "Precificação de Kits",
+            "Margem Real & Afiliados",
+            "Catálogo de Produtos",
+            "Performance",
         ],
-        horizontal=True,
+        default="Precificação de Kits",
+        label_visibility="collapsed",
     )
 
     prods = st.session_state.produtos
 
-    if "Precificação" in sub_aba_prod:
+    if sub_aba_prod == "Precificação de Kits":
         st.markdown("### 🏷️ Precificação por Kits (1 a 10 Peças) — 3 Campos de Preço")
         st.markdown("<p style='color:#94A3B8;font-size:0.9rem'>Preço Relâmpago (base mínima com lucro + Ads + comissão), Oferta Normal (~11% desconto) e Preço Cheio (~19% desconto).</p>", unsafe_allow_html=True)
         
@@ -1900,10 +1901,10 @@ elif aba_selecionada == "📦 Produtos & Precificação":
             </div>
             """, unsafe_allow_html=True)
 
-    elif "Margem Real" in sub_aba_prod:
+    elif sub_aba_prod == "Margem Real & Afiliados":
         render_margem_afiliados(prods, taxas_para_preco, PERFIS_PRESETS_PADRAO)
 
-    elif "Catálogo" in sub_aba_prod:
+    elif sub_aba_prod == "Catálogo de Produtos":
         render_catalogo_produtos(prods, salvar_produtos_disco)
 
 # ---------------------------------------------------------

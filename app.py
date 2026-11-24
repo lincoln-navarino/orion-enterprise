@@ -5,6 +5,9 @@ import os
 import json
 import unicodedata
 import altair as alt
+from modulos.criativos_afiliados import render_painel_criativos
+from modulos.margem_afiliados import render_margem_afiliados
+from modulos.otimizador_gemini import render_otimizador_gemini
 
 def normalizar_str(s):
     s = str(s).lower()
@@ -1047,7 +1050,9 @@ abas_opcoes = [
     "📊 Dashboard",
     "📦 Produtos & Precificação",
     "📄 Central de Relatórios",
-    "🚚 Pagamentos a Fornecedores"
+    "🚚 Pagamentos a Fornecedores",
+    "🎬 Criativos & Afiliados",
+    "🧠 Otimizador IA"
 ]
 
 st.markdown("<style>div[data-testid='stSegmentedControl'] {width: 100% !important; margin-bottom: 24px !important;}</style>", unsafe_allow_html=True)
@@ -1814,7 +1819,11 @@ elif aba_selecionada == "📦 Produtos & Precificação":
                         st.success(f"Produto '{removido.get('nome', '')}' removido do catálogo.")
                         st.rerun()
 
-    sub_aba_prod = st.radio("Selecione a Visão:", ["🏷️ Precificação Atual de Kits (1 a 10 Peças)", "📈 Análise de Performance do Produto"], horizontal=True)
+    sub_aba_prod = st.radio(
+        "Selecione a Visão:",
+        ["🏷️ Precificação Atual de Kits (1 a 10 Peças)", "📈 Análise de Performance do Produto", "🤝 Margem Real (Afiliados & Devoluções)"],
+        horizontal=True,
+    )
     
     prods = st.session_state.produtos
     
@@ -1972,7 +1981,7 @@ elif aba_selecionada == "📦 Produtos & Precificação":
                 st.success(f"✅ Tabela de 3 preços para os 10 kits de {prod_obj['nome']} em {plat_sel} foi salva com sucesso no disco!")
                 st.rerun()
 
-    else:
+    elif "Performance" in sub_aba_prod:
         st.markdown("### 📈 Análise de Performance por Produto")
         prod_sel_perf = st.selectbox("Selecione o Produto para Analisar:", [p["nome"] for p in prods])
         
@@ -1998,6 +2007,9 @@ elif aba_selecionada == "📦 Produtos & Precificação":
                 <div style="color:#FBBF24;font-size:1.6rem;font-weight:800">18.4%</div>
             </div>
             """, unsafe_allow_html=True)
+
+    elif "Margem Real" in sub_aba_prod:
+        render_margem_afiliados(prods, taxas_para_preco, PERFIS_PRESETS_PADRAO)
 
 # ---------------------------------------------------------
 # ABA 3: CENTRAL DE RELATÓRIOS
@@ -2185,6 +2197,12 @@ elif aba_selecionada == "📄 Central de Relatórios":
 # ---------------------------------------------------------
 # ABA 4: PAGAMENTOS A FORNECEDORES
 # ---------------------------------------------------------
+elif aba_selecionada == "🎬 Criativos & Afiliados":
+    render_painel_criativos(st.session_state.produtos)
+
+elif aba_selecionada == "🧠 Otimizador IA":
+    render_otimizador_gemini(st.session_state.produtos)
+
 elif aba_selecionada == "🚚 Pagamentos a Fornecedores":
     st.markdown("### 🚚 Central de Pagamentos a Fornecedores")
     st.markdown("<p style='color:#94A3B8;font-size:0.9rem'>Registre os lotes de confecção adquiridos, peças pegas, valores unitários e acompanhe o histórico de pagamentos.</p>", unsafe_allow_html=True)
